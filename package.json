@@ -4,6 +4,7 @@
   "private": true,
   "version": "0.0.1",
   "subversion": {
+    "vue": "2.1.0",
     "weex-vue-framework": "2.0.5-weex.1",
     "weex-js-framework": "0.17.0-beta"
   },
@@ -16,7 +17,7 @@
     "serve": "serve -p 8080",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "main": "dist/vue-bundle.js",
+  "main": "src/entry.js",
   "keywords": [
     "weex",
     "vue",
