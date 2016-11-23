@@ -1,17 +1,30 @@
 {
   "name": "weex-vue-demo",
-  "version": "0.0.1",
-  "description": "",
-  "main": "lib/vue-bundle.js",
+  "description": "A simple example for using Weex and Vue 2.0",
   "private": true,
+  "version": "0.0.1",
+  "subversion": {
+    "weex-vue-framework": "2.0.5-weex.1",
+    "weex-js-framework": "0.17.0-beta"
+  },
   "scripts": {
     "build": "webpack",
     "dev": "webpack --watch",
     "serve": "serve -p 8080",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "hanks.zh@alibaba-inc.com",
+  "main": "dist/vue-bundle.js",
+  "keywords": [
+    "weex",
+    "vue",
+    "demo"
+  ],
+  "author": "门柳 <hanks.zh@alibaba-inc.com>",
+  "contributors": [],
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.alibaba-inc.com:hanks.zh/weex-vue-demo.git"
+  },
   "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.18.0",
