@@ -4,14 +4,9 @@
 
 <script>
   module.exports = {
+    el: '#weex',
     components: {
       'app': require('./App.vue')
-    },
-    created: function () {
-      console.log('Entry created.')
-    },
-    mounted: function () {
-      console.log('Entry mounted.')
     }
   }
 </script>

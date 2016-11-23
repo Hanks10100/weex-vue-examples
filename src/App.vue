@@ -13,22 +13,23 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    height: 100%;
   }
   .logo {
-    margin-left: 250;
-    margin-bottom: 30;
-    width: 250;
-    height: 250;
+    margin-left: 250px;
+    margin-bottom: 30px;
+    width: 250px;
+    height: 250px;
   }
   .title {
-    font-size: 60;
+    font-size: 60px;
     color: #505050;
     text-align: center;
   }
   .subtitle {
-    font-size: 30;
+    font-size: 30px;
     color: #AAAAAA;
     text-align: center;
-    margin-top: 20;
+    margin-top: 20px;
   }
 </style>
