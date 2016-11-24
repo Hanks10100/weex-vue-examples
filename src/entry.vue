@@ -4,7 +4,7 @@
 
 <script>
   module.exports = {
-    el: '#weex',
+    el: '#root',
     components: {
       'app': require('./App.vue')
     }
