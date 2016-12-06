@@ -43,6 +43,6 @@
     "webpack": "^1.13.1",
     "weex-html5": "^0.4.1",
     "weex-loader": "^0.3.4",
-    "weex-vue-loader": "^0.1.2"
+    "weex-vue-loader": "^0.2.0"
   }
 }
