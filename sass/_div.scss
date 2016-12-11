@@ -1,0 +1,8 @@
+div, .weex-div, .weex-container {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  align-items: stretch;
+  box-align: stretch;
+  align-content: flex-start;
+}

@@ -1,13 +1,11 @@
 <template>
-  <div class="wrapper">
-    <switch-demo></switch-demo>
-  </div>
+  <web-demo></web-demo>
 </template>
 
 <script>
   export default {
     components: {
-      'switch-demo': require('./components/switch-demo.vue')
+      'web-demo': require('./components/web-demo.vue')
     }
   }
 </script>

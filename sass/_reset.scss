@@ -1,4 +1,52 @@
-p {
+// No inhirance
+// http://stackoverflow.com/questions/5612302/which-css-properties-are-inherited
+* {
+  all: initial;
+
+  color : initial;
+  cursor : initial;
+  direction : initial;
+  font : initial;
+  font-family : initial;
+  font-size : initial;
+  font-style : initial;
+  font-variant : initial;
+  font-weight : initial;
+  line-height : initial;
+  text-align : initial;
+  text-indent : initial;
+  visibility : initial;
+  white-space : initial;
+  word-spacing : initial;
+}
+
+*,
+*::before,
+*::after {
+  // Set default box-sizing
+  box-sizing: border-box;
+
+  text-size-adjust: none;
+}
+
+html {
+  -ms-overflow-style: scrollbar;
+
+  // Changes the default tap highlight to be completely transparent in iOS.
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+a,
+button,
+[role="button"],
+input,
+label,
+select,
+textarea {
+  touch-action: manipulation;
+}
+
+p, ol, ul, dl {
   margin: 0;
   padding: 0;
 }
