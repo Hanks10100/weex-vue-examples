@@ -1,11 +1,11 @@
 <template>
-  <web-demo></web-demo>
+  <list-demo></list-demo>
 </template>
 
 <script>
   export default {
     components: {
-      'web-demo': require('./components/web-demo.vue')
+      'list-demo': require('./components/list-demo.vue')
     }
   }
 </script>
