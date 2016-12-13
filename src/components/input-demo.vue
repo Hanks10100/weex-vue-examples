@@ -33,7 +33,7 @@
     },
     methods: {
       onchange: function(event) {
-        console.log(event.value)
+        console.log(event)
         this.txtChange = this.$refs.input.value;
       },
       oninput: function(event) {

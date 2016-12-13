@@ -1,6 +1,6 @@
 <template>
   <div>
-    <slider class="slider" :interval="x2500" auto-play="true">
+    <slider class="slider" interval="4500" auto-play="true" @change="onchange">
       <div class="slider-pages" v-for="item in itemList">
         <image class="img" resize="cover" :src="item.pictureUrl"></image>
         <text class="title">{{item.title}}</text>
@@ -50,6 +50,11 @@
           { title: 'item B', pictureUrl: 'https://gd1.alicdn.com/bao/uploaded/i1/TB1PXJCJFXXXXciXFXXXXXXXXXX_!!0-item_pic.jpg'},
           { title: 'item C', pictureUrl: 'https://gd3.alicdn.com/bao/uploaded/i3/TB1x6hYLXXXXXazXVXXXXXXXXXX_!!0-item_pic.jpg'}
         ]
+      }
+    },
+    methods: {
+      onchange: function (event) {
+        console.log('changed:', event.index)
       }
     }
   }
