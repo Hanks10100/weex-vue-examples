@@ -1,10 +1,12 @@
 <template>
   <div>
-    <slider class="slider" interval="4500" auto-play="true" @change="onchange">
+    <indicator class="indicator"></indicator>
+    <slider class="slider" interval="4500" @change="onchange">
       <div class="slider-pages" v-for="item in itemList">
         <image class="img" resize="cover" :src="item.pictureUrl"></image>
         <text class="title">{{item.title}}</text>
       </div>
+      <indicator class="indicator"></indicator>
     </slider>
   </div>
 </template>
@@ -38,6 +40,13 @@
     width: 700px;
     height: 700px;
     position: relative;
+  }
+  .indicator {
+    item-color: green;
+    item-selected-color: red;
+    item-size: 50px;
+    top: 200px;
+    left: 200px;
   }
 </style>
 

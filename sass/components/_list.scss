@@ -1,12 +1,12 @@
-.weex-list {
-}
-
+.weex-list,
 .weex-list-wrapper {
+  position: relative;
+  background-color: #888888;
   overflow: scroll;
 }
 
 .weex-list-inner {
-  display: block;
+  background-color: #FFFFFF;
 }
 
 .weex-list-top-mark {
@@ -20,5 +20,23 @@
   visibility: hidden;
 }
 
-.weex-cell {
+.weex-refresh,
+.weex-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+  position: absolute;
+  visibility: hidden;
+  z-index: 100;
+  // height: 120px;
+}
+.weex-refresh {
+  top: 0;
+}
+.weex-loading {
+  bottom: 0;
+  bottom: -212px;
 }

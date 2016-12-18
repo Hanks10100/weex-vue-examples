@@ -1,11 +1,11 @@
 <template>
-  <slider-demo></slider-demo>
+  <scroller-demo></scroller-demo>
 </template>
 
 <script>
   export default {
     components: {
-      'slider-demo': require('./components/slider-demo.vue')
+      'scroller-demo': require('./components/scroller-demo.vue')
     }
   }
 </script>

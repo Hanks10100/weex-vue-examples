@@ -5,7 +5,7 @@ console.log(path.resolve('src', 'entry.vue'))
 
 module.exports = {
   entry: {
-    'vue-bundle': path.resolve('src', 'entry.vue')
+    'vue-bundle': path.resolve('src', 'entry.js')
   },
   output: {
     path: 'dist',
@@ -19,7 +19,7 @@ module.exports = {
         exclude: /node_modules/
       }, {
         test: /\.vue(\?[^?]+)?$/,
-        loaders: ['weex-loader']
+        loaders: ['vue-loader']
       }
     ]
   }
