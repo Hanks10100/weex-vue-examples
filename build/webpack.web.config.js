@@ -1,8 +1,6 @@
 var path = require('path')
 var webpack = require('webpack')
 
-console.log(path.resolve('src', 'entry.vue'))
-
 module.exports = {
   entry: {
     'vue-bundle': path.resolve('src', 'entry.js')
