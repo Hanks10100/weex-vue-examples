@@ -1,11 +1,11 @@
 <template>
-  <storage-demo></storage-demo>
+  <demo></demo>
 </template>
 
 <script>
   export default {
     components: {
-      'storage-demo': require('./components/storage-demo.vue')
+      'demo': require('./components/list-demo.vue')
     }
   }
 </script>

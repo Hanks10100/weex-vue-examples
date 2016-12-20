@@ -4,9 +4,8 @@
   "private": true,
   "version": "0.0.1",
   "subversion": {
-    "vue": "2.1.0",
-    "weex-vue-framework": "2.0.5-weex.1",
-    "weex-js-framework": "0.17.0-beta"
+    "vue": "2.1.6",
+    "weex-js-framework": "0.17.0-beta.2"
   },
   "scripts": {
     "build:weex": "webpack --config build/webpack.weex.config.js",
@@ -39,10 +38,13 @@
     "css-loader": "^0.26.0",
     "serve": "^1.4.0",
     "vue-loader": "^10.0.2",
-    "vue-template-compiler": "^2.1.4",
+    "vue-template-compiler": "^2.1.6",
     "webpack": "^1.13.1",
     "weex-html5": "^0.4.1",
-    "weex-loader": "^0.4.0",
-    "weex-vue-loader": "^0.2.0"
+    "weex-loader": "^0.4.0"
+  },
+  "dependencies": {
+    "vue": "^2.1.6",
+    "weex-vue-render": "^0.1.0-beta.0"
   }
 }
