@@ -1,7 +1,8 @@
-.weex-list,
 .weex-list-wrapper {
   position: relative;
-  background-color: #888888;
+  &.with-loading, &.with-refresh {
+    background-color: #888888;
+  }
   overflow: scroll;
 }
 

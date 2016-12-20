@@ -3,6 +3,20 @@
 
 .weex-scroller-wrapper {
   overflow: scroll;
+  &.weex-scroller-horizontal {
+    overflow: hidden;
+  }
+}
+.weex-scroller-horizontal {
+  .weex-scroller-inner {
+    display: block;
+    width: auto;
+    height: 100%;
+    & > * {
+      display: block;
+      float: left;
+    }
+  }
 }
 
 .weex-scroller-inner {

@@ -1,14 +1,14 @@
 <template>
-  <!-- <scroller class="scroller" @loadmore="onloadmore" loadmoreoffset="100">
+  <scroller class="scroller" @loadmore="onloadmore" loadmoreoffset="100">
     <div class="cell" @appear="onappear" v-for="v in items">
       <text style="font-size: 40; color: #000000">{{v.item}}</text>
     </div>
-  </scroller> -->
-  <scroller class="h-scroller" scroll-direction="horizontal">
+  </scroller>
+  <!-- <scroller class="h-scroller" scroll-direction="horizontal">
     <div class="h-cell" v-for="v in items">
       <text style="font-size: 40; color: #000000">{{v.item}}</text>
     </div>
-  </scroller>
+  </scroller> -->
 </template>
 
 <style>
@@ -30,8 +30,8 @@
     background-color: #EEE;
   }
   .h-cell {
-    width: 100px;
-    height: 100px;
+    width: 200px;
+    height: 500px;
     background-color: #DDD;
     border-bottom-width: 1px;
     border-bottom-style: solid;

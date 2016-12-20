@@ -1,21 +1,30 @@
 <template>
-  <!-- <list class="list" @loadmore="onloadmore"> -->
-  <list class="list">
-    <refresh class="refresh" @refresh="onrefresh">
-      <loading-indicator class="loading-indicator"></loading-indicator>
-    </refresh>
-    <cell class="row" v-for="item in rows">
-      <text class="item-title">row {{item.id}}</text>
-    </cell>
-    <loading class="loading" @loading="onloading">
-      <loading-indicator class="loading-indicator"></loading-indicator>
-    </loading>
-  </list>
+  <div class="list-wrapper">
+    <list class="list" @loadmore="onloadmore">
+    <!-- <list class="list"> -->
+      <refresh class="refresh" @refresh="onrefresh">
+        <loading-indicator class="loading-indicator"></loading-indicator>
+      </refresh>
+      <cell @appear.native="onappear" @disappear.native="ondisappear" class="row" v-for="item in rows">
+        <text class="item-title">row {{item.id}}</text>
+      </cell>
+      <loading class="loading" @loading="onloading">
+        <loading-indicator class="loading-indicator"></loading-indicator>
+      </loading>
+    </list>
+    <text class="info">
+      Appear items:{{appearMin}} - {{appearMax}}
+    </text>
+  </div>
 </template>
 
-<style>
+<style scoped>
   .list {
     height: 750px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  }
+  .row {
+    height: 120px;
     border-bottom-width: 1px;
     border-bottom-style: solid;
     border-bottom-color: #BBB;
@@ -36,11 +45,13 @@
 module.exports = {
   data: function () {
     return {
-      rows: []
+      rows: [],
+      appearMin: 1,
+      appearMax: 1
     }
   },
   mounted: function () {
-    for (var i = 0; i < 30; i++) {
+    for (var i = 0; i < 10; i++) {
       this.rows.push({
         id: i + 1
       })
@@ -54,6 +65,12 @@ module.exports = {
           id: 'load more: ' + (i + 1)
         })
       }
+    },
+    onappear: function (event) {
+      // console.log('onappear ...', event)
+    },
+    ondisappear: function (event) {
+      // console.log('ondisappear ...', event)
     },
     onrefresh: function (event, finish) {
       console.log('refresh ...')
