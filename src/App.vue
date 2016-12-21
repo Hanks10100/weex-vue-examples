@@ -5,7 +5,7 @@
 <script>
   export default {
     components: {
-      'demo': require('./components/list-demo.vue')
+      'demo': require('./components/scroller-demo.vue')
     }
   }
 </script>

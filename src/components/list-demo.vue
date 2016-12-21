@@ -21,6 +21,7 @@
 <style scoped>
   .list {
     height: 750px;
+    background-color: #888;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
   }
   .row {

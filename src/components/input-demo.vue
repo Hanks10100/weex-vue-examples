@@ -5,7 +5,7 @@
         type="text"
         placeholder="Input Something"
         class="input"
-        autofocus="true"
+        autofocus
         value=""
         @change="onchange"
         @input="oninput"
