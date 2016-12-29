@@ -4,16 +4,19 @@
   "private": true,
   "version": "0.0.1",
   "subversion": {
-    "weex-vue-framework": "2.0.5-weex.1",
-    "weex-js-framework": "0.17.0-beta"
+    "vue": "2.1.6",
+    "weex-js-framework": "0.17.0-beta.2"
   },
   "scripts": {
-    "build": "webpack",
-    "dev": "webpack --watch",
+    "build:weex": "webpack --config build/webpack.weex.config.js",
+    "build:web": "webpack --config build/webpack.web.config.js",
+    "build": "npm run build:weex && npm run build:web",
+    "dev:weex": "webpack --watch --config build/webpack.weex.config.js",
+    "dev:web": "webpack --watch --config build/webpack.web.config.js",
     "serve": "serve -p 8080",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "main": "dist/vue-bundle.js",
+  "main": "src/entry.js",
   "keywords": [
     "weex",
     "vue",
@@ -32,10 +35,17 @@
     "babel-plugin-transform-runtime": "^6.15.0",
     "babel-preset-es2015": "^6.18.0",
     "babel-runtime": "^6.11.6",
+    "css-loader": "^0.26.0",
     "serve": "^1.4.0",
+    "vue-loader": "^10.0.2",
+    "vue-template-compiler": "^2.1.7",
     "webpack": "^1.13.1",
     "weex-html5": "^0.4.1",
-    "weex-loader": "^0.3.4",
-    "weex-vue-loader": "^0.1.2"
+    "weex-loader": "^0.4.0",
+    "weex-vue-loader": "^0.2.3"
+  },
+  "dependencies": {
+    "vue": "^2.1.7",
+    "weex-vue-render": "^0.1.0-beta.2"
   }
 }

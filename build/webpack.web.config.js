@@ -1,18 +1,13 @@
 var path = require('path')
 var webpack = require('webpack')
 
-var bannerPlugin = new webpack.BannerPlugin(
-  '// { "framework": "Vue" }\n',
-  { raw: true }
-)
-
 module.exports = {
   entry: {
-    'vue-bundle': path.join(__dirname, 'src', 'entry.vue?entry=true')
+    'vue-bundle': path.resolve('src', 'entry.js')
   },
   output: {
     path: 'dist',
-    filename: '[name].js'
+    filename: '[name].web.js'
   },
   module: {
     loaders: [
@@ -22,9 +17,8 @@ module.exports = {
         exclude: /node_modules/
       }, {
         test: /\.vue(\?[^?]+)?$/,
-        loaders: ['weex-vue-loader']
+        loaders: ['vue-loader']
       }
     ]
-  },
-  plugins: [bannerPlugin]
+  }
 }
