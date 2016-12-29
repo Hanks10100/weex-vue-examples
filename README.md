@@ -13,7 +13,6 @@ A simple example for using Weex and Vue 2.0.
   + 生成 `dist/vue-bundle.web.js`，可以在浏览器中运行。
 + `npm run serve`: 启动项目，会监听本地 8080 端口。
   + 打开 `http://localhost:8080/index.html` 可以预览浏览器中的页面（仅依赖 Vue 2.0 运行）。
-  + 打开 `http://localhost:8080/weex.html` 可以预览客户端中的页面（基于旧版 HTML5 Render 运行）。
 
 如果要开发项目，可以：
 
