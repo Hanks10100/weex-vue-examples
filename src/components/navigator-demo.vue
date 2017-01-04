@@ -1,8 +1,6 @@
 <template>
   <div class="wrapper">
-    <a href="http://dotwe.org/a468998152ee680413588c38bd61c29e">
-      <p class="text">click</p>
-    </a>
+    <text class="text">navigator</text>
   </div>
 </template>
 
@@ -23,7 +21,9 @@
       setTimeout(() => {
         navigator.push({ url: '#/abc' })
         setTimeout(() => {
-          navigator.push({ url: '#/def' })
+          navigator.push({ url: '#/def' }, function () {
+            console.log('push #/def')
+          })
           setTimeout(() => {
             navigator.pop()
             setTimeout(() => {

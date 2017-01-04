@@ -6,6 +6,9 @@
   export default {
     components: {
       'demo': require('./components/scroller-demo.vue')
+    },
+    mounted: function () {
+      // console.log(this)
     }
   }
 </script>

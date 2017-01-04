@@ -2,8 +2,11 @@
   <div class="list-wrapper">
     <list class="list" @loadmore="onloadmore">
     <!-- <list class="list"> -->
+      <header>
+        <text>list header</text>
+      </header>
       <refresh class="refresh" @refresh="onrefresh">
-        <loading-indicator class="loading-indicator"></loading-indicator>
+        <text>refresh....</text>
       </refresh>
       <cell @appear.native="onappear" @disappear.native="ondisappear" class="row" v-for="item in rows">
         <text class="item-title">row {{item.id}}</text>
@@ -61,11 +64,11 @@ module.exports = {
   methods: {
     onloadmore: function (event, finish) {
       console.log('on load more', event)
-      for (var i = 0; i < 30; i++) {
-        this.rows.push({
-          id: 'load more: ' + (i + 1)
-        })
-      }
+      // for (var i = 0; i < 30; i++) {
+      //   this.rows.push({
+      //     id: 'load more: ' + (i + 1)
+      //   })
+      // }
     },
     onappear: function (event) {
       // console.log('onappear ...', event)

@@ -4,6 +4,7 @@
       class="textarea"
       autofocus="true"
       placeholder="..."
+      rows="5"
       value="我是一个多行版本的input组件">
     </textarea>
   </div>

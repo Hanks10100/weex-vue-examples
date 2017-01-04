@@ -34,9 +34,9 @@
     },
     methods: {
       onchange: function(event) {
-        console.log(event)
+        console.log('value change', event)
         this.txtChange = this.$refs.input.value;
-        modal.toast({ message: this.txtChange })
+        modal.toast({ message: this.txtChange, duration: 0.3 })
       },
       oninput: function(event) {
         this.txtInput = this.$refs.input.value;

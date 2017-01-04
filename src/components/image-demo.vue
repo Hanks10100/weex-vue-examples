@@ -1,15 +1,16 @@
 <template>
   <div class="wrapper" >
     <image class="image" resize="cover" src="https://img.alicdn.com/tps/TB1dX5NOFXXXXc6XFXXXXXXXXXX-750-202.png"></image>
-    <section class="title">cover</section>
+    <text class="title">cover</text>
 
     <image class="image" resize="contain" src="https://img.alicdn.com/tps/TB1dX5NOFXXXXc6XFXXXXXXXXXX-750-202.png"></image>
-    <section class="title">contain</section>
+    <text class="title">contain</text>
 
     <image class="image" resize="stretch" src="https://img.alicdn.com/tps/TB1dX5NOFXXXXc6XFXXXXXXXXXX-750-202.png"></image>
-    <section class="title">stretch</section>
+    <text class="title">stretch</text>
   </div>
 </template>
+
 <style>
   .title {
     text-align: center;

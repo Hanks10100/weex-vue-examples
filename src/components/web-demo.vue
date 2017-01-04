@@ -1,20 +1,21 @@
 <template>
   <div class="browserStyle">
     <div style="flex-direction: row">
-      <input ref="urlInput" type="url"  autofocus="false" class="textStyle" value="https://www.baidu.com">
+      <input ref="input" type="url"  autofocus="false" class="textStyle" value="https://www.baidu.com">
       </input>
     </div>
     <div style="flex-direction: row">
-      <section class="buttonSytle" @click="loadURL">LoadURL</section>
+      <text class="buttonSytle" @click="loadURL">LoadURL</text>
+      <text class="buttonSytle" @click="reload">reload</text>
     </div>
     <div>
-      <web ref="webview" :src="url" class="webStyle"></web>
+      <web ref="webview" :src="url" class="webStyle" @pagestart="start" @pagefinish="finish"></web>
     </div>
   </div>
 </template>
 
 <script>
-
+  var webview = weex.require('webview')
   module.exports = {
     data() {
       return { url : "https://m.taobao.com" }
@@ -23,6 +24,16 @@
     methods: {
       loadURL: function (e) {
         this.url = this.$refs.input.value
+      },
+      reload: function (e) {
+        console.log('will reload webview')
+        webview.reload(this.$refs.webview)
+      },
+      start: function (event) {
+        console.log('pagestart', event)
+      },
+      finish: function (event) {
+        console.log('pagefinish', event)
       }
     }
   }

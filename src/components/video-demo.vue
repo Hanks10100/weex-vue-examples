@@ -2,8 +2,8 @@
   <div>
     <text>Big Eater!</text>
     <video class="video" @start="onstart" @pause="onpause" @finish="onfinish" @fail="onfail"
-      auto-play="false" play-status="pause" :src="src" style="width:750;height:500;"></video>
-    <text>state: {{msg}}</text>
+      autoplay="false" play-status="pause" controls="true" :src="src" style="width:750;height:500;"></video>
+    <text @click="toggle">state: {{msg}}</text>
   </div>
 </template>
 
@@ -11,6 +11,7 @@
 </style>
 
 <script>
+  var modal = weex.require('modal')
   module.exports ={
     data: function () {
       return {
@@ -19,6 +20,9 @@
       }
     },
     methods:{
+      toggle() {
+        modal.toast({ message: 'ttttt', duration: 0.3 })
+      },
       onstart:function(e){
         this.msg = 'onstart'
       },
