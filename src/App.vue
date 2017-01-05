@@ -1,14 +1,13 @@
 <template>
-  <demo></demo>
+  <body style="height:100%;">
+    <demo class="wrapper" style="height:100%;"></demo>
+  </body>
 </template>
 
 <script>
   export default {
     components: {
-      'demo': require('./components/appear-demo.vue')
-    },
-    mounted: function () {
-      // console.log(this)
+      'demo': require('./examples/hello.vue')
     }
   }
 </script>
@@ -17,7 +16,7 @@
   .wrapper {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    width: 750px;
     height: 100%;
   }
 </style>

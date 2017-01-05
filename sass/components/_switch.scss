@@ -27,6 +27,11 @@
   box-shadow: rgb(100, 189, 99) 0px 0px 0px 40px inset;
 }
 
+.weex-switch-checked.weex-switch-disabled {
+  background-color: #A0CCA0;
+  box-shadow: #A0CCA0 0px 0px 0px 40px inset;
+}
+
 .weex-switch-disabled {
   background-color: #EEEEEE;
 }
