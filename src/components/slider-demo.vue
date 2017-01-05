@@ -63,7 +63,7 @@
     },
     methods: {
       onchange: function (event) {
-        console.log('changed:', event.index)
+        // console.log('changed:', event.index)
       }
     }
   }

@@ -5,7 +5,8 @@
       <header>
         <text>list header</text>
       </header>
-      <refresh class="refresh" @refresh="onrefresh">
+      <refresh class="refresh" @refresh="onrefresh" display="hide">
+        <loading-indicator class="loading-indicator"></loading-indicator>
         <text>refresh....</text>
       </refresh>
       <cell @appear.native="onappear" @disappear.native="ondisappear" class="row" v-for="item in rows">

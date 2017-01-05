@@ -5,7 +5,7 @@
 <script>
   export default {
     components: {
-      'demo': require('./components/scroller-demo.vue')
+      'demo': require('./components/appear-demo.vue')
     },
     mounted: function () {
       // console.log(this)

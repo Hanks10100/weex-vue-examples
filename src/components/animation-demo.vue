@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <div ref="test" class="box"><text>box</text></div>
+    <div ref="test" @click="move" class="box"><text>box</text></div>
   </div>
 </template>
 
@@ -18,20 +18,22 @@
 <script>
   var animation = weex.require('animation');
   module.exports = {
-    mounted: function () {
-      var testEl = this.$refs.test;
-      animation.transition(testEl, {
-        styles: {
-          color: '#FF0000',
-          transform: 'translate(100px, 100px)',
-          transformOrigin: 'center center'
-        },
-        duration: 0, //ms
-        timingFunction: 'ease',
-        delay: 0 //ms
-      }, function () {
-        console.log('animation finished.')
-      })
+    methods: {
+      move: function () {
+        var testEl = this.$refs.test;
+        animation.transition(testEl, {
+          styles: {
+            color: '#FF0000',
+            transform: 'translate(100px, 100px)',
+            transformOrigin: 'center center'
+          },
+          duration: 0, //ms
+          timingFunction: 'ease',
+          delay: 0 //ms
+        }, function () {
+          console.log('animation finished.')
+        })
+      }
     }
   }
 </script>
