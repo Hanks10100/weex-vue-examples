@@ -18,8 +18,10 @@
     text-align: center;
   }
   .subtitle {
+    display: block;
     font-size: 30px;
     color: #AAAAAA;
+    xxxx: static;
     text-align: center;
     margin-top: 20px;
   }

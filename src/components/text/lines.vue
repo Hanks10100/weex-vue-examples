@@ -28,6 +28,7 @@
     margin-bottom: 30px;
   }
   .text {
+    color: #666666;
     font-size: 32px;
   }
 </style>

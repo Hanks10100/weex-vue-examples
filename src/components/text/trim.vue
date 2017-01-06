@@ -7,7 +7,7 @@
 
 <script>
   export default {
-    data: function () {
+    data () {
       return {
         message: '    测试2，使用数据绑定     '
       }

@@ -1,4 +1,7 @@
-.weex-div, .weex-container {
+body > .weex-div {
+  min-height: 100%;
+}
+.weex-div {
   display: flex;
   flex-direction: column;
   flex-shrink: 0;

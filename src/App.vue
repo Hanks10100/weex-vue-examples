@@ -1,22 +1,10 @@
 <template>
-  <body style="height:100%;">
-    <demo class="wrapper" style="height:100%;"></demo>
-  </body>
+  <example></example>
 </template>
 
 <script>
+  import Example from './components/text/sample.vue'
   export default {
-    components: {
-      'demo': require('./examples/hello.vue')
-    }
+    components: { Example }
   }
 </script>
-
-<style scoped>
-  .wrapper {
-    display: flex;
-    flex-direction: column;
-    width: 750px;
-    height: 100%;
-  }
-</style>

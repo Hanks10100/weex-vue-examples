@@ -1,28 +1,26 @@
 <template>
-  <div>
-    <scroller>
-      <div class="item" v-for="item in items">
-        <div class="item-content">
-          <div class="item-imgbox">
-            <img class="item-img" :src="item.img">
-          </div>
-          <div class="item-info">
-            <div class="item-info-detail">
-              <text class="title">{{item.title}}</text>
-              <div class="detail-info">
-                <text class="desc">{{item.desc}}</text>
-              </div>
+  <scroller>
+    <div class="item" v-for="item in items">
+      <div class="item-content">
+        <div class="item-imgbox">
+          <img class="item-img" :src="item.img">
+        </div>
+        <div class="item-info">
+          <div class="item-info-detail">
+            <text class="title">{{item.title}}</text>
+            <div class="detail-info">
+              <text class="desc">{{item.desc}}</text>
             </div>
           </div>
         </div>
       </div>
-    </scroller>
-  </div>
+    </div>
+  </scroller>
 </template>
 
 <script>
   export default {
-    data: function () {
+    data () {
       return {
         items: [
           {

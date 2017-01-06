@@ -65,7 +65,8 @@
     padding-bottom: 20px;
     border-width: 2px;
     border-style: solid;
-    border-color: #BBBBBB;
-    background-color: #EEEEEE
+    color: #666666;
+    border-color: #DDDDDD;
+    background-color: #F5F5F5
   }
 </style>

@@ -1,7 +1,6 @@
-// input, .weex-input {
-// }
-// select, .weex-select {
-// }
-textarea, .weex-textarea {
+input, textarea, .weex-input, .weex-textarea {
   font-size: 32px;
+  &:focus {
+    outline: none;
+  }
 }
