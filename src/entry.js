@@ -1,6 +1,4 @@
 import App from './App.vue'
 
-new Vue({
-  el: '#root',
-  render: h => h(App)
-});
+App.el = '#root'
+new Vue(App)

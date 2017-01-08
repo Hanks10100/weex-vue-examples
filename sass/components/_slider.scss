@@ -1,0 +1,50 @@
+.weex-slider {
+}
+
+.weex-slider-wrapper {
+  overflow: hidden;
+  position: relative;
+}
+
+.weex-slider-inner {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.weex-slider-cell {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+.weex-indicator {
+  position: absolute;
+  right: 30px;
+  bottom: 10px;
+  margin: 0;
+  padding: 10px 20px;
+  // background-color: rgba(0, 0, 0, 0.3);
+}
+
+.weex-indicator-item {
+  display: inline-block;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  background-color: #BBBBBB;
+  & + & {
+    margin-left: 10px;
+  }
+}
+.weex-indicator-item-active {
+  background-color: blue;
+}
