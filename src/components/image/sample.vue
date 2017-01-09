@@ -1,5 +1,17 @@
 <template>
-  <div>
-    <image style="width: 560px;height: 560px;" src="https://img.alicdn.com/tps/TB1z.55OFXXXXcLXXXXXXXXXXXX-560-560.jpg"></image>
+  <div class="wrapper">
+    <image class="image" src="https://cn.vuejs.org/images/logo.png"></image>
   </div>
 </template>
+
+<style scoped>
+  .wrapper {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .image {
+    width: 500px;
+    height: 500px;
+    margin-left: 125px;
+  }
+</style>

@@ -1,7 +1,7 @@
 <template>
   <div>
-    <text>    测试1，直接放置头尾用空白的文本    </text>
-    <text>{{message}}</text>
+    <text class="text">          直接放置头尾用空白的文本    </text>
+    <text class="text">{{message}}</text>
   </div>
 </template>
 
@@ -9,8 +9,24 @@
   export default {
     data () {
       return {
-        message: '    测试2，使用数据绑定     '
+        message: '          使用数据绑定     '
       }
     }
   }
 </script>
+
+<style scoped>
+  .text {
+    lines: 3;
+    width: 600px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-left: 75px;
+    margin-top: 75px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #BBB;
+    color: #666666;
+    font-size: 32px;
+  }
+</style>

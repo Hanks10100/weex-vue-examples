@@ -15,28 +15,27 @@
   const webview = weex.require('webview')
 
   export default {
-    data: function () {
+    data () {
       return {
         url : 'https://m.alibaba.com'
       }
     },
     methods: {
-      loadURL: function (e) {
-        var vm = this
+      loadURL (event) {
         this.url = this.$refs.input.value
-        setTimeout(function () {
+        setTimeout(() => {
           console.log('will go back.')
-          webview.goBack(vm.$refs.webview)
+          webview.goBack(this.$refs.webview)
         }, 2000)
       },
-      reload: function (e) {
+      reload (event) {
         console.log('will reload webview')
         webview.reload(this.$refs.webview)
       },
-      start: function (event) {
+      start (event) {
         console.log('pagestart', event)
       },
-      finish: function (event) {
+      finish (event) {
         console.log('pagefinish', event)
       }
     }
@@ -44,9 +43,6 @@
 </script>
 
 <style scoped>
-  .wrapper {
-    align-items: stretch;
-  }
   .group {
     flex-direction: row;
     justify-content: space-around;
@@ -72,8 +68,11 @@
   }
 
   .webview {
+    margin-left: 75px;
+    width: 600px;
+    height: 750px;
     border-width: 2px;
     border-style: solid;
-    border-color: blue;
+    border-color: #41B883;
   }
 </style>

@@ -1,15 +1,12 @@
 <template>
-  <div>
-    <div class="container">
-      <switch></switch>
-    </div>
+  <div class="container">
+    <switch></switch>
   </div>
 </template>
 
 <style scoped>
   .container {
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
-    margin-top: 100px;
   }
 </style>

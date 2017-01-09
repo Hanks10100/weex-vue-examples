@@ -6,12 +6,12 @@
     </div>
     <div class="example">
       <text class="label">checked</text>
-      <switch checked></switch>
+      <switch checked="true"></switch>
     </div>
     <div class="example">
       <text class="label">disabled</text>
-      <switch disabled checked></switch>
-      <switch disabled></switch>
+      <switch disabled="true" checked="true"></switch>
+      <switch disabled="true"></switch>
     </div>
     <div class="example">
       <text class="label">onchange</text>

@@ -40,12 +40,12 @@
     "vue-loader": "^10.0.2",
     "vue-template-compiler": "^2.1.7",
     "webpack": "^1.13.1",
-    "weex-html5": "^0.4.1",
     "weex-loader": "^0.4.1",
     "weex-vue-loader": "^0.2.3"
   },
   "dependencies": {
     "vue": "^2.1.7",
+    "weex-html5": "^0.4.1",
     "weex-vue-render": "^0.1.1"
   }
 }

@@ -1,10 +1,9 @@
 <template>
   <div>
-    <indicator class="indicator"></indicator>
     <slider class="slider" interval="4500" @change="onchange">
-      <div class="slider-pages" v-for="item in itemList">
-        <image class="img" resize="cover" :src="item.pictureUrl"></image>
-        <text class="title">{{item.title}}</text>
+      <div class="frame" v-for="img in imageList">
+        <image class="image" resize="cover" :src="img.src"></image>
+        <text class="title">{{img.title}}</text>
       </div>
       <indicator class="indicator"></indicator>
     </slider>
@@ -12,9 +11,18 @@
 </template>
 
 <style>
-  .img {
+  .image {
     width: 700px;
     height: 700px;
+  }
+  .slider {
+    margin-top: 25px;
+    margin-left: 25px;
+    width: 700px;
+    height: 700px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #41B883;
   }
   .title {
     position: absolute;
@@ -27,16 +35,7 @@
     line-height: 60px;
     background-color: rgba(0, 0, 0, 0.3);
   }
-  .slider {
-    flex-direction: row;
-    margin: 25px;
-    width: 700px;
-    height: 700px;
-    border-width: 2px;
-    border-style: solid;
-    border-color: blue;
-  }
-  .slider-pages {
+  .frame {
     width: 700px;
     height: 700px;
     position: relative;
@@ -52,17 +51,17 @@
 
 <script>
   export default {
-    data: function () {
+    data () {
       return {
-        itemList: [
-          { title: 'item A', pictureUrl: 'https://gd2.alicdn.com/bao/uploaded/i2/T14H1LFwBcXXXXXXXX_!!0-item_pic.jpg'},
-          { title: 'item B', pictureUrl: 'https://gd1.alicdn.com/bao/uploaded/i1/TB1PXJCJFXXXXciXFXXXXXXXXXX_!!0-item_pic.jpg'},
-          { title: 'item C', pictureUrl: 'https://gd3.alicdn.com/bao/uploaded/i3/TB1x6hYLXXXXXazXVXXXXXXXXXX_!!0-item_pic.jpg'}
+        imageList: [
+          { title: 'item A', src: 'https://gd2.alicdn.com/bao/uploaded/i2/T14H1LFwBcXXXXXXXX_!!0-item_pic.jpg'},
+          { title: 'item B', src: 'https://gd1.alicdn.com/bao/uploaded/i1/TB1PXJCJFXXXXciXFXXXXXXXXXX_!!0-item_pic.jpg'},
+          { title: 'item C', src: 'https://gd3.alicdn.com/bao/uploaded/i3/TB1x6hYLXXXXXazXVXXXXXXXXXX_!!0-item_pic.jpg'}
         ]
       }
     },
     methods: {
-      onchange: function (event) {
+      onchange (event) {
         console.log('changed:', event.index)
       }
     }

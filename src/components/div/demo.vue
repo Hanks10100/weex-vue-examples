@@ -10,8 +10,13 @@
 </template>
 
 <style scoped>
+  .wrapper {
+    flex-direction: row;
+    justify-content: center;
+  }
   .group {
-    margin: auto;
+    flex-direction: column;
+    justify-content: center;
   }
   .box {
     border-width: 2px;

@@ -29,11 +29,11 @@
     justify-content: center;
     border-width: 2px;
     border-style: solid;
-    border-color: #DDDDDD;
-    background-color: #F5F5F5;
+    border-color: rgb(162, 217, 192);
+    background-color: rgba(162, 217, 192, 0.2);
   }
   .text {
-    font-size: 50px;
+    font-size: 88px;
     text-align: center;
     color: #41B883;
   }
