@@ -13,7 +13,7 @@
       back (event) {
         console.log('will back')
         navigator.pop({
-          animated: true
+          animated: "true"
         }, event => {
           modal.toast({ message: 'callback: ' + event })
         })

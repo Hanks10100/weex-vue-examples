@@ -13,8 +13,8 @@
       jump (event) {
         console.log('will jump')
         navigator.push({
-          url: 'http://dotwe.org/raw/dist/3e0e40f9ddad79f98cd236753965ffd8.js',
-          animated: true
+          url: 'http://dotwe.org/raw/dist/519962541fcf6acd911986357ad9c2ed.js',
+          animated: "true"
         }, event => {
           modal.toast({ message: 'callback: ' + event })
         })

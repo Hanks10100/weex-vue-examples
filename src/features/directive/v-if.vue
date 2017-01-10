@@ -18,10 +18,8 @@
     },
 
     computed: {
-      className: {
-        get () {
-          return (['small', 'large', 'blue', 'green'])[this.index % 4]
-        }
+      className () {
+        return (['small', 'large', 'blue', 'green'])[this.index % 4]
       }
     },
 
@@ -63,6 +61,7 @@
   .button {
     font-size: 36px;
     width: 280px;
+    color: #41B883;
     text-align: center;
     padding-top: 25px;
     padding-bottom: 25px;
