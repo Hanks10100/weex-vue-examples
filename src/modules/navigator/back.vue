@@ -1,18 +1,21 @@
 <template>
   <div class="wrapper">
-    <text class="button" @click="show">Properties</text>
+    <text class="button" @click="back">Back</text>
   </div>
 </template>
 
 <script>
-  const modal = weex.requireModule('modal')
+  var navigator = weex.requireModule('navigator')
+  var modal = weex.requireModule('modal')
 
   export default {
     methods: {
-      show () {
-        modal.toast({
-          message: Object.keys(this).join(','),
-          duration: 10
+      back (event) {
+        console.log('will back')
+        navigator.pop({
+          animated: true
+        }, event => {
+          modal.toast({ message: 'callback: ' + event })
         })
       }
     }

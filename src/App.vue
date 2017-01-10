@@ -3,7 +3,7 @@
 </template>
 
 <script>
-  import Example from './features/lifecycle.vue'
+  import Example from './features/API/setInterval.vue'
   export default {
     components: { Example }
   }

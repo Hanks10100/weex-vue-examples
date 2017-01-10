@@ -1,8 +1,7 @@
 body > .weex-list,
 body > .weex-scroller {
-  height: 100%;
+  min-height: 100%;
 }
-
 
 .weex-scroller-wrapper {
   display: flex;

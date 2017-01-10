@@ -6,6 +6,7 @@
 
 <script>
   const animation = weex.requireModule('animation')
+  const modal = weex.requireModule('modal')
 
   export default {
     methods: {
@@ -14,14 +15,14 @@
         animation.transition(testEl, {
           styles: {
             color: '#FF0000',
-            transform: 'translate(250px, 100px)',
+            transform: 'translate(250, 100)',
             transformOrigin: 'center center'
           },
           duration: 800, //ms
           timingFunction: 'ease',
           delay: 0 //ms
         }, function () {
-          console.log('animation finished.')
+          modal.toast({ message: 'animation finished.' })
         })
       }
     }

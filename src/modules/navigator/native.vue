@@ -1,18 +1,22 @@
 <template>
   <div class="wrapper">
-    <text class="button" @click="show">Properties</text>
+    <text class="button" @click="jump">Jump</text>
   </div>
 </template>
 
 <script>
-  const modal = weex.requireModule('modal')
+  var navigator = weex.requireModule('navigator')
+  var modal = weex.requireModule('modal')
 
   export default {
     methods: {
-      show () {
-        modal.toast({
-          message: Object.keys(this).join(','),
-          duration: 10
+      jump (event) {
+        console.log('will jump')
+        navigator.push({
+          url: 'http://dotwe.org/raw/dist/3e0e40f9ddad79f98cd236753965ffd8.js',
+          animated: true
+        }, event => {
+          modal.toast({ message: 'callback: ' + event })
         })
       }
     }

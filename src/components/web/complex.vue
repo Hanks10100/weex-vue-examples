@@ -7,12 +7,13 @@
       <text class="button" @click="loadURL">LoadURL</text>
       <text class="button" @click="reload">reload</text>
     </div>
-    <web ref="webview" :src="url" class="webview" @pagestart="start" @pagefinish="finish"></web>
+    <web ref="webview" :src="url" class="webview" @pagestart="start" @pagefinish="finish" @error="error"></web>
   </div>
 </template>
 
 <script>
   const webview = weex.requireModule('webview')
+  const modal = weex.requireModule('modal')
 
   export default {
     data () {
@@ -23,20 +24,29 @@
     methods: {
       loadURL (event) {
         this.url = this.$refs.input.value
+        modal.toast({ message: 'load url:' + this.url })
         setTimeout(() => {
           console.log('will go back.')
+          modal.toast({ message: 'will go back' })
           webview.goBack(this.$refs.webview)
-        }, 2000)
+        }, 10000)
       },
       reload (event) {
         console.log('will reload webview')
+        modal.toast({ message: 'reload' })
         webview.reload(this.$refs.webview)
       },
       start (event) {
         console.log('pagestart', event)
+        modal.toast({ message: 'pagestart' })
       },
       finish (event) {
         console.log('pagefinish', event)
+        modal.toast({ message: 'pagefinish' })
+      },
+      finish (event) {
+        console.log('error', event)
+        modal.toast({ message: 'error' })
       }
     }
   }

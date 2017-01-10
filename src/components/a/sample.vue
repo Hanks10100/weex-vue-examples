@@ -1,23 +1,10 @@
 <template>
   <div class="wrapper">
-    <text class="button" @click="show">Properties</text>
+    <a class="button" href="http://dotwe.org/raw/dist/3e0e40f9ddad79f98cd236753965ffd8.js">
+      <text class="text">Jump</text>
+    </a>
   </div>
 </template>
-
-<script>
-  const modal = weex.requireModule('modal')
-
-  export default {
-    methods: {
-      show () {
-        modal.toast({
-          message: Object.keys(this).join(','),
-          duration: 10
-        })
-      }
-    }
-  };
-</script>
 
 <style scoped>
   .wrapper {
@@ -25,17 +12,19 @@
     justify-content: center;
   }
   .button {
-    font-size: 60px;
     width: 450px;
-    text-align: center;
     margin-top: 30px;
     margin-left: 150px;
     padding-top: 20px;
     padding-bottom: 20px;
     border-width: 2px;
     border-style: solid;
-    color: #666666;
     border-color: #DDDDDD;
     background-color: #F5F5F5
+  }
+  .text {
+    font-size: 60px;
+    color: #666666;
+    text-align: center;
   }
 </style>

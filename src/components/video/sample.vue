@@ -1,6 +1,6 @@
 <template>
   <div>
-    <video class="video" autoplay src="http://flv2.bn.netease.com/videolib3/1611/01/XGqSL5981/SD/XGqSL5981-mobile.mp4"></video>
+    <video class="video" autoplay="true" src="http://flv2.bn.netease.com/videolib3/1611/01/XGqSL5981/SD/XGqSL5981-mobile.mp4"></video>
   </div>
 </template>
 

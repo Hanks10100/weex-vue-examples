@@ -1,10 +1,10 @@
 <template>
   <div>
     <div class="div">
-      <text class="text" @click="onItemClick">hello {{message}}</text>
+      <text class="text" @click="onItemClick">{{message}}</text>
     </div>
     <div class="div">
-      <text class="text" @click="setContent">click me to set: {{tobecopied}}</text>
+      <text class="text" @click="setContent">Click to copy: {{tobecopied}}</text>
     </div>
   </div>
 </template>
@@ -27,7 +27,7 @@
       onItemClick () {
         this.message = 'clicked! '
         clipboard.getString(ret => {
-          this.message = 'text from clipboard:' + ret
+          this.message = 'text from clipboard:' + ret.data
         })
       }
     }
