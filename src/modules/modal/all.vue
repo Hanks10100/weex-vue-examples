@@ -8,18 +8,18 @@
 </template>
 
 <script>
-  var modal = weex.require('modal')
+  var modal = weex.requireModule('modal')
 
   export default {
     methods: {
-      showToast: function (event) {
+      showToast (event) {
         console.log('will show toast')
         modal.toast({
           message: 'This is a toast',
           duration: 0.3
         })
       },
-      showAlert: function (event) {
+      showAlert (event) {
         console.log('will show alert')
         modal.alert({
           message: 'This is a alert',
@@ -28,7 +28,7 @@
           console.log('alert callback', value)
         })
       },
-      showConfirm: function (event) {
+      showConfirm (event) {
         console.log('will show confirm')
         modal.confirm({
           message: 'Do you confirm ?',
@@ -37,7 +37,7 @@
           console.log('confirm callback', value)
         })
       },
-      showPrompt: function (event) {
+      showPrompt (event) {
         console.log('will show prompt')
         modal.prompt({
           message: 'This is a prompt',

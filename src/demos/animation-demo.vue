@@ -16,7 +16,7 @@
 </style>
 
 <script>
-  var animation = weex.require('animation');
+  var animation = weex.requireModule('animation');
   module.exports = {
     methods: {
       move: function () {

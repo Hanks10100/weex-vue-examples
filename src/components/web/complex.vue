@@ -12,7 +12,7 @@
 </template>
 
 <script>
-  const webview = weex.require('webview')
+  const webview = weex.requireModule('webview')
 
   export default {
     data () {

@@ -12,7 +12,7 @@
 </template>
 
 <script>
-  const dom = weex.require('dom')
+  const dom = weex.requireModule('dom')
 
   export default {
     data () {

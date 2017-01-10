@@ -50,7 +50,7 @@
 </style>
 
 <script>
-  const storage = weex.require('storage')
+  const storage = weex.requireModule('storage')
 
   export default {
     data () {

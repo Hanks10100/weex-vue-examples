@@ -15,7 +15,7 @@
 </template>
 
 <script>
-  var webview = weex.require('webview')
+  var webview = weex.requireModule('webview')
   module.exports = {
     data() {
       return { url : "https://m.taobao.com" }

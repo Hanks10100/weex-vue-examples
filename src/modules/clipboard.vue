@@ -10,7 +10,7 @@
 </template>
 
 <script>
-  const clipboard = weex.require('clipboard')
+  const clipboard = weex.requireModule('clipboard')
 
   export default {
     data () {

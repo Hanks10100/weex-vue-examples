@@ -16,7 +16,7 @@
 </style>
 
 <script>
-  var navigator = weex.require('navigator')
+  var navigator = weex.requireModule('navigator')
   module.exports = {
     mounted: function () {
       // console.log(navigator)

@@ -14,7 +14,7 @@
 </style>
 
 <script>
-  var globalEvent = weex.require('globalEvent')
+  var globalEvent = weex.requireModule('globalEvent')
   module.exports = {
     mounted: function () {
       console.log(globalEvent)

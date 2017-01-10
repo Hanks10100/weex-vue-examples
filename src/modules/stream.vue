@@ -12,7 +12,7 @@
 </template>
 
 <script>
-  var stream = weex.require('stream')
+  var stream = weex.requireModule('stream')
   export default {
     data () {
       return {

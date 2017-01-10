@@ -3,9 +3,7 @@
     <input class="input" type="text" placeholder="text" />
     <input class="input" type="password" placeholder="password" />
     <input class="input" type="tel" placeholder="tel" />
-    <input class="input" type="number" placeholder="number" />
     <input class="input" type="url" placeholder="url" />
-    <input class="input" type="search" placeholder="search" />
     <input class="input" type="email" placeholder="email" />
   </div>
 </template>

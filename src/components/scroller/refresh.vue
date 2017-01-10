@@ -1,6 +1,6 @@
 <template>
   <scroller class="scroller">
-    <refresh class="refresh" @refresh="onrefresh" :display="refreshing ? 'show' : 'hide'">
+    <refresh class="refresh" @refresh="onrefresh" @pullingdown="onpullingdown" :display="refreshing ? 'show' : 'hide'">
       <text class="indicator">Refreshing ...</text>
     </refresh>
     <div class="cell" v-for="num in lists">
@@ -12,7 +12,7 @@
 </template>
 
 <script>
-  const modal = weex.require('modal')
+  const modal = weex.requireModule('modal')
 
   export default {
     data () {
@@ -29,6 +29,10 @@
         setTimeout(() => {
           this.refreshing = false
         }, 2000)
+      },
+      onpullingdown (event) {
+        console.log('is onpulling down')
+        modal.toast({ message: 'pulling down', duration: 1 })
       }
     }
   }

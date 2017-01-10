@@ -1,5 +1,5 @@
 <template>
-  <scroller class="list" @loadmore="fetch" loadmoreoffset="0">
+  <scroller class="list" @loadmore="fetch" loadmoreoffset="10">
     <div class="panel" v-for="num in lists">
       <text class="text">{{num}}</text>
     </div>
@@ -7,7 +7,7 @@
 </template>
 
 <script>
-  const modal = weex.require('modal')
+  const modal = weex.requireModule('modal')
   const LOADMORE_COUNT = 4
 
   export default {

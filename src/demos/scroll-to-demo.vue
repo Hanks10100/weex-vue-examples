@@ -12,7 +12,7 @@
 </template>
 
 <script>
-  var dom = weex.require('dom')
+  var dom = weex.requireModule('dom')
 
   module.exports = {
     data: function () {

@@ -12,7 +12,7 @@
 </style>
 
 <script>
-  const navigator = weex.require('navigator')
+  const navigator = weex.requireModule('navigator')
 
   export default {
     mounted () {

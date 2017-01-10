@@ -5,7 +5,7 @@
 </template>
 
 <script>
-  const animation = weex.require('animation')
+  const animation = weex.requireModule('animation')
 
   export default {
     methods: {

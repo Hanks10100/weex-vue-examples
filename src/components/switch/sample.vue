@@ -7,6 +7,6 @@
 <style scoped>
   .container {
     flex-direction: column;
-    justify-content: center;
+    align-items: flex-start;
   }
 </style>
