@@ -1,12 +1,8 @@
 {
-  "name": "weex-vue-demo",
+  "name": "weex-vue-examples",
   "description": "A simple example for using Weex and Vue 2.0",
   "private": true,
-  "version": "0.0.1",
-  "subversion": {
-    "vue": "2.1.6",
-    "weex-js-framework": "0.17.0-beta.2"
-  },
+  "version": "0.1.0",
   "scripts": {
     "build:weex": "webpack --config build/webpack.weex.config.js",
     "build:web": "webpack --config build/webpack.web.config.js",
@@ -38,13 +34,13 @@
     "css-loader": "^0.26.0",
     "serve": "^1.4.0",
     "vue-loader": "^10.0.2",
-    "vue-template-compiler": "^2.1.7",
+    "vue-template-compiler": "^2.1.8",
     "webpack": "^1.13.1",
     "weex-loader": "^0.4.1",
     "weex-vue-loader": "^0.2.5"
   },
   "dependencies": {
-    "vue": "^2.1.7",
+    "vue": "^2.1.8",
     "weex-html5": "^0.4.1",
     "weex-vue-render": "^0.1.4"
   }

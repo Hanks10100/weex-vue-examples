@@ -1,30 +1,20 @@
 <template>
   <div>
-    <slider class="slider" interval="4500" @change="onchange">
+    <slider class="slider" autoplay="true" interval="4500" @change="onchange" append="tree">
+      <indicator class="indicator"></indicator>
       <div class="frame" v-for="img in imageList">
-        <image class="image" resize="cover" :src="img.src"></image>
         <text class="title">{{img.title}}</text>
       </div>
-      <indicator class="indicator"></indicator>
     </slider>
   </div>
 </template>
 
 <style>
-  .image {
-    width: 700px;
-    height: 700px;
-  }
   .slider {
-    margin-top: 25px;
-    margin-left: 25px;
-    width: 700px;
     height: 700px;
     border-width: 2px;
-    border-style: solid;
-    border-color: #41B883;
   }
-  .title {
+  /*.title {
     position: absolute;
     top: 20px;
     left: 20px;
@@ -34,18 +24,18 @@
     font-size: 36px;
     line-height: 60px;
     background-color: rgba(0, 0, 0, 0.3);
-  }
+  }*/
   .frame {
     width: 700px;
     height: 700px;
-    position: relative;
+    /*position: relative;*/
   }
   .indicator {
-    item-color: green;
-    item-selected-color: red;
-    item-size: 50px;
-    top: 200px;
-    left: 200px;
+    itemColor: green;
+    itemSelectedColor: red;
+    itemSize: 50px;
+    /*top: 200px;
+    left: 200px;*/
   }
 </style>
 
