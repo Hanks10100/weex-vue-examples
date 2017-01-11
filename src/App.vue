@@ -3,7 +3,7 @@
 </template>
 
 <script>
-  import Example from './modules/picker/date.vue'
+  import Example from './modules/picker/sample.vue'
   export default {
     components: { Example }
   }

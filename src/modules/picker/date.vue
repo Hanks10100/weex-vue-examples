@@ -13,7 +13,7 @@
 <script>
   const picker = weex.requireModule('picker')
 
-  module.exports = {
+  export default {
     data () {
       return {
         value: '2017-01-12'
