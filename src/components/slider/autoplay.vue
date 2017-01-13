@@ -1,6 +1,6 @@
 <template>
   <div>
-    <slider class="slider" interval="3000" autoPlay="true">
+    <slider class="slider" interval="3000" :auto-play="auto">
       <div class="frame" v-for="img in imageList">
         <image class="image" resize="cover" :src="img.src"></image>
       </div>
@@ -33,6 +33,7 @@
   export default {
     data () {
       return {
+        auto: 'true',
         imageList: [
           { src: 'https://gd2.alicdn.com/bao/uploaded/i2/T14H1LFwBcXXXXXXXX_!!0-item_pic.jpg'},
           { src: 'https://gd1.alicdn.com/bao/uploaded/i1/TB1PXJCJFXXXXciXFXXXXXXXXXX_!!0-item_pic.jpg'},

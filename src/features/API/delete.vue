@@ -1,5 +1,5 @@
 <template>
-  <div class="list">
+  <div>
     <div class="group">
       <div class="panel" v-for="obj in lists">
         <text class="text">{{obj.name}}</text>
@@ -12,16 +12,18 @@
   export default {
     data () {
       return {
+        // lists: ['A', 'B'],
         lists: [
-          { name: '1' },
-          { name: '2' }
-        ],
+          { name: 'A' },
+          { name: 'B' }
+        ]
       }
     },
     mounted () {
-      Vue.set(this.lists, 0, { name: 'A'})
+      Vue.set(this.lists, 0, { name: 'C'})
       setTimeout(() => {
         Vue.delete(this.lists, 1)
+        // this.lists.length--
       }, 1000)
     }
   }
