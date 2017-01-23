@@ -1,26 +1,36 @@
 <template>
-  <scroller class="scroller" scroll-direction="horizontal" show-scrollbar="true">
-    <div class="panel"><text class="text">First</text></div>
-    <div class="panel"><text class="text">Second</text></div>
-    <div class="panel"><text class="text">Third</text></div>
-    <div class="panel"><text class="text">Fourth</text></div>
-    <div class="panel"><text class="text">Fifth</text></div>
+  <scroller class="scroller" scrollDirection="horizontal">
+    <div class="panel" v-for="char in lists">
+      <text class="text">{{char}}</text>
+    </div>
   </scroller>
 </template>
 
+<script>
+  export default {
+    data () {
+      return {
+        lists: ['A', 'B', 'C', 'D', 'E', 'F', 'G']
+      }
+    }
+  }
+</script>
+
 <style scoped>
   .scroller {
-    width: 750px;
-    height: 500px;
+    width: 3050px;
     flex-direction: row;
     justify-content: flex-start;
+    border-width: 2px;
+    border-style: dashed;
+    border-color: #DDD;
   }
   .panel {
-    width: 600px;
-    height: 300px;
+    width: 350px;
+    height: 350px;
     margin-left: 75px;
-    margin-top: 35px;
-    margin-bottom: 35px;
+    margin-top: 75px;
+    margin-bottom: 75px;
     flex-direction: column;
     justify-content: center;
     border-width: 2px;
@@ -29,7 +39,7 @@
     background-color: rgba(162, 217, 192, 0.2);
   }
   .text {
-    font-size: 50px;
+    font-size: 75px;
     text-align: center;
     color: #41B883;
   }
