@@ -8,7 +8,7 @@ var bannerPlugin = new webpack.BannerPlugin(
 
 module.exports = {
   entry: {
-    'vue-bundle': path.resolve('src', 'App.vue?entry=#root')
+    'vue-bundle': path.resolve('src', 'entry.js')
   },
   output: {
     path: 'dist',
