@@ -4,11 +4,8 @@
   "private": true,
   "version": "0.1.0",
   "scripts": {
-    "build:weex": "webpack --config build/webpack.weex.config.js",
-    "build:web": "webpack --config build/webpack.web.config.js",
-    "build": "npm run build:weex && npm run build:web",
-    "dev:weex": "webpack --watch --config build/webpack.weex.config.js",
-    "dev:web": "webpack --watch --config build/webpack.web.config.js",
+    "build": "webpack",
+    "dev": "webpack --watch",
     "serve": "serve -p 8080",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
