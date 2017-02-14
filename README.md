@@ -1,20 +1,19 @@
-# Weex Vue Demo
+# Weex Vue Examples
 
-A simple example for using Weex and Vue 2.0.
-
-本例子可以在内置了最新版 Weex SDK 的移动端中运行；也可以不依赖 Weex，仅使用 Vue 2.0 在浏览器中运行。
+A group of examples for using Weex and Vue.js.
 
 ## 运行方法
 
 首先并安装依赖。然后：
 
 + `npm run build`: 编译项目。
-  + 生成 `dist/vue-bundle.weex.js`，可以在移动端中运行。
-  + 生成 `dist/vue-bundle.web.js`，可以在浏览器中运行。
-+ `npm run serve`: 启动项目，会监听本地 8080 端口。
-  + 打开 `http://localhost:8080/index.html` 可以预览浏览器中的页面（仅依赖 Vue 2.0 运行）。
++ `npm run serve`: 会监听本地 8080 端口，打开 [`http://localhost:8080`](http://localhost:8080/) 可以在浏览器中预览页面。
++ `npm run dev`: 监听 src 目录中的文件变化，并自动编译。
 
-如果要开发项目，可以：
+### 在线预览
 
-+ `npm run dev:weex`: 监听 src 目录中的文件变化，并自动编译 `dist/vue-bundle.weex.js`。
-+ `npm run dev:web`: 监听 src 目录中的文件变化，并自动编译 `dist/vue-bundle.web.js`。
+将例子代码复制到 [dotwe.org](http://dotwe.org/vue) 上，然后使用 [Weex Playground App](https://weex-project.io/cn/playground.html) 扫描二维码就可以查看页面了。
+
+### 本地调试
+
+`npm run dev`，然后修改 `src/App.vue` 里引入组件的路径，可以预览不同的例子。（建议直接用 dotwe 预览）
