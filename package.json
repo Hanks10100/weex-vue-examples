@@ -1,6 +1,6 @@
 {
   "name": "weex-vue-examples",
-  "description": "A simple example for using Weex and Vue 2.0",
+  "description": "A group of examples for using Weex and Vue 2.0",
   "private": true,
   "version": "0.1.0",
   "scripts": {
@@ -15,11 +15,11 @@
     "vue",
     "demo"
   ],
-  "author": "门柳 <hanks.zh@alibaba-inc.com>",
+  "author": "Hanks <zhanghan.me@gmail.com>",
   "contributors": [],
   "repository": {
     "type": "git",
-    "url": "git@gitlab.alibaba-inc.com:hanks.zh/weex-vue-demo.git"
+    "url": "git@github.com/Hanks10100/weex-vue-examples.git"
   },
   "license": "MIT",
   "devDependencies": {
@@ -38,6 +38,6 @@
   "dependencies": {
     "vue": "^2.1.10",
     "weex-html5": "^0.4.1",
-    "weex-vue-render": "^0.1.7"
+    "weex-vue-render": "^0.2.0"
   }
 }
