@@ -2,7 +2,7 @@
 
 A group of examples for using Weex and Vue.js.
 
-**在 [vue-snippets](https://github.com/Hanks10100/vue-snippets) 有这些例子在 [dotwe](http://dotwe.org/vue) 上的链接，预览起来更方便一些**
+## 在 [vue-snippets](https://github.com/Hanks10100/vue-snippets) 有这些例子在 [dotwe](http://dotwe.org/vue) 的链接，更方便预览
 
 ## 运行方法
 
