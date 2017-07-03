@@ -5,9 +5,9 @@
   </div>
 </template>
 
-<style scoped>
-  @import "./shared.css";
+<style src="./shared.css" scoped></style>
 
+<style scoped>
   .wrapper {
     flex-direction: column;
     justify-content: center;

@@ -3,7 +3,7 @@
 </template>
 
 <script>
-  import Example from './components/text/sample.vue'
+  import Example from './features/DSL/multi-style.vue'
   export default {
     components: { Example }
   }
