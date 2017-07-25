@@ -3,7 +3,6 @@
     <div class="box ratio">
       <mesh :level="level - 1"></mesh>
     </div>
-    <div class="box f1"></div>
     <div class="box ratio">
       <mesh :level="level - 1"></mesh>
     </div>
@@ -27,10 +26,10 @@
   .box {
     justify-content: center;
     align-items: stretch;
-    margin-top: 12px;
-    margin-bottom: 12px;
-    margin-left: 12px;
-    margin-right: 12px;
+    margin-top: 24px;
+    margin-bottom: 24px;
+    margin-left: 24px;
+    margin-right: 24px;
     border-width: 2px;
     border-style: solid;
     border-color: rgb(65, 184, 131);
