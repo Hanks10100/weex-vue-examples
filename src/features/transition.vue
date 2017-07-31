@@ -1,7 +1,9 @@
+<!-- http://dotwe.org/vue/ce9a206fb4c0e60788360f6228fda36e -->
+
 <template>
   <list class="list">
     <cell class="cell" v-for="(item, i) in panels" @click="change(i)">
-      <div class="panel" :style="{ height: item.height }">
+      <div class="panel" :style="{ width: item.width, height: item.height }">
         <text class="text">{{item.label}}</text>
       </div>
     </cell>
@@ -12,22 +14,15 @@
   export default {
     data () {
       return {
-        panels: [
-          { label: 'A', height: 200 },
-          { label: 'B', height: 200 },
-          { label: 'C', height: 200 },
-          { label: 'D', height: 200 },
-          { label: 'E', height: 200 },
-          { label: 'F', height: 200 },
-          { label: 'G', height: 200 }
-        ]
+        panels: ['A', 'B', 'C', 'D', 'E'].map(label => ({ label, width: 600, height: 200 }))
       }
     },
     methods: {
       change (i) {
         const item = this.panels[i]
         if (item) {
-          item.height = item.height === 200 ? 500 : 200
+          item.width = item.width === 600 ? 350 : 600
+          item.height = item.height === 200 ? 350 : 200
         }
       }
     }
@@ -35,9 +30,11 @@
 </script>
 
 <style scoped>
+  .cell {
+    flex-direction: row;
+    justify-content: center;
+  }
   .panel {
-    width: 600px;
-    margin-left: 75px;
     margin-top: 35px;
     margin-bottom: 35px;
     flex-direction: column;
@@ -48,7 +45,7 @@
     background-color: rgba(0, 180, 255, 0.2);
 
 
-    transition-property: height;
+    transition-property: width, height;
     transition-duration: .3s;
     transition-delay: .05s;
     transition-timing-function: ease-in-out;
