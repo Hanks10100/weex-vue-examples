@@ -3,7 +3,8 @@
 </template>
 
 <script>
-  import Example from './features/DSL/multi-style.vue'
+  import Example from './components/scroller/scroll-to.vue'
+
   export default {
     components: { Example }
   }
