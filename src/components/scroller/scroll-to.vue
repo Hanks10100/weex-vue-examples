@@ -46,6 +46,7 @@
     border-width: 3px;
     border-style: solid;
     border-color: rgb(162, 217, 192);
+    margin-top: 100px;
     margin-left: 25px;
   }
   .row {
