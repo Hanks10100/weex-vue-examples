@@ -27,9 +27,9 @@ export default [{
     desc: '<text> 是 Weex 内置的组件，用来将文本按照指定的样式渲染出来。<text> 只能包含文本值，不支持子组件，你可以使用 {{}} 标记插入变量值作为文本内容。',
     docLink: 'http://weex.apache.org/cn/references/components/text.html',
     examples: [{
-      hash: 'b1e28e8c6c2dd589b7c5a257676f30cc',
+      hash: '3e0220d7b379955a26039131f153a360',
       title: '最简例子',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1RgbdcwoQMeJjy0FpXXcTxpXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1V5IXcMMPMeJjy1XdXXasrXXa-540-844.png'
     }, {
       hash: '25b96fb0283300df1b183d019d835e4f',
       title: 'lines 属性',
@@ -50,7 +50,7 @@ export default [{
     desc: '<image> 组件用于渲染图片，并且它不能包含任何子组件。需要注意的是，必须明确指定 width 和 height，否则图片无法显示。',
     docLink: 'http://weex.apache.org/cn/references/components/image.html',
     examples: [{
-      hash: '2b1d5a91a138e74113260c63e07b6e3a',
+      hash: 'c8d67a852dca4865b06cf372cd5b3c17',
       title: '最简例子',
       screenshot: 'https://gw.alicdn.com/tfs/TB150aYcMoQMeJjy0FpXXcTxpXa-540-844.png'
     }, {
@@ -71,22 +71,26 @@ export default [{
     examples: [{
       hash: '3faed12fc18c947255abfa8354570170',
       title: '最简例子',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1RgbdcwoQMeJjy0FpXXcTxpXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1pgDZcMoQMeJjy1XaXXcSsFXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: 'header',
+      title: '<header>',
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      title: '<loading>',
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      title: '<refresh>',
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: 'ba02d2084739897ccf0351f98e075051',
-      title: 'loadmore',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1RgbdcwoQMeJjy0FpXXcTxpXa-540-844.png'
+      title: 'loadmore 事件',
+      screenshot: 'https://gw.alicdn.com/tfs/TB1tK66cMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: 'loading',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-    }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: 'refresh',
+      title: 'appear 事件',
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }]
   }, {
@@ -104,17 +108,17 @@ export default [{
       title: '水平滚动',
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
-      hash: 'ba02d2084739897ccf0351f98e075051',
+      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      title: '<loading>',
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      title: '<refresh>',
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '71013c3598e6edbb80bfc6a509247644',
       title: 'loadmore',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1RgbdcwoQMeJjy0FpXXcTxpXa-540-844.png'
-    }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: 'loading',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-    }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: 'refresh',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1tK66cMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: 'c38fbd7922d42810393c7a23529d48a1',
       title: 'scrollTo',
@@ -709,8 +713,56 @@ export default [{
     name: '实例',
     examples: [{
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '获取环境信息',
+      title: '计算器',
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }]
+  }, {
+    type: 'flatten-benchmark',
+    name: '平铺压测',
+    examples: [{
+      hash: 'ae5fd588a6522ebb62c8cc9fa049098b',
+      title: '节点 838',
+      screenshot: 'https://gw.alicdn.com/tfs/TB1BVwkcMoQMeJjy0FoXXcShVXa-540-844.png'
+    }, {
+      hash: 'b881a66eaa1133778940bb59836b9635',
+      title: '节点 2296',
+      screenshot: 'https://gw.alicdn.com/tfs/TB1.OsgcMoQMeJjy0FnXXb8gFXa-540-844.png'
+    }, {
+      hash: '3fa4de0a3e7dab86d9d8aa2ad380c677',
+      title: '节点 3295',
+      screenshot: 'https://gw.alicdn.com/tfs/TB1qgsccUgQMeJjy0FiXXXhqXXa-540-844.png'
+    }, {
+      hash: '01706667abe088ba534cdc0bdb3bb23b',
+      title: '节点 5833',
+      screenshot: 'https://gw.alicdn.com/tfs/TB1leA3cCFRMKJjy0FhXXX.xpXa-540-844.png'
+    }, {
+      hash: 'ae643775651ca4190c3250ce0a1ea1fb',
+      title: '节点 8990',
+      screenshot: 'https://gw.alicdn.com/tfs/TB1o0AicMoQMeJjy0FnXXb8gFXa-540-844.png'
+    }, {
+      hash: 'aacd3f0c12d7a2befc7c9de9986227a7',
+      title: '节点 12948',
+      screenshot: 'https://gw.alicdn.com/tfs/TB1glklcMoQMeJjy0FoXXcShVXa-540-844.png'
+    }]
+  }, {
+    type: 'layer-benchmark',
+    name: '层级压测',
+    examples: [{
+      hash: '33c93497fe648eeb3bd5a8b9eb709977',
+      title: '层级 100',
+      screenshot: 'https://gw.alicdn.com/tfs/TB1G2T7cMMPMeJjy1XdXXasrXXa-540-844.png'
+    }, {
+      hash: '6ee24082dae44130bbedf1970f67fc35',
+      title: '层级 200',
+      screenshot: 'https://gw.alicdn.com/tfs/TB1kLZicMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '4455c5fc1155d294b8ea147cd1e677c8',
+      title: '层级 500',
+      screenshot: 'https://gw.alicdn.com/tfs/TB1H1z8cMMPMeJjy1XdXXasrXXa-540-844.png'
+    }, {
+      hash: 'ba59f9a74547f709dd4e8d6fa7dccbae',
+      title: '层级 1000',
+      screenshot: 'https://gw.alicdn.com/tfs/TB1I1z8cMMPMeJjy1XdXXasrXXa-540-844.png'
     }]
   }]
 }]

@@ -24,8 +24,8 @@
       </list>
     </div>
     <div class="tabbar">
-      <div class="tab-cell" v-for="tab in tabs" :key="tab.type" @click="toggleTab(tab.type)">
-        <text :class="['tab-name', tab.type === activeTab ? 'active-tab': '']">{{tab.name}}</text>
+      <div :class="['tab-cell', tab.type === activeTab ? 'active-tab-cell': '']" v-for="tab in tabs" :key="tab.type" @click="toggleTab(tab.type)">
+        <text :class="['tab-name', tab.type === activeTab ? 'active-tab-name': '']">{{tab.name}}</text>
       </div>
     </div>
   </div>
@@ -37,61 +37,75 @@
     flex: 1;
   }
   .group {
-    width: 230px;
-    border-right-width: 2px;
-    border-right-color: #DDD;
+    width: 215px;
+    /* border-right-width: 2px;
+    border-right-color: #DDD; */
+    align-self: flex-start;
     flex: 0;
+    padding-bottom: 35px;
   }
   .group-type {
-    height: 110px;
+    width: 200px;
+    height: 108px;
     border-bottom-width: 1px;
-    border-bottom-color: #DDD;
+    border-bottom-color: #EEEEEE;
+    border-right-width: 2px;
+    border-right-color: #E0E0E0;
     justify-content: center;
   }
   .group-type-name {
     text-align: center;
-    font-size: 38px;
+    font-size: 34px;
     color: #888888;
   }
   .active-group {
-    background-color: #F5F5F5;
+    width: 210px;
+    height: 115px;
+    border-radius: 10px;
+    background-image: linear-gradient(to right, rgba(0, 189, 255, 0.1),rgba(0, 189, 255, 0.2));
+    /* border-right-width: 4px; */
+    border-right-color: rgba(0, 189, 255, 0.2);
+    border-bottom-color: rgba(0, 189, 255, 0.1);
+    /* background-color: rgba(0, 189, 255, 0.1); */
   }
   .active-group-name {
-    font-size: 42px;
+    font-size: 38px;
     font-weight: bold;
-    color: #FF6600;
+    color: rgba(0, 189, 255, 0.6);
   }
   .group-intro {
     padding-top: 60px;
     padding-bottom: 45px;
   }
   .group-title {
+    padding-right: 10px;
     padding-bottom: 30px;
     font-size: 40px;
     text-align: center;
     color: #00B4FF;
   }
   .group-desc {
-    font-size: 26px;
+    font-size: 28px;
     color: #999;
-    margin-left: 40px;
+    margin-left: 30px;
     margin-right: 40px;
   }
   .doc-link {
-    font-size: 24px;
+    font-size: 26px;
     color: rgba(0, 189, 255, 0.6);
     text-align: right;
     margin-top: 10px;
     margin-right: 60px;
   }
   .examples {
-    width: 520px;
+    width: 535px;
     flex: 1;
   }
   .case {
     flex-direction: row;
     justify-content: flex-start;
-    padding-left: 25px;
+    /* justify-content: space-around; */
+    padding-left: 15px;
     padding-right: 25px;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -102,13 +116,13 @@
     padding-right: 25px;
   }
   .screenshot {
-    width: 180px;
-    height: 282px;
+    width: 200px;
+    height: 312px;
     border-width: 1px;
     border-color: #DDD;
   }
   .example-title {
-    font-size: 30px;
+    font-size: 32px;
     text-align: center;
     color: #606060;
     padding-top: 10px;
@@ -122,24 +136,31 @@
     padding-bottom: 10px;
   }
   .tabbar {
-    height: 130px;
+    /* height: 140px; */
     flex-direction: row;
     justify-content: space-around;
-    border-top-width: 2px;
-    border-top-color: #DDD;
+    align-items: flex-end;
   }
   .tab-cell {
-    width: 187px;
+    width: 180px;
+    height: 100px;
+    border-radius: 12px;
     justify-content: center;
+    background-image: linear-gradient(to top, #FFFFFF,#EEEEEE);
+  }
+  .active-tab-cell {
+    height: 140px;
+    background-image: linear-gradient(to top, rgba(0, 189, 255, 0.1),rgba(0, 189, 255, 0.4));
+    /* background-color: rgba(0, 189, 255, 0.2); */
   }
   .tab-name {
     text-align: center;
     font-size: 36px;
     color: #666666;
   }
-  .active-tab {
-    color: #FF6600;
-    /*font-size: 42px;*/
+  .active-tab-name {
+    color: #00B4FF;
+    font-size: 45px;
     font-weight: bold;
   }
 </style>
