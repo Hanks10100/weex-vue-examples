@@ -7,12 +7,19 @@
         </cell>
       </list>
       <list class="examples">
-        <cell style="height:40px"></cell>
-        <cell class="case" v-for="(group, i) in currentGroup" :key="i">
-          <a class="example-box" :href="example.hash | url" v-for="example in group" :key="example.title">
-            <image class="screenshot" :src="example.screenshot"></image>
+        <cell class="group-intro" v-if="currentGroup.title">
+          <text class="group-title">{{currentGroup.title}}</text>
+          <text class="group-desc">{{currentGroup.desc}}</text>
+          <text class="doc-link" v-if="currentGroup.docLink" @click="jumpTo(currentGroup.docLink)">查看文档 >></text>
+        </cell>
+        <cell class="case" v-for="(group, i) in currentExamples" :key="i">
+          <div class="example-box" v-for="example in group" :key="example.title">
             <text class="example-title">{{example.title}}</text>
-          </a>
+            <a :href="example.hash | url">
+              <image class="screenshot" :src="example.screenshot"></image>
+            </a>
+            <text @click="viewSource(example.hash)" class="example-tips">查看源码</text>
+          </div>
         </cell>
       </list>
     </div>
@@ -54,6 +61,29 @@
     font-weight: bold;
     color: #FF6600;
   }
+  .group-intro {
+    padding-top: 60px;
+    padding-bottom: 45px;
+  }
+  .group-title {
+    padding-bottom: 30px;
+    font-size: 40px;
+    text-align: center;
+    color: #00B4FF;
+  }
+  .group-desc {
+    font-size: 26px;
+    color: #999;
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+  .doc-link {
+    font-size: 24px;
+    color: rgba(0, 189, 255, 0.6);
+    text-align: right;
+    margin-top: 10px;
+    margin-right: 60px;
+  }
   .examples {
     width: 520px;
     flex: 1;
@@ -72,13 +102,20 @@
     padding-right: 25px;
   }
   .screenshot {
-    width: 162px;
-    height: 253px;
+    width: 180px;
+    height: 282px;
     border-width: 1px;
     border-color: #DDD;
   }
   .example-title {
     font-size: 30px;
+    text-align: center;
+    color: #606060;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .example-tips {
+    font-size: 26px;
     text-align: center;
     color: #999;
     padding-top: 10px;
@@ -108,97 +145,23 @@
 </style>
 
 <script>
-  const exampleMap = [{
-    type: 'component',
-    name: '组件',
-    group: [{
-      type: 'div',
-      name: 'div',
-      examples: [{
-        hash: 'aeb46c7753cfa019a66150f11246b764',
-        title: 'sample',
-        screenshot: 'https://gw.alicdn.com/tfs/TB1xk6RcmRRMKJjy0FlXXXFepXa-540-844.png'
-      }, {
-        hash: '7613db44f6c03a5849937fbbdeebf69d',
-        title: 'invalid text node',
-        screenshot: 'https://gw.alicdn.com/tfs/TB1qlG2cwoQMeJjy1XaXXcSsFXa-540-844.png'
-      },{
-        hash: 'c38fbd7922d42810393c7a23529d48a1',
-        title: 'basic example',
-        screenshot: 'https://gw.alicdn.com/tfs/TB1ZIPecwoQMeJjy0FoXXcShVXa-540-844.png'
-      }]
-    }, {
-      type: 'text',
-      name: 'text',
-      examples: [{
-        hash: 'c38fbd7922d42810393c7a23529d48a1',
-        title: 'basic example',
-        screenshot: 'https://gw.alicdn.com/tfs/TB1ZIPecwoQMeJjy0FoXXcShVXa-540-844.png'
-      }]
-    }]
-  }, {
-    type: 'module',
-    name: '模块',
-    group: [{
-      type: 'stream',
-      name: 'stream',
-      examples: [{
-        hash: '1df6980ab82912daca84fba9821cf5b9',
-        title: 'fetch',
-        screenshot: 'https://gw.alicdn.com/tfs/TB1iC98cwoQMeJjy0FnXXb8gFXa-540-844.png'
-      }]
-    }, {
-      type: 'dom',
-      name: 'dom',
-      examples: [{
-        hash: 'c38fbd7922d42810393c7a23529d48a1',
-        title: 'scrollTo',
-        screenshot: 'https://gw.alicdn.com/tfs/TB1ZIPecwoQMeJjy0FoXXcShVXa-540-844.png'
-      }]
-    }]
-  }, {
-    type: 'others',
-    name: '其他',
-    group: [{
-      type: 'styles',
-      name: '样式',
-      examples: [{
-        hash: 'c38fbd7922d42810393c7a23529d48a1',
-        title: 'basic example',
-        screenshot: 'https://gw.alicdn.com/tfs/TB1ZIPecwoQMeJjy0FoXXcShVXa-540-844.png'
-      }]
-    }, {
-      type: 'layout',
-      name: '布局',
-      examples: [{
-        hash: 'c38fbd7922d42810393c7a23529d48a1',
-        title: 'basic example',
-        screenshot: 'https://gw.alicdn.com/tfs/TB1ZIPecwoQMeJjy0FoXXcShVXa-540-844.png'
-      }]
-    }, {
-      type: 'useful',
-      name: '常用',
-      examples: [{
-        hash: '377c4f4a6030b5842938afb814cf169f',
-        title: '获取执行环境信息',
-        screenshot: 'https://gw.alicdn.com/tfs/TB1yJC8cEgQMeJjy0FjXXaExFXa-540-844.png'
-      }]
-    }, {
-      type: 'showCase',
-      name: '用例',
-      examples: [{
-        hash: '377c4f4a6030b5842938afb814cf169f',
-        title: '获取执行环境信息',
-        screenshot: 'https://gw.alicdn.com/tfs/TB1yJC8cEgQMeJjy0FjXXaExFXa-540-844.png'
-      }]
-    }]
-  }]
-
-  Vue.filter('url', hash => {
+  import exampleMap from './dataSource'
+  const navigator = weex.requireModule('navigator')
+  const storage = weex.requireModule('storage')
+  function createURL (hash) {
     const url = `http://dotwe.org/raw/dist/${hash}.bundle.wx`
     return `${url}?_wx_tpl=${url}`
-  })
+  }
   export default {
+    filters: {
+      url: createURL,
+      src: hash => {
+        return `http://dotwe.org/raw/src/${hash}.vue`
+      },
+      indent (text) {
+        return '      ' + text
+      }
+    },
     data () {
       return {
         activeTab: 'component',
@@ -211,19 +174,21 @@
         return exampleMap.filter(tab => tab.type === this.activeTab)[0]
       },
       currentGroup () {
-        const currentExamples = []
-        const activeGroup = this.currentTab.group.filter(group => group.type === this.activeGroup)[0]
-        const exps = activeGroup.examples
+        return this.currentTab.group.filter(group => group.type === this.activeGroup)[0]
+      },
+      currentExamples () {
+        const result = []
+        const exps = this.currentGroup.examples
         if (exps) {
           for (let i = 0; i < exps.length; ++i) {
             const idx = Math.floor(i/2)
-            if (!currentExamples[idx]) {
-              currentExamples[idx] = []
+            if (!result[idx]) {
+              result[idx] = []
             }
-            currentExamples[idx].push(exps[i])
+            result[idx].push(exps[i])
           }
         }
-        return currentExamples
+        return result
       }
     },
     methods: {
@@ -233,7 +198,23 @@
       },
       toggleGroup (type) {
         this.activeGroup = type
+      },
+      jumpTo (url) {
+        navigator.push({
+          url: createURL('7523d33972eeb6fd19362e12142b5b63')
+        })
+        storage.setItem('CURRENT_DOCUMENT_URL', url)
+      },
+      viewSource (hash) {
+        navigator.push({
+          url: createURL('0a2ffd1d3a65dbe25042c833ff8e2392')
+        })
+        storage.setItem('CURRENT_SOURCE_HASH', hash)
       }
+    },
+    destroyed () {
+      storage.removeItem('CURRENT_DOCUMENT_URL')
+      storage.removeItem('CURRENT_SOURCE_HASH')
     }
   }
 </script>

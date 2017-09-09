@@ -25,7 +25,7 @@
           <span>。</span>
         </span>
         <span>而且还可以添加链接：</span>
-        <a class="link" href="http://dotwe.org/raw/dist/8e3c274f5cae4a391a14ac81c890325f.bundle.wx">
+        <a class="link" :href="url">
           <span>点击这行字能看到另一个例子</span>
         </a>
         <span>，点击其他字就跳转不了。</span>
@@ -36,10 +36,15 @@
 
 <script>
   const stream = weex.requireModule('stream')
+  function createURL (hash) {
+    const url = `http://dotwe.org/raw/dist/${hash}.bundle.wx`
+    return `${url}?_wx_tpl=${url}`
+  }
   export default {
     data () {
       return {
-        starCount: 'fetching...'
+        starCount: 'fetching...',
+        url: createURL('8e3c274f5cae4a391a14ac81c890325f')
       }
     },
     created () {

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <text class="text">          直接放置头尾用空白的文本    </text>
+    <text class="text">          首尾有空格（直接写在模板中）    </text>
     <text class="text">{{message}}</text>
   </div>
 </template>
@@ -9,7 +9,7 @@
   export default {
     data () {
       return {
-        message: '          使用数据绑定     '
+        message: '          首尾有空格（使用数据绑定）     '
       }
     }
   }
@@ -17,7 +17,6 @@
 
 <style scoped>
   .text {
-    lines: 3;
     width: 600px;
     padding-top: 15px;
     padding-bottom: 15px;
