@@ -688,8 +688,16 @@ export default [{
       title: '获取环境信息',
       screenshot: 'https://gw.alicdn.com/tfs/TB1yJC8cEgQMeJjy0FjXXaExFXa-540-844.png'
     }, {
+      hash: 'd877dd3bab71943e64320679dcd7ddac',
+      title: '功能检测',
+      screenshot: 'https://gw.alicdn.com/tfs/TB1TOGuc3MPMeJjy1XdXXasrXXa-540-844.png'
+    }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
       title: '自定义字体',
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      title: 'TODO',
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }]
   }, {
@@ -697,7 +705,19 @@ export default [{
     name: '样式',
     examples: [{
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: 'basic example',
+      title: '边框/背景',
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      title: '线性渐变',
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      title: 'CSS 图形',
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      title: '伪类选择器',
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }]
   }, {
@@ -705,15 +725,51 @@ export default [{
     name: '布局',
     examples: [{
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: 'basic example',
+      title: 'position',
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      title: 'flexbox',
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      title: '瀑布流',
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      title: 'Grid',
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '013b1e76d2c5419e32bc3e02aa1bef26',
+      title: '应用列表',
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }]
   }, {
     type: 'showCase',
     name: '实例',
     examples: [{
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      hash: '59eebdb3f4aba2058add102a33c9c57e',
       title: '计算器',
+      screenshot: 'https://gw.alicdn.com/tfs/TB1tXOrc3MPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      title: '扫雷',
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '013b1e76d2c5419e32bc3e02aa1bef26',
+      title: '应用列表',
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '6c458803b2a83a336099ff43dae4d1a5',
+      title: '有好货楼层',
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      title: '聊天框',
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '7d935b29b566e647438eac17a6748a5f',
+      title: '朋友圈',
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }]
   }, {
