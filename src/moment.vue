@@ -23,8 +23,9 @@
         <div class="moment-info">
           <text class="moment-time" v-if="moment.time">{{moment.time}}</text>
           <text class="moment-operation link-text" v-if="moment.author.name === currentUser.name">删除</text>
-          <image class="moment-feedback"></image>
+          <image class="moment-feedback" src="https://gw.alicdn.com/tfs/TB1_POLc3MPMeJjy1XcXXXpppXa-66-46.png"></image>
         </div>
+        <image class="moment-arrow" v-if="moment.likes || moment.comments" src="https://gw.alicdn.com/tfs/TB1F0OLc3oQMeJjy0FnXXb8gFXa-30-12.png"></image>
         <div class="moment-likes" v-if="moment.likes && moment.likes.length">
           <text class="like-list link-text">♡ {{moment.likes.join(', ')}}</text>
         </div>
@@ -130,7 +131,7 @@
   }
   .moment-info {
     position: relative;
-    padding-top: 15px;
+    padding-top: 20px;
     height: 50px;
     width: 580px;
     flex-direction: row;
@@ -148,11 +149,15 @@
     right: 0;
     bottom: 0;
     width: 45px;
-    height: 28px;
-    background-color: #8593B0;
+    height: 32px;
+  }
+  .moment-arrow {
+    width: 32px;
+    height: 13px;
+    margin-top: 20px;
+    margin-left: 30px;
   }
   .moment-likes {
-    margin-top: 25px;
     width: 580px;
     background-color: #F2F2F2;
     padding-left: 20px;

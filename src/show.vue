@@ -38,8 +38,6 @@
   }
   .group {
     width: 215px;
-    /* border-right-width: 2px;
-    border-right-color: #DDD; */
     align-self: flex-start;
     flex: 0;
     padding-bottom: 35px;
