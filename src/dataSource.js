@@ -137,23 +137,23 @@ export default [{
     examples: [{
       hash: 'ed21daa55c43139ddac26900526f18b3',
       title: '最简例子',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1IQ9cdgMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: 'a06f7f8f319e8aedc0e8763ec58c4cf1',
       title: 'placeholder',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1XPmcdgoQMeJjy0FoXXcShVXa-540-844.png'
     }, {
       hash: 'ed959174686015dd7ab2d7e558ad8e2d',
       title: '初始状态',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1rnh_diERMeJjy0FcXXc7opXa-540-844.png'
     }, {
       hash: 'd4b5539e9eee2a080b2a7d4df7c622f2',
       title: '输入框类型',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1qDh_diERMeJjy0FcXXc7opXa-540-844.png'
     }, {
       hash: 'c660d4c324ed5f65ee86be009b290328',
       title: '事件处理',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1IQ9cdgMPMeJjy1XcXXXpppXa-540-844.png'
     }]
   }, {
     type: 'textarea',
@@ -162,13 +162,13 @@ export default [{
     desc: 'textarea 是 Weex 内置的一个组件，用于用户交互，接受用户输入数据。可以认为是允许多行的 <input> 组件。',
     docLink: 'http://weex.apache.org/cn/references/components/textarea.html',
     examples: [{
-      hash: 'b03964932a8a7b22a550d9fc32107cd5',
+      hash: 'd6a7858c51fbe4f57a8749cee8987cf2',
       title: '最简例子',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1TSyddgoQMeJjy0FoXXcShVXa-540-844.png'
     }, {
-      hash: 'dcc3c297859e779cc653d1d877450ff2',
+      hash: '2dbf1ef9648e66244638502bc31859a4',
       title: '默认行数',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1AsF1diERMeJjSspjXXcpOXXa-540-844.png'
     }]
   }, {
     type: 'switch',
@@ -215,9 +215,9 @@ export default [{
     desc: '使用 <web> 组件在 Weex 页面中嵌入一张网页内容。src 属性用来指定资源地址。你也可以使用 webview module 来控制 web 的行为，比如前进、后退和重载。',
     docLink: 'http://weex.apache.org/cn/references/components/web.html',
     examples: [{
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      hash: '4e64eeb667e3d3959c310eb1e66d3105',
       title: '最简例子',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1LpGHdgMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
       title: '页面跳转',
@@ -267,21 +267,21 @@ export default [{
     desc: 'modal 模块提供了以下展示消息框的 API：toast、alert、confirm 和 prompt。',
     docLink: 'http://weex-project.io/cn/references/modules/modal.html',
     examples: [{
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      hash: '5e49976681ea1ae7bbcbce4c92b7771f',
       title: 'toast',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1TPWcdogQMeJjy0FiXXXhqXXa-540-844.png'
     }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      hash: 'd00060031b25fbfbdffdbf08b5524e51',
       title: 'alert',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1JsqddgoQMeJjy1XaXXcSsFXa-540-844.png'
     }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      hash: 'ec8e7a35e1b2ca69af42a8e9e78b6d45',
       title: 'confirm',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1PWmedogQMeJjy0FjXXaExFXa-540-844.png'
     }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      hash: '3dc53746432468b662f4ade89a2dcd47',
       title: 'prompt',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB13B9gdgoQMeJjy0FpXXcTxpXa-540-844.png'
     }]
   }, {
     type: 'dom',
@@ -309,7 +309,7 @@ export default [{
     desc: '发送网络请求并获取响应。',
     docLink: 'http://weex-project.io/cn/references/modules/stream.html',
     examples: [{
-      hash: '1df6980ab82912daca84fba9821cf5b9',
+      hash: '87d3d8334943733cdc1ecfe10e403613',
       title: 'fetch',
       screenshot: 'https://gw.alicdn.com/tfs/TB1iC98cwoQMeJjy0FnXXb8gFXa-540-844.png'
     }]
@@ -373,9 +373,9 @@ export default [{
       title: '最简例子',
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      hash: '377c4f4a6030b5842938afb814cf169f',
       title: '复制环境信息',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1yJC8cEgQMeJjy0FjXXaExFXa-540-844.png'
     }]
   }, {
     type: 'picker',
@@ -764,13 +764,13 @@ export default [{
       title: '朋友圈',
       screenshot: 'https://gw.alicdn.com/tfs/TB1Vp9Dc3MPMeJjy1XdXXasrXXa-540-844.png'
     }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      hash: '03e9275f49963a4367e08c41edc725d7',
       title: '聊天框',
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: '6c458803b2a83a336099ff43dae4d1a5',
       title: '商品展示',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1juElXjihSKJjy0FfXXbGzFXa-540-844.png'
     }]
   }, {
     type: 'flatten-benchmark',

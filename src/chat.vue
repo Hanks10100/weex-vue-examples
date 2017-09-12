@@ -149,6 +149,8 @@
 
 <script>
   const dom = weex.requireModule('dom')
+  const modal = weex.requireModule('modal')
+  const ws = weex.requireModule('webSocket')
   export default {
     data () {
       return {
@@ -176,6 +178,23 @@
         ]
       }
     },
+    created () {
+      ws.WebSocket('ws://echo.websocket.org')
+      ws.onopen = event => {
+        modal.toast({ message: 'WebSocket opened' })
+      }
+      ws.onmessage = event => {
+        modal.toast({ message: event.data })
+        this.chatMessages.push({
+          from: 'bot',
+          content: event.data
+        })
+        this.scrollToBottom()
+      }
+      ws.onclose = event => {
+        modal.toast({ message: 'WebSocket closed' })
+      }
+    },
     methods: {
       handleUserInput () {
         if (this.userInput) {
@@ -185,10 +204,12 @@
       },
       scrollToBottom () {
         const lastMessage = this.$refs.messages[this.$refs.messages.length - 1]
-        dom.scrollToElement(lastMessage, {
-          offset: 0,
-          animated: true
-        })
+        setTimeout(() => {
+          dom.scrollToElement(lastMessage, {
+            offset: 0,
+            animated: true
+          })
+        }, 0)
       },
       sendUserMessage (text) {
         if (text) {
@@ -196,9 +217,9 @@
             from: 'user',
             content: text
           })
-          setTimeout(() => {
-            this.scrollToBottom()
-          }, 0)
+          ws.send(text)
+          modal.toast({ message: 'send: ' + text })
+          this.scrollToBottom()
         }
       },
       fastReply (index) {
