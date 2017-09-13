@@ -220,13 +220,13 @@
       },
       jumpTo (url) {
         navigator.push({
-          url: createURL('7523d33972eeb6fd19362e12142b5b63')
+          url: createURL('aae837263b1ebad42263323806714b90')
         })
         storage.setItem('CURRENT_DOCUMENT_URL', url)
       },
       viewSource (hash) {
         navigator.push({
-          url: createURL('0a2ffd1d3a65dbe25042c833ff8e2392')
+          url: createURL('ed02cffbc73983eae5780ae467841082')
         })
         storage.setItem('CURRENT_SOURCE_HASH', hash)
       }

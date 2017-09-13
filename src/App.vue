@@ -3,7 +3,7 @@
 </template>
 
 <script>
-  import Example from './chat.vue'
+  import Example from './components/div/sample.vue'
 
   export default {
     components: { Example }

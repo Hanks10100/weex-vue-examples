@@ -6,7 +6,7 @@ export default [{
     name: 'div',
     title: '<div> 组件',
     desc: '<div> 组件是用于包装其它组件的最基本容器。支持所有的通用样式、特性、flexbox 布局。其类似于 HTML 的 <div> 容器，但不能直接在里面添加文本（字符串），如果要展示文本，应该使用 <text> 组件。',
-    docLink: 'http://weex.apache.org/cn/references/components/div.html',
+    docLink: 'http://weex-project.io/cn/references/components/div.html',
     examples: [{
       hash: 'aeb46c7753cfa019a66150f11246b764',
       title: '最简例子',
@@ -25,7 +25,7 @@ export default [{
     name: 'text',
     title: '<text> 组件',
     desc: '<text> 是 Weex 内置的组件，用来将文本按照指定的样式渲染出来。<text> 只能包含文本值，不支持子组件，你可以使用 {{}} 标记插入变量值作为文本内容。',
-    docLink: 'http://weex.apache.org/cn/references/components/text.html',
+    docLink: 'http://weex-project.io/cn/references/components/text.html',
     examples: [{
       hash: '3e0220d7b379955a26039131f153a360',
       title: '最简例子',
@@ -48,7 +48,7 @@ export default [{
     name: 'image',
     title: '<image> 组件',
     desc: '<image> 组件用于渲染图片，并且它不能包含任何子组件。需要注意的是，必须明确指定 width 和 height，否则图片无法显示。',
-    docLink: 'http://weex.apache.org/cn/references/components/image.html',
+    docLink: 'http://weex-project.io/cn/references/components/image.html',
     examples: [{
       hash: 'c8d67a852dca4865b06cf372cd5b3c17',
       title: '最简例子',
@@ -62,6 +62,14 @@ export default [{
       title: '浮层文字',
       screenshot: 'https://gw.alicdn.com/tfs/TB1Mx1UcMoQMeJjy1XaXXcSsFXa-540-844.png'
     }, {
+      hash: '571231d08dee12a8feaa76d1109fbcdc',
+      title: 'Gif 图片',
+      screenshot: 'https://gw.alicdn.com/tfs/TB1cbYxdwMPMeJjy1XdXXasrXXa-540-844.png'
+    }, {
+      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      title: '图片实际大小',
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
       title: '图片实际大小',
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
@@ -71,7 +79,7 @@ export default [{
     name: 'list',
     title: '<list> 组件',
     desc: '<list> 组件是提供垂直列表功能的核心组件，拥有平滑的滚动和高效的内存管理，非常适合用于长列表的展示。最简单的使用方法是在 <list> 标签内使用数组循环生成的多个 <cell> 标签。',
-    docLink: 'http://weex.apache.org/cn/references/components/list.html',
+    docLink: 'http://weex-project.io/cn/references/components/list.html',
     examples: [{
       hash: '3faed12fc18c947255abfa8354570170',
       title: '最简例子',
@@ -102,7 +110,7 @@ export default [{
     name: 'scroller',
     title: '<scroller> 组件',
     desc: '<scroller> 是一个竖直的，可以容纳多个排成一列的子组件的滚动器。如果子组件的总高度高于其本身，那么所有的子组件都可滚动。',
-    docLink: 'http://weex.apache.org/cn/references/components/scroller.html',
+    docLink: 'http://weex-project.io/cn/references/components/scroller.html',
     examples: [{
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
       title: '最简例子',
@@ -133,7 +141,7 @@ export default [{
     name: 'input',
     title: '<input> 组件',
     desc: 'Weex 内置的 <input> 组件用来创建接收用户输入字符的输入组件。 <input> 组件的工作方式因 type 属性的值而异，比如 text, password, url, email, tel 等。此组件不支持子组件和 click 事件。',
-    docLink: 'http://weex.apache.org/cn/references/components/input.html',
+    docLink: 'http://weex-project.io/cn/references/components/input.html',
     examples: [{
       hash: 'ed21daa55c43139ddac26900526f18b3',
       title: '最简例子',
@@ -160,7 +168,7 @@ export default [{
     name: 'textarea',
     title: '<textarea> 组件',
     desc: 'textarea 是 Weex 内置的一个组件，用于用户交互，接受用户输入数据。可以认为是允许多行的 <input> 组件。',
-    docLink: 'http://weex.apache.org/cn/references/components/textarea.html',
+    docLink: 'http://weex-project.io/cn/references/components/textarea.html',
     examples: [{
       hash: 'd6a7858c51fbe4f57a8749cee8987cf2',
       title: '最简例子',
@@ -175,7 +183,7 @@ export default [{
     name: 'switch',
     title: '<switch> 组件',
     desc: '<switch> 是 Weex 的内置组件，用来创建与 iOS 一致样式的按钮。例如在 iPhone 中的设置应用中的飞行模式按钮就是一个 switch 按钮。',
-    docLink: 'http://weex.apache.org/cn/references/components/switch.html',
+    docLink: 'http://weex-project.io/cn/references/components/switch.html',
     examples: [{
       hash: 'b3247046e3ef38cbf5fe848922e811a9',
       title: '最简例子',
@@ -194,7 +202,7 @@ export default [{
     name: 'video',
     title: '<video> 组件',
     desc: '<video> 组件可以让我们在 Weex 页面中嵌入视频内容。<text> 是唯一合法的子组件。',
-    docLink: 'http://weex.apache.org/cn/references/components/video.html',
+    docLink: 'http://weex-project.io/cn/references/components/video.html',
     examples: [{
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
       title: '最简例子',
@@ -213,7 +221,7 @@ export default [{
     name: 'web',
     title: '<web> 组件',
     desc: '使用 <web> 组件在 Weex 页面中嵌入一张网页内容。src 属性用来指定资源地址。你也可以使用 webview module 来控制 web 的行为，比如前进、后退和重载。',
-    docLink: 'http://weex.apache.org/cn/references/components/web.html',
+    docLink: 'http://weex-project.io/cn/references/components/web.html',
     examples: [{
       hash: '4e64eeb667e3d3959c310eb1e66d3105',
       title: '最简例子',
@@ -250,7 +258,7 @@ export default [{
     name: 'waterfall',
     title: '瀑布流组件',
     desc: '提供瀑布流布局的组件。',
-    docLink: 'http://weex.apache.org/cn/references/components/waterfall.html',
+    docLink: 'http://weex-project.io/cn/references/components/waterfall.html',
     examples: [{
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
       title: '最简例子',
@@ -760,9 +768,10 @@ export default [{
       title: '应用列表',
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
-      hash: 'f28215d4d9d96de91115cdd1528bcacd',
+      // hash: 'f28215d4d9d96de91115cdd1528bcacd',
+      hash: '8ee2850f39123a350333eb08beac7115',
       title: '朋友圈',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1Vp9Dc3MPMeJjy1XdXXasrXXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1G7LydwMPMeJjy1XdXXasrXXa-540-844.png'
     }, {
       hash: '03e9275f49963a4367e08c41edc725d7',
       title: '聊天框',
