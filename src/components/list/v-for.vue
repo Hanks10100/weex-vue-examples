@@ -1,8 +1,8 @@
 <template>
   <list class="list">
-    <cell class="cell" v-for="num in lists">
+    <cell class="cell" v-for="char in lists" :key="char">
       <div class="panel">
-        <text class="text">{{num}}</text>
+        <text class="text">{{char}}</text>
       </div>
     </cell>
   </list>
@@ -12,7 +12,7 @@
   export default {
     data () {
       return {
-        lists: ['A', 'B', 'C', 'D', 'E']
+        lists: ['A', 'B', 'C', 'D', 'E', 'F', 'G']
       }
     }
   }
@@ -27,13 +27,13 @@
     margin-bottom: 35px;
     flex-direction: column;
     justify-content: center;
-    border-width: 2px;
+    border-width: 4px;
     border-style: solid;
     border-color: rgb(162, 217, 192);
     background-color: rgba(162, 217, 192, 0.2);
   }
   .text {
-    font-size: 88px;
+    font-size: 160px;
     text-align: center;
     color: #41B883;
   }

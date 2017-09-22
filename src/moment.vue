@@ -14,7 +14,7 @@
           <div class="moment-pictures" v-if="moment.media.pictures && moment.media.pictures.length">
             <image class="picture" v-for="(src, p) in moment.media.pictures" :key="p" :src="src"></image>
           </div>
-          <div class="moment-share" v-if="moment.media.share">
+          <div class="moment-share" v-if="moment.media.share" @click="openURL(moment.media.share.link)">
             <image class="share-thumbnail" :src="moment.media.share.thumbnail"></image>
             <text class="share-title">{{moment.media.share.title}}</text>
           </div>
@@ -193,6 +193,26 @@
 <script>
   const mockMoments = [{
     author: {
+      profile: 'http://img.qqzhi.com/upload/img_0_264028261D222908825_23.jpg',
+      name: '孔明'
+    },
+    content: '精心整理，大家帮忙点个赞！',
+    media: {
+      share: {
+        link: 'https://mp.weixin.qq.com/s/IMQGIklWbdHE3mYVZLFWYw',
+        title: '手把手教你制作孔明灯，五分钟学会！',
+        thumbnail: 'http://d9.yihaodianimg.com/N01/M08/1D/63/CgQCrlKsgAWAbKvCAAG6a3qH_po82600_380x380.jpg',
+      }
+    },
+    time: '1 小时前',
+    from: '微博',
+    likes: ['刘备', '黄月英', '尚香♥', '关羽', '大乔', '小乔', '貂蝉', '甄宓', '曹植', '蔡文姬', '吕布', '张春华', '赵云'],
+    comments: [{
+      author: '赵云',
+      content: '丞相，有好多妹子给你点赞啊'
+    }]
+  }, {
+    author: {
       profile: 'http://img.mp.itc.cn/upload/20170214/db4a4f8b20ba404ba2c8bc0f230de87b_th.jpg',
       name: '刘备'
     },
@@ -218,26 +238,6 @@
     }],
   }, {
     author: {
-      profile: 'http://img.qqzhi.com/upload/img_0_264028261D222908825_23.jpg',
-      name: '孔明'
-    },
-    content: '精心整理，大家帮忙点个赞！',
-    media: {
-      share: {
-        link: 'xxx',
-        title: '手把手教你制作孔明灯，五分钟学会！',
-        thumbnail: 'http://d9.yihaodianimg.com/N01/M08/1D/63/CgQCrlKsgAWAbKvCAAG6a3qH_po82600_380x380.jpg',
-      }
-    },
-    time: '1 小时前',
-    from: '微博',
-    likes: ['刘备', '黄月英', '孙尚香', '关羽', '大乔', '小乔', '貂蝉', '甄宓', '曹植', '蔡文姬', '吕布', '张春华', '赵云'],
-    comments: [{
-      author: '赵云',
-      content: '丞相，有好多妹子给你点赞啊'
-    }]
-  }, {
-    author: {
       profile: 'http://img307.ph.126.net/TcF7wq1cxoyqq54ubF-rXg%3D%3D/3783868111921385084.jpg',
       name: '云长'
     },
@@ -257,6 +257,16 @@
       content: '快来看，我们在三号帐篷附近'
     }]
   }]
+
+  const navigator = weex.requireModule('navigator')
+  const storage = weex.requireModule('storage')
+  function createURL (hash) {
+    if (WXEnvironment.platform === 'Web') {
+      return `http://dotwe.org/raw/htmlVue/${hash}`
+    }
+    const url = `http://dotwe.org/raw/dist/${hash}.bundle.wx`
+    return `${url}?_wx_tpl=${url}`
+  }
   export default {
     data () {
       return {
@@ -266,6 +276,14 @@
           poster: 'http://pic.fayi.com.cn/Upload/origin/123/62123.jpg'
         },
         moments: mockMoments
+      }
+    },
+    methods: {
+      openURL (url) {
+        storage.setItem('CURRENT_DOCUMENT_URL', url)
+        navigator.push({
+          url: createURL('f49079ad025150c8776453d122eb416b')
+        })
       }
     }
   }

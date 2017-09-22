@@ -1,27 +1,31 @@
 <template>
   <div class="wrapper">
     <div class="content">
-      <list class="group">
-        <cell :class="['group-type', item.type === activeGroup ? 'active-group': '']" v-for="item in currentTab.group" :key="item.type" @click="toggleGroup(item.type)">
-          <text :class="['group-type-name', item.type === activeGroup ? 'active-group-name': '']">{{item.name}}</text>
-        </cell>
-      </list>
-      <list class="examples">
-        <cell class="group-intro" v-if="currentGroup.title">
-          <text class="group-title">{{currentGroup.title}}</text>
-          <text class="group-desc">{{currentGroup.desc}}</text>
-          <text class="doc-link" v-if="currentGroup.docLink" @click="jumpTo(currentGroup.docLink)">查看文档 >></text>
-        </cell>
-        <cell class="case" v-for="(group, i) in currentExamples" :key="i">
-          <div class="example-box" v-for="example in group" :key="example.title">
-            <text class="example-title">{{example.title}}</text>
-            <a :href="example.hash | url">
-              <image class="screenshot" :src="example.screenshot"></image>
-            </a>
-            <text @click="viewSource(example.hash)" class="example-tips">查看源码</text>
-          </div>
-        </cell>
-      </list>
+      <div class="group">
+        <list class="group-list">
+          <cell :class="['group-type', item.type === activeGroup ? 'active-group-type': '']" v-for="item in currentTab.group" :key="item.type" @click="toggleGroup(item.type)">
+            <text :class="['group-name', item.type === activeGroup ? 'active-group-name': '']">{{item.name}}</text>
+          </cell>
+        </list>
+      </div>
+      <div class="examples">
+        <list class="examples-list">
+          <cell class="group-intro" v-if="currentGroup.title">
+            <text class="group-title">{{currentGroup.title}}</text>
+            <text class="group-desc">{{currentGroup.desc}}</text>
+            <text class="doc-link" v-if="currentGroup.docLink" @click="jumpTo(currentGroup.docLink)">查看文档 >></text>
+          </cell>
+          <cell class="case" v-for="(group, i) in currentExamples" :key="i">
+            <div class="example-box" v-for="example in group" :key="example.title">
+              <text class="example-title">{{example.title}}</text>
+              <a :href="example.hash | url">
+                <image class="screenshot" :src="example.screenshot"></image>
+              </a>
+              <text @click="viewSource(example.hash)" class="example-tips">查看源码</text>
+            </div>
+          </cell>
+        </list>
+      </div>
     </div>
     <div class="tabbar">
       <div :class="['tab-cell', tab.type === activeTab ? 'active-tab-cell': '']" v-for="tab in tabs" :key="tab.type" @click="toggleTab(tab.type)">
@@ -33,43 +37,47 @@
 
 <style>
   .content {
+    width: 750px;
+    position: absolute;
+    top: 0;
+    bottom: 110px;
     flex-direction: row;
-    flex: 1;
+    justify-content: space-between;
   }
   .group {
-    width: 215px;
-    align-self: flex-start;
-    flex: 0;
-    padding-bottom: 35px;
+    width: 210px;
+  }
+  .examples {
+    width: 540px;
   }
   .group-type {
     width: 200px;
     height: 108px;
+    transition-property: width, background-color;
+    transition-duration: 0.2s;
     border-bottom-width: 1px;
     border-bottom-color: #EEEEEE;
     border-right-width: 2px;
     border-right-color: #E0E0E0;
     justify-content: center;
+    background-color: #FEFEFE;
   }
-  .group-type-name {
+  .group-name {
     text-align: center;
     font-size: 34px;
     color: #888888;
   }
-  .active-group {
+  .active-group-type {
     width: 210px;
-    height: 115px;
     border-radius: 10px;
-    background-image: linear-gradient(to right, rgba(0, 189, 255, 0.1),rgba(0, 189, 255, 0.2));
-    /* border-right-width: 4px; */
+    background-color: rgba(0, 189, 255, 0.1);
     border-right-color: rgba(0, 189, 255, 0.2);
     border-bottom-color: rgba(0, 189, 255, 0.1);
-    /* background-color: rgba(0, 189, 255, 0.1); */
   }
   .active-group-name {
     font-size: 38px;
     font-weight: bold;
-    color: rgba(0, 189, 255, 0.6);
+    color: #00B4FF;
   }
   .group-intro {
     padding-top: 60px;
@@ -95,14 +103,9 @@
     margin-top: 10px;
     margin-right: 60px;
   }
-  .examples {
-    width: 535px;
-    flex: 1;
-  }
   .case {
     flex-direction: row;
     justify-content: flex-start;
-    /* justify-content: space-around; */
     padding-left: 15px;
     padding-right: 25px;
     padding-top: 20px;
@@ -134,22 +137,27 @@
     padding-bottom: 10px;
   }
   .tabbar {
-    /* height: 140px; */
+    width: 750px;
+    position: fixed;
+    bottom: 0;
+    height: 110px;
     flex-direction: row;
     justify-content: space-around;
     align-items: flex-end;
+    background-color: #E6E6E6;
   }
   .tab-cell {
-    width: 180px;
-    height: 100px;
-    border-radius: 12px;
+    width: 186px;
+    height: 110px;
+    border-top-width: 2px;
+    border-top-style: solid;
+    border-top-color: #DDDDDD;
     justify-content: center;
-    background-image: linear-gradient(to top, #FFFFFF,#EEEEEE);
+    background-color: #FBFBFB;
   }
   .active-tab-cell {
-    height: 140px;
-    background-image: linear-gradient(to top, rgba(0, 189, 255, 0.1),rgba(0, 189, 255, 0.4));
-    /* background-color: rgba(0, 189, 255, 0.2); */
+    border-top-color: rgba(0, 189, 255, 0.8);
+    background-color: #BDECFF;
   }
   .tab-name {
     text-align: center;
@@ -168,18 +176,15 @@
   const navigator = weex.requireModule('navigator')
   const storage = weex.requireModule('storage')
   function createURL (hash) {
+    if (WXEnvironment.platform === 'Web') {
+      return `http://dotwe.org/raw/htmlVue/${hash}`
+    }
     const url = `http://dotwe.org/raw/dist/${hash}.bundle.wx`
     return `${url}?_wx_tpl=${url}`
   }
   export default {
     filters: {
-      url: createURL,
-      src: hash => {
-        return `http://dotwe.org/raw/src/${hash}.vue`
-      },
-      indent (text) {
-        return '      ' + text
-      }
+      url: createURL
     },
     data () {
       return {
@@ -220,18 +225,18 @@
       },
       jumpTo (url) {
         navigator.push({
-          url: createURL('aae837263b1ebad42263323806714b90')
+          url: createURL('ab57ab447248c35115144736ba38521a')
         })
         storage.setItem('CURRENT_DOCUMENT_URL', url)
       },
       viewSource (hash) {
         navigator.push({
-          url: createURL('ed02cffbc73983eae5780ae467841082')
+          url: createURL('948b94268510c83155ae1d6a5e90f6e0')
         })
         storage.setItem('CURRENT_SOURCE_HASH', hash)
       }
     },
-    destroyed () {
+    beforeDestroy () {
       storage.removeItem('CURRENT_DOCUMENT_URL')
       storage.removeItem('CURRENT_SOURCE_HASH')
     }
