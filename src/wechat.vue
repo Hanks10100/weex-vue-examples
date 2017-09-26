@@ -33,15 +33,14 @@
     justify-content: space-between;
   }
   .chat-list {
-    flex: 1;
     background-color: #F3F3F3;
   }
   .chat-cell {
-    flex-direction: row;
     align-items: flex-start;
     justify-content: flex-start;
   }
   .chat-cell-bot {
+    flex-direction: row;
     padding-left: 15px;
   }
   .chat-cell-user {
