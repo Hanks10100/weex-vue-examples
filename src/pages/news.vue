@@ -13,10 +13,16 @@
   </div>
 </template>
 
-<style>
+<style scoped>
   .wrapper {
     width: 100%;
     height: 100%;
     flex: 1;
   }
 </style>
+
+<script>
+  export default {
+    props: ['title']
+  }
+</script>
