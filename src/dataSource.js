@@ -5,7 +5,7 @@ export default [
     group: [{
       type: 'div',
       name: 'div',
-      title: { zh: '<div> 组件', en: '<div> component' },
+      title: { zh: '<div> 组件', en: '<div>' },
       desc: {
         zh: '<div> 组件是用于包装其它组件的最基本容器。支持所有的通用样式、特性、flexbox 布局。其类似于 HTML 的 <div> 容器，但不能直接在里面添加文本（字符串），如果要展示文本，应该使用 <text> 组件。',
         en: '<div> is the most fundamental component which is a contianer to wrap any other components. It supports all the common styles, attributes and layout of flexbox.',
@@ -30,7 +30,7 @@ export default [
     }, {
       type: 'text',
       name: 'text',
-      title: '<text> 组件',
+      title: { zh: '<text> 组件', en: '<text>' },
       desc: '<text> 是 Weex 内置的组件，用来将文本按照指定的样式渲染出来。<text> 只能包含文本值，不支持子组件，你可以使用 {{}} 标记插入变量值作为文本内容。',
       docLink: 'http://weex-project.io/cn/references/components/text.html',
       examples: [{
@@ -39,21 +39,21 @@ export default [
         screenshot: 'https://gw.alicdn.com/tfs/TB1V5IXcMMPMeJjy1XdXXasrXXa-540-844.png'
       }, {
         hash: '25b96fb0283300df1b183d019d835e4f',
-        title: 'lines 属性',
+        title: { zh: 'lines 属性', en: '"lines"' },
         screenshot: 'https://gw.alicdn.com/tfs/TB19JaYcMoQMeJjy0FpXXcTxpXa-540-844.png'
       }, {
         hash: '7e123f72106c5dbba7675f6ee3bd35d2',
-        title: '保留首尾空格',
+        title: { zh: '保留首尾空格', en: 'Trim space' },
         screenshot: 'https://gw.alicdn.com/tfs/TB140aYcMoQMeJjy0FpXXcTxpXa-540-844.png'
       }, {
         hash: '161cd0771fd95f9e73c7663d4674c4f4',
-        title: '实体字符',
+        title: { zh: '实体字符', en: 'Entity character' },
         screenshot: 'https://gw.alicdn.com/tfs/TB1c41UcMoQMeJjy1XaXXcSsFXa-540-844.png'
       }]
     }, {
       type: 'image',
       name: 'image',
-      title: '<image> 组件',
+      title: { zh: '<image> 组件', en: '<image>' },
       desc: '<image> 组件用于渲染图片，并且它不能包含任何子组件。需要注意的是，必须明确指定 width 和 height，否则图片无法显示。',
       docLink: 'http://weex-project.io/cn/references/components/image.html',
       examples: [{
@@ -84,7 +84,7 @@ export default [
     }, {
       type: 'list',
       name: 'list',
-      title: '<list> 组件',
+      title: { zh: '<list> 组件', en: '<list>' },
       desc: '<list> 组件是提供垂直列表功能的核心组件，拥有平滑的滚动和高效的内存管理，非常适合用于长列表的展示。最简单的使用方法是在 <list> 标签内使用数组循环生成的多个 <cell> 标签。',
       docLink: 'http://weex-project.io/cn/references/components/list.html',
       examples: [{
@@ -115,7 +115,7 @@ export default [
     }, {
       type: 'scroller',
       name: 'scroller',
-      title: '<scroller> 组件',
+      title: { zh: '<scroller> 组件', en: '<scroller>' },
       desc: '<scroller> 是一个竖直的，可以容纳多个排成一列的子组件的滚动器。如果子组件的总高度高于其本身，那么所有的子组件都可滚动。',
       docLink: 'http://weex-project.io/cn/references/components/scroller.html',
       examples: [{
@@ -146,7 +146,7 @@ export default [
     }, {
       type: 'input',
       name: 'input',
-      title: '<input> 组件',
+      title: { zh: '<input> 组件', en: '<input>' },
       desc: 'Weex 内置的 <input> 组件用来创建接收用户输入字符的输入组件。 <input> 组件的工作方式因 type 属性的值而异，比如 text, password, url, email, tel 等。此组件不支持子组件和 click 事件。',
       docLink: 'http://weex-project.io/cn/references/components/input.html',
       examples: [{
@@ -173,7 +173,7 @@ export default [
     }, {
       type: 'textarea',
       name: 'textarea',
-      title: '<textarea> 组件',
+      title: { zh: '<textarea> 组件', en: '<textarea>' },
       desc: 'textarea 是 Weex 内置的一个组件，用于用户交互，接受用户输入数据。可以认为是允许多行的 <input> 组件。',
       docLink: 'http://weex-project.io/cn/references/components/textarea.html',
       examples: [{
@@ -188,7 +188,7 @@ export default [
     }, {
       type: 'switch',
       name: 'switch',
-      title: '<switch> 组件',
+      title: { zh: '<switch> 组件', en: '<switch>' },
       desc: '<switch> 是 Weex 的内置组件，用来创建与 iOS 一致样式的按钮。例如在 iPhone 中的设置应用中的飞行模式按钮就是一个 switch 按钮。',
       docLink: 'http://weex-project.io/cn/references/components/switch.html',
       examples: [{
@@ -207,7 +207,7 @@ export default [
     }, {
       type: 'video',
       name: 'video',
-      title: '<video> 组件',
+      title: { zh: '<video> 组件', en: '<video>' },
       desc: '<video> 组件可以让我们在 Weex 页面中嵌入视频内容。<text> 是唯一合法的子组件。',
       docLink: 'http://weex-project.io/cn/references/components/video.html',
       examples: [{
@@ -226,7 +226,7 @@ export default [
     }, {
       type: 'web',
       name: 'web',
-      title: '<web> 组件',
+      title: { zh: '<web> 组件', en: '<web>' },
       desc: '使用 <web> 组件在 Weex 页面中嵌入一张网页内容。src 属性用来指定资源地址。你也可以使用 webview module 来控制 web 的行为，比如前进、后退和重载。',
       docLink: 'http://weex-project.io/cn/references/components/web.html',
       examples: [{
@@ -249,7 +249,7 @@ export default [
     }, {
       type: 'richtext',
       name: 'richtext',
-      title: '富文本组件',
+      title: { zh: '富文本组件', en: '<richtext>' },
       desc: '',
       examples: [{
         hash: '36a1999a7957de7bcbeb7cca95ba46d2',
@@ -263,7 +263,7 @@ export default [
     }, {
       type: 'waterfall',
       name: 'waterfall',
-      title: '瀑布流组件',
+      title: { zh: '瀑布流组件', en: '<waterfall>' },
       desc: '提供瀑布流布局的组件。',
       docLink: 'http://weex-project.io/cn/references/components/waterfall.html',
       examples: [{
@@ -451,7 +451,7 @@ export default [
     }]
   }, {
     type: 'syntax',
-    name: '语法',
+    name: { zh: '语法', en: 'Syntax' },
     group: [{
       type: 'Mustache',
       name: 'Mustache',
@@ -694,10 +694,10 @@ export default [
     }]
   }, {
     type: 'others',
-    name: '其他',
+    name: { zh: '其他', en: 'Others' },
     group: [{
       type: 'styles',
-      name: '样式',
+      name: { zh: '样式', en: 'Styles' },
       examples: [{
         hash: 'ad002b5e26cf55475661b22e81682f79',
         title: '边框/背景',
@@ -742,7 +742,7 @@ export default [
     }, {
       type: 'flexbox',
       name: 'Flexbox',
-      title: 'Flexbox 布局',
+      title: { zh: 'Flexbox 布局', en: 'Flexbox Layout' },
       desc: 'CSS 弹性盒子布局是 CSS 的模块之一，定义了一种针对用户界面设计而优化的 CSS 盒子模型。在弹性布局模型中，弹性容器的子元素可以在任何方向上排布，也可以“弹性伸缩”其尺寸，既可以增加尺寸以填满未使用的空间，也可以收缩尺寸以避免父元素溢出。子元素的水平对齐和垂直对齐都能很方便的进行操控。通过嵌套这些框（水平框在垂直框内，或垂直框在水平框内）可以在两个维度上构建布局。',
       docLink: 'https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Flexible_Box_Layout',
       examples: [{
@@ -796,7 +796,7 @@ export default [
       }]
     }, {
       type: 'hack',
-      name: '黑科技',
+      name: { zh: '黑科技', en: 'Hacks' },
       title: 'Expression Binding',
       desc: '',
       docLink: '',
@@ -807,7 +807,7 @@ export default [
       }]
     }, {
       type: 'useful',
-      name: '功能',
+      name: { zh: '功能', en: 'Utils' },
       examples: [{
         hash: '377c4f4a6030b5842938afb814cf169f',
         title: '获取环境信息',
@@ -843,7 +843,7 @@ export default [
       }]
     }, {
       type: 'showCase',
-      name: '实例',
+      name: { zh: '实例', en: 'Use Case' },
       examples: [{
         hash: '8b7ccae9e15438c220257fac0d63d43b',
         title: 'Todo List',
@@ -859,7 +859,7 @@ export default [
       }]
     }, {
       type: 'realCase',
-      name: '仿',
+      name: { zh: '仿', en: 'Reprography' },
       examples: [{
         // hash: 'f28215d4d9d96de91115cdd1528bcacd',
         hash: '8ee2850f39123a350333eb08beac7115',
@@ -880,7 +880,7 @@ export default [
       }]
     }, {
       type: 'flatten-benchmark',
-      name: '平铺压测',
+      name: { zh: '平铺压测', en: 'Benchmark' },
       examples: [{
         hash: 'ae5fd588a6522ebb62c8cc9fa049098b',
         title: '节点 838',
@@ -908,7 +908,7 @@ export default [
       }]
     }, {
       type: 'layer-benchmark',
-      name: '层级压测',
+      name: { zh: '层级压测', en: 'Benchmark' },
       examples: [{
         hash: '33c93497fe648eeb3bd5a8b9eb709977',
         title: '层级 100',
@@ -926,9 +926,9 @@ export default [
         title: '层级 1000',
         screenshot: 'https://gw.alicdn.com/tfs/TB1I1z8cMMPMeJjy1XdXXasrXXa-540-844.png'
       }]
-    }, {
-      type: 'settings',
-      name: { zh: '设置', en: 'Settings' }
+    // }, {
+    //   type: 'settings',
+    //   name: { zh: '设置', en: 'Settings' }
     }]
   }
 ]

@@ -14,7 +14,7 @@
             <text class="setting-title">Settings</text>
           </cell>
           <cell class="setting-cell" @click="chooseLanguage">
-            <text class="setting-label">Language</text>
+            <text class="setting-label">{{i18n(tips.LANGUAGE)}}</text>
             <text class="setting-value">{{language | lang}}</text>
           </cell>
         </list>
@@ -170,11 +170,11 @@
   }
   .setting-label {
     font-size: 36px;
-    color: ##707070;
+    color: #707070;
   }
   .setting-value {
     font-size: 36px;
-    color: #888888;
+    color: #999999;
   }
   .tabbar {
     width: 750px;
@@ -236,14 +236,20 @@
     },
     data () {
       return {
-        language: 'en',
+        language: 'zh',
         activeTab: 'component',
         activeGroup: 'div',
         tips: {
           VIEW_SOURCE: { en: 'view source', zh: '查看源码' },
+          LANGUAGE: { en: 'Language', zh: '语言' },
           SEE_MORE: { en: 'see more', zh: '查看更多' }
         },
         tabs: exampleMap.map(group => ({ type: group.type, name: group.name }))
+      }
+    },
+    watch: {
+      language () {
+        storage.setItem('WEEX_PLAYGROUND_LANGUAGE', this.language)
       }
     },
     beforeCreate () {
@@ -316,7 +322,6 @@
         }, ({result, data}) => {
           if (result === 'success') {
             this.language = options[data]
-            storage.setItem('WEEX_PLAYGROUND_LANGUAGE', this.language)
           }
         })
       }
