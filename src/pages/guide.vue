@@ -2,19 +2,19 @@
   <list class="wrapper">
     <cell class="banner-cell">
       <div class="banner">
-        <image class="vue-logo" src="https://gw.alicdn.com/tfs/TB1J_uKcMMPMeJjy1XdXXasrXXa-400-400.png" />
-        <text class="banner-title">学习 Vue.js</text>
+        <image class="weex-logo" src="https://gw.alicdn.com/tfs/TB17hlIdgoQMeJjy0FpXXcTxpXa-328-328.png" />
+        <text class="banner-title">学习 Weex</text>
       </div>
     </cell>
     <cell class="lesson-cell" v-for="(lesson, i) in lessons" :key="i">
       <div class="lesson" @click="openURL(lesson.docLink)">
-        <text class="lesson-index">{{i+1}}.</text>
+        <text class="lesson-index">{{i}}.</text>
         <text class="lesson-title">{{lesson.title}}</text>
       </div>
     </cell>
     <cell class="footer-cell">
       <div class="footer">
-        <text class="copyright">From https://cn.vuejs.org/</text>
+        <text class="copyright">From http://weex-project.io/cn/</text>
       </div>
     </cell>
   </list>
@@ -31,17 +31,17 @@
     justify-content: center;
     align-items: center;
   }
-  .vue-logo {
+  .weex-logo {
     width: 210px;
     height: 210px;
   }
   .banner-title {
     text-align: center;
-    color: #42b983;
-    font-size: 60px;
+    color: #00B4FF;
+    font-size: 46px;
+    margin-top: 30px;
   }
   .lesson-cell {
-    /* padding: 20px; */
     align-items: center;
     justify-content: center;
   }
@@ -63,7 +63,7 @@
   }
   .lesson-title {
     font-size: 42px;
-    color: #42b983;
+    color: #00B4FF;
   }
   .footer {
     height: 80px;
@@ -80,65 +80,83 @@
 <script>
   const lessons = [
     {
-      title: 'Vue.js 是什么？',
-      docLink: 'https://cn.vuejs.org/v2/guide/index.html'
+      title: '什么是 Weex ？',
+      docLink: ''
     }, {
-      title: '单文件组件',
-      docLink: 'https://cn.vuejs.org/v2/guide/single-file-components.html'
+      title: '快速上手',
+      docLink: 'http://weex-project.io/cn/guide/index.html'
     }, {
-      title: '模板语法',
-      docLink: 'https://cn.vuejs.org/v2/guide/syntax.html'
+      title: '工作原理',
+      docLink: 'http://weex-project.io/cn/guide/intro/how-it-works.html'
     }, {
-      title: 'Class 与 Style 绑定',
-      docLink: 'https://cn.vuejs.org/v2/guide/class-and-style.html'
+      title: '用 Weex 构建移动应用',
+      docLink: 'http://weex-project.io/cn/guide/intro/app-architecture.html'
     }, {
-      title: '条件渲染',
-      docLink: 'https://cn.vuejs.org/v2/guide/conditional.html'
+      title: 'Weex 页面结构',
+      docLink: 'http://weex-project.io/cn/guide/intro/page-architecture.html'
     }, {
-      title: '列表渲染',
-      docLink: 'https://cn.vuejs.org/v2/guide/list.html'
+      title: '集成 Weex 到已有应用',
+      docLink: 'http://weex-project.io/cn/guide/integrate-to-your-app.html'
     }, {
-      title: '事件处理',
-      docLink: 'https://cn.vuejs.org/v2/guide/events.html'
+      title: '和 Web 平台的差异',
+      docLink: 'http://weex-project.io/cn/references/platform-difference.html'
     }, {
-      title: '表单输入绑定',
-      docLink: 'https://cn.vuejs.org/v2/guide/forms.html'
+      title: '搭建开发环境',
+      docLink: 'http://weex-project.io/cn/guide/set-up-env.html'
     }, {
-      title: 'Vue 实例',
-      docLink: 'https://cn.vuejs.org/v2/guide/instance.html'
+      title: '使用 Vue 开发页面',
+      docLink: 'http://weex-project.io/cn/guide/intro/using-vue.html'
     }, {
-      title: '在 Weex 中的差异',
+      title: 'Vue 在 Weex 中的差异',
       docLink: 'http://weex-project.io/cn/references/vue/difference-with-web.html'
     }, {
-      title: '混合（mixins）',
-      docLink: 'https://cn.vuejs.org/v2/guide/mixins.html'
+      title: '通用样式',
+      docLink: 'http://weex-project.io/cn/references/common-style.html'
     }, {
-      title: '过滤器（filters）',
-      docLink: 'https://cn.vuejs.org/v2/guide/filters.html'
+      title: '通用事件',
+      docLink: 'http://weex-project.io/cn/references/common-event.html'
     }, {
-      title: '插件（plugins）',
-      docLink: 'https://cn.vuejs.org/v2/guide/plugins.html'
+      title: '手势',
+      docLink: 'http://weex-project.io/cn/references/gesture.html'
     }, {
-      title: '自定义指令',
-      docLink: 'https://cn.vuejs.org/v2/guide/custom-directive.html'
+      title: 'Weex 实例变量',
+      docLink: 'http://weex-project.io/cn/references/weex-variable.html'
     }, {
-      title: '状态管理',
-      docLink: 'https://cn.vuejs.org/v2/guide/state-management.html'
+      title: '内置组件',
+      docLink: 'http://weex-project.io/cn/references/components/index.html'
     }, {
-      title: '深入响应式原理',
-      docLink: 'https://cn.vuejs.org/v2/guide/reactivity.html'
+      title: '内置模块',
+      docLink: 'http://weex-project.io/cn/references/modules/index.html'
     }, {
-      title: '渲染函数',
-      docLink: 'https://cn.vuejs.org/v2/guide/render-function.html'
+      title: 'Android 扩展',
+      docLink: 'http://weex-project.io/cn/references/advanced/extend-to-android.html'
     }, {
-      title: 'TypeScript 支持',
-      docLink: 'https://cn.vuejs.org/v2/guide/typescript.html'
+      title: 'iOS 扩展',
+      docLink: 'http://weex-project.io/cn/references/advanced/extend-to-ios.html'
     }, {
-      title: '对比其他框架',
-      docLink: 'https://cn.vuejs.org/v2/guide/comparison.html'
+      title: 'Web 扩展',
+      docLink: 'http://weex-project.io/cn/references/advanced/extend-to-html5.html'
     }, {
-      title: 'API',
-      docLink: 'https://cn.vuejs.org/v2/api/'
+      title: '使用 weex-toolkit',
+      docLink: 'http://weex-project.io/cn/guide/tools/toolkit.html'
+    }, {
+      title: '集成 Devtools 到 Android',
+      docLink: 'http://weex-project.io/cn/references/advanced/integrate-devtool-to-android.html'
+    }, {
+      title: '集成 Devtools 到 iOS',
+      docLink: 'http://weex-project.io/cn/references/advanced/integrate-devtool-to-ios.html'
+    }, {
+      title: '使用 Vuex 和 vue-router',
+      docLink: 'http://weex-project.io/cn/references/vue/difference-of-vuex.html'
+    }, {
+      title: 'JS Service',
+      docLink: 'http://weex-project.io/cn/references/js-service/index.html'
+    }, {
+      title: '如何参与社区',
+      docLink: 'http://weex-project.io/cn/guide/contributing.html'
+    }, {
+      title: 'FAQ',
+      docLink: 'http://weex-project.io/cn/faq.html'
     }
   ]
 
@@ -160,10 +178,12 @@
     filters: {},
     methods: {
       openURL (url) {
-        storage.setItem('CURRENT_DOCUMENT_URL', url)
-        navigator.push({
-          url: createURL('ab57ab447248c35115144736ba38521a')
-        })
+        if (url) {
+          storage.setItem('CURRENT_DOCUMENT_URL', url)
+          navigator.push({
+            url: createURL('ab57ab447248c35115144736ba38521a')
+          })
+        }
       },
     }
   }

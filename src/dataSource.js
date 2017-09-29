@@ -819,8 +819,20 @@ export default [
         title: '自定义字体',
         screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
       }, {
+        hash: '4d95cb59f26bf78c006e53b397b63676',
+        title: '学习 Weex',
+        screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      }, {
+        hash: 'd3e5e41f92a45fb6bd87e823654503c6',
+        title: '学习 CSS',
+        screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      }, {
         hash: '43dab802ecd9361850ea317a229895a3',
         title: '学习 Vue.js',
+        screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      }, {
+        hash: 'e1a3ee8afd49aaedd1e9c9593be703d6',
+        title: 'Weex + Vue',
         screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
       }]
     }, {
