@@ -4,24 +4,33 @@
       <div class="group">
         <list class="group-list">
           <cell :class="['group-type', item.type === activeGroup ? 'active-group-type': '']" v-for="item in currentTab.group" :key="item.type" @click="toggleGroup(item.type)">
-            <text :class="['group-name', item.type === activeGroup ? 'active-group-name': '']">{{item.name}}</text>
+            <text :class="['group-name', item.type === activeGroup ? 'active-group-name': '']">{{i18n(item.name)}}</text>
           </cell>
         </list>
       </div>
       <div class="examples">
-        <list class="examples-list">
+        <list class="settings" v-if="currentGroup.type === 'settings'">
+          <cell class="setting-title-cell">
+            <text class="setting-title">Settings</text>
+          </cell>
+          <cell class="setting-cell" @click="chooseLanguage">
+            <text class="setting-label">Language</text>
+            <text class="setting-value">{{language | lang}}</text>
+          </cell>
+        </list>
+        <list class="examples-list" v-else>
           <cell class="group-intro" v-if="currentGroup.title">
-            <text class="group-title">{{currentGroup.title}}</text>
-            <text class="group-desc">{{currentGroup.desc}}</text>
-            <text class="doc-link" v-if="currentGroup.docLink" @click="jumpTo(currentGroup.docLink)">查看文档 >></text>
+            <text class="group-title">{{i18n(currentGroup.title)}}</text>
+            <text class="group-desc">{{i18n(currentGroup.desc)}}</text>
+            <text class="doc-link" v-if="currentGroup.docLink" @click="jumpTo(currentGroup.docLink)">{{i18n(tips.SEE_MORE)}} >></text>
           </cell>
           <cell class="case" v-for="(group, i) in currentExamples" :key="i">
             <div class="example-box" v-for="example in group" :key="example.title">
-              <text class="example-title">{{example.title}}</text>
+              <text class="example-title">{{i18n(example.title)}}</text>
               <a :href="example.hash | url">
                 <image class="screenshot" :src="example.screenshot"></image>
               </a>
-              <text @click="viewSource(example.hash)" class="example-tips">查看源码</text>
+              <text @click="viewSource(example.hash)" class="example-tips">{{i18n(tips.VIEW_SOURCE)}}</text>
             </div>
           </cell>
         </list>
@@ -29,7 +38,7 @@
     </div>
     <div class="tabbar">
       <div :class="['tab-cell', tab.type === activeTab ? 'active-tab-cell': '']" v-for="tab in tabs" :key="tab.type" @click="toggleTab(tab.type)">
-        <text :class="['tab-name', tab.type === activeTab ? 'active-tab-name': '']">{{tab.name}}</text>
+        <text :class="['tab-name', tab.type === activeTab ? 'active-tab-name': '']">{{i18n(tab.name)}}</text>
       </div>
     </div>
   </div>
@@ -136,6 +145,37 @@
     padding-top: 10px;
     padding-bottom: 10px;
   }
+  .setting-title-cell {
+    align-items: center;
+    justify-content: center;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: #DDD;
+    padding: 50px;
+  }
+  .setting-title {
+    font-size: 50px;
+    padding-bottom: 30px;
+    text-align: center;
+    color: #686868;
+  }
+  .setting-cell {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: #DDD;
+  }
+  .setting-label {
+    font-size: 36px;
+    color: ##707070;
+  }
+  .setting-value {
+    font-size: 36px;
+    color: #888888;
+  }
   .tabbar {
     width: 750px;
     position: fixed;
@@ -175,6 +215,7 @@
   import exampleMap from './dataSource'
   const navigator = weex.requireModule('navigator')
   const storage = weex.requireModule('storage')
+  const picker = weex.requireModule('picker')
   function createURL (hash) {
     if (WXEnvironment.platform === 'Web') {
       return `http://dotwe.org/raw/htmlVue/${hash}`
@@ -184,14 +225,33 @@
   }
   export default {
     filters: {
-      url: createURL
+      url: createURL,
+      lang (type) {
+        switch (type) {
+          case 'en': return 'English'
+          case 'zh': return '中文'
+        }
+        return type
+      }
     },
     data () {
       return {
+        language: 'en',
         activeTab: 'component',
         activeGroup: 'div',
+        tips: {
+          VIEW_SOURCE: { en: 'view source', zh: '查看源码' },
+          SEE_MORE: { en: 'see more', zh: '查看更多' }
+        },
         tabs: exampleMap.map(group => ({ type: group.type, name: group.name }))
       }
+    },
+    beforeCreate () {
+      storage.getItem('WEEX_PLAYGROUND_LANGUAGE', event => {
+        if (event.result === 'success') {
+          this.language = event.data
+        }
+      })
     },
     computed: {
       currentTab () {
@@ -223,17 +283,42 @@
       toggleGroup (type) {
         this.activeGroup = type
       },
-      jumpTo (url) {
-        navigator.push({
-          url: createURL('ab57ab447248c35115144736ba38521a')
-        })
-        storage.setItem('CURRENT_DOCUMENT_URL', url)
+      i18n (text) {
+        if (typeof text === 'string') {
+          return text
+        }
+        if (Object.prototype.toString.call(text) === '[object Object]') {
+          const lang = this.language || 'en'
+          return text[lang]
+        }
       },
-      viewSource (hash) {
-        navigator.push({
-          url: createURL('948b94268510c83155ae1d6a5e90f6e0')
+      jumpTo (url) {
+        const hash = {
+          'en': '502078627a7d617f11f48f15560210ff',
+          'zh': 'ab57ab447248c35115144736ba38521a'
+        }
+        storage.setItem('CURRENT_DOCUMENT_URL', this.i18n(url))
+        navigator.push({ url: createURL(this.i18n(hash)) })
+      },
+      viewSource (url) {
+        const hash =  {
+          'en': '54ee61d26cfba3d6c9ad3a86876a709a',
+          'zh': '948b94268510c83155ae1d6a5e90f6e0'
+        }
+        storage.setItem('CURRENT_SOURCE_HASH', this.i18n(url))
+        navigator.push({ url: createURL(this.i18n(hash)) })
+      },
+      chooseLanguage () {
+        const options = ['en', 'zh']
+        picker.pick({
+          index: options.indexOf(this.language),
+          items: ['English', '中文'],
+        }, ({result, data}) => {
+          if (result === 'success') {
+            this.language = options[data]
+            storage.setItem('WEEX_PLAYGROUND_LANGUAGE', this.language)
+          }
         })
-        storage.setItem('CURRENT_SOURCE_HASH', hash)
       }
     },
     beforeDestroy () {

@@ -1,24 +1,30 @@
 export default [
   {
     type: 'component',
-    name: '组件',
+    name: { zh: '组件', en: 'Component' },
     group: [{
       type: 'div',
       name: 'div',
-      title: '<div> 组件',
-      desc: '<div> 组件是用于包装其它组件的最基本容器。支持所有的通用样式、特性、flexbox 布局。其类似于 HTML 的 <div> 容器，但不能直接在里面添加文本（字符串），如果要展示文本，应该使用 <text> 组件。',
-      docLink: 'http://weex-project.io/cn/references/components/div.html',
+      title: { zh: '<div> 组件', en: '<div> component' },
+      desc: {
+        zh: '<div> 组件是用于包装其它组件的最基本容器。支持所有的通用样式、特性、flexbox 布局。其类似于 HTML 的 <div> 容器，但不能直接在里面添加文本（字符串），如果要展示文本，应该使用 <text> 组件。',
+        en: '<div> is the most fundamental component which is a contianer to wrap any other components. It supports all the common styles, attributes and layout of flexbox.',
+      },
+      docLink: {
+        en: 'http://weex-project.io/references/components/div.html',
+        zh: 'http://weex-project.io/cn/references/components/div.html',
+      },
       examples: [{
         hash: 'd813b9f5d1e8ef95b0cfa32d469af236',
-        title: '最简例子',
+        title: { zh: '最简例子', en: 'Sample' },
         screenshot: 'https://gw.alicdn.com/tfs/TB11h7wewMPMeJjy1XcXXXpppXa-540-844.png'
       }, {
         hash: 'ad002b5e26cf55475661b22e81682f79',
-        title: '嵌套',
+        title: { zh: '嵌套', en: 'Nested' },
         screenshot: 'https://gw.alicdn.com/tfs/TB1z9P1ewMPMeJjy1XdXXasrXXa-540-844.png'
       }, {
         hash: '7613db44f6c03a5849937fbbdeebf69d',
-        title: '文字节点',
+        title: { zh: '文字节点', en: 'Text Node' },
         screenshot: 'https://gw.alicdn.com/tfs/TB1qlG2cwoQMeJjy1XaXXcSsFXa-540-844.png'
       }]
     }, {
@@ -29,7 +35,7 @@ export default [
       docLink: 'http://weex-project.io/cn/references/components/text.html',
       examples: [{
         hash: '3e0220d7b379955a26039131f153a360',
-        title: '最简例子',
+        title: { zh: '最简例子', en: 'Sample' },
         screenshot: 'https://gw.alicdn.com/tfs/TB1V5IXcMMPMeJjy1XdXXasrXXa-540-844.png'
       }, {
         hash: '25b96fb0283300df1b183d019d835e4f',
@@ -52,7 +58,7 @@ export default [
       docLink: 'http://weex-project.io/cn/references/components/image.html',
       examples: [{
         hash: 'c8d67a852dca4865b06cf372cd5b3c17',
-        title: '最简例子',
+        title: { zh: '最简例子', en: 'Sample' },
         screenshot: 'https://gw.alicdn.com/tfs/TB150aYcMoQMeJjy0FpXXcTxpXa-540-844.png'
       }, {
         hash: '859c22672d2b5d7fb4db9a37c0d5b6ec',
@@ -83,7 +89,7 @@ export default [
       docLink: 'http://weex-project.io/cn/references/components/list.html',
       examples: [{
         hash: '3faed12fc18c947255abfa8354570170',
-        title: '最简例子',
+        title: { zh: '最简例子', en: 'Sample' },
         screenshot: 'https://gw.alicdn.com/tfs/TB1pgDZcMoQMeJjy1XaXXcSsFXa-540-844.png'
       }, {
         hash: '4624d605004fc7eb9f14ca9c5a226fe3',
@@ -114,7 +120,7 @@ export default [
       docLink: 'http://weex-project.io/cn/references/components/scroller.html',
       examples: [{
         hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-        title: '最简例子',
+        title: { zh: '最简例子', en: 'Sample' },
         screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
       }, {
         hash: '4624d605004fc7eb9f14ca9c5a226fe3',
@@ -145,7 +151,7 @@ export default [
       docLink: 'http://weex-project.io/cn/references/components/input.html',
       examples: [{
         hash: 'ed21daa55c43139ddac26900526f18b3',
-        title: '最简例子',
+        title: { zh: '最简例子', en: 'Sample' },
         screenshot: 'https://gw.alicdn.com/tfs/TB1IQ9cdgMPMeJjy1XcXXXpppXa-540-844.png'
       }, {
         hash: 'a06f7f8f319e8aedc0e8763ec58c4cf1',
@@ -172,7 +178,7 @@ export default [
       docLink: 'http://weex-project.io/cn/references/components/textarea.html',
       examples: [{
         hash: 'd6a7858c51fbe4f57a8749cee8987cf2',
-        title: '最简例子',
+        title: { zh: '最简例子', en: 'Sample' },
         screenshot: 'https://gw.alicdn.com/tfs/TB1TSyddgoQMeJjy0FoXXcShVXa-540-844.png'
       }, {
         hash: '2dbf1ef9648e66244638502bc31859a4',
@@ -187,7 +193,7 @@ export default [
       docLink: 'http://weex-project.io/cn/references/components/switch.html',
       examples: [{
         hash: 'b3247046e3ef38cbf5fe848922e811a9',
-        title: '最简例子',
+        title: { zh: '最简例子', en: 'Sample' },
         screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
       }, {
         hash: '8a049fb7ff19c0ee9316a483b235dd26',
@@ -206,7 +212,7 @@ export default [
       docLink: 'http://weex-project.io/cn/references/components/video.html',
       examples: [{
         hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-        title: '最简例子',
+        title: { zh: '最简例子', en: 'Sample' },
         screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
       }, {
         hash: '4624d605004fc7eb9f14ca9c5a226fe3',
@@ -225,7 +231,7 @@ export default [
       docLink: 'http://weex-project.io/cn/references/components/web.html',
       examples: [{
         hash: '4e64eeb667e3d3959c310eb1e66d3105',
-        title: '最简例子',
+        title: { zh: '最简例子', en: 'Sample' },
         screenshot: 'https://gw.alicdn.com/tfs/TB1LpGHdgMPMeJjy1XcXXXpppXa-540-844.png'
       }, {
         hash: '4624d605004fc7eb9f14ca9c5a226fe3',
@@ -262,13 +268,13 @@ export default [
       docLink: 'http://weex-project.io/cn/references/components/waterfall.html',
       examples: [{
         hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-        title: '最简例子',
+        title: { zh: '最简例子', en: 'Sample' },
         screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
       }]
     }]
   }, {
     type: 'module',
-    name: '模块',
+    name: { zh: '模块', en: 'Module' },
     group: [{
       type: 'modal',
       name: 'modal',
@@ -330,7 +336,7 @@ export default [
       docLink: 'http://weex-project.io/cn/references/modules/animation.html',
       examples: [{
         hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-        title: '最简例子',
+        title: { zh: '最简例子', en: 'Sample' },
         screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
       }, {
         hash: '4624d605004fc7eb9f14ca9c5a226fe3',
@@ -379,7 +385,7 @@ export default [
       docLink: 'http://weex-project.io/cn/references/modules/clipboard.html',
       examples: [{
         hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-        title: '最简例子',
+        title: { zh: '最简例子', en: 'Sample' },
         screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
       }, {
         hash: '377c4f4a6030b5842938afb814cf169f',
@@ -469,7 +475,7 @@ export default [
       docLink: 'https://cn.vuejs.org/v2/api/#v-bind',
       examples: [{
         hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-        title: '最简例子',
+        title: { zh: '最简例子', en: 'Sample' },
         screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
       }, {
         hash: '4624d605004fc7eb9f14ca9c5a226fe3',
@@ -492,7 +498,7 @@ export default [
       docLink: 'https://cn.vuejs.org/v2/guide/list.html',
       examples: [{
         hash: '38904c807f66b1a11de5ddf0d40b3d30',
-        title: '最简例子',
+        title: { zh: '最简例子', en: 'Sample' },
         screenshot: 'https://gw.alicdn.com/tfs/TB1R_7.bjihSKJjy0FlXXadEXXa-540-844.png'
       }, {
         hash: '2cd124954175721d9145571bf722ce7a',
@@ -515,7 +521,7 @@ export default [
       docLink: 'https://cn.vuejs.org/v2/guide/conditional.html',
       examples: [{
         hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-        title: '最简例子',
+        title: { zh: '最简例子', en: 'Sample' },
         screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
       }, {
         hash: '4624d605004fc7eb9f14ca9c5a226fe3',
@@ -534,7 +540,7 @@ export default [
       docLink: 'https://cn.vuejs.org/v2/guide/events.html#监听事件',
       examples: [{
         hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-        title: '最简例子',
+        title: { zh: '最简例子', en: 'Sample' },
         screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
       }, {
         hash: '4624d605004fc7eb9f14ca9c5a226fe3',
@@ -553,7 +559,7 @@ export default [
       docLink: 'https://cn.vuejs.org/v2/guide/forms.html',
       examples: [{
         hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-        title: '最简例子',
+        title: { zh: '最简例子', en: 'Sample' },
         screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
       }, {
         hash: '4624d605004fc7eb9f14ca9c5a226fe3',
@@ -599,7 +605,7 @@ export default [
       docLink: 'https://cn.vuejs.org/v2/guide/components.html#动态组件',
       examples: [{
         hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-        title: '最简例子',
+        title: { zh: '最简例子', en: 'Sample' },
         screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
       }]
     }, {
@@ -610,7 +616,7 @@ export default [
       docLink: 'https://cn.vuejs.org/v2/guide/components.html#使用-Slots-分发内容',
       examples: [{
         hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-        title: '最简例子',
+        title: { zh: '最简例子', en: 'Sample' },
         screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
       }, {
         hash: '4624d605004fc7eb9f14ca9c5a226fe3',
@@ -629,7 +635,7 @@ export default [
       docLink: 'https://cn.vuejs.org/v2/guide/filters.html',
       examples: [{
         hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-        title: '最简例子',
+        title: { zh: '最简例子', en: 'Sample' },
         screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
       }, {
         hash: '4624d605004fc7eb9f14ca9c5a226fe3',
@@ -648,7 +654,7 @@ export default [
       docLink: 'https://cn.vuejs.org/v2/guide/mixins.html',
       examples: [{
         hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-        title: '最简例子',
+        title: { zh: '最简例子', en: 'Sample' },
         screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
       }, {
         hash: '4624d605004fc7eb9f14ca9c5a226fe3',
@@ -671,7 +677,7 @@ export default [
       docLink: 'https://cn.vuejs.org/v2/api/#transition',
       examples: [{
         hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-        title: '最简例子',
+        title: { zh: '最简例子', en: 'Sample' },
         screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
       }]
     }, {
@@ -682,7 +688,7 @@ export default [
       docLink: 'https://cn.vuejs.org/v2/api/#keep-alive',
       examples: [{
         hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-        title: '最简例子',
+        title: { zh: '最简例子', en: 'Sample' },
         screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
       }]
     }]
@@ -843,7 +849,7 @@ export default [
         title: 'Todo List',
         screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
       }, {
-        hash: '59eebdb3f4aba2058add102a33c9c57e',
+        hash: '82ff22e820405194004aacae8045ad56',
         title: '计算器',
         screenshot: 'https://gw.alicdn.com/tfs/TB1tXOrc3MPMeJjy1XcXXXpppXa-540-844.png'
       }, {
@@ -920,6 +926,9 @@ export default [
         title: '层级 1000',
         screenshot: 'https://gw.alicdn.com/tfs/TB1I1z8cMMPMeJjy1XdXXasrXXa-540-844.png'
       }]
+    }, {
+      type: 'settings',
+      name: { zh: '设置', en: 'Settings' }
     }]
   }
 ]
