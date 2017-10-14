@@ -192,17 +192,17 @@ export default [
       desc: '<switch> 是 Weex 的内置组件，用来创建与 iOS 一致样式的按钮。例如在 iPhone 中的设置应用中的飞行模式按钮就是一个 switch 按钮。',
       docLink: 'http://weex-project.io/cn/references/components/switch.html',
       examples: [{
-        hash: 'b3247046e3ef38cbf5fe848922e811a9',
+        hash: 'd6769c27e18ab999ced059fff760ba0e',
         title: { zh: '最简例子', en: 'Sample' },
-        screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+        screenshot: 'https://gw.alicdn.com/tfs/TB1p7eDdGagSKJjy0FhXXcrbFXa-540-843.jpg'
       }, {
         hash: '8a049fb7ff19c0ee9316a483b235dd26',
         title: '初始状态',
-        screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+        screenshot: 'https://gw.alicdn.com/tfs/TB1u0HRc2NNTKJjSspkXXaeWFXa-540-844.jpg'
       }, {
         hash: 'b48549c39f2e82178ce8b94b395d1d0b',
         title: '事件处理',
-        screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+        screenshot: 'https://gw.alicdn.com/tfs/TB14HWzdGagSKJjy0FbXXa.mVXa-540-844.jpg'
       }]
     }, {
       type: 'video',
@@ -721,7 +721,7 @@ export default [
       }, {
         hash: '4624d605004fc7eb9f14ca9c5a226fe3',
         title: '伪类选择器',
-        screenshot: 'https://gw.alicdn.com/tfs/TB1J7goczihSKJjy0FlXXadEXXa-540-844.png'
+        screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
       }, {
         hash: 'af853645f7f3dc53126ff47a2b820626',
         title: '网格背景',
@@ -794,17 +794,17 @@ export default [
         title: 'flex',
         screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
       }]
-    }, {
-      type: 'hack',
-      name: { zh: '黑科技', en: 'Hacks' },
-      title: 'Expression Binding',
-      desc: '',
-      docLink: '',
-      examples: [{
-        hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-        title: '手势绑定',
-        screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-      }]
+    // }, {
+    //   type: 'hack',
+    //   name: { zh: '黑科技', en: 'Hacks' },
+    //   title: 'Expression Binding',
+    //   desc: '',
+    //   docLink: '',
+    //   examples: [{
+    //     hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+    //     title: '手势绑定',
+    //     screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    //   }]
     }, {
       type: 'useful',
       name: { zh: '功能', en: 'Utils' },
@@ -824,22 +824,30 @@ export default [
         hash: '4624d605004fc7eb9f14ca9c5a226fe3',
         title: '自定义字体',
         screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      }]
+    }, {
+      type: 'learn',
+      name: { zh: '学习', en: 'Learn' },
+      examples: [{
+        hash: '43ede9db84425bce17e598456758eb3b',
+        title: { zh: '学习 Weex', en: 'Learn Weex' },
+        screenshot: 'https://gw.alicdn.com/tfs/TB13VkjhMoQMeJjy0FnXXb8gFXa-540-844.png'
       }, {
-        hash: '4d95cb59f26bf78c006e53b397b63676',
-        title: '学习 Weex',
-        screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+        hash: '59958038a2009d3eefca29da107d3e7d',
+        title: { zh: '学习 Vue.js', en: 'Learn Vue.js' },
+        screenshot: 'https://gw.alicdn.com/tfs/TB1kfEAhMoQMeJjy0FoXXcShVXa-540-844.png'
       }, {
-        hash: 'd3e5e41f92a45fb6bd87e823654503c6',
-        title: '学习 CSS',
-        screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+        hash: 'd1426e1cd14718ebff51ea46bdae0224',
+        title: { zh: '学习 Javascript', en: 'Learn Javascript' },
+        screenshot: 'https://gw.alicdn.com/tfs/TB1Dz3dhMoQMeJjy1XaXXcSsFXa-540-844.png'
       }, {
-        hash: '43dab802ecd9361850ea317a229895a3',
-        title: '学习 Vue.js',
-        screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+        hash: '8d2a4e9b2e8e6f1d25d08472f3bb48cf',
+        title: { zh: '学习 CSS', en: 'Learn CSS' },
+        screenshot: 'https://gw.alicdn.com/tfs/TB10LcihMoQMeJjy0FpXXcTxpXa-540-844.png'
       }, {
-        hash: 'e1a3ee8afd49aaedd1e9c9593be703d6',
-        title: 'Weex + Vue',
-        screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+        hash: 'ffec8fcae798c1bc1dfb0259b125f477',
+        title: { zh: '手把手教你…', en: 'Step by Step' },
+        screenshot: 'https://gw.alicdn.com/tfs/TB1RfgihMoQMeJjy0FpXXcTxpXa-540-844.png'
       }]
     }, {
       type: 'showCase',

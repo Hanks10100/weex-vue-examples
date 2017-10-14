@@ -300,16 +300,16 @@
       },
       jumpTo (url) {
         const hash = {
-          'en': '502078627a7d617f11f48f15560210ff',
-          'zh': 'ab57ab447248c35115144736ba38521a'
+          'en': '06f6a4f7a03ceffc93ec09ddaebb0a51',
+          'zh': 'fa7d084ea1dc617e1c4e03ecd65263db'
         }
         storage.setItem('CURRENT_DOCUMENT_URL', this.i18n(url))
         navigator.push({ url: createURL(this.i18n(hash)) })
       },
       viewSource (url) {
         const hash =  {
-          'en': '54ee61d26cfba3d6c9ad3a86876a709a',
-          'zh': '948b94268510c83155ae1d6a5e90f6e0'
+          'en': 'a9b64158408b8e03d75fa26ba2095b2e',
+          'zh': 'a411ffc411c4a07ab50e277343f8b64e'
         }
         storage.setItem('CURRENT_SOURCE_HASH', this.i18n(url))
         navigator.push({ url: createURL(this.i18n(hash)) })

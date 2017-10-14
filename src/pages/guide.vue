@@ -1,83 +1,82 @@
 <template>
   <list class="wrapper">
-    <cell class="banner-cell">
-      <div class="banner">
-        <image class="poster" :style="imageSize" :src="poster" />
-        <text class="banner-title" :style="{ color: mainColor }">{{i18n(title)}}</text>
+    <cell @longpress="copyLinks">
+      <div class="banner center" :style="{ backgroundColor: posterBg }">
+        <image class="poster" resize="cover" :style="posterStyle" :src="poster" />
       </div>
     </cell>
-    <cell class="lesson-cell" v-for="(lesson, i) in lessons" :key="i">
-      <div class="lesson" @click="openURL(lesson.docLink)">
+    <cell class="center" @longpress="copyLinks">
+      <text class="title" :style="{ fontSize: titleFontSize }">{{i18n(title)}}</text>
+    </cell>
+    <cell class="center" v-for="(lesson, i) in lessons" :key="i">
+      <div :class="['lesson', `lesson-${language}`]" @click="openURL(lesson.docLink)">
         <text :class="['lesson-index', `lesson-index-${language}`]">{{startAt + i}}.</text>
         <text
-          :class="[`lesson-title-${language}`]"
+          :class="['lesson-title', `lesson-title-${language}`]"
           :style="{ color: mainColor }"
           >{{i18n(lesson.title)}}</text>
       </div>
     </cell>
-    <cell class="footer-cell">
-      <div class="footer">
-        <text class="copyright">{{i18n(copyright)}}</text>
-      </div>
+    <cell class="footer center">
+      <text class="copyright">{{i18n(copyright)}}</text>
     </cell>
   </list>
 </template>
 
 <style scoped>
   .banner {
-    height: 450px;
-    border-bottom-width: 2px;
-    border-bottom-style: solid;
-    border-bottom-color: #DDD;
-    background-color: #F5F5F5;
-    margin-bottom: 60px;
-    justify-content: center;
+    height: 350px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 10px;
+  }
+  .center {
     align-items: center;
+    justify-content: center;
   }
-  .poster {
-  }
-  .banner-title {
+  .title {
     text-align: center;
-    font-size: 46px;
-    margin-top: 30px;
-  }
-  .lesson-cell {
-    align-items: center;
-    justify-content: center;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    color: #606060;
   }
   .lesson {
-    width: 600px;
-    height: 120px;
+    /* height: 120px; */
     border-bottom-width: 1px;
     border-bottom-style: solid;
     border-bottom-color: #EEEEEE;
     flex-direction: row;
     align-items: center;
   }
+  .lesson-zh { width: 600px; }
+  .lesson-en { width: 630px; }
   .lesson-index {
     color: #777777;
     text-align: right;
+    padding-right: 30px;
+  }
+  .lesson-title {
+    padding-top: 35px;
+    padding-bottom: 35px;
   }
   .lesson-index-zh {
     font-size: 46px;
-    padding-right: 30px;
     width: 120px;
   }
   .lesson-title-zh {
     font-size: 42px;
+    width: 480px;
   }
   .lesson-index-en {
     font-size: 42px;
-    padding-right: 30px;
     width: 100px;
   }
   .lesson-title-en {
     font-size: 38px;
+    width: 530px;
   }
   .footer {
-    height: 80px;
-    margin-top: 40px;
-    justify-content: center;
+    height: 120px;
+    padding-top: 40px;
   }
   .copyright {
     font-size: 22px;
@@ -101,15 +100,15 @@
     },
     lessons: [
       {
-        title: {
-          zh: '什么是 Weex ？',
-          en: 'What is Weex ?'
-        },
-        docLink: {
-          zh: '',
-          en: ''
-        }
-      }, {
+      //   title: {
+      //     zh: '什么是 Weex ？',
+      //     en: 'What is Weex ?'
+      //   },
+      //   docLink: {
+      //     zh: '',
+      //     en: ''
+      //   }
+      // }, {
         title: {
           zh: '快速上手',
           en: 'Get Started'
@@ -333,8 +332,13 @@
   }
 
   const learnCSS = {
-    mainColor: '#38AADA',
-    poster: 'http://www.unixstickers.com/image/data/stickers/css3/css3_unofficial_shaped.png',
+    mainColor: '#f56fc6',
+    poster: 'https://gw.alicdn.com/tfs/TB1k6anhMMPMeJjy1XdXXasrXXa-427-190.jpg',
+    posterBg: '#ffa2de',
+    posterStyle: {
+      width: '517px',
+      height: '230px'
+    },
     title: {
       zh: '学习 CSS',
       en: 'Learn CSS'
@@ -466,6 +470,243 @@
         docLink: {
           zh: 'https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference',
           en: 'https://developer.mozilla.org/en-US/docs/Web/CSS/Reference'
+        }
+      }
+    ]
+  }
+
+  const learnJS = {
+    mainColor: '#F7BD2A',
+    poster: 'https://gw.alicdn.com/tfs/TB1bT98hMoQMeJjy0FpXXcTxpXa-1500-700.png',
+    posterBg: '#FAF3EB',
+    posterStyle: {
+      width: '750px',
+      height: '350px'
+    },
+    title: {
+      zh: '学习 Javascript',
+      en: 'Learn Javascript'
+    },
+    copyright: {
+      zh: '来自 MDN (Mozilla Developer Network)',
+      en: 'From MDN (Mozilla Developer Network)'
+    },
+    lessons: [
+      {
+        title: {
+          zh: '什么是 Javascript ？',
+          en: 'What is Javascript ?'
+        },
+        docLink: {
+          zh: 'https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/First_steps/What_is_JavaScript',
+          en: 'https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/What_is_JavaScript'
+        }
+      }, {
+        title: {
+          zh: 'JavaScript基础',
+          en: 'JavaScript basics'
+        },
+        docLink: {
+          zh: 'https://developer.mozilla.org/zh-CN/docs/Learn/Getting_started_with_the_web/JavaScript_basics',
+          en: 'https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/JavaScript_basics'
+        }
+      }, {
+        title: {
+          zh: '重新介绍 JavaScript',
+          en: 'A re-introduction to JavaScript'
+        },
+        docLink: {
+          zh: 'https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/A_re-introduction_to_JavaScript',
+          en: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript'
+        }
+      }, {
+        title: {
+          zh: '语法和数据类型',
+          en: 'Grammar and types'
+        },
+        docLink: {
+          zh: 'https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Grammar_and_types#Variable_scope',
+          en: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#Variable_scope'
+        }
+      }, {
+        title: {
+          zh: '数据类型和数据结构',
+          en: 'Data types and data structures'
+        },
+        docLink: {
+          zh: 'https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Data_structures',
+          en: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures'
+        }
+      }, {
+        title: {
+          zh: '变量',
+          en: 'Variables'
+        },
+        docLink: {
+          zh: 'https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/First_steps/Variables',
+          en: 'https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Variables'
+        }
+      }, {
+        title: {
+          zh: '数字和操作符',
+          en: 'Numbers and operators'
+        },
+        docLink: {
+          zh: 'https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/First_steps/Math',
+          en: 'https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Math'
+        }
+      }, {
+        title: {
+          zh: '字符串',
+          en: 'Handling text'
+        },
+        docLink: {
+          zh: 'https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/First_steps/Strings',
+          en: 'https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Strings'
+        }
+      }, {
+        title: {
+          zh: '常用的 String 方法',
+          en: 'Useful string methods'
+        },
+        docLink: {
+          zh: 'https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/First_steps/Useful_string_methods',
+          en: 'https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Useful_string_methods'
+        }
+      }, {
+        title: {
+          zh: '数组',
+          en: 'Arrays'
+        },
+        docLink: {
+          zh: 'https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/First_steps/Arrays',
+          en: 'https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Arrays'
+        }
+      }, {
+        title: {
+          zh: '函数',
+          en: 'Functions'
+        },
+        docLink: {
+          zh: 'https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Functions',
+          en: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions'
+        }
+      }, {
+        title: {
+          zh: 'JavaScript 对象基础',
+          en: 'JavaScript object basics'
+        },
+        docLink: {
+          zh: 'https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/Objects/Basics',
+          en: 'https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Basics'
+        }
+      }, {
+        title: {
+          zh: '使用对象',
+          en: 'Working with objects'
+        },
+        docLink: {
+          zh: 'https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Working_with_Objects',
+          en: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects'
+        }
+      }, {
+        title: {
+          zh: '使用 JSON 数据',
+          en: 'Working with JSON'
+        },
+        docLink: {
+          zh: 'https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/Objects/JSON',
+          en: 'https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON'
+        }
+      }, {
+        title: {
+          zh: '对象模型的细节',
+          en: 'Details of the object model'
+        },
+        docLink: {
+          zh: 'https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Details_of_the_Object_Model',
+          en: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Details_of_the_Object_Model'
+        }
+      }, {
+        title: {
+          zh: '对象原型',
+          en: 'Object prototypes'
+        },
+        docLink: {
+          zh: 'https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_prototypes',
+          en: 'https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/Objects/Object_prototypes'
+        }
+      }, {
+        title: {
+          zh: 'JavaScript 中的继承',
+          en: 'Inheritance in JavaScript'
+        },
+        docLink: {
+          zh: 'https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/Objects/Inheritance',
+          en: 'https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Inheritance'
+        }
+      }, {
+        title: {
+          zh: '继承与原型链',
+          en: 'Inheritance and the prototype chain'
+        },
+        docLink: {
+          zh: 'https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Inheritance_and_the_prototype_chain',
+          en: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain'
+        }
+      }, {
+        title: {
+          zh: '严格模式',
+          en: 'Strict mode'
+        },
+        docLink: {
+          zh: 'https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Strict_mode',
+          en: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode'
+        }
+      }, {
+        title: {
+          zh: '内存管理',
+          en: 'Memory Management'
+        },
+        docLink: {
+          zh: 'https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Memory_Management',
+          en: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management'
+        }
+      }, {
+        title: {
+          zh: '并发模型与事件循环',
+          en: 'Concurrency model and Event Loop'
+        },
+        docLink: {
+          zh: 'https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/EventLoop',
+          en: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop'
+        }
+      }, {
+      //   title: {
+      //     zh: '索引集合类',
+      //     en: 'Indexed collections'
+      //   },
+      //   docLink: {
+      //     zh: 'https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Indexed_collections',
+      //     en: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Indexed_collections'
+      //   }
+      // }, {
+      //   title: {
+      //     zh: '带键的集合',
+      //     en: 'Keyed collections'
+      //   },
+      //   docLink: {
+      //     zh: 'https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Keyed_collections',
+      //     en: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Keyed_collections'
+      //   }
+      // }, {
+        title: {
+          zh: 'JavaScript 标准库',
+          en: 'Standard built-in objects'
+        },
+        docLink: {
+          zh: 'https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects',
+          en: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects'
         }
       }
     ]
@@ -659,10 +900,12 @@
     startAt: 0,
     mainColor: '#42b983',
     poster: 'https://gw.alicdn.com/tfs/TB1j0fGdaagSKJjy0FbXXa.mVXa-700-328.png',
+    // poster: 'https://segmentfault.com/img/bVJaqq?w=2712&h=1628',
     title: '使用 Weex 和 Vue 开发原生应用',
-    imageSize: {
-      width: 450,
-      height: 210
+    titleFontSize: 46,
+    posterStyle: {
+      width: '650px',
+      height: '304px'
     },
     copyright: {
       zh: '来自 SegmentFault',
@@ -698,7 +941,9 @@
   }
 
   const navigator = weex.requireModule('navigator')
+  const clipboard = weex.requireModule('clipboard')
   const storage = weex.requireModule('storage')
+  const modal = weex.requireModule('modal')
   function createURL (hash) {
     if (WXEnvironment.platform === 'Web') {
       return `http://dotwe.org/raw/htmlVue/${hash}`
@@ -711,12 +956,14 @@
       return Object.assign({
         language: 'zh',
         startAt: 1,
-        imageSize: {
-          width: 210,
-          height: 210
+        titleFontSize: '60px',
+        posterBg: '#F5F5F5',
+        posterStyle: {
+          width: '300px',
+          height: '300px'
         },
         mainColor: '#00B4FF',
-      }, hackernewsApp)
+      }, learnJS)
     },
     beforeCreate () {
       storage.getItem('WEEX_PLAYGROUND_LANGUAGE', event => {
@@ -736,15 +983,37 @@
         }
       },
       openURL (url) {
-        const hash = {
-          'en': '502078627a7d617f11f48f15560210ff',
-          'zh': 'ab57ab447248c35115144736ba38521a'
-        }
-        if (url) {
-          storage.setItem('CURRENT_DOCUMENT_URL', this.i18n(url))
-          navigator.push({ url: createURL(this.i18n(hash)) })
-        }
+        if (!url) return;
+        storage.setItem('CURRENT_DOCUMENT_URL', this.i18n(url))
+        navigator.push({
+          url: createURL(this.i18n({
+            'en': '502078627a7d617f11f48f15560210ff',
+            'zh': 'ab57ab447248c35115144736ba38521a'
+          }))
+        })
       },
+      copyLinks () {
+        modal.confirm({
+          message: this.i18n({
+            en: 'Copy all article address ?',
+            zh: '复制所有文章链接？'
+          })
+        }, result => {
+          if (result !== 'OK') return;
+          let text = this.i18n(this.title) + '\n\n'
+          text += this.lessons.map((lesson, i) => {
+            return `${i + this.startAt}. ${this.i18n(lesson.title)} ${this.i18n(lesson.docLink)}`
+          }).join('\n')
+          text += '\n\n' + this.i18n(this.copyright)
+          clipboard.setString(text)
+          modal.toast({
+            message: this.i18n({
+              en: 'Article address is copied',
+              zh: '文章链接已复制'
+            })
+          })
+        })
+      }
     }
   }
 </script>

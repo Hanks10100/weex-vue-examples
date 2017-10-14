@@ -1,12 +1,14 @@
 <template>
   <div class="wrapper">
     <div class="main">
-      <div ref="screen" class="screen"></div>
+      <div ref="screen" class="screen">
+        <image class="poster" resize="cover" :src="poster"></image>
+      </div>
     </div>
     <div class="menu-list">
       <div class="menu-row" v-for="(row, r) in menus" :key="r">
-        <a :href="menu.hash | url" class="menu-item" v-for="(menu, i) in row" :key="i" :ref="`menu${r+i}`">
-          <text class="menu-text">{{menu.title}}</text>
+        <a :href="menu.hash | url" :class="['menu-item', `menu-item-${menu.name}`]" v-for="(menu, i) in row" :key="i" :ref="`menu${r+i}`">
+          <text :class="['menu-text', `menu-text-${menu.name}`]">{{menu.title}}</text>
         </a>
       </div>
     </div>
@@ -17,6 +19,7 @@
   .wrapper {
     justify-content: space-around;
     background-color: #F5F5F5;
+    min-height: 100%;
   }
   .main {
     justify-content: center;
@@ -37,6 +40,14 @@
     border-radius: 100px;
     background-color: #FFF;
     box-shadow: inset 0 6px 15px rgba(0, 0, 0, 0.2);
+    justify-content: center;
+    align-items: center;
+  }
+  .poster {
+    width: 750px;
+    height: 500px;
+    /* width: 400px;
+    height: 400px; */
   }
   .menu-list {
     height: 500px;
@@ -54,17 +65,48 @@
     height: 200px;
     margin-left: 15px;
     margin-right: 15px;
-    border-width: 2px;
-    border-color: #CCC;
+    border-width: 6px;
     background-color: #FFF;
     justify-content: center;
     box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+    background-color: #BCAADB;
+    border-color: #9f71f1;
   }
   .menu-text {
     text-align: center;
     font-size: 50px;
+    font-weight: bold;
     color: #808080;
+    color: #7d49da;
   }
+  /* .menu-item-guide {
+    border-color: #80CE8D;
+    background-color: #B4FFCE;
+  }
+  .menu-text-guide {
+    color: #49b75b;
+  } */
+  /* .menu-item-examples {
+    background-color: #8DEEFD;
+    border-color: #00B8DE;
+  }
+  .menu-text-examples {
+    color: #00a0c1;
+  } */
+  /* .menu-item-news {
+    background-color: #FFDDCE;
+    border-color: #ffb99a;
+  }
+  .menu-text-news {
+    color: #ff915e;
+  } */
+  /* .menu-item-chat {
+    background-color: #BCAADB;
+    border-color: #9f71f1;
+  }
+  .menu-text-chat {
+    color: #7d49da;
+  } */
 </style>
 
 <script>
@@ -77,16 +119,21 @@
     filters: { url: createURL },
     data () {
       return {
+        poster: 'https://cdn.dribbble.com/users/230740/screenshots/3838011/rcs_eagles_dribbble_preview.jpg',
         menus: [[{
+          name: 'guide',
           title: 'Guide',
           hash: '4624d605004fc7eb9f14ca9c5a226fe3',
         }, {
+          name: 'examples',
           title: 'Examples',
           hash: '8acee0446b41edce51d1c335ecd13d78',
         }], [{
+          name: 'news',
           title: 'News',
           hash: '4624d605004fc7eb9f14ca9c5a226fe3',
         }, {
+          name: 'chat',
           title: 'Chat',
           hash: '03e9275f49963a4367e08c41edc725d7',
         }]]
