@@ -1,12 +1,17 @@
 <template>
   <div class="wrapper">
     <list class="chat-list">
-      <cell :class="['chat-cell', `chat-cell-${message.from}`]" v-for="(message, m) in chatMessages" :key="m">
-        <image class="chat-icon" resize="cover" v-if="message.from === 'bot'" src="https://gw.alicdn.com/tfs/TB1qOlHdgMPMeJjy1XbXXcwxVXa-328-328.png"></image>
-        <div :class="['message-box', `message-box-${message.from}`]" ref="messages">
-          <text class="message-text">{{message.content}}</text>
+      <cell style="height:40px"></cell>
+      <cell class="chat-cell" v-for="(message, m) in chatMessages" :key="m">
+        <div :class="['message', `message-${message.from}`]" >
+          <image class="chat-icon" resize="cover" v-if="message.from === 'bot'" src="https://gw.alicdn.com/tfs/TB1qOlHdgMPMeJjy1XbXXcwxVXa-328-328.png"></image>
+          <div :class="['message-box', `message-box-${message.from}`]" ref="messages">
+            <text class="message-text">{{message.content || message.title}}</text>
+          </div>
         </div>
+        <div class="chat-spliter" v-if="message.reset"></div>
       </cell>
+      <cell style="height:50px"></cell>
     </list>
     <div class="operations">
       <scroller class="chat-options" scrollDirection="horizontal">
@@ -32,14 +37,19 @@
     flex: 1;
     background-color: #F3F3F3;
   }
-  .chat-cell {
+  .chat-spliter {
+    height: 1px;
+    margin: 80px;
+    background-color: #CCC;
+  }
+  .message {
     flex-direction: row;
     align-items: flex-start;
   }
-  .chat-cell-bot {
+  .message-bot {
     justify-content: flex-start;
   }
-  .chat-cell-user {
+  .message-user {
     justify-content: flex-end;
   }
   .chat-icon {
@@ -84,6 +94,9 @@
   .operations {
     height: 200px;
     flex: 0;
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-top-color: #E0E0E0;
     justify-content: flex-end;
     background-color: #F5F5F5;
   }
@@ -148,61 +161,46 @@
 </style>
 
 <script>
+  import { judge } from './chat'
+
   const dom = weex.requireModule('dom')
   const modal = weex.requireModule('modal')
-  const ws = weex.requireModule('webSocket')
   export default {
     data () {
       return {
         userInput: '',
-        chatMessages: [{
-          from: 'bot',
-          content: '弄啥嘞？'
-        }, {
-          from: 'user',
-          content: 'Weex 支持 box-shadow 吗？'
-        }, {
-          from: 'bot',
-          content: '支持的，iOS 支持的比较早，Android 上正在实现，下一个发布的版本里就有了。'
-        }, {
-          from: 'user',
-          content: '目前最新版本是多少？'
-        }, {
-          from: 'bot',
-          content: 'Weex SDK 最新的版本是 0.16.0'
-        }],
-        feedbackOptions: [
-          { title: 'Android' },
-          { title: 'iOS' },
-          { title: 'Web (H5)' },
-        ]
+        chatMessages: [],
+        feedbackOptions: []
       }
     },
     created () {
-      ws.WebSocket('ws://echo.websocket.org')
-      ws.onopen = event => {
-        modal.toast({ message: 'WebSocket opened' })
-      }
-      ws.onmessage = event => {
-        modal.toast({ message: event.data })
-        this.chatMessages.push({
-          from: 'bot',
-          content: event.data
-        })
-        this.scrollToBottom()
-      }
-      ws.onclose = event => {
-        modal.toast({ message: 'WebSocket closed' })
-      }
+      judge([]).then(result => {
+        this.reply(result)
+      })
     },
     methods: {
+      reply (feedback) {
+        const { content, options } = feedback
+        if (content) {
+          this.chatMessages.push({ from: 'bot', content })
+          this.feedbackOptions = options || []
+          // modal.toast({ message: 'reply: ' + content })
+          this.scrollToBottom()
+        }
+      },
       handleUserInput () {
         if (this.userInput) {
-          this.sendUserMessage(this.userInput)
+          this.sendUserMessage({
+            title: this.userInput,
+            // content: this.userInput
+          })
           this.userInput = ''
         }
       },
       scrollToBottom () {
+        if (!this.$refs.messages) {
+          return
+        }
         const lastMessage = this.$refs.messages[this.$refs.messages.length - 1]
         setTimeout(() => {
           dom.scrollToElement(lastMessage, {
@@ -211,21 +209,23 @@
           })
         }, 0)
       },
-      sendUserMessage (text) {
-        if (text) {
-          this.chatMessages.push({
-            from: 'user',
-            content: text
-          })
-          ws.send(text)
-          modal.toast({ message: 'send: ' + text })
+      sendUserMessage (message) {
+        if (message) {
+          this.chatMessages.push(Object.assign({
+            from: 'user'
+          }, message))
+          // modal.toast({ message: 'send: ' + text })
           this.scrollToBottom()
+          judge(this.chatMessages)
+            .then(result => {
+              this.reply(result)
+            })
         }
       },
       fastReply (index) {
         const message = this.feedbackOptions[index]
         if (message) {
-          this.sendUserMessage(message.title)
+          this.sendUserMessage(message)
         }
       }
     }
