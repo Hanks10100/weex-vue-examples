@@ -1,10 +1,10 @@
 var path = require('path')
 var webpack = require('webpack')
 
-var bannerPlugin = new webpack.BannerPlugin(
-  '// { "framework": "Vue" }\n',
-  { raw: true }
-)
+var bannerPlugin = new webpack.BannerPlugin({
+  banner:  '// { "framework": "Vue" }\n',
+  raw: true
+})
 
 var entry = {
   'vue-bundle': path.resolve('src', 'entry.js')
@@ -13,18 +13,18 @@ var entry = {
 var nativeConfig = {
   entry: entry,
   output: {
-    path: 'dist',
+    path: path.resolve(__dirname, 'dist'),
     filename: '[name].weex.js'
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
-        loaders: ['babel-loader'],
+        use: ['babel-loader'],
         exclude: /node_modules/
       }, {
         test: /\.vue(\?[^?]+)?$/,
-        loaders: ['weex-loader']
+        use: ['weex-loader']
       }
     ]
   },
@@ -35,18 +35,18 @@ var nativeConfig = {
 var webConfig = {
   entry: entry,
   output: {
-    path: 'dist',
+    path: path.resolve(__dirname, 'dist'),
     filename: '[name].web.js'
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
-        loaders: ['babel-loader'],
+        use: ['babel-loader'],
         exclude: /node_modules/
       }, {
         test: /\.vue(\?[^?]+)?$/,
-        loaders: ['vue-loader']
+        use: ['vue-loader']
       }
     ]
   }
