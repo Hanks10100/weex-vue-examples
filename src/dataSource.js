@@ -324,7 +324,7 @@ export default [
       desc: '发送网络请求并获取响应。',
       docLink: 'http://weex-project.io/cn/references/modules/stream.html',
       examples: [{
-        hash: '87d3d8334943733cdc1ecfe10e403613',
+        hash: '2ae062b6a04124a35bbe2da3b1e5c07b',
         title: 'fetch',
         screenshot: 'https://gw.alicdn.com/tfs/TB1iC98cwoQMeJjy0FnXXb8gFXa-540-844.png'
       }]
@@ -864,6 +864,10 @@ export default [
         hash: '4624d605004fc7eb9f14ca9c5a226fe3',
         title: '扫雷',
         screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      }, {
+        hash: '1e5eb6380f9e15973e28bacfc7e59636',
+        title: '华容道',
+        screenshot: 'https://gw.alicdn.com/tfs/TB13Yw1af6H8KJjy0FjXXaXepXa-540-844.png'
       }]
     }, {
       type: 'realCase',

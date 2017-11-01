@@ -135,7 +135,7 @@
         }, {
           name: 'chat',
           title: 'Chat',
-          hash: '03e9275f49963a4367e08c41edc725d7',
+          hash: '799cd02508e113afb389e67fcad711ba',
         }]]
       }
     },
