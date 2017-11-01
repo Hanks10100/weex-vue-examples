@@ -1,19 +1,22 @@
 <template>
   <div class="screen">
-    <div class="tips">
-      <text class="txt">Ancient pulzze game in China.</text>
-      <text class="button" @click="reset">Reset</text>
+    <div style="align-items:center">
+      <text class="title">Klotski (华容道)</text>
+      <text class="subtitle">Ancient pulzze game in China.</text>
     </div>
     <div class="board" :style="wrapperStyle">
       <div class="block" v-for="(block, i) in blocks" :key="i" :style="blockLayouts[i]" @swipe="move(block, $event)">
         <div class="card" :style="cardSize[i]">
-          <image class="profile" resize="cover" :style="cardSize[i]" :src="block.profile"></image>
+          <image class="profile" resize="cover" :style="imageSize[i]" :src="block.profile"></image>
           <text class="name">{{block.name}}</text>
         </div>
       </div>
+      <div class="result" v-if="this.win">
+        <text class="win">You Win !</text>
+      </div>
     </div>
-    <div class="tips">
-      <text class="txt">Move the biggest card("曹操") to the bottom, you will win!</text>
+    <div style="margin-bottom:20px">
+      <text class="tips">Move the biggest puzzle (曹操) from top to the bottom, you will win!</text>
     </div>
   </div>
 </template>
@@ -39,8 +42,9 @@
   const modal = weex.requireModule('modal')
   export default {
     props: {
-      meshSize: { type: Number, default: 160 },
-      gap: { type: Number, default: 4 }
+      meshSize: { type: Number, default: 150 },
+      borderWidth:  { type: Number, default: 6 },
+      gap: { type: Number, default: 5 }
     },
     data () {
       return {
@@ -68,8 +72,15 @@
       },
       cardSize () {
         return this.blocks.map(block => ({
+          borderWidth: this.borderWidth + 'px',
           width: block.size[0] * this.meshSize - this.gap * 2 + 'px',
           height: block.size[1] * this.meshSize - this.gap * 2 + 'px'
+        }))
+      },
+      imageSize () {
+        return this.blocks.map(block => ({
+          width: block.size[0] * this.meshSize - (this.gap + this.borderWidth) * 2 + 'px',
+          height: block.size[1] * this.meshSize - (this.gap + this.borderWidth) * 2 + 'px'
         }))
       }
     },
@@ -88,6 +99,7 @@
         return CaoCao.origin[0] === 1 && CaoCao.origin[1] === 3
       },
       move (block, event) {
+        if (this.win) return
         const target = block.origin.slice()
         switch (event.direction) {
           case 'left': target[0] = Math.max(target[0] - 1, 0); break
@@ -115,12 +127,29 @@
 
 <style scoped>
   .screen {
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
+  }
+  .title {
+    font-size: 60px;
+    color: rgb(255, 170, 102);
+    text-align: center;
+    font-weight: bold;
+  }
+  .subtitle {
+    font-size: 26px;
+    color: rgba(255, 170, 102, 0.8);
+    text-align: center;
+  }
+  .tips {
+    width: 500px;
+    font-size: 30px;
+    color: rgb(255, 170, 102);
+    text-align: center;
   }
   .board {
     position: relative;
-    border-color: #FF6600;
+    border-color: #D5A471;
     background-color: #F5F5F5;
   }
   .block {
@@ -129,16 +158,33 @@
     transition-duration: 0.15s;
     transition-timing-function: ease-in-out;
   }
+  .result {
+    position: absolute;
+    background-color: rgba(26, 25, 31, 0.7);
+    top: 0; bottom: 0;
+    left: 0; right: 0;
+    justify-content: center;
+    align-items: center;
+  }
+  .win {
+    font-size: 80px;
+    font-weight: bold;
+    color: #FF6666;
+    text-align: center;
+  }
   .card {
     position: relative;
     flex-direction: column;
     justify-content: flex-end;
-    background-color: #BBB;
-    /* border-width: 3px;
-    border-color: #DDD; */
+    background-color: #D5A471;
+    border-color: #D5A471;
+    border-style: solid;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
   }
   .profile {
     position: absolute;
+    border-radius: 8px;
     top: 0; bottom: 0;
     left: 0; right: 0;
   }
@@ -147,6 +193,9 @@
     font-size: 32px;
     padding: 10px;
     color: #FFF;
-    background-color: rgba(0, 0, 0, 0.4);
+    /* color: #D5A471; */
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.3);
   }
 </style>
