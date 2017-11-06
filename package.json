@@ -5,7 +5,9 @@
   "version": "0.1.0",
   "scripts": {
     "build": "webpack",
+    "build:website": "webpack --config webpack.config.website.js",
     "dev": "webpack --watch",
+    "dev:website": "webpack --watch --config webpack.config.website.js",
     "serve": "serve -p 8080",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
