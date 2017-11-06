@@ -33,8 +33,8 @@
   const initialBlocks = [
     { origin: [0, 0], size: [1, 2], name: '张\n飞' },
     { origin: [1, 0], size: [2, 2], name: '曹操', isBoss: true },
-    { origin: [3, 0], size: [1, 2], name: '赵\n云' },
-    { origin: [0, 2], size: [1, 2], name: '马\n超' },
+    { origin: [3, 0], size: [1, 2], name: '马\n超' },
+    { origin: [0, 2], size: [1, 2], name: '赵\n云' },
     { origin: [1, 2], size: [2, 1], name: '关羽' },
     { origin: [3, 2], size: [1, 2], name: '黄\n忠' },
     { origin: [1, 3], size: [1, 1], name: '卒' },
