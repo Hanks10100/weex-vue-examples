@@ -212,7 +212,7 @@
 </style>
 
 <script>
-  import exampleMap from './dataSource'
+  import getExamples from '../examples'
   const navigator = weex.requireModule('navigator')
   const storage = weex.requireModule('storage')
   const picker = weex.requireModule('picker')
@@ -223,6 +223,8 @@
     const url = `http://dotwe.org/raw/dist/${hash}.bundle.wx`
     return `${url}?_wx_tpl=${url}`
   }
+
+  const exampleMap = getExamples({ scope: 'mobile' })
   export default {
     filters: {
       url: createURL,

@@ -27,33 +27,34 @@
 </template>
 
 <script>
-  import dataSource from '../dataSource'
+  import getExamples from '../../examples'
   import ExampleList from './ExampleList.vue'
 
+  const examples = getExamples()
   export default {
     components: { ExampleList },
     data () {
       return {
         currentTab: 'component',
-        language: Vue.config.lang || 'en'
+        language: Vue.config.language || 'en'
       }
     },
     computed: {
       tabs () {
-        if (!Array.isArray(dataSource)) {
+        if (!Array.isArray(examples)) {
           return []
         }
-        return dataSource.map(category => {
+        return examples.map(category => {
           const item = Object.assign({}, category)
           delete item.group
           return item
         })
       },
       selectedCategory () {
-        if (!Array.isArray(dataSource)) {
+        if (!Array.isArray(examples)) {
           return {}
         }
-        return dataSource.filter(tab => tab.type === this.currentTab)[0]
+        return examples.filter(tab => tab.type === this.currentTab)[0]
       }
     },
     methods: {
