@@ -10,6 +10,12 @@ Vue.filter('i18n', i18n)
 Vue.mixin({
   methods: {
     i18n
+  },
+  watch: {
+    language () {
+      Vue.config.lang = this.language
+      this.$forceUpdate()
+    }
   }
 })
 

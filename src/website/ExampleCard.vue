@@ -11,7 +11,7 @@
 
 <script>
   export default {
-    props: ['example'],
+    props: ['language', 'example'],
     computed: {
       url () {
         return `http://dotwe.org/vue/${this.example.hash}`
@@ -26,9 +26,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    /* width: 300px; */
-    /* border: 1px solid #DDD; */
-    margin: 10px 40px;
+    margin: 15px 35px;
   }
   .preview {
     display: block;
