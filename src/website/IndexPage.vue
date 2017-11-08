@@ -1,9 +1,9 @@
 <template>
   <div class="page-wrapper">
-    <aside class="aside">
+    <aside :class="['aside', language]">
       <div class="intro">
         <a href="https://github.com/hanks10100/weex-vue-examples" target="_blank" class="repo-link">
-          <img class="github-logo" src="https://gw.alicdn.com/tfs/TB1ciMDbwvD8KJjy0FlXXagBFXa-120-120.png" alt="apache/incubator-weex">
+          <img class="github-logo" src="https://gw.alicdn.com/tfs/TB1y.g1bMvD8KJjy0FlXXagBFXa-120-120.png" alt="apache/incubator-weex">
         </a>
       </div>
       <div class="tools">
@@ -20,9 +20,7 @@
         </li>
       </ul>
     </aside>
-    <main class="main">
-      <example-list class="example-box" :language="language" :category="selectedCategory"></example-list>
-    </main>
+    <example-list class="main" :language="language" :type="currentTab" :category="selectedCategory"></example-list>
   </div>
 </template>
 
@@ -58,8 +56,13 @@
       }
     },
     methods: {
-      toggleTab (tabType) {
-        this.currentTab = tabType
+      toggleTab (tabType, hash) {
+        if (this.tabs.some(tab => tab.type === tabType) && tabType !== this.currentTab) {
+          this.currentTab = tabType
+          if (typeof location !== 'undefined') {
+            location.hash = `#${tabType}` + (hash ? `/${hash}` : '')
+          }
+        }
       }
     }
   }
@@ -85,6 +88,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow-y: auto;
   }
   .intro {
     margin-bottom: 30px;
@@ -106,12 +110,18 @@
   }
   .tab-item {
     list-style: none;
-    padding: 12px 20px;
+    padding: 15px;
     color: #FFF;
     font-size: 26px;
     cursor: pointer;
-    /* text-align: right; */
-    /* border-right: 6px solid #FFF; */
+  }
+  .zh .tab-item {
+    font-size: 28px;
+    text-align: center;
+    letter-spacing: 0.2em;
+  }
+  .en .tab-item {
+    padding-left: 40px;
   }
   .tab-item:hover {
     background-color: #444;

@@ -1,21 +1,28 @@
 # Weex Vue Examples
 
-A group of examples for using Weex and Vue.js.
+Single page examples write in Weex and Vue.js.
 
-## 在 [vue-snippets](https://github.com/Hanks10100/vue-snippets) 有这些例子在 [dotwe](http://dotwe.org/vue) 的链接，更方便预览
+**[The Example Website](https://hanks10100.github.io/weex-vue-examples/)**
 
-## 运行方法
+Other resources:
 
-首先并安装依赖。然后：
++ [Weex Online Playground](http://dotwe.org/vue)
++ [Weex Playground App](https://weex-project.io/playground.html)
 
-+ `npm run build`: 编译项目。
-+ `npm run serve`: 会监听本地 8080 端口，打开 [`http://localhost:8080`](http://localhost:8080/) 可以在浏览器中预览页面。
-+ `npm run dev`: 监听 src 目录中的文件变化，并自动编译。
+## Develop
 
-### 在线预览
+Clone the project and install dependencies (`npm install`), then:
 
-将例子代码复制到 [dotwe.org](http://dotwe.org/vue) 上，然后使用 [Weex Playground App](https://weex-project.io/cn/playground.html) 扫描二维码就可以查看页面了。
++ `npm run build`: Build the source files.
++ `npm run serve`: Start a server on port 8080.
++ `npm run dev`: Watch the file changes and auto build.
 
-### 本地调试
+## Contribute
 
-`npm run dev`，然后修改 `src/App.vue` 里引入组件的路径，可以预览不同的例子。（建议直接用 dotwe 预览）
+Write an example on [Weex online playground](http://dotwe.org/vue), and add the url to a proper place in [`examples`](./examples). Then send a PR.
+
+The example should have those massages:
+
++ `hash`: The md5 hash in the example's link address.
++ `title`: Brief title of the example. It's better to have both Chinese and English titles.
++ `screenshot`: [optional] The screen shot of the example. It's better to upload the image to a CDN and just offer an address, don't upload the image file to the repo.

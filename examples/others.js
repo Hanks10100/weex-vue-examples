@@ -2,56 +2,56 @@ module.exports = {
   type: 'others',
   name: { zh: '其他', en: 'Others' },
   group: [{
-    type: 'useful',
+    type: 'utils',
     name: { zh: '功能', en: 'Utils' },
     examples: [{
-      hash: '377c4f4a6030b5842938afb814cf169f',
-      title: '获取环境信息',
+      hash: '3abe25e7dd6d52bf35edffd62ac6199e',
+      title: { zh: '获取环境信息', en: 'Environment' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1yJC8cEgQMeJjy0FjXXaExFXa-540-844.png'
     }, {
       hash: 'd877dd3bab71943e64320679dcd7ddac',
-      title: '功能检测',
+      title: { zh: '功能检测', en: 'Feature Detect' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1TOGuc3MPMeJjy1XdXXasrXXa-540-844.png'
     }, {
       hash: '8313d0b11a4e90b2f002833ba6b50bc4',
-      title: '支持 wasm ？',
+      title: { zh: '支持 WebAssembly？', en: 'Support WebAssembly?' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1cHyefwMPMeJjy1XbXXcwxVXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '自定义字体',
+      title: { zh: '自定义字体', en: 'iconfont' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }]
   }, {
-    type: 'showCase',
-    name: { zh: '实例', en: 'Use Case' },
+    type: 'cases',
+    name: { zh: '实例', en: 'Use Cases' },
     examples: [{
-      hash: '8b7ccae9e15438c220257fac0d63d43b',
+      hash: '3a52d415dc7307d1594079574fe553c7',
       title: 'Todo List',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB182b_bNrI8KJjy0FpXXb5hVXa-540-844.png'
     }, {
       hash: '82ff22e820405194004aacae8045ad56',
-      title: '计算器',
+      title: { zh: '计算器', en: 'Calculator' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1tXOrc3MPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '扫雷',
+      title: { zh: '扫雷', en: 'MineSweeper' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: '1e5eb6380f9e15973e28bacfc7e59636',
-      title: '华容道',
+      title: { zh: '华容道', en: 'Klotski' },
       screenshot: 'https://gw.alicdn.com/tfs/TB13Yw1af6H8KJjy0FjXXaXepXa-540-844.png'
     }]
   }, {
-    type: 'realCase',
+    type: 'reprography',
     name: { zh: '仿', en: 'Reprography' },
     examples: [{
       // hash: 'f28215d4d9d96de91115cdd1528bcacd',
       hash: '8ee2850f39123a350333eb08beac7115',
-      title: '朋友圈',
+      title: { zh: '朋友圈', en: 'Moment' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1G7LydwMPMeJjy1XdXXasrXXa-540-844.png'
     }, {
       hash: '03e9275f49963a4367e08c41edc725d7',
-      title: '聊天框',
+      title: { zh: '聊天框', en: 'Chat' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: '013b1e76d2c5419e32bc3e02aa1bef26',
@@ -88,50 +88,50 @@ module.exports = {
     }]
   }, {
     type: 'flatten-benchmark',
-    name: { zh: '平铺压测', en: 'Benchmark' },
+    name: { zh: '平铺压测', en: 'Flatten Benchmark' },
     examples: [{
       hash: 'ae5fd588a6522ebb62c8cc9fa049098b',
-      title: '节点 838',
+      title: { zh: '节点 838', en: '838 Nodes' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1BVwkcMoQMeJjy0FoXXcShVXa-540-844.png'
     }, {
       hash: 'b881a66eaa1133778940bb59836b9635',
-      title: '节点 2296',
+      title: { zh: '节点 2296', en: '2296 Nodes' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1.OsgcMoQMeJjy0FnXXb8gFXa-540-844.png'
     }, {
       hash: '3fa4de0a3e7dab86d9d8aa2ad380c677',
-      title: '节点 3295',
+      title: { zh: '节点 3295', en: '3295 Nodes' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1qgsccUgQMeJjy0FiXXXhqXXa-540-844.png'
     }, {
       hash: '01706667abe088ba534cdc0bdb3bb23b',
-      title: '节点 5833',
+      title: { zh: '节点 5833', en: '5833 Nodes' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1leA3cCFRMKJjy0FhXXX.xpXa-540-844.png'
     }, {
       hash: 'ae643775651ca4190c3250ce0a1ea1fb',
-      title: '节点 8990',
+      title: { zh: '节点 8990', en: '8990 Nodes' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1o0AicMoQMeJjy0FnXXb8gFXa-540-844.png'
     }, {
       hash: 'aacd3f0c12d7a2befc7c9de9986227a7',
-      title: '节点 12948',
+      title: { zh: '节点 12948', en: '12948 Nodes' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1glklcMoQMeJjy0FoXXcShVXa-540-844.png'
     }]
   }, {
     type: 'layer-benchmark',
-    name: { zh: '层级压测', en: 'Benchmark' },
+    name: { zh: '层级压测', en: 'Layer Benchmark' },
     examples: [{
       hash: '33c93497fe648eeb3bd5a8b9eb709977',
-      title: '层级 100',
+      title: { zh: '层级 100', en: '100 Layers' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1G2T7cMMPMeJjy1XdXXasrXXa-540-844.png'
     }, {
       hash: '6ee24082dae44130bbedf1970f67fc35',
-      title: '层级 200',
+      title: { zh: '层级 200', en: '100 Layers' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1kLZicMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: '4455c5fc1155d294b8ea147cd1e677c8',
-      title: '层级 500',
+      title: { zh: '层级 500', en: '500 Layers' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1H1z8cMMPMeJjy1XdXXasrXXa-540-844.png'
     }, {
       hash: 'ba59f9a74547f709dd4e8d6fa7dccbae',
-      title: '层级 1000',
+      title: { zh: '层级 1000', en: '1000 Layers' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1I1z8cMMPMeJjy1XdXXasrXXa-540-844.png'
     }]
   }]

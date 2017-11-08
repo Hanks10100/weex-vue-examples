@@ -2070,9 +2070,9 @@ module.exports = {
       title: { zh: '最简例子', en: 'Sample' },
       screenshot: 'https://gw.alicdn.com/tfs/TB11h7wewMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
-      hash: 'ad002b5e26cf55475661b22e81682f79',
+      hash: 'd86aca3dbe3d5a00024ccdff6920561b',
       title: { zh: '嵌套', en: 'Nested' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1z9P1ewMPMeJjy1XdXXasrXXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1uKLGbS_I8KJjy0FoXXaFnVXa-540-844.png'
     }, {
       hash: '7613db44f6c03a5849937fbbdeebf69d',
       title: { zh: '文字节点', en: 'Text Node' },
@@ -2083,7 +2083,10 @@ module.exports = {
     name: 'text',
     title: { zh: '<text> 组件', en: '<text>' },
     desc: '<text> 是 Weex 内置的组件，用来将文本按照指定的样式渲染出来。<text> 只能包含文本值，不支持子组件，你可以使用 {{}} 标记插入变量值作为文本内容。',
-    docLink: 'http://weex-project.io/cn/references/components/text.html',
+    docLink: {
+      zh: 'http://weex-project.io/cn/references/components/text.html',
+      en: 'http://weex-project.io/references/components/text.html'
+    },
     examples: [{
       hash: '3e0220d7b379955a26039131f153a360',
       title: { zh: '最简例子', en: 'Sample' },
@@ -2106,15 +2109,20 @@ module.exports = {
     name: 'image',
     title: { zh: '<image> 组件', en: '<image>' },
     desc: '<image> 组件用于渲染图片，并且它不能包含任何子组件。需要注意的是，必须明确指定 width 和 height，否则图片无法显示。',
-    docLink: 'http://weex-project.io/cn/references/components/image.html',
+    docLink: {
+      zh: 'http://weex-project.io/cn/references/components/image.html',
+      en: 'http://weex-project.io/references/components/image.html'
+    },
     examples: [{
-      hash: 'c8d67a852dca4865b06cf372cd5b3c17',
+      // hash: 'c8d67a852dca4865b06cf372cd5b3c17',
+      hash: 'e9cda6ca9ec05f2ff1852be82fc8f91f',
       title: { zh: '最简例子', en: 'Sample' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB150aYcMoQMeJjy0FpXXcTxpXa-540-844.png'
+      // screenshot: 'https://gw.alicdn.com/tfs/TB150aYcMoQMeJjy0FpXXcTxpXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB12KPGbS_I8KJjy0FoXXaFnVXa-540-844.png'
     }, {
-      hash: '859c22672d2b5d7fb4db9a37c0d5b6ec',
+      hash: '5bac698a83ca8c0467426746be011252',
       title: 'resize 属性',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1DPa1cMoQMeJjy0FoXXcShVXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1wKHLbILJ8KJjy0FnXXcFDpXa-540-844.png'
     }, {
       hash: '97d978c234dffe96f594c7c10e9119d0',
       title: '浮层文字',
@@ -2137,7 +2145,10 @@ module.exports = {
     name: 'list',
     title: { zh: '<list> 组件', en: '<list>' },
     desc: '<list> 组件是提供垂直列表功能的核心组件，拥有平滑的滚动和高效的内存管理，非常适合用于长列表的展示。最简单的使用方法是在 <list> 标签内使用数组循环生成的多个 <cell> 标签。',
-    docLink: 'http://weex-project.io/cn/references/components/list.html',
+    docLink: {
+      zh: 'http://weex-project.io/cn/references/components/list.html',
+      en: 'http://weex-project.io/references/components/list.html'
+    },
     examples: [{
       hash: '3faed12fc18c947255abfa8354570170',
       title: { zh: '最简例子', en: 'Sample' },
@@ -2168,7 +2179,10 @@ module.exports = {
     name: 'scroller',
     title: { zh: '<scroller> 组件', en: '<scroller>' },
     desc: '<scroller> 是一个竖直的，可以容纳多个排成一列的子组件的滚动器。如果子组件的总高度高于其本身，那么所有的子组件都可滚动。',
-    docLink: 'http://weex-project.io/cn/references/components/scroller.html',
+    docLink: {
+      zh: 'http://weex-project.io/cn/references/components/scroller.html',
+      en: 'http://weex-project.io/references/components/scroller.html'
+    },
     examples: [{
       hash: '586ca3414132895999430f6e44d81419',
       title: { zh: '最简例子', en: 'Sample' },
@@ -2199,7 +2213,10 @@ module.exports = {
     name: 'input',
     title: { zh: '<input> 组件', en: '<input>' },
     desc: 'Weex 内置的 <input> 组件用来创建接收用户输入字符的输入组件。 <input> 组件的工作方式因 type 属性的值而异，比如 text, password, url, email, tel 等。此组件不支持子组件和 click 事件。',
-    docLink: 'http://weex-project.io/cn/references/components/input.html',
+    docLink: {
+      zh: 'http://weex-project.io/cn/references/components/input.html',
+      en: 'http://weex-project.io/references/components/input.html'
+    },
     examples: [{
       hash: '9ff5e5ded4969d19f76e028bf1440309',
       title: { zh: '最简例子', en: 'Sample' },
@@ -2226,7 +2243,10 @@ module.exports = {
     name: 'textarea',
     title: { zh: '<textarea> 组件', en: '<textarea>' },
     desc: 'textarea 是 Weex 内置的一个组件，用于用户交互，接受用户输入数据。可以认为是允许多行的 <input> 组件。',
-    docLink: 'http://weex-project.io/cn/references/components/textarea.html',
+    docLink: {
+      zh: 'http://weex-project.io/cn/references/components/textarea.html',
+      en: 'http://weex-project.io/references/components/textarea.html'
+    },
     examples: [{
       hash: '126de8266778ddc7e967ef4cf1c98dec',
       title: { zh: '最简例子', en: 'Sample' },
@@ -2241,7 +2261,10 @@ module.exports = {
     name: 'switch',
     title: { zh: '<switch> 组件', en: '<switch>' },
     desc: '<switch> 是 Weex 的内置组件，用来创建与 iOS 一致样式的按钮。例如在 iPhone 中的设置应用中的飞行模式按钮就是一个 switch 按钮。',
-    docLink: 'http://weex-project.io/cn/references/components/switch.html',
+    docLink: {
+      zh: 'http://weex-project.io/cn/references/components/switch.html',
+      en: 'http://weex-project.io/references/components/switch.html'
+    },
     examples: [{
       hash: 'd6769c27e18ab999ced059fff760ba0e',
       title: { zh: '最简例子', en: 'Sample' },
@@ -2260,7 +2283,10 @@ module.exports = {
     name: 'video',
     title: { zh: '<video> 组件', en: '<video>' },
     desc: '<video> 组件可以让我们在 Weex 页面中嵌入视频内容。<text> 是唯一合法的子组件。',
-    docLink: 'http://weex-project.io/cn/references/components/video.html',
+    docLink: {
+      zh: 'http://weex-project.io/cn/references/components/video.html',
+      en: 'http://weex-project.io/references/components/video.html'
+    },
     examples: [{
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
       title: { zh: '最简例子', en: 'Sample' },
@@ -2279,7 +2305,10 @@ module.exports = {
     name: 'web',
     title: { zh: '<web> 组件', en: '<web>' },
     desc: '使用 <web> 组件在 Weex 页面中嵌入一张网页内容。src 属性用来指定资源地址。你也可以使用 webview module 来控制 web 的行为，比如前进、后退和重载。',
-    docLink: 'http://weex-project.io/cn/references/components/web.html',
+    docLink: {
+      zh: 'http://weex-project.io/cn/references/components/web.html',
+      en: 'http://weex-project.io/references/components/web.html'
+    },
     examples: [{
       hash: '4e64eeb667e3d3959c310eb1e66d3105',
       title: { zh: '最简例子', en: 'Sample' },
@@ -2316,7 +2345,10 @@ module.exports = {
     name: 'waterfall',
     title: { zh: '瀑布流组件', en: '<waterfall>' },
     desc: '提供瀑布流布局的组件。',
-    docLink: 'http://weex-project.io/cn/references/components/waterfall.html',
+    docLink: {
+      zh: 'http://weex-project.io/cn/references/components/waterfall.html',
+      en: 'http://weex-project.io/references/components/waterfall.html'
+    },
     examples: [{
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
       title: { zh: '最简例子', en: 'Sample' },
@@ -2340,7 +2372,10 @@ module.exports = {
     name: 'modal',
     title: 'modal 模块',
     desc: 'modal 模块提供了以下展示消息框的 API：toast、alert、confirm 和 prompt。',
-    docLink: 'http://weex-project.io/cn/references/modules/modal.html',
+    docLink: {
+      zh: 'http://weex-project.io/cn/references/modules/modal.html',
+      en: 'http://weex-project.io/references/modules/modal.html'
+    },
     examples: [{
       hash: '5e49976681ea1ae7bbcbce4c92b7771f',
       title: 'toast',
@@ -2363,7 +2398,10 @@ module.exports = {
     name: 'dom',
     title: 'dom 模块',
     desc: '操作页面中的 Virtual-DOM 或者获取其信息。需要注意的是原生平台中并没有 Web 标准中的 DOM 结构。',
-    docLink: 'http://weex-project.io/cn/references/modules/dom.html',
+    docLink: {
+      zh: 'http://weex-project.io/cn/references/modules/dom.html',
+      en: 'http://weex-project.io/references/modules/dom.html'
+    },
     examples: [{
       hash: 'c38fbd7922d42810393c7a23529d48a1',
       title: 'scrollTo',
@@ -2382,7 +2420,10 @@ module.exports = {
     name: 'stream',
     title: 'stream 模块',
     desc: '发送网络请求并获取响应。',
-    docLink: 'http://weex-project.io/cn/references/modules/stream.html',
+    docLink: {
+      zh: 'http://weex-project.io/cn/references/modules/stream.html',
+      en: 'http://weex-project.io/references/modules/stream.html'
+    },
     examples: [{
       hash: '2ae062b6a04124a35bbe2da3b1e5c07b',
       title: 'fetch',
@@ -2393,7 +2434,10 @@ module.exports = {
     name: 'animation',
     title: 'animation 模块',
     desc: 'animation 模块被用于在组件上执行动画。动画可以对组件执行一系列简单的变换 (位置、大小、旋转角度、背景颜色和不透明度等)。',
-    docLink: 'http://weex-project.io/cn/references/modules/animation.html',
+    docLink: {
+      zh: 'http://weex-project.io/cn/references/modules/animation.html',
+      en: 'http://weex-project.io/references/modules/animation.html'
+    },
     examples: [{
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
       title: { zh: '最简例子', en: 'Sample' },
@@ -2408,7 +2452,10 @@ module.exports = {
     name: 'navigator',
     title: 'navigator 模块',
     desc: '众所周知，在浏览器里，我们可以通过前进或者回退按钮来切换页面，iOS/Android 的 navigator 模块就是用来实现类似的效果的。除了前进、回退功能，该模块还允许我们指定在切换页面的时候是否应用动画效果。',
-    docLink: 'http://weex-project.io/cn/references/modules/navigator.html',
+    docLink: {
+      zh: 'http://weex-project.io/cn/references/modules/navigator.html',
+      en: 'http://weex-project.io/references/modules/navigator.html'
+    },
     examples: [{
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
       title: 'push',
@@ -2423,7 +2470,10 @@ module.exports = {
     name: 'storage',
     title: 'storage 模块',
     desc: 'storage 模块可以对本地数据进行存储、修改、删除，并且该数据是永久保存的，除非手动清除或者代码清除。但是，storage 模块有一个限制就是浏览器端（H5）只能存储小于5M的数据，而在 Android 和 iOS 中是没什么限制的。',
-    docLink: 'http://weex-project.io/cn/references/modules/storage.html',
+    docLink: {
+      zh: 'http://weex-project.io/cn/references/modules/storage.html',
+      en: 'http://weex-project.io/references/modules/storage.html'
+    },
     examples: [{
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
       title: '数据存取',
@@ -2442,7 +2492,10 @@ module.exports = {
     name: 'clipboard',
     title: 'clipboard 模块',
     desc: 'clipboard 模块可以实现从系统的剪贴板中获取内容或者设置内容。',
-    docLink: 'http://weex-project.io/cn/references/modules/clipboard.html',
+    docLink: {
+      zh: 'http://weex-project.io/cn/references/modules/clipboard.html',
+      en: 'http://weex-project.io/references/modules/clipboard.html'
+    },
     examples: [{
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
       title: { zh: '最简例子', en: 'Sample' },
@@ -2457,7 +2510,10 @@ module.exports = {
     name: 'picker',
     title: 'picker 模块',
     desc: '以下为 picker 相关的 API：用于数据选择，日期选择，时间选择。（ H5模块如需使用，请手动引入weex-picker组件）',
-    docLink: 'http://weex-project.io/cn/references/modules/picker.html',
+    docLink: {
+      zh: 'http://weex-project.io/cn/references/modules/picker.html',
+      en: 'http://weex-project.io/references/modules/picker.html'
+    },
     examples: [{
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
       title: '数据选择',
@@ -2476,7 +2532,10 @@ module.exports = {
     name: 'webview',
     title: 'webview 模块',
     desc: '一系列的 <web> 组件操作接口。 比如 goBack、goForward、和 reload。通常与 <web> 组件共用。',
-    docLink: 'http://weex-project.io/cn/references/modules/webview.html',
+    docLink: {
+      zh: 'http://weex-project.io/cn/references/modules/webview.html',
+      en: 'http://weex-project.io/references/modules/webview.html'
+    },
     examples: [{
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
       title: '页面跳转',
@@ -2491,7 +2550,10 @@ module.exports = {
     name: 'meta',
     title: 'meta 模块',
     desc: 'meta 模块可用于声明单个页面的元信息，通常是一些页面的配置，如容器的显示宽度 (viewport) 等。',
-    docLink: 'http://weex-project.io/cn/references/modules/meta.html',
+    docLink: {
+      zh: 'http://weex-project.io/cn/references/modules/meta.html',
+      en: 'http://weex-project.io/references/modules/meta.html'
+    },
     examples: [{
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
       title: 'setViewport',
@@ -2502,7 +2564,10 @@ module.exports = {
     name: 'WebSocket',
     title: 'WebSocket 模块',
     desc: 'WebSockets 是一种先进的技术, 这使得在用户的 H5/iOS/Android 和一个服务器之间打开一个的交互式通信会话成为可能, 有了这个 API，你可以向服务器发送消息, 并接收事件驱动的响应, 无需轮询服务器的响应。',
-    docLink: 'http://weex-project.io/cn/references/modules/WebSocket.html',
+    docLink: {
+      zh: 'http://weex-project.io/cn/references/modules/websocket.html',
+      en: 'http://weex-project.io/references/modules/websocket.html'
+    },
     examples: [{
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
       title: '使用范例',
@@ -2522,74 +2587,99 @@ module.exports = {
   type: 'syntax',
   name: { zh: '语法', en: 'Syntax' },
   group: [{
-    type: 'Mustache',
+    type: 'mustache',
     name: 'Mustache',
-    title: '文本绑定的语法',
-    desc: '数据绑定最常见的形式就是使用 “Mustache” 语法（双大括号）的文本插值。',
-    docLink: 'https://cn.vuejs.org/v2/guide/syntax.html#插值',
+    title: { zh: '文本绑定的语法', en: 'Text Data-binding' },
+    desc: {
+      zh: '数据绑定最常见的形式就是使用 “Mustache” 语法（双大括号）的文本插值。',
+      en: 'The most basic form of data binding is text interpolation using the “Mustache” syntax (double curly braces).'
+    },
+    docLink: {
+      zh: 'https://cn.vuejs.org/v2/guide/syntax.html#插值',
+      en: 'https://vuejs.org/v2/guide/syntax.html#Interpolations'
+    },
     examples: [{
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '文本插值',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      hash: '34e42c91e1f86591563ec8897e6a095c',
+      title: { zh: '文本插值', en: 'Inline text' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1V5IXcMMPMeJjy1XdXXasrXXa-540-844.png'
     }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '使用表达式',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      hash: '68b02a5371eb7da5cb9dde1946ce2b68',
+      title: { zh: '使用表达式', en: 'Using expression' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1veLGbS_I8KJjy0FoXXaFnVXa-540-844.png'
     }]
   }, {
     type: 'v-bind',
     name: 'v-bind',
-    title: '绑定属性值',
-    desc: 'v-bind 可以动态地绑定一个或多个特性，或一个组件 prop 到表达式。可以简写成 `:` (半角冒号)。',
-    docLink: 'https://cn.vuejs.org/v2/api/#v-bind',
+    title: { zh: '绑定属性值', en: 'v-bind' },
+    desc: {
+      zh: 'v-bind 可以动态地绑定一个或多个特性，或一个组件 prop 到表达式。可以简写成 `:` (半角冒号)。',
+      en: 'Dynamically bind one or more attributes, or a component prop to an expression.'
+    },
+    docLink: {
+      zh: 'https://cn.vuejs.org/v2/api/#v-bind',
+      en: 'https://vuejs.org/v2/api/#v-bind'
+    },
     examples: [{
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      hash: 'b62f1a5f4973f43fae9adca02864eb8b',
       title: { zh: '最简例子', en: 'Sample' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB150aYcMoQMeJjy0FpXXcTxpXa-540-844.png'
     }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '绑定表达式',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      hash: 'b142f24d2f0ab27f5f65448d2aa16970',
+      title: { zh: '绑定表达式', en: 'Using expression' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1veLGbS_I8KJjy0FoXXaFnVXa-540-844.png'
     }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '样式值绑定',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      hash: '3a2cc3c7a465f6a07c4bd3a868c7e393',
+      title: { zh: '样式值绑定', en: 'Style binding' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1o.62bH_I8KJjy1XaXXbsxpXa-540-844.png'
     }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '类名绑定',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      hash: '2bc0de9ec2448a1f852f354349f66600',
+      // hash: 'b4b1f5e4679efbe3c94864a1404bfeaf',
+      title: { zh: '类名绑定', en: 'Class binding' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1o.62bH_I8KJjy1XaXXbsxpXa-540-844.png'
     }]
   }, {
     type: 'v-for',
     name: 'v-for',
-    title: '循环指令',
-    desc: 'v-for 基于源数据多次渲染元素或模板块。此指令之值，必须使用特定语法 alias in expression 为当前遍历的元素提供别名。',
-    docLink: 'https://cn.vuejs.org/v2/guide/list.html',
+    title: { zh: '循环指令', en: 'v-for' },
+    desc: {
+      zh: 'v-for 基于源数据多次渲染元素或模板块。此指令之值，必须使用特定语法 `alias in expression` 为当前遍历的元素提供别名。',
+      en: 'We can use the v-for directive to render a `alias in expression` based on an array. The v-for directive requires a special syntax in the form of item in items.'
+    },
+    docLink: {
+      zh: 'https://cn.vuejs.org/v2/guide/list.html',
+      en: 'https://vuejs.org/v2/guide/list.html'
+    },
     examples: [{
       hash: '38904c807f66b1a11de5ddf0d40b3d30',
       title: { zh: '最简例子', en: 'Sample' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1R_7.bjihSKJjy0FlXXadEXXa-540-844.png'
     }, {
       hash: '2cd124954175721d9145571bf722ce7a',
-      title: '下标索引',
+      title: { zh: '下标索引', en: 'Array index' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1dAivaLBNTKJjy0FdXXcPpVXa-540-844.png'
     }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '遍历 JS 对象',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      hash: '2b4222b828fac65257d9ed9f8932f2a1',
+      title: { zh: '遍历 JS 对象', en: 'v-for with an object' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB10r25bH_I8KJjy1XaXXbsxpXa-540-844.png'
     }, {
       hash: '7364e9c3c25ab2cbc945903cea7b0878',
-      title: '多层循环',
+      title: { zh: '多层循环', en: 'multiple v-for' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1giSLfwoQMeJjy0FoXXcShVXa-540-844.png'
     }]
   }, {
     type: 'v-if',
     name: 'v-if',
-    title: '条件指令',
-    desc: 'v-if 根据表达式的值的真假条件渲染元素，在切换时元素及它的数据绑定/组件被销毁并重建。同类指令还有 v-else 和 v-else-if。',
-    docLink: 'https://cn.vuejs.org/v2/guide/conditional.html',
+    title: { zh: '条件指令', en: 'v-if' },
+    desc: {
+      zh: 'v-if 根据表达式的值的真假条件渲染元素，在切换时元素及它的数据绑定/组件被销毁并重建。同类指令还有 v-else 和 v-else-if。',
+      en: 'Conditionally render the element based on the truthy-ness of the expression value.'
+    },
+    docLink: {
+      zh: 'https://cn.vuejs.org/v2/guide/conditional.html',
+      en: 'https://vuejs.org/v2/guide/conditional.html'
+    },
     examples: [{
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      hash: '736a5dd112a1a114a559218ed20cae08',
       title: { zh: '最简例子', en: 'Sample' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
@@ -2604,162 +2694,199 @@ module.exports = {
   }, {
     type: 'v-on',
     name: 'v-on',
-    title: '事件绑定',
-    desc: '可以用 v-on 指令监听 DOM 事件来触发一些 JavaScript 代码，可以简写成 `@`。用在普通元素上时，只能监听 原生 DOM 事件。用在自定义元素组件上时，也可以监听子组件触发的自定义事件。',
-    docLink: 'https://cn.vuejs.org/v2/guide/events.html#监听事件',
+    title: { zh: '事件绑定', en: 'v-on' },
+    desc: {
+      zh: '可以用 v-on 指令监听 DOM 事件来触发一些 JavaScript 代码，可以简写成 `@`。用在普通元素上时，只能监听 原生 DOM 事件。用在自定义元素组件上时，也可以监听子组件触发的自定义事件。',
+      en: 'We can use the v-on directive to listen to DOM events and run some JavaScript when they’re triggered.'
+    },
+    docLink: {
+      zh: 'https://cn.vuejs.org/v2/guide/events.html#监听事件',
+      en: 'https://vuejs.org/v2/guide/events.html'
+    },
     examples: [{
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      hash: 'a3607094a4bf73a069a5c51efb47fe98',
       title: { zh: '最简例子', en: 'Sample' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1dcTaewMPMeJjy1XdXXasrXXa-540-844.png'
     }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '内联方法',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      hash: '8e3a1cbcf1ba9af94fe6f77e9668e354',
+      title: { zh: '内联语句', en: '' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1dcTaewMPMeJjy1XdXXasrXXa-540-844.png'
     }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '修饰符',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      hash: '3a019f2eca4a6966ee0c3b91e5b2fc5b',
+      title: { zh: '传递参数', en: '' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1dcTaewMPMeJjy1XdXXasrXXa-540-844.png'
+    }, {
+      hash: '8581f4d2ff8fb48bdc547d2465c0cf24',
+      title: { zh: 'once 修饰符', en: '' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1dcTaewMPMeJjy1XdXXasrXXa-540-844.png'
     }]
   }, {
-    type: 'v-modal',
-    name: 'v-modal',
-    title: '表单双向绑定',
-    desc: '可以用 v-model 指令在表单控件元素上创建双向数据绑定。它会根据控件类型自动选取正确的方法来更新元素。尽管有些神奇，但 v-model 本质上不过是语法糖，它负责监听用户的输入事件以更新数据，并特别处理一些极端的例子。',
-    docLink: 'https://cn.vuejs.org/v2/guide/forms.html',
+    type: 'v-model',
+    name: 'v-model',
+    title: { zh: '表单双向绑定', en: 'v-model' },
+    desc: {
+      zh: '可以用 v-model 指令在表单控件元素上创建双向数据绑定。它会根据控件类型自动选取正确的方法来更新元素。尽管有些神奇，但 v-model 本质上不过是语法糖，它负责监听用户的输入事件以更新数据，并特别处理一些极端的例子。',
+      en: 'You can use the v-model directive to create two-way data bindings on form input and textarea elements. It automatically picks the correct way to update the element based on the input type.'
+    },
+    docLink: {
+      zh: 'https://cn.vuejs.org/v2/guide/forms.html',
+      en: 'https://vuejs.org/v2/guide/forms.html'
+    },
     examples: [{
       hash: 'e1e4413c5252dc763b01f26ce60d5ee4',
       title: { zh: '最简例子', en: 'Sample' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1IQ9cdgMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: 'textarea',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-    }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '各种表单组件',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-    }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: 'lazy 修饰符',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-    }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: 'trim 修饰符',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-    }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: 'number 修饰符',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      hash: '39684e82ad9a8e0b175f49e058cf7af6',
+      title: { zh: 'textarea', en: '' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1y738XiqAXuNjy1XdXXaYcVXa-540-844.png'
+      // }, {
+      //   hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      //   title: { zh: '各种表单组件', en: '' },
+      //   screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      // }, {
+      //   hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      //   title: { zh: 'lazy 修饰符', en: '' },
+      //   screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      // }, {
+      //   hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      //   title: { zh: 'trim 修饰符', en: '' },
+      //   screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      // }, {
+      //   hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      //   title: { zh: 'number 修饰符', en: '' },
+      //   screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }]
   }, {
     type: 'v-once',
     name: 'v-once',
-    title: '一次性渲染',
-    desc: '只渲染元素和组件一次。随后的重新渲染,元素/组件及其所有的子节点将被视为静态内容并跳过。这可以用于优化更新性能。',
-    docLink: 'https://cn.vuejs.org/v2/api/#v-once',
+    title: { zh: '一次性渲染', en: 'v-once' },
+    desc: {
+      zh: '只渲染元素和组件一次。随后的重新渲染,元素/组件及其所有的子节点将被视为静态内容并跳过。这可以用于优化更新性能。',
+      en: 'Render the element and component once only. On subsequent re-renders, the element/component and all its children will be treated as static content and skipped. This can be used to optimize update performance.'
+    },
+    docLink: {
+      zh: 'https://cn.vuejs.org/v2/api/#v-once',
+      en: 'https://vuejs.org/v2/api/#v-once'
+    },
     examples: [{
       hash: 'db5a71d3f621f32261a4208943358092',
-      title: '使用 v-once',
+      title: { zh: '使用 v-once', en: 'Using v-once' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1dcTaewMPMeJjy1XdXXasrXXa-540-844.png'
     }, {
       hash: 'f66f49ad00f58ab8bd1fa580d27900f8',
-      title: '不使用 v-once',
+      title: {
+        zh: '不使用 v-once',
+        en: 'Without v-once'
+      },
       screenshot: 'https://gw.alicdn.com/tfs/TB1cITaewMPMeJjy1XdXXasrXXa-540-844.png'
     }]
+    // }, {
+    //   type: 'component',
+    //   name: 'component',
+    //   title: { zh: '动态组件', en: '' },
+    //   desc: { zh: '通过使用保留的 <component> 元素，动态地绑定到它的 is 特性，我们让多个组件可以使用同一个挂载点，并动态切换。', en: '' },
+    //   docLink: { zh: 'https://cn.vuejs.org/v2/guide/components.html#动态组件', en: '' },
+    //   examples: [{
+    //     hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+    //     title: { zh: '最简例子', en: 'Sample' },
+    //     screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    //   }]
+    // }, {
+    //   type: 'slot',
+    //   name: 'slot',
+    //   title: { zh: '内容分发', en: '' },
+    //   desc: { zh: '为了让组件可以组合，我们需要一种方式来混合父组件的内容与子组件自己的模板。这个过程被称为内容分发(或 “transclusion”)。Vue.js 实现了一个内容分发 API，参照了当前 Web 组件规范草案，使用特殊的 <slot> 元素作为原始内容的插槽。', en: '' },
+    //   docLink: { zh: 'https://cn.vuejs.org/v2/guide/components.html#使用-Slots-分发内容', en: '' },
+    //   examples: [{
+    //     hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+    //     title: { zh: '最简例子', en: 'Sample' },
+    //     screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    //   }, {
+    //     hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+    //     title: { zh: '单个 solt', en: '' },
+    //     screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    //   }, {
+    //     hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+    //     title: { zh: '具名 slot', en: '' },
+    //     screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    //   }]
   }, {
-    type: 'component',
-    name: 'component',
-    title: '动态组件',
-    desc: '通过使用保留的 <component> 元素，动态地绑定到它的 is 特性，我们让多个组件可以使用同一个挂载点，并动态切换。',
-    docLink: 'https://cn.vuejs.org/v2/guide/components.html#动态组件',
-    examples: [{
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: { zh: '最简例子', en: 'Sample' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-    }]
-  }, {
-    type: 'slot',
-    name: 'slot',
-    title: '内容分发',
-    desc: '为了让组件可以组合，我们需要一种方式来混合父组件的内容与子组件自己的模板。这个过程被称为内容分发(或 “transclusion”)。Vue.js 实现了一个内容分发 API，参照了当前 Web 组件规范草案，使用特殊的 <slot> 元素作为原始内容的插槽。',
-    docLink: 'https://cn.vuejs.org/v2/guide/components.html#使用-Slots-分发内容',
-    examples: [{
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: { zh: '最简例子', en: 'Sample' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-    }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '单个 solt',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-    }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '具名 slot',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-    }]
-  }, {
-    type: 'filter',
-    name: 'filter',
-    title: '过滤器',
-    desc: 'Vue.js 允许你自定义过滤器，可被用作一些常见的文本格式化。过滤器可以用在两个地方：mustache 插值和 v-bind 表达式。过滤器应该被添加在 JavaScript 表达式的尾部，由“管道”符指示。',
-    docLink: 'https://cn.vuejs.org/v2/guide/filters.html',
-    examples: [{
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: { zh: '最简例子', en: 'Sample' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-    }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '传递额外参数',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-    }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '过滤器串联',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-    }]
-  }, {
-    type: 'mixin',
-    name: 'mixin',
-    title: '混合',
-    desc: '混合 (mixins) 是一种分发 Vue 组件中可复用功能的非常灵活的方式。混合对象可以包含任意组件选项。以组件使用混合对象时，所有混合对象的选项将被混入该组件本身的选项。',
-    docLink: 'https://cn.vuejs.org/v2/guide/mixins.html',
+    type: 'filters',
+    name: 'Filters',
+    title: { zh: '过滤器', en: 'Filters' },
+    desc: {
+      zh: 'Vue.js 允许你自定义过滤器，可被用作一些常见的文本格式化。过滤器可以用在两个地方：mustache 插值和 v-bind 表达式。过滤器应该被添加在 JavaScript 表达式的尾部，由“管道”符指示。',
+      en: 'Vue.js allows you to define filters that can be used to apply common text formatting.'
+    },
+    docLink: {
+      zh: 'https://cn.vuejs.org/v2/guide/filters.html',
+      en: 'https://vuejs.org/v2/guide/filters.html'
+    },
     examples: [{
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
       title: { zh: '最简例子', en: 'Sample' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '全局混合',
+      title: { zh: '传递额外参数', en: '' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '选项合并',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-    }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '生命周期混合',
+      title: { zh: '过滤器串联', en: '' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }]
   }, {
-    type: 'transition',
-    name: 'transition',
-    title: '节点过渡动画',
-    desc: '<transition> 元素作为单个元素/组件的过渡效果。<transition> 不会渲染额外的 DOM 元素，也不会出现在检测过的组件层级中。它只是将内容包裹在其中，简单的运用过渡行为。',
-    docLink: 'https://cn.vuejs.org/v2/api/#transition',
+    type: 'mixins',
+    name: 'Mixins',
+    title: { zh: '混合', en: 'Mixins' },
+    desc: {
+      zh: '混合 (mixins) 是一种分发 Vue 组件中可复用功能的非常灵活的方式。混合对象可以包含任意组件选项。以组件使用混合对象时，所有混合对象的选项将被混入该组件本身的选项。',
+      en: 'Mixins are a flexible way to distribute reusable functionalities for Vue components. A mixin object can contain any component options. When a component uses a mixin, all options in the mixin will be “mixed” into the component’s own options.'
+    },
+    docLink: {
+      zh: 'https://cn.vuejs.org/v2/guide/mixins.html',
+      en: 'https://vuejs.org/v2/guide/mixins.html'
+    },
     examples: [{
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
       title: { zh: '最简例子', en: 'Sample' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-    }]
-  }, {
-    type: 'keep-alive',
-    name: 'keep-alive',
-    title: '缓存组件',
-    desc: '<keep-alive> 包裹动态组件时，会缓存不活动的组件实例，而不是销毁它们。和 <transition> 相似，<keep-alive> 是一个抽象组件：它自身不会渲染一个 DOM 元素，也不会出现在父组件链中。当组件在 <keep-alive> 内被切换，它的 activated 和 deactivated 这两个生命周期钩子函数将会被对应执行。',
-    docLink: 'https://cn.vuejs.org/v2/api/#keep-alive',
-    examples: [{
+    }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: { zh: '最简例子', en: 'Sample' },
+      title: { zh: '全局混合', en: 'Global mixin' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      title: { zh: '选项合并', en: 'Mixin options' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      title: { zh: '生命周期混合', en: 'Lifecycle mixin' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }]
+    // }, {
+    //   type: 'transition',
+    //   name: 'transition',
+    //   title: { zh: '节点过渡动画', en: '' },
+    //   desc: { zh: '<transition> 元素作为单个元素/组件的过渡效果。<transition> 不会渲染额外的 DOM 元素，也不会出现在检测过的组件层级中。它只是将内容包裹在其中，简单的运用过渡行为。', en: '' },
+    //   docLink: { zh: 'https://cn.vuejs.org/v2/api/#transition', en: '' },
+    //   examples: [{
+    //     hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+    //     title: { zh: '最简例子', en: 'Sample' },
+    //     screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    //   }]
+    // }, {
+    //   type: 'keep-alive',
+    //   name: 'keep-alive',
+    //   title: { zh: '缓存组件', en: '' },
+    //   desc: { zh: '<keep-alive> 包裹动态组件时，会缓存不活动的组件实例，而不是销毁它们。和 <transition> 相似，<keep-alive> 是一个抽象组件：它自身不会渲染一个 DOM 元素，也不会出现在父组件链中。当组件在 <keep-alive> 内被切换，它的 activated 和 deactivated 这两个生命周期钩子函数将会被对应执行。', en: '' },
+    //   docLink: { zh: 'https://cn.vuejs.org/v2/api/#keep-alive', en: '' },
+    //   examples: [{
+    //     hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+    //     title: { zh: '最简例子', en: 'Sample' },
+    //     screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    //   }]
   }]
 };
 
@@ -2778,39 +2905,39 @@ module.exports = {
     name: { zh: '基本样式', en: 'Basics' },
     examples: [{
       hash: 'ad002b5e26cf55475661b22e81682f79',
-      title: '边框/背景',
+      title: { zh: '边框/背景', en: 'Border & Background' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1z9P1ewMPMeJjy1XdXXasrXXa-540-844.png'
     }, {
       hash: '3488279c3502d1234b437c2f718f3a55',
-      title: '半透明',
+      title: { zh: '半透明', en: 'Translucent' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1FPAzd3MPMeJjy1XdXXasrXXa-540-844.png'
     }, {
       hash: '5219829fd0a5f59dc9208c8327e02e92',
-      title: 'position',
+      title: { zh: 'positon 布局', en: 'Position Layout' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1CCP1ewMPMeJjy1XdXXasrXXa-540-844.png'
     }, {
-      hash: '94a627f3ffa7007f3a2e9c97a5e245ec',
-      title: 'box shadow',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1J7goczihSKJjy0FlXXadEXXa-540-844.png'
-    }, {
       hash: 'd1648814d06fdf59cd99ea92c716694a',
-      title: '线性渐变',
+      title: { zh: '线性渐变', en: 'Linear Gradient' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1JQCEhgoQMeJjy1XaXXcSsFXa-540-844.png'
     }, {
+      hash: '94a627f3ffa7007f3a2e9c97a5e245ec',
+      title: { zh: '阴影', en: 'Box Shadow' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1J7goczihSKJjy0FlXXadEXXa-540-844.png'
+    }, {
+      hash: 'e68f268dffcf0481935e19c9b0ab315f',
+      title: { zh: '伪类选择器', en: 'Pseudo-classes' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1J7goczihSKJjy0FlXXadEXXa-540-844.png'
+    }, {
+      hash: '27cc765282b692bb87d9fddf55df12e4',
+      title: { zh: '网格背景', en: 'Mesh Background' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1kU3abRTH8KJjy0FiXXcRsXXa-540-844.png'
+    }, {
+      hash: '12b9bd84439b1adafb4b0eace4a73ec2',
+      title: { zh: '透明背景', en: 'Transparent Background' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1CL3nbMDD8KJjy0FdXXcjvXXa-540-844.png'
+    }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '伪类选择器',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-    }, {
-      hash: 'af853645f7f3dc53126ff47a2b820626',
-      title: '网格背景',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-    }, {
-      hash: 'a3faee51f04d2ea27f6c5302c0350337',
-      title: '透明背景',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-    }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '瀑布流',
+      title: { zh: '瀑布流', en: 'Waterfall' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
@@ -2821,8 +2948,14 @@ module.exports = {
     type: 'flexbox',
     name: 'Flexbox',
     title: { zh: 'Flexbox 布局', en: 'Flexbox Layout' },
-    desc: 'CSS 弹性盒子布局是 CSS 的模块之一，定义了一种针对用户界面设计而优化的 CSS 盒子模型。在弹性布局模型中，弹性容器的子元素可以在任何方向上排布，也可以“弹性伸缩”其尺寸，既可以增加尺寸以填满未使用的空间，也可以收缩尺寸以避免父元素溢出。子元素的水平对齐和垂直对齐都能很方便的进行操控。通过嵌套这些框（水平框在垂直框内，或垂直框在水平框内）可以在两个维度上构建布局。',
-    docLink: 'https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Flexible_Box_Layout',
+    desc: {
+      zh: 'CSS 弹性盒子布局是 CSS 的模块之一，定义了一种针对用户界面设计而优化的 CSS 盒子模型。在弹性布局模型中，弹性容器的子元素可以在任何方向上排布，也可以“弹性伸缩”其尺寸，既可以增加尺寸以填满未使用的空间，也可以收缩尺寸以避免父元素溢出。子元素的水平对齐和垂直对齐都能很方便的进行操控。通过嵌套这些框（水平框在垂直框内，或垂直框在水平框内）可以在两个维度上构建布局。',
+      en: 'CSS Flexible Box Layout is a module of CSS that defines a CSS box model optimized for user interface design, and the layout of items in one dimension. In the flex layout model, the children of a flex container can be laid out in any direction, and can “flex” their sizes, either growing to fill unused space or shrinking to avoid overflowing the parent. Both horizontal and vertical alignment of the children can be easily manipulated.'
+    },
+    docLink: {
+      zh: 'https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Flexible_Box_Layout',
+      en: 'https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout'
+    },
     examples: [{
       hash: 'fb3dbc872b4ccd068bc61a551c02dcc0',
       title: 'flex-direction',
@@ -2886,56 +3019,56 @@ module.exports = {
   type: 'others',
   name: { zh: '其他', en: 'Others' },
   group: [{
-    type: 'useful',
+    type: 'utils',
     name: { zh: '功能', en: 'Utils' },
     examples: [{
-      hash: '377c4f4a6030b5842938afb814cf169f',
-      title: '获取环境信息',
+      hash: '3abe25e7dd6d52bf35edffd62ac6199e',
+      title: { zh: '获取环境信息', en: 'Environment' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1yJC8cEgQMeJjy0FjXXaExFXa-540-844.png'
     }, {
       hash: 'd877dd3bab71943e64320679dcd7ddac',
-      title: '功能检测',
+      title: { zh: '功能检测', en: 'Feature Detect' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1TOGuc3MPMeJjy1XdXXasrXXa-540-844.png'
     }, {
       hash: '8313d0b11a4e90b2f002833ba6b50bc4',
-      title: '支持 wasm ？',
+      title: { zh: '支持 WebAssembly？', en: 'Support WebAssembly?' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1cHyefwMPMeJjy1XbXXcwxVXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '自定义字体',
+      title: { zh: '自定义字体', en: 'iconfont' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }]
   }, {
-    type: 'showCase',
-    name: { zh: '实例', en: 'Use Case' },
+    type: 'cases',
+    name: { zh: '实例', en: 'Use Cases' },
     examples: [{
-      hash: '8b7ccae9e15438c220257fac0d63d43b',
+      hash: '3a52d415dc7307d1594079574fe553c7',
       title: 'Todo List',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB182b_bNrI8KJjy0FpXXb5hVXa-540-844.png'
     }, {
       hash: '82ff22e820405194004aacae8045ad56',
-      title: '计算器',
+      title: { zh: '计算器', en: 'Calculator' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1tXOrc3MPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '扫雷',
+      title: { zh: '扫雷', en: 'MineSweeper' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: '1e5eb6380f9e15973e28bacfc7e59636',
-      title: '华容道',
+      title: { zh: '华容道', en: 'Klotski' },
       screenshot: 'https://gw.alicdn.com/tfs/TB13Yw1af6H8KJjy0FjXXaXepXa-540-844.png'
     }]
   }, {
-    type: 'realCase',
+    type: 'reprography',
     name: { zh: '仿', en: 'Reprography' },
     examples: [{
       // hash: 'f28215d4d9d96de91115cdd1528bcacd',
       hash: '8ee2850f39123a350333eb08beac7115',
-      title: '朋友圈',
+      title: { zh: '朋友圈', en: 'Moment' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1G7LydwMPMeJjy1XdXXasrXXa-540-844.png'
     }, {
       hash: '03e9275f49963a4367e08c41edc725d7',
-      title: '聊天框',
+      title: { zh: '聊天框', en: 'Chat' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: '013b1e76d2c5419e32bc3e02aa1bef26',
@@ -2972,50 +3105,50 @@ module.exports = {
     }]
   }, {
     type: 'flatten-benchmark',
-    name: { zh: '平铺压测', en: 'Benchmark' },
+    name: { zh: '平铺压测', en: 'Flatten Benchmark' },
     examples: [{
       hash: 'ae5fd588a6522ebb62c8cc9fa049098b',
-      title: '节点 838',
+      title: { zh: '节点 838', en: '838 Nodes' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1BVwkcMoQMeJjy0FoXXcShVXa-540-844.png'
     }, {
       hash: 'b881a66eaa1133778940bb59836b9635',
-      title: '节点 2296',
+      title: { zh: '节点 2296', en: '2296 Nodes' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1.OsgcMoQMeJjy0FnXXb8gFXa-540-844.png'
     }, {
       hash: '3fa4de0a3e7dab86d9d8aa2ad380c677',
-      title: '节点 3295',
+      title: { zh: '节点 3295', en: '3295 Nodes' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1qgsccUgQMeJjy0FiXXXhqXXa-540-844.png'
     }, {
       hash: '01706667abe088ba534cdc0bdb3bb23b',
-      title: '节点 5833',
+      title: { zh: '节点 5833', en: '5833 Nodes' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1leA3cCFRMKJjy0FhXXX.xpXa-540-844.png'
     }, {
       hash: 'ae643775651ca4190c3250ce0a1ea1fb',
-      title: '节点 8990',
+      title: { zh: '节点 8990', en: '8990 Nodes' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1o0AicMoQMeJjy0FnXXb8gFXa-540-844.png'
     }, {
       hash: 'aacd3f0c12d7a2befc7c9de9986227a7',
-      title: '节点 12948',
+      title: { zh: '节点 12948', en: '12948 Nodes' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1glklcMoQMeJjy0FoXXcShVXa-540-844.png'
     }]
   }, {
     type: 'layer-benchmark',
-    name: { zh: '层级压测', en: 'Benchmark' },
+    name: { zh: '层级压测', en: 'Layer Benchmark' },
     examples: [{
       hash: '33c93497fe648eeb3bd5a8b9eb709977',
-      title: '层级 100',
+      title: { zh: '层级 100', en: '100 Layers' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1G2T7cMMPMeJjy1XdXXasrXXa-540-844.png'
     }, {
       hash: '6ee24082dae44130bbedf1970f67fc35',
-      title: '层级 200',
+      title: { zh: '层级 200', en: '100 Layers' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1kLZicMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: '4455c5fc1155d294b8ea147cd1e677c8',
-      title: '层级 500',
+      title: { zh: '层级 500', en: '500 Layers' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1H1z8cMMPMeJjy1XdXXasrXXa-540-844.png'
     }, {
       hash: 'ba59f9a74547f709dd4e8d6fa7dccbae',
-      title: '层级 1000',
+      title: { zh: '层级 1000', en: '1000 Layers' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1I1z8cMMPMeJjy1XdXXasrXXa-540-844.png'
     }]
   }]

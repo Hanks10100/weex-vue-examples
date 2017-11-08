@@ -6,39 +6,39 @@ module.exports = {
     name: { zh: '基本样式', en: 'Basics' },
     examples: [{
       hash: 'ad002b5e26cf55475661b22e81682f79',
-      title: '边框/背景',
+      title: { zh: '边框/背景', en: 'Border & Background' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1z9P1ewMPMeJjy1XdXXasrXXa-540-844.png'
     }, {
       hash: '3488279c3502d1234b437c2f718f3a55',
-      title: '半透明',
+      title: { zh: '半透明', en: 'Translucent' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1FPAzd3MPMeJjy1XdXXasrXXa-540-844.png'
     }, {
       hash: '5219829fd0a5f59dc9208c8327e02e92',
-      title: 'position',
+      title: { zh: 'positon 布局', en: 'Position Layout'},
       screenshot: 'https://gw.alicdn.com/tfs/TB1CCP1ewMPMeJjy1XdXXasrXXa-540-844.png'
     }, {
-      hash: '94a627f3ffa7007f3a2e9c97a5e245ec',
-      title: 'box shadow',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1J7goczihSKJjy0FlXXadEXXa-540-844.png'
-    }, {
       hash: 'd1648814d06fdf59cd99ea92c716694a',
-      title: '线性渐变',
+      title: { zh: '线性渐变', en: 'Linear Gradient' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1JQCEhgoQMeJjy1XaXXcSsFXa-540-844.png'
     }, {
+      hash: '94a627f3ffa7007f3a2e9c97a5e245ec',
+      title: { zh: '阴影', en: 'Box Shadow' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1J7goczihSKJjy0FlXXadEXXa-540-844.png'
+    }, {
+      hash: 'e68f268dffcf0481935e19c9b0ab315f',
+      title: { zh: '伪类选择器', en: 'Pseudo-classes' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1J7goczihSKJjy0FlXXadEXXa-540-844.png'
+    }, {
+      hash: '27cc765282b692bb87d9fddf55df12e4',
+      title: { zh: '网格背景', en: 'Mesh Background' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1kU3abRTH8KJjy0FiXXcRsXXa-540-844.png'
+    }, {
+      hash: '12b9bd84439b1adafb4b0eace4a73ec2',
+      title: { zh: '透明背景', en: 'Transparent Background' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1CL3nbMDD8KJjy0FdXXcjvXXa-540-844.png'
+    }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '伪类选择器',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-    }, {
-      hash: 'af853645f7f3dc53126ff47a2b820626',
-      title: '网格背景',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-    }, {
-      hash: 'a3faee51f04d2ea27f6c5302c0350337',
-      title: '透明背景',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-    }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '瀑布流',
+      title: { zh: '瀑布流', en: 'Waterfall' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
@@ -49,8 +49,14 @@ module.exports = {
     type: 'flexbox',
     name: 'Flexbox',
     title: { zh: 'Flexbox 布局', en: 'Flexbox Layout' },
-    desc: 'CSS 弹性盒子布局是 CSS 的模块之一，定义了一种针对用户界面设计而优化的 CSS 盒子模型。在弹性布局模型中，弹性容器的子元素可以在任何方向上排布，也可以“弹性伸缩”其尺寸，既可以增加尺寸以填满未使用的空间，也可以收缩尺寸以避免父元素溢出。子元素的水平对齐和垂直对齐都能很方便的进行操控。通过嵌套这些框（水平框在垂直框内，或垂直框在水平框内）可以在两个维度上构建布局。',
-    docLink: 'https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Flexible_Box_Layout',
+    desc: {
+      zh: 'CSS 弹性盒子布局是 CSS 的模块之一，定义了一种针对用户界面设计而优化的 CSS 盒子模型。在弹性布局模型中，弹性容器的子元素可以在任何方向上排布，也可以“弹性伸缩”其尺寸，既可以增加尺寸以填满未使用的空间，也可以收缩尺寸以避免父元素溢出。子元素的水平对齐和垂直对齐都能很方便的进行操控。通过嵌套这些框（水平框在垂直框内，或垂直框在水平框内）可以在两个维度上构建布局。',
+      en: 'CSS Flexible Box Layout is a module of CSS that defines a CSS box model optimized for user interface design, and the layout of items in one dimension. In the flex layout model, the children of a flex container can be laid out in any direction, and can “flex” their sizes, either growing to fill unused space or shrinking to avoid overflowing the parent. Both horizontal and vertical alignment of the children can be easily manipulated.'
+    },
+    docLink: {
+      zh: 'https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Flexible_Box_Layout',
+      en: 'https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout'
+    },
     examples: [{
       hash: 'fb3dbc872b4ccd068bc61a551c02dcc0',
       title: 'flex-direction',

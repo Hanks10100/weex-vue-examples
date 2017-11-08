@@ -14,9 +14,17 @@ function i18n (text) {
   }
 }
 
+function parseHash () {
+  if (typeof location === 'undefined' || !location.hash) {
+    return {}
+  }
+  const res = /^#(\w+)(\/([-_+\w]+))?/.exec(location.hash)
+  return { tab: res[1], hash: res[3] }
+}
+
 Vue.filter('i18n', i18n)
 Vue.mixin({
-  methods: { i18n },
+  methods: { i18n, parseHash },
   watch: {
     language () {
       Vue.config.language = this.language
@@ -26,4 +34,12 @@ Vue.mixin({
 })
 
 IndexPage.el = '#root'
-new Vue(IndexPage)
+const app = new Vue(IndexPage)
+
+const hashRE = /^#(\w+)(\/([-_+\w]+))?/
+function switchToTab () {
+  const { tab, hash } = parseHash()
+  app.toggleTab(tab, hash)
+}
+window.onhashchange = switchToTab
+switchToTab()

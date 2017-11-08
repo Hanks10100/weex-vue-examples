@@ -2,74 +2,99 @@ module.exports = {
   type: 'syntax',
   name: { zh: '语法', en: 'Syntax' },
   group: [{
-    type: 'Mustache',
+    type: 'mustache',
     name: 'Mustache',
-    title: '文本绑定的语法',
-    desc: '数据绑定最常见的形式就是使用 “Mustache” 语法（双大括号）的文本插值。',
-    docLink: 'https://cn.vuejs.org/v2/guide/syntax.html#插值',
+    title: { zh: '文本绑定的语法', en: 'Text Data-binding' },
+    desc: {
+      zh: '数据绑定最常见的形式就是使用 “Mustache” 语法（双大括号）的文本插值。',
+      en: 'The most basic form of data binding is text interpolation using the “Mustache” syntax (double curly braces).'
+    },
+    docLink: {
+      zh: 'https://cn.vuejs.org/v2/guide/syntax.html#插值',
+      en: 'https://vuejs.org/v2/guide/syntax.html#Interpolations'
+    },
     examples: [{
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '文本插值',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      hash: '34e42c91e1f86591563ec8897e6a095c',
+      title: { zh: '文本插值', en: 'Inline text' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1V5IXcMMPMeJjy1XdXXasrXXa-540-844.png'
     }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '使用表达式',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      hash: '68b02a5371eb7da5cb9dde1946ce2b68',
+      title: { zh: '使用表达式', en: 'Using expression' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1veLGbS_I8KJjy0FoXXaFnVXa-540-844.png'
     }]
   }, {
     type: 'v-bind',
     name: 'v-bind',
-    title: '绑定属性值',
-    desc: 'v-bind 可以动态地绑定一个或多个特性，或一个组件 prop 到表达式。可以简写成 `:` (半角冒号)。',
-    docLink: 'https://cn.vuejs.org/v2/api/#v-bind',
+    title: { zh: '绑定属性值', en: 'v-bind' },
+    desc: {
+      zh: 'v-bind 可以动态地绑定一个或多个特性，或一个组件 prop 到表达式。可以简写成 `:` (半角冒号)。',
+      en: 'Dynamically bind one or more attributes, or a component prop to an expression.'
+    },
+    docLink: {
+      zh: 'https://cn.vuejs.org/v2/api/#v-bind',
+      en: 'https://vuejs.org/v2/api/#v-bind'
+    },
     examples: [{
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      hash: 'b62f1a5f4973f43fae9adca02864eb8b',
       title: { zh: '最简例子', en: 'Sample' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB150aYcMoQMeJjy0FpXXcTxpXa-540-844.png'
     }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '绑定表达式',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      hash: 'b142f24d2f0ab27f5f65448d2aa16970',
+      title: { zh: '绑定表达式', en: 'Using expression' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1veLGbS_I8KJjy0FoXXaFnVXa-540-844.png'
     }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '样式值绑定',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      hash: '3a2cc3c7a465f6a07c4bd3a868c7e393',
+      title: { zh: '样式值绑定', en: 'Style binding' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1o.62bH_I8KJjy1XaXXbsxpXa-540-844.png'
     }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '类名绑定',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      hash: '2bc0de9ec2448a1f852f354349f66600',
+      // hash: 'b4b1f5e4679efbe3c94864a1404bfeaf',
+      title: { zh: '类名绑定', en: 'Class binding' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1o.62bH_I8KJjy1XaXXbsxpXa-540-844.png'
     }]
   }, {
     type: 'v-for',
     name: 'v-for',
-    title: '循环指令',
-    desc: 'v-for 基于源数据多次渲染元素或模板块。此指令之值，必须使用特定语法 alias in expression 为当前遍历的元素提供别名。',
-    docLink: 'https://cn.vuejs.org/v2/guide/list.html',
+    title: { zh: '循环指令', en: 'v-for' },
+    desc: {
+      zh: 'v-for 基于源数据多次渲染元素或模板块。此指令之值，必须使用特定语法 `alias in expression` 为当前遍历的元素提供别名。',
+      en: 'We can use the v-for directive to render a `alias in expression` based on an array. The v-for directive requires a special syntax in the form of item in items.'
+    },
+    docLink: {
+      zh: 'https://cn.vuejs.org/v2/guide/list.html',
+      en: 'https://vuejs.org/v2/guide/list.html'
+    },
     examples: [{
       hash: '38904c807f66b1a11de5ddf0d40b3d30',
       title: { zh: '最简例子', en: 'Sample' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1R_7.bjihSKJjy0FlXXadEXXa-540-844.png'
     }, {
       hash: '2cd124954175721d9145571bf722ce7a',
-      title: '下标索引',
+      title: { zh: '下标索引', en: 'Array index' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1dAivaLBNTKJjy0FdXXcPpVXa-540-844.png'
     }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '遍历 JS 对象',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      hash: '2b4222b828fac65257d9ed9f8932f2a1',
+      title: { zh: '遍历 JS 对象', en: 'v-for with an object' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB10r25bH_I8KJjy1XaXXbsxpXa-540-844.png'
     }, {
       hash: '7364e9c3c25ab2cbc945903cea7b0878',
-      title: '多层循环',
+      title: { zh: '多层循环', en: 'multiple v-for' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1giSLfwoQMeJjy0FoXXcShVXa-540-844.png'
     }]
   }, {
     type: 'v-if',
     name: 'v-if',
-    title: '条件指令',
-    desc: 'v-if 根据表达式的值的真假条件渲染元素，在切换时元素及它的数据绑定/组件被销毁并重建。同类指令还有 v-else 和 v-else-if。',
-    docLink: 'https://cn.vuejs.org/v2/guide/conditional.html',
+    title: { zh: '条件指令', en: 'v-if' },
+    desc: {
+      zh: 'v-if 根据表达式的值的真假条件渲染元素，在切换时元素及它的数据绑定/组件被销毁并重建。同类指令还有 v-else 和 v-else-if。',
+      en: 'Conditionally render the element based on the truthy-ness of the expression value.'
+    },
+    docLink: {
+      zh: 'https://cn.vuejs.org/v2/guide/conditional.html',
+      en: 'https://vuejs.org/v2/guide/conditional.html'
+    },
     examples: [{
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      hash: '736a5dd112a1a114a559218ed20cae08',
       title: { zh: '最简例子', en: 'Sample' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
@@ -84,161 +109,198 @@ module.exports = {
   }, {
     type: 'v-on',
     name: 'v-on',
-    title: '事件绑定',
-    desc: '可以用 v-on 指令监听 DOM 事件来触发一些 JavaScript 代码，可以简写成 `@`。用在普通元素上时，只能监听 原生 DOM 事件。用在自定义元素组件上时，也可以监听子组件触发的自定义事件。',
-    docLink: 'https://cn.vuejs.org/v2/guide/events.html#监听事件',
+    title: { zh: '事件绑定', en: 'v-on' },
+    desc: {
+      zh: '可以用 v-on 指令监听 DOM 事件来触发一些 JavaScript 代码，可以简写成 `@`。用在普通元素上时，只能监听 原生 DOM 事件。用在自定义元素组件上时，也可以监听子组件触发的自定义事件。',
+      en: 'We can use the v-on directive to listen to DOM events and run some JavaScript when they’re triggered.'
+    },
+    docLink: {
+      zh: 'https://cn.vuejs.org/v2/guide/events.html#监听事件',
+      en: 'https://vuejs.org/v2/guide/events.html'
+    },
     examples: [{
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      hash: 'a3607094a4bf73a069a5c51efb47fe98',
       title: { zh: '最简例子', en: 'Sample' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1dcTaewMPMeJjy1XdXXasrXXa-540-844.png'
     }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '内联方法',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      hash: '8e3a1cbcf1ba9af94fe6f77e9668e354',
+      title: { zh: '内联语句', en: '' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1dcTaewMPMeJjy1XdXXasrXXa-540-844.png'
     }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '修饰符',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      hash: '3a019f2eca4a6966ee0c3b91e5b2fc5b',
+      title: { zh: '传递参数', en: '' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1dcTaewMPMeJjy1XdXXasrXXa-540-844.png'
+    }, {
+      hash: '8581f4d2ff8fb48bdc547d2465c0cf24',
+      title: { zh: 'once 修饰符', en: '' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1dcTaewMPMeJjy1XdXXasrXXa-540-844.png'
     }]
   }, {
-    type: 'v-modal',
-    name: 'v-modal',
-    title: '表单双向绑定',
-    desc: '可以用 v-model 指令在表单控件元素上创建双向数据绑定。它会根据控件类型自动选取正确的方法来更新元素。尽管有些神奇，但 v-model 本质上不过是语法糖，它负责监听用户的输入事件以更新数据，并特别处理一些极端的例子。',
-    docLink: 'https://cn.vuejs.org/v2/guide/forms.html',
+    type: 'v-model',
+    name: 'v-model',
+    title: { zh: '表单双向绑定', en: 'v-model' },
+    desc: {
+      zh: '可以用 v-model 指令在表单控件元素上创建双向数据绑定。它会根据控件类型自动选取正确的方法来更新元素。尽管有些神奇，但 v-model 本质上不过是语法糖，它负责监听用户的输入事件以更新数据，并特别处理一些极端的例子。',
+      en: 'You can use the v-model directive to create two-way data bindings on form input and textarea elements. It automatically picks the correct way to update the element based on the input type.'
+    },
+    docLink: {
+      zh: 'https://cn.vuejs.org/v2/guide/forms.html',
+      en: 'https://vuejs.org/v2/guide/forms.html'
+    },
     examples: [{
       hash: 'e1e4413c5252dc763b01f26ce60d5ee4',
       title: { zh: '最简例子', en: 'Sample' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1IQ9cdgMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: 'textarea',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-    }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '各种表单组件',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-    }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: 'lazy 修饰符',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-    }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: 'trim 修饰符',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-    }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: 'number 修饰符',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      hash: '39684e82ad9a8e0b175f49e058cf7af6',
+      title: { zh: 'textarea', en: '' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1y738XiqAXuNjy1XdXXaYcVXa-540-844.png'
+    // }, {
+    //   hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+    //   title: { zh: '各种表单组件', en: '' },
+    //   screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    // }, {
+    //   hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+    //   title: { zh: 'lazy 修饰符', en: '' },
+    //   screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    // }, {
+    //   hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+    //   title: { zh: 'trim 修饰符', en: '' },
+    //   screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    // }, {
+    //   hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+    //   title: { zh: 'number 修饰符', en: '' },
+    //   screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }]
   }, {
     type: 'v-once',
     name: 'v-once',
-    title: '一次性渲染',
-    desc: '只渲染元素和组件一次。随后的重新渲染,元素/组件及其所有的子节点将被视为静态内容并跳过。这可以用于优化更新性能。',
-    docLink: 'https://cn.vuejs.org/v2/api/#v-once',
+    title: { zh: '一次性渲染', en: 'v-once' },
+    desc: {
+      zh: '只渲染元素和组件一次。随后的重新渲染,元素/组件及其所有的子节点将被视为静态内容并跳过。这可以用于优化更新性能。',
+      en: 'Render the element and component once only. On subsequent re-renders, the element/component and all its children will be treated as static content and skipped. This can be used to optimize update performance.'
+    },
+    docLink: {
+      zh: 'https://cn.vuejs.org/v2/api/#v-once',
+      en: 'https://vuejs.org/v2/api/#v-once'
+    },
     examples: [{
       hash: 'db5a71d3f621f32261a4208943358092',
-      title: '使用 v-once',
+      title: { zh: '使用 v-once', en: 'Using v-once' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1dcTaewMPMeJjy1XdXXasrXXa-540-844.png'
     }, {
       hash: 'f66f49ad00f58ab8bd1fa580d27900f8',
-      title: '不使用 v-once',
+      title: {
+        zh: '不使用 v-once',
+        en: 'Without v-once'
+      },
       screenshot: 'https://gw.alicdn.com/tfs/TB1cITaewMPMeJjy1XdXXasrXXa-540-844.png'
     }]
+  // }, {
+  //   type: 'component',
+  //   name: 'component',
+  //   title: { zh: '动态组件', en: '' },
+  //   desc: { zh: '通过使用保留的 <component> 元素，动态地绑定到它的 is 特性，我们让多个组件可以使用同一个挂载点，并动态切换。', en: '' },
+  //   docLink: { zh: 'https://cn.vuejs.org/v2/guide/components.html#动态组件', en: '' },
+  //   examples: [{
+  //     hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+  //     title: { zh: '最简例子', en: 'Sample' },
+  //     screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+  //   }]
+  // }, {
+  //   type: 'slot',
+  //   name: 'slot',
+  //   title: { zh: '内容分发', en: '' },
+  //   desc: { zh: '为了让组件可以组合，我们需要一种方式来混合父组件的内容与子组件自己的模板。这个过程被称为内容分发(或 “transclusion”)。Vue.js 实现了一个内容分发 API，参照了当前 Web 组件规范草案，使用特殊的 <slot> 元素作为原始内容的插槽。', en: '' },
+  //   docLink: { zh: 'https://cn.vuejs.org/v2/guide/components.html#使用-Slots-分发内容', en: '' },
+  //   examples: [{
+  //     hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+  //     title: { zh: '最简例子', en: 'Sample' },
+  //     screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+  //   }, {
+  //     hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+  //     title: { zh: '单个 solt', en: '' },
+  //     screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+  //   }, {
+  //     hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+  //     title: { zh: '具名 slot', en: '' },
+  //     screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+  //   }]
   }, {
-    type: 'component',
-    name: 'component',
-    title: '动态组件',
-    desc: '通过使用保留的 <component> 元素，动态地绑定到它的 is 特性，我们让多个组件可以使用同一个挂载点，并动态切换。',
-    docLink: 'https://cn.vuejs.org/v2/guide/components.html#动态组件',
-    examples: [{
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: { zh: '最简例子', en: 'Sample' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-    }]
-  }, {
-    type: 'slot',
-    name: 'slot',
-    title: '内容分发',
-    desc: '为了让组件可以组合，我们需要一种方式来混合父组件的内容与子组件自己的模板。这个过程被称为内容分发(或 “transclusion”)。Vue.js 实现了一个内容分发 API，参照了当前 Web 组件规范草案，使用特殊的 <slot> 元素作为原始内容的插槽。',
-    docLink: 'https://cn.vuejs.org/v2/guide/components.html#使用-Slots-分发内容',
-    examples: [{
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: { zh: '最简例子', en: 'Sample' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-    }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '单个 solt',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-    }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '具名 slot',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-    }]
-  }, {
-    type: 'filter',
-    name: 'filter',
-    title: '过滤器',
-    desc: 'Vue.js 允许你自定义过滤器，可被用作一些常见的文本格式化。过滤器可以用在两个地方：mustache 插值和 v-bind 表达式。过滤器应该被添加在 JavaScript 表达式的尾部，由“管道”符指示。',
-    docLink: 'https://cn.vuejs.org/v2/guide/filters.html',
-    examples: [{
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: { zh: '最简例子', en: 'Sample' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-    }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '传递额外参数',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-    }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '过滤器串联',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-    }]
-  }, {
-    type: 'mixin',
-    name: 'mixin',
-    title: '混合',
-    desc: '混合 (mixins) 是一种分发 Vue 组件中可复用功能的非常灵活的方式。混合对象可以包含任意组件选项。以组件使用混合对象时，所有混合对象的选项将被混入该组件本身的选项。',
-    docLink: 'https://cn.vuejs.org/v2/guide/mixins.html',
+    type: 'filters',
+    name: 'Filters',
+    title: { zh: '过滤器', en: 'Filters' },
+    desc: {
+      zh: 'Vue.js 允许你自定义过滤器，可被用作一些常见的文本格式化。过滤器可以用在两个地方：mustache 插值和 v-bind 表达式。过滤器应该被添加在 JavaScript 表达式的尾部，由“管道”符指示。',
+      en: 'Vue.js allows you to define filters that can be used to apply common text formatting.'
+    },
+    docLink: {
+      zh: 'https://cn.vuejs.org/v2/guide/filters.html',
+      en: 'https://vuejs.org/v2/guide/filters.html'
+    },
     examples: [{
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
       title: { zh: '最简例子', en: 'Sample' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '全局混合',
+      title: { zh: '传递额外参数', en: '' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '选项合并',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-    }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '生命周期混合',
+      title: { zh: '过滤器串联', en: '' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }]
   }, {
-    type: 'transition',
-    name: 'transition',
-    title: '节点过渡动画',
-    desc: '<transition> 元素作为单个元素/组件的过渡效果。<transition> 不会渲染额外的 DOM 元素，也不会出现在检测过的组件层级中。它只是将内容包裹在其中，简单的运用过渡行为。',
-    docLink: 'https://cn.vuejs.org/v2/api/#transition',
+    type: 'mixins',
+    name: 'Mixins',
+    title: { zh: '混合', en: 'Mixins' },
+    desc: {
+      zh: '混合 (mixins) 是一种分发 Vue 组件中可复用功能的非常灵活的方式。混合对象可以包含任意组件选项。以组件使用混合对象时，所有混合对象的选项将被混入该组件本身的选项。',
+      en: 'Mixins are a flexible way to distribute reusable functionalities for Vue components. A mixin object can contain any component options. When a component uses a mixin, all options in the mixin will be “mixed” into the component’s own options.'
+    },
+    docLink: {
+      zh: 'https://cn.vuejs.org/v2/guide/mixins.html',
+      en: 'https://vuejs.org/v2/guide/mixins.html'
+    },
     examples: [{
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
       title: { zh: '最简例子', en: 'Sample' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-    }]
-  }, {
-    type: 'keep-alive',
-    name: 'keep-alive',
-    title: '缓存组件',
-    desc: '<keep-alive> 包裹动态组件时，会缓存不活动的组件实例，而不是销毁它们。和 <transition> 相似，<keep-alive> 是一个抽象组件：它自身不会渲染一个 DOM 元素，也不会出现在父组件链中。当组件在 <keep-alive> 内被切换，它的 activated 和 deactivated 这两个生命周期钩子函数将会被对应执行。',
-    docLink: 'https://cn.vuejs.org/v2/api/#keep-alive',
-    examples: [{
+    }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: { zh: '最简例子', en: 'Sample' },
+      title: { zh: '全局混合', en: 'Global mixin' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      title: { zh: '选项合并', en: 'Mixin options' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      title: { zh: '生命周期混合', en: 'Lifecycle mixin' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }]
+  // }, {
+  //   type: 'transition',
+  //   name: 'transition',
+  //   title: { zh: '节点过渡动画', en: '' },
+  //   desc: { zh: '<transition> 元素作为单个元素/组件的过渡效果。<transition> 不会渲染额外的 DOM 元素，也不会出现在检测过的组件层级中。它只是将内容包裹在其中，简单的运用过渡行为。', en: '' },
+  //   docLink: { zh: 'https://cn.vuejs.org/v2/api/#transition', en: '' },
+  //   examples: [{
+  //     hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+  //     title: { zh: '最简例子', en: 'Sample' },
+  //     screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+  //   }]
+  // }, {
+  //   type: 'keep-alive',
+  //   name: 'keep-alive',
+  //   title: { zh: '缓存组件', en: '' },
+  //   desc: { zh: '<keep-alive> 包裹动态组件时，会缓存不活动的组件实例，而不是销毁它们。和 <transition> 相似，<keep-alive> 是一个抽象组件：它自身不会渲染一个 DOM 元素，也不会出现在父组件链中。当组件在 <keep-alive> 内被切换，它的 activated 和 deactivated 这两个生命周期钩子函数将会被对应执行。', en: '' },
+  //   docLink: { zh: 'https://cn.vuejs.org/v2/api/#keep-alive', en: '' },
+  //   examples: [{
+  //     hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+  //     title: { zh: '最简例子', en: 'Sample' },
+  //     screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+  //   }]
   }]
 }

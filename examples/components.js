@@ -18,9 +18,9 @@ module.exports = {
       title: { zh: '最简例子', en: 'Sample' },
       screenshot: 'https://gw.alicdn.com/tfs/TB11h7wewMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
-      hash: 'ad002b5e26cf55475661b22e81682f79',
+      hash: 'd86aca3dbe3d5a00024ccdff6920561b',
       title: { zh: '嵌套', en: 'Nested' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1z9P1ewMPMeJjy1XdXXasrXXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1uKLGbS_I8KJjy0FoXXaFnVXa-540-844.png'
     }, {
       hash: '7613db44f6c03a5849937fbbdeebf69d',
       title: { zh: '文字节点', en: 'Text Node' },
@@ -31,7 +31,10 @@ module.exports = {
     name: 'text',
     title: { zh: '<text> 组件', en: '<text>' },
     desc: '<text> 是 Weex 内置的组件，用来将文本按照指定的样式渲染出来。<text> 只能包含文本值，不支持子组件，你可以使用 {{}} 标记插入变量值作为文本内容。',
-    docLink: 'http://weex-project.io/cn/references/components/text.html',
+    docLink: {
+      zh: 'http://weex-project.io/cn/references/components/text.html',
+      en: 'http://weex-project.io/references/components/text.html'
+    },
     examples: [{
       hash: '3e0220d7b379955a26039131f153a360',
       title: { zh: '最简例子', en: 'Sample' },
@@ -54,15 +57,20 @@ module.exports = {
     name: 'image',
     title: { zh: '<image> 组件', en: '<image>' },
     desc: '<image> 组件用于渲染图片，并且它不能包含任何子组件。需要注意的是，必须明确指定 width 和 height，否则图片无法显示。',
-    docLink: 'http://weex-project.io/cn/references/components/image.html',
+    docLink: {
+      zh: 'http://weex-project.io/cn/references/components/image.html',
+      en: 'http://weex-project.io/references/components/image.html'
+    },
     examples: [{
-      hash: 'c8d67a852dca4865b06cf372cd5b3c17',
+      // hash: 'c8d67a852dca4865b06cf372cd5b3c17',
+      hash: 'e9cda6ca9ec05f2ff1852be82fc8f91f',
       title: { zh: '最简例子', en: 'Sample' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB150aYcMoQMeJjy0FpXXcTxpXa-540-844.png'
+      // screenshot: 'https://gw.alicdn.com/tfs/TB150aYcMoQMeJjy0FpXXcTxpXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB12KPGbS_I8KJjy0FoXXaFnVXa-540-844.png'
     }, {
-      hash: '859c22672d2b5d7fb4db9a37c0d5b6ec',
+      hash: '5bac698a83ca8c0467426746be011252',
       title: 'resize 属性',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1DPa1cMoQMeJjy0FoXXcShVXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1wKHLbILJ8KJjy0FnXXcFDpXa-540-844.png'
     }, {
       hash: '97d978c234dffe96f594c7c10e9119d0',
       title: '浮层文字',
@@ -85,7 +93,10 @@ module.exports = {
     name: 'list',
     title: { zh: '<list> 组件', en: '<list>' },
     desc: '<list> 组件是提供垂直列表功能的核心组件，拥有平滑的滚动和高效的内存管理，非常适合用于长列表的展示。最简单的使用方法是在 <list> 标签内使用数组循环生成的多个 <cell> 标签。',
-    docLink: 'http://weex-project.io/cn/references/components/list.html',
+    docLink: {
+      zh: 'http://weex-project.io/cn/references/components/list.html',
+      en: 'http://weex-project.io/references/components/list.html'
+    },
     examples: [{
       hash: '3faed12fc18c947255abfa8354570170',
       title: { zh: '最简例子', en: 'Sample' },
@@ -116,7 +127,10 @@ module.exports = {
     name: 'scroller',
     title: { zh: '<scroller> 组件', en: '<scroller>' },
     desc: '<scroller> 是一个竖直的，可以容纳多个排成一列的子组件的滚动器。如果子组件的总高度高于其本身，那么所有的子组件都可滚动。',
-    docLink: 'http://weex-project.io/cn/references/components/scroller.html',
+    docLink: {
+      zh: 'http://weex-project.io/cn/references/components/scroller.html',
+      en: 'http://weex-project.io/references/components/scroller.html'
+    },
     examples: [{
       hash: '586ca3414132895999430f6e44d81419',
       title: { zh: '最简例子', en: 'Sample' },
@@ -147,7 +161,10 @@ module.exports = {
     name: 'input',
     title: { zh: '<input> 组件', en: '<input>' },
     desc: 'Weex 内置的 <input> 组件用来创建接收用户输入字符的输入组件。 <input> 组件的工作方式因 type 属性的值而异，比如 text, password, url, email, tel 等。此组件不支持子组件和 click 事件。',
-    docLink: 'http://weex-project.io/cn/references/components/input.html',
+    docLink: {
+      zh: 'http://weex-project.io/cn/references/components/input.html',
+      en: 'http://weex-project.io/references/components/input.html'
+    },
     examples: [{
       hash: '9ff5e5ded4969d19f76e028bf1440309',
       title: { zh: '最简例子', en: 'Sample' },
@@ -174,7 +191,10 @@ module.exports = {
     name: 'textarea',
     title: { zh: '<textarea> 组件', en: '<textarea>' },
     desc: 'textarea 是 Weex 内置的一个组件，用于用户交互，接受用户输入数据。可以认为是允许多行的 <input> 组件。',
-    docLink: 'http://weex-project.io/cn/references/components/textarea.html',
+    docLink: {
+      zh: 'http://weex-project.io/cn/references/components/textarea.html',
+      en: 'http://weex-project.io/references/components/textarea.html'
+    },
     examples: [{
       hash: '126de8266778ddc7e967ef4cf1c98dec',
       title: { zh: '最简例子', en: 'Sample' },
@@ -189,7 +209,10 @@ module.exports = {
     name: 'switch',
     title: { zh: '<switch> 组件', en: '<switch>' },
     desc: '<switch> 是 Weex 的内置组件，用来创建与 iOS 一致样式的按钮。例如在 iPhone 中的设置应用中的飞行模式按钮就是一个 switch 按钮。',
-    docLink: 'http://weex-project.io/cn/references/components/switch.html',
+    docLink: {
+      zh: 'http://weex-project.io/cn/references/components/switch.html',
+      en: 'http://weex-project.io/references/components/switch.html'
+    },
     examples: [{
       hash: 'd6769c27e18ab999ced059fff760ba0e',
       title: { zh: '最简例子', en: 'Sample' },
@@ -208,7 +231,10 @@ module.exports = {
     name: 'video',
     title: { zh: '<video> 组件', en: '<video>' },
     desc: '<video> 组件可以让我们在 Weex 页面中嵌入视频内容。<text> 是唯一合法的子组件。',
-    docLink: 'http://weex-project.io/cn/references/components/video.html',
+    docLink: {
+      zh: 'http://weex-project.io/cn/references/components/video.html',
+      en: 'http://weex-project.io/references/components/video.html'
+    },
     examples: [{
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
       title: { zh: '最简例子', en: 'Sample' },
@@ -227,7 +253,10 @@ module.exports = {
     name: 'web',
     title: { zh: '<web> 组件', en: '<web>' },
     desc: '使用 <web> 组件在 Weex 页面中嵌入一张网页内容。src 属性用来指定资源地址。你也可以使用 webview module 来控制 web 的行为，比如前进、后退和重载。',
-    docLink: 'http://weex-project.io/cn/references/components/web.html',
+    docLink: {
+      zh: 'http://weex-project.io/cn/references/components/web.html',
+      en: 'http://weex-project.io/references/components/web.html'
+    },
     examples: [{
       hash: '4e64eeb667e3d3959c310eb1e66d3105',
       title: { zh: '最简例子', en: 'Sample' },
@@ -264,7 +293,10 @@ module.exports = {
     name: 'waterfall',
     title: { zh: '瀑布流组件', en: '<waterfall>' },
     desc: '提供瀑布流布局的组件。',
-    docLink: 'http://weex-project.io/cn/references/components/waterfall.html',
+    docLink: {
+      zh: 'http://weex-project.io/cn/references/components/waterfall.html',
+      en: 'http://weex-project.io/references/components/waterfall.html'
+    },
     examples: [{
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
       title: { zh: '最简例子', en: 'Sample' },
