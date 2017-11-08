@@ -42,6 +42,7 @@
     box-shadow: inset 0 6px 15px rgba(0, 0, 0, 0.2);
     justify-content: center;
     align-items: center;
+    overflow:hidden;
   }
   .poster {
     width: 750px;
