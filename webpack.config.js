@@ -1,55 +1,53 @@
 var path = require('path')
 var webpack = require('webpack')
 
-var bannerPlugin = new webpack.BannerPlugin({
-  banner:  '// { "framework": "Vue" }\n',
-  raw: true
-})
-
-var entry = {
-  'vue-bundle': path.resolve('src', 'entry.js')
-}
-
-var nativeConfig = {
-  entry: entry,
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: '[name].weex.js'
-  },
-  module: {
-    rules: [
-      {
-        test: /\.js$/,
-        use: ['babel-loader'],
-        exclude: /node_modules/
-      }, {
-        test: /\.vue(\?[^?]+)?$/,
-        use: ['weex-loader']
-      }
-    ]
-  },
-  plugins: [bannerPlugin]
-}
-
-
-var webConfig = {
-  entry: entry,
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: '[name].web.js'
-  },
-  module: {
-    rules: [
-      {
-        test: /\.js$/,
-        use: ['babel-loader'],
-        exclude: /node_modules/
-      }, {
-        test: /\.vue(\?[^?]+)?$/,
-        use: ['vue-loader']
-      }
-    ]
+function createBuildConfig (option) {
+  if (!option) {
+    option = {}
   }
+  var isNative = option.isNative || false
+  var commonConfig = {
+    entry: option.entry,
+    output: {
+      path: path.resolve(__dirname, option.outputPath || 'dist'),
+      filename: option.outputName || (isNative ? 'bundle.weex.js' : 'bundle.web.js')
+    },
+    module: {
+      rules: [
+        {
+          test: /\.js$/,
+          use: ['babel-loader'],
+          exclude: /node_modules/
+        }, {
+          test: /\.vue(\?[^?]+)?$/,
+          use: [isNative ? 'weex-loader' : 'vue-loader']
+        }
+      ]
+    }
+  }
+  if (isNative) {
+    var bannerPlugin = new webpack.BannerPlugin({
+      banner:  '// { "framework": "Vue" }\n',
+      raw: true
+    })
+    commonConfig.plugins = [bannerPlugin]
+  }
+  return commonConfig
 }
 
-module.exports = [nativeConfig, webConfig]
+var options = [{
+  isNative: false,
+  entry: path.resolve('src', 'entry.js')
+}, {
+  isNative: true,
+  entry: path.resolve('src', 'entry.js')
+}, {
+  isNative: false,
+  entry: path.resolve('src/website', 'entry.js'),
+  outputPath: 'docs',
+  outputName: 'website.js'
+}]
+
+module.exports = options.map(function (option) {
+  return createBuildConfig(option)
+})

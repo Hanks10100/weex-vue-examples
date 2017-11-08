@@ -107,9 +107,9 @@ module.exports = {
     desc: '可以用 v-model 指令在表单控件元素上创建双向数据绑定。它会根据控件类型自动选取正确的方法来更新元素。尽管有些神奇，但 v-model 本质上不过是语法糖，它负责监听用户的输入事件以更新数据，并特别处理一些极端的例子。',
     docLink: 'https://cn.vuejs.org/v2/guide/forms.html',
     examples: [{
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      hash: 'e1e4413c5252dc763b01f26ce60d5ee4',
       title: { zh: '最简例子', en: 'Sample' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1IQ9cdgMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
       title: 'textarea',

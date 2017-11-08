@@ -5,11 +5,8 @@
   "version": "0.1.0",
   "scripts": {
     "build": "webpack",
-    "build:website": "webpack --config webpack.config.website.js",
     "dev": "webpack --watch",
-    "dev:website": "webpack --watch --config webpack.config.website.js",
-    "serve": "serve -p 8080",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "serve": "serve -p 8080"
   },
   "main": "src/entry.js",
   "keywords": [
@@ -31,14 +28,14 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-runtime": "^6.11.6",
     "css-loader": "^0.26.0",
-    "serve": "^1.4.0",
-    "vue-template-compiler": "^2.5.2",
-    "webpack": "^3.8.1"
+    "serve": "^6.4.1",
+    "vue-loader": "^13.3.0",
+    "vue-template-compiler": "^2.5.3",
+    "webpack": "^3.8.1",
+    "weex-loader": "^0.5.3"
   },
   "dependencies": {
-    "vue": "^2.5.2",
-    "vue-loader": "^13.3.0",
-    "weex-loader": "^0.5.3",
-    "weex-vue-render": "^0.12.24"
+    "vue": "^2.5.3",
+    "weex-vue-render": "^0.12.25"
   }
 }

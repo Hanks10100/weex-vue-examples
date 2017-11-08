@@ -52,7 +52,7 @@ module.exports = {
     examples: [{
       hash: '2ae062b6a04124a35bbe2da3b1e5c07b',
       title: 'fetch',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1iC98cwoQMeJjy0FnXXb8gFXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1SAFdbLDH8KJjy1XcXXcpdXXa-540-844.png'
     }]
   }, {
     type: 'animation',

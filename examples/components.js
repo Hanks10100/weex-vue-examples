@@ -103,7 +103,7 @@ module.exports = {
       title: '<refresh>',
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
-      hash: 'ba02d2084739897ccf0351f98e075051',
+      hash: 'f4e660c403c0fd5140ac2747f498d948',
       title: 'loadmore 事件',
       screenshot: 'https://gw.alicdn.com/tfs/TB1tK66cMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
@@ -118,11 +118,11 @@ module.exports = {
     desc: '<scroller> 是一个竖直的，可以容纳多个排成一列的子组件的滚动器。如果子组件的总高度高于其本身，那么所有的子组件都可滚动。',
     docLink: 'http://weex-project.io/cn/references/components/scroller.html',
     examples: [{
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      hash: '586ca3414132895999430f6e44d81419',
       title: { zh: '最简例子', en: 'Sample' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1tK66cMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      hash: 'c626a5fb4981e8e8bce92d7b012c26b4',
       title: '水平滚动',
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
@@ -134,7 +134,7 @@ module.exports = {
       title: '<refresh>',
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
-      hash: '71013c3598e6edbb80bfc6a509247644',
+      hash: 'eb1f5edea6cb8f4fea06d67dc071eff7',
       title: 'loadmore',
       screenshot: 'https://gw.alicdn.com/tfs/TB1tK66cMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
@@ -149,23 +149,23 @@ module.exports = {
     desc: 'Weex 内置的 <input> 组件用来创建接收用户输入字符的输入组件。 <input> 组件的工作方式因 type 属性的值而异，比如 text, password, url, email, tel 等。此组件不支持子组件和 click 事件。',
     docLink: 'http://weex-project.io/cn/references/components/input.html',
     examples: [{
-      hash: 'ed21daa55c43139ddac26900526f18b3',
+      hash: '9ff5e5ded4969d19f76e028bf1440309',
       title: { zh: '最简例子', en: 'Sample' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1IQ9cdgMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
-      hash: 'a06f7f8f319e8aedc0e8763ec58c4cf1',
+      hash: '185e8574389d3242a79090414c336e4d',
       title: 'placeholder',
       screenshot: 'https://gw.alicdn.com/tfs/TB1XPmcdgoQMeJjy0FoXXcShVXa-540-844.png'
     }, {
-      hash: 'ed959174686015dd7ab2d7e558ad8e2d',
+      hash: 'aab3e1a3835c9cdbed53fb127738507f',
       title: '初始状态',
       screenshot: 'https://gw.alicdn.com/tfs/TB1rnh_diERMeJjy0FcXXc7opXa-540-844.png'
     }, {
-      hash: 'd4b5539e9eee2a080b2a7d4df7c622f2',
+      hash: '75492bb1c1af2b44293ce11164c0b3ba',
       title: '输入框类型',
       screenshot: 'https://gw.alicdn.com/tfs/TB1qDh_diERMeJjy0FcXXc7opXa-540-844.png'
     }, {
-      hash: 'c660d4c324ed5f65ee86be009b290328',
+      hash: '38cfc531ae3c0a10ac10236cd869e9eb',
       title: '事件处理',
       screenshot: 'https://gw.alicdn.com/tfs/TB1IQ9cdgMPMeJjy1XcXXXpppXa-540-844.png'
     }]
@@ -176,11 +176,11 @@ module.exports = {
     desc: 'textarea 是 Weex 内置的一个组件，用于用户交互，接受用户输入数据。可以认为是允许多行的 <input> 组件。',
     docLink: 'http://weex-project.io/cn/references/components/textarea.html',
     examples: [{
-      hash: 'd6a7858c51fbe4f57a8749cee8987cf2',
+      hash: '126de8266778ddc7e967ef4cf1c98dec',
       title: { zh: '最简例子', en: 'Sample' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1TSyddgoQMeJjy0FoXXcShVXa-540-844.png'
     }, {
-      hash: '2dbf1ef9648e66244638502bc31859a4',
+      hash: '03caa359a9c4bf9fdc8a1d343f7f7a69',
       title: '默认行数',
       screenshot: 'https://gw.alicdn.com/tfs/TB1AsF1diERMeJjSspjXXcpOXXa-540-844.png'
     }]

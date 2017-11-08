@@ -1,26 +1,14 @@
-# Created by IDE
-.idea/
-*.iml
 .DS_Store
-
-# Created by Builder
-examples/build
-test/build
-weex_tmp
-coverage
-dist
-
-# Node
-logs
+.idea
+.npm
+*.iml
+*.pid
+*.seed
 *.log
 npm-debug.log*
 node_modules
-.npm
-package-lock.json
 
-# Runtime data
-pids
-*.pid
-*.seed
+weex_tmp
+coverage
 
 src/demos
