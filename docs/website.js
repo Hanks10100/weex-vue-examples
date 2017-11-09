@@ -105,7 +105,7 @@ if (typeof __e == 'number') __e = core; // eslint-disable-line no-undef
 /***/ (function(module, exports, __webpack_require__) {
 
 var dP = __webpack_require__(4);
-var createDesc = __webpack_require__(14);
+var createDesc = __webpack_require__(11);
 module.exports = __webpack_require__(6) ? function (object, key, value) {
   return dP.f(object, key, createDesc(1, value));
 } : function (object, key, value) {
@@ -140,7 +140,7 @@ exports.f = __webpack_require__(6) ? Object.defineProperty : function defineProp
 /* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var isObject = __webpack_require__(12);
+var isObject = __webpack_require__(9);
 module.exports = function (it) {
   if (!isObject(it)) throw TypeError(it + ' is not an object!');
   return it;
@@ -152,7 +152,7 @@ module.exports = function (it) {
 /***/ (function(module, exports, __webpack_require__) {
 
 // Thank's IE8 for his funny defineProperty
-module.exports = !__webpack_require__(13)(function () {
+module.exports = !__webpack_require__(10)(function () {
   return Object.defineProperty({}, 'a', { get: function () { return 7; } }).a != 7;
 });
 
@@ -169,6 +169,378 @@ module.exports = function (it, key) {
 
 /***/ }),
 /* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var global = __webpack_require__(1);
+var core = __webpack_require__(2);
+var ctx = __webpack_require__(22);
+var hide = __webpack_require__(3);
+var PROTOTYPE = 'prototype';
+
+var $export = function (type, name, source) {
+  var IS_FORCED = type & $export.F;
+  var IS_GLOBAL = type & $export.G;
+  var IS_STATIC = type & $export.S;
+  var IS_PROTO = type & $export.P;
+  var IS_BIND = type & $export.B;
+  var IS_WRAP = type & $export.W;
+  var exports = IS_GLOBAL ? core : core[name] || (core[name] = {});
+  var expProto = exports[PROTOTYPE];
+  var target = IS_GLOBAL ? global : IS_STATIC ? global[name] : (global[name] || {})[PROTOTYPE];
+  var key, own, out;
+  if (IS_GLOBAL) source = name;
+  for (key in source) {
+    // contains in native
+    own = !IS_FORCED && target && target[key] !== undefined;
+    if (own && key in exports) continue;
+    // export native or passed
+    out = own ? target[key] : source[key];
+    // prevent global pollution for namespaces
+    exports[key] = IS_GLOBAL && typeof target[key] != 'function' ? source[key]
+    // bind timers to global for call from export context
+    : IS_BIND && own ? ctx(out, global)
+    // wrap global constructors for prevent change them in library
+    : IS_WRAP && target[key] == out ? (function (C) {
+      var F = function (a, b, c) {
+        if (this instanceof C) {
+          switch (arguments.length) {
+            case 0: return new C();
+            case 1: return new C(a);
+            case 2: return new C(a, b);
+          } return new C(a, b, c);
+        } return C.apply(this, arguments);
+      };
+      F[PROTOTYPE] = C[PROTOTYPE];
+      return F;
+    // make static versions for prototype methods
+    })(out) : IS_PROTO && typeof out == 'function' ? ctx(Function.call, out) : out;
+    // export proto methods to core.%CONSTRUCTOR%.methods.%NAME%
+    if (IS_PROTO) {
+      (exports.virtual || (exports.virtual = {}))[key] = out;
+      // export proto methods to core.%CONSTRUCTOR%.prototype.%NAME%
+      if (type & $export.R && expProto && !expProto[key]) hide(expProto, key, out);
+    }
+  }
+};
+// type bitmap
+$export.F = 1;   // forced
+$export.G = 2;   // global
+$export.S = 4;   // static
+$export.P = 8;   // proto
+$export.B = 16;  // bind
+$export.W = 32;  // wrap
+$export.U = 64;  // safe
+$export.R = 128; // real proto method for `library`
+module.exports = $export;
+
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports) {
+
+module.exports = function (it) {
+  return typeof it === 'object' ? it !== null : typeof it === 'function';
+};
+
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports) {
+
+module.exports = function (exec) {
+  try {
+    return !!exec();
+  } catch (e) {
+    return true;
+  }
+};
+
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports) {
+
+module.exports = function (bitmap, value) {
+  return {
+    enumerable: !(bitmap & 1),
+    configurable: !(bitmap & 2),
+    writable: !(bitmap & 4),
+    value: value
+  };
+};
+
+
+/***/ }),
+/* 12 */
+/***/ (function(module, exports) {
+
+// 7.2.1 RequireObjectCoercible(argument)
+module.exports = function (it) {
+  if (it == undefined) throw TypeError("Can't call method on  " + it);
+  return it;
+};
+
+
+/***/ }),
+/* 13 */
+/***/ (function(module, exports) {
+
+// 7.1.4 ToInteger
+var ceil = Math.ceil;
+var floor = Math.floor;
+module.exports = function (it) {
+  return isNaN(it = +it) ? 0 : (it > 0 ? floor : ceil)(it);
+};
+
+
+/***/ }),
+/* 14 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var shared = __webpack_require__(29)('keys');
+var uid = __webpack_require__(30);
+module.exports = function (key) {
+  return shared[key] || (shared[key] = uid(key));
+};
+
+
+/***/ }),
+/* 15 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// 7.1.13 ToObject(argument)
+var defined = __webpack_require__(12);
+module.exports = function (it) {
+  return Object(defined(it));
+};
+
+
+/***/ }),
+/* 16 */
+/***/ (function(module, exports) {
+
+module.exports = {};
+
+
+/***/ }),
+/* 17 */
+/***/ (function(module, exports) {
+
+// shim for using process in browser
+var process = module.exports = {};
+
+// cached from whatever global is present so that test runners that stub it
+// don't break things.  But we need to wrap it in a try catch in case it is
+// wrapped in strict mode code which doesn't define any globals.  It's inside a
+// function because try/catches deoptimize in certain engines.
+
+var cachedSetTimeout;
+var cachedClearTimeout;
+
+function defaultSetTimout() {
+    throw new Error('setTimeout has not been defined');
+}
+function defaultClearTimeout () {
+    throw new Error('clearTimeout has not been defined');
+}
+(function () {
+    try {
+        if (typeof setTimeout === 'function') {
+            cachedSetTimeout = setTimeout;
+        } else {
+            cachedSetTimeout = defaultSetTimout;
+        }
+    } catch (e) {
+        cachedSetTimeout = defaultSetTimout;
+    }
+    try {
+        if (typeof clearTimeout === 'function') {
+            cachedClearTimeout = clearTimeout;
+        } else {
+            cachedClearTimeout = defaultClearTimeout;
+        }
+    } catch (e) {
+        cachedClearTimeout = defaultClearTimeout;
+    }
+} ())
+function runTimeout(fun) {
+    if (cachedSetTimeout === setTimeout) {
+        //normal enviroments in sane situations
+        return setTimeout(fun, 0);
+    }
+    // if setTimeout wasn't available but was latter defined
+    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
+        cachedSetTimeout = setTimeout;
+        return setTimeout(fun, 0);
+    }
+    try {
+        // when when somebody has screwed with setTimeout but no I.E. maddness
+        return cachedSetTimeout(fun, 0);
+    } catch(e){
+        try {
+            // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
+            return cachedSetTimeout.call(null, fun, 0);
+        } catch(e){
+            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
+            return cachedSetTimeout.call(this, fun, 0);
+        }
+    }
+
+
+}
+function runClearTimeout(marker) {
+    if (cachedClearTimeout === clearTimeout) {
+        //normal enviroments in sane situations
+        return clearTimeout(marker);
+    }
+    // if clearTimeout wasn't available but was latter defined
+    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
+        cachedClearTimeout = clearTimeout;
+        return clearTimeout(marker);
+    }
+    try {
+        // when when somebody has screwed with setTimeout but no I.E. maddness
+        return cachedClearTimeout(marker);
+    } catch (e){
+        try {
+            // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
+            return cachedClearTimeout.call(null, marker);
+        } catch (e){
+            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
+            // Some versions of I.E. have different rules for clearTimeout vs setTimeout
+            return cachedClearTimeout.call(this, marker);
+        }
+    }
+
+
+
+}
+var queue = [];
+var draining = false;
+var currentQueue;
+var queueIndex = -1;
+
+function cleanUpNextTick() {
+    if (!draining || !currentQueue) {
+        return;
+    }
+    draining = false;
+    if (currentQueue.length) {
+        queue = currentQueue.concat(queue);
+    } else {
+        queueIndex = -1;
+    }
+    if (queue.length) {
+        drainQueue();
+    }
+}
+
+function drainQueue() {
+    if (draining) {
+        return;
+    }
+    var timeout = runTimeout(cleanUpNextTick);
+    draining = true;
+
+    var len = queue.length;
+    while(len) {
+        currentQueue = queue;
+        queue = [];
+        while (++queueIndex < len) {
+            if (currentQueue) {
+                currentQueue[queueIndex].run();
+            }
+        }
+        queueIndex = -1;
+        len = queue.length;
+    }
+    currentQueue = null;
+    draining = false;
+    runClearTimeout(timeout);
+}
+
+process.nextTick = function (fun) {
+    var args = new Array(arguments.length - 1);
+    if (arguments.length > 1) {
+        for (var i = 1; i < arguments.length; i++) {
+            args[i - 1] = arguments[i];
+        }
+    }
+    queue.push(new Item(fun, args));
+    if (queue.length === 1 && !draining) {
+        runTimeout(drainQueue);
+    }
+};
+
+// v8 likes predictible objects
+function Item(fun, array) {
+    this.fun = fun;
+    this.array = array;
+}
+Item.prototype.run = function () {
+    this.fun.apply(null, this.array);
+};
+process.title = 'browser';
+process.browser = true;
+process.env = {};
+process.argv = [];
+process.version = ''; // empty string to avoid regexp issues
+process.versions = {};
+
+function noop() {}
+
+process.on = noop;
+process.addListener = noop;
+process.once = noop;
+process.off = noop;
+process.removeListener = noop;
+process.removeAllListeners = noop;
+process.emit = noop;
+process.prependListener = noop;
+process.prependOnceListener = noop;
+
+process.listeners = function (name) { return [] }
+
+process.binding = function (name) {
+    throw new Error('process.binding is not supported');
+};
+
+process.cwd = function () { return '/' };
+process.chdir = function (dir) {
+    throw new Error('process.chdir is not supported');
+};
+process.umask = function() { return 0; };
+
+
+/***/ }),
+/* 18 */
+/***/ (function(module, exports) {
+
+var g;
+
+// This works in non-strict mode
+g = (function() {
+	return this;
+})();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || Function("return this")() || (1,eval)("this");
+} catch(e) {
+	// This works if the window reference is available
+	if(typeof window === "object")
+		g = window;
+}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
+
+
+/***/ }),
+/* 19 */
 /***/ (function(module, exports) {
 
 /*
@@ -224,7 +596,7 @@ module.exports = function() {
 
 
 /***/ }),
-/* 9 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -445,7 +817,7 @@ function applyToTag (styleElement, obj) {
 
 
 /***/ }),
-/* 10 */
+/* 21 */
 /***/ (function(module, exports) {
 
 /* globals __VUE_SSR_CONTEXT__ */
@@ -554,378 +926,6 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 11 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var global = __webpack_require__(1);
-var core = __webpack_require__(2);
-var ctx = __webpack_require__(22);
-var hide = __webpack_require__(3);
-var PROTOTYPE = 'prototype';
-
-var $export = function (type, name, source) {
-  var IS_FORCED = type & $export.F;
-  var IS_GLOBAL = type & $export.G;
-  var IS_STATIC = type & $export.S;
-  var IS_PROTO = type & $export.P;
-  var IS_BIND = type & $export.B;
-  var IS_WRAP = type & $export.W;
-  var exports = IS_GLOBAL ? core : core[name] || (core[name] = {});
-  var expProto = exports[PROTOTYPE];
-  var target = IS_GLOBAL ? global : IS_STATIC ? global[name] : (global[name] || {})[PROTOTYPE];
-  var key, own, out;
-  if (IS_GLOBAL) source = name;
-  for (key in source) {
-    // contains in native
-    own = !IS_FORCED && target && target[key] !== undefined;
-    if (own && key in exports) continue;
-    // export native or passed
-    out = own ? target[key] : source[key];
-    // prevent global pollution for namespaces
-    exports[key] = IS_GLOBAL && typeof target[key] != 'function' ? source[key]
-    // bind timers to global for call from export context
-    : IS_BIND && own ? ctx(out, global)
-    // wrap global constructors for prevent change them in library
-    : IS_WRAP && target[key] == out ? (function (C) {
-      var F = function (a, b, c) {
-        if (this instanceof C) {
-          switch (arguments.length) {
-            case 0: return new C();
-            case 1: return new C(a);
-            case 2: return new C(a, b);
-          } return new C(a, b, c);
-        } return C.apply(this, arguments);
-      };
-      F[PROTOTYPE] = C[PROTOTYPE];
-      return F;
-    // make static versions for prototype methods
-    })(out) : IS_PROTO && typeof out == 'function' ? ctx(Function.call, out) : out;
-    // export proto methods to core.%CONSTRUCTOR%.methods.%NAME%
-    if (IS_PROTO) {
-      (exports.virtual || (exports.virtual = {}))[key] = out;
-      // export proto methods to core.%CONSTRUCTOR%.prototype.%NAME%
-      if (type & $export.R && expProto && !expProto[key]) hide(expProto, key, out);
-    }
-  }
-};
-// type bitmap
-$export.F = 1;   // forced
-$export.G = 2;   // global
-$export.S = 4;   // static
-$export.P = 8;   // proto
-$export.B = 16;  // bind
-$export.W = 32;  // wrap
-$export.U = 64;  // safe
-$export.R = 128; // real proto method for `library`
-module.exports = $export;
-
-
-/***/ }),
-/* 12 */
-/***/ (function(module, exports) {
-
-module.exports = function (it) {
-  return typeof it === 'object' ? it !== null : typeof it === 'function';
-};
-
-
-/***/ }),
-/* 13 */
-/***/ (function(module, exports) {
-
-module.exports = function (exec) {
-  try {
-    return !!exec();
-  } catch (e) {
-    return true;
-  }
-};
-
-
-/***/ }),
-/* 14 */
-/***/ (function(module, exports) {
-
-module.exports = function (bitmap, value) {
-  return {
-    enumerable: !(bitmap & 1),
-    configurable: !(bitmap & 2),
-    writable: !(bitmap & 4),
-    value: value
-  };
-};
-
-
-/***/ }),
-/* 15 */
-/***/ (function(module, exports) {
-
-// 7.2.1 RequireObjectCoercible(argument)
-module.exports = function (it) {
-  if (it == undefined) throw TypeError("Can't call method on  " + it);
-  return it;
-};
-
-
-/***/ }),
-/* 16 */
-/***/ (function(module, exports) {
-
-// 7.1.4 ToInteger
-var ceil = Math.ceil;
-var floor = Math.floor;
-module.exports = function (it) {
-  return isNaN(it = +it) ? 0 : (it > 0 ? floor : ceil)(it);
-};
-
-
-/***/ }),
-/* 17 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var shared = __webpack_require__(29)('keys');
-var uid = __webpack_require__(30);
-module.exports = function (key) {
-  return shared[key] || (shared[key] = uid(key));
-};
-
-
-/***/ }),
-/* 18 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// 7.1.13 ToObject(argument)
-var defined = __webpack_require__(15);
-module.exports = function (it) {
-  return Object(defined(it));
-};
-
-
-/***/ }),
-/* 19 */
-/***/ (function(module, exports) {
-
-module.exports = {};
-
-
-/***/ }),
-/* 20 */
-/***/ (function(module, exports) {
-
-// shim for using process in browser
-var process = module.exports = {};
-
-// cached from whatever global is present so that test runners that stub it
-// don't break things.  But we need to wrap it in a try catch in case it is
-// wrapped in strict mode code which doesn't define any globals.  It's inside a
-// function because try/catches deoptimize in certain engines.
-
-var cachedSetTimeout;
-var cachedClearTimeout;
-
-function defaultSetTimout() {
-    throw new Error('setTimeout has not been defined');
-}
-function defaultClearTimeout () {
-    throw new Error('clearTimeout has not been defined');
-}
-(function () {
-    try {
-        if (typeof setTimeout === 'function') {
-            cachedSetTimeout = setTimeout;
-        } else {
-            cachedSetTimeout = defaultSetTimout;
-        }
-    } catch (e) {
-        cachedSetTimeout = defaultSetTimout;
-    }
-    try {
-        if (typeof clearTimeout === 'function') {
-            cachedClearTimeout = clearTimeout;
-        } else {
-            cachedClearTimeout = defaultClearTimeout;
-        }
-    } catch (e) {
-        cachedClearTimeout = defaultClearTimeout;
-    }
-} ())
-function runTimeout(fun) {
-    if (cachedSetTimeout === setTimeout) {
-        //normal enviroments in sane situations
-        return setTimeout(fun, 0);
-    }
-    // if setTimeout wasn't available but was latter defined
-    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
-        cachedSetTimeout = setTimeout;
-        return setTimeout(fun, 0);
-    }
-    try {
-        // when when somebody has screwed with setTimeout but no I.E. maddness
-        return cachedSetTimeout(fun, 0);
-    } catch(e){
-        try {
-            // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
-            return cachedSetTimeout.call(null, fun, 0);
-        } catch(e){
-            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
-            return cachedSetTimeout.call(this, fun, 0);
-        }
-    }
-
-
-}
-function runClearTimeout(marker) {
-    if (cachedClearTimeout === clearTimeout) {
-        //normal enviroments in sane situations
-        return clearTimeout(marker);
-    }
-    // if clearTimeout wasn't available but was latter defined
-    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
-        cachedClearTimeout = clearTimeout;
-        return clearTimeout(marker);
-    }
-    try {
-        // when when somebody has screwed with setTimeout but no I.E. maddness
-        return cachedClearTimeout(marker);
-    } catch (e){
-        try {
-            // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
-            return cachedClearTimeout.call(null, marker);
-        } catch (e){
-            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
-            // Some versions of I.E. have different rules for clearTimeout vs setTimeout
-            return cachedClearTimeout.call(this, marker);
-        }
-    }
-
-
-
-}
-var queue = [];
-var draining = false;
-var currentQueue;
-var queueIndex = -1;
-
-function cleanUpNextTick() {
-    if (!draining || !currentQueue) {
-        return;
-    }
-    draining = false;
-    if (currentQueue.length) {
-        queue = currentQueue.concat(queue);
-    } else {
-        queueIndex = -1;
-    }
-    if (queue.length) {
-        drainQueue();
-    }
-}
-
-function drainQueue() {
-    if (draining) {
-        return;
-    }
-    var timeout = runTimeout(cleanUpNextTick);
-    draining = true;
-
-    var len = queue.length;
-    while(len) {
-        currentQueue = queue;
-        queue = [];
-        while (++queueIndex < len) {
-            if (currentQueue) {
-                currentQueue[queueIndex].run();
-            }
-        }
-        queueIndex = -1;
-        len = queue.length;
-    }
-    currentQueue = null;
-    draining = false;
-    runClearTimeout(timeout);
-}
-
-process.nextTick = function (fun) {
-    var args = new Array(arguments.length - 1);
-    if (arguments.length > 1) {
-        for (var i = 1; i < arguments.length; i++) {
-            args[i - 1] = arguments[i];
-        }
-    }
-    queue.push(new Item(fun, args));
-    if (queue.length === 1 && !draining) {
-        runTimeout(drainQueue);
-    }
-};
-
-// v8 likes predictible objects
-function Item(fun, array) {
-    this.fun = fun;
-    this.array = array;
-}
-Item.prototype.run = function () {
-    this.fun.apply(null, this.array);
-};
-process.title = 'browser';
-process.browser = true;
-process.env = {};
-process.argv = [];
-process.version = ''; // empty string to avoid regexp issues
-process.versions = {};
-
-function noop() {}
-
-process.on = noop;
-process.addListener = noop;
-process.once = noop;
-process.off = noop;
-process.removeListener = noop;
-process.removeAllListeners = noop;
-process.emit = noop;
-process.prependListener = noop;
-process.prependOnceListener = noop;
-
-process.listeners = function (name) { return [] }
-
-process.binding = function (name) {
-    throw new Error('process.binding is not supported');
-};
-
-process.cwd = function () { return '/' };
-process.chdir = function (dir) {
-    throw new Error('process.chdir is not supported');
-};
-process.umask = function() { return 0; };
-
-
-/***/ }),
-/* 21 */
-/***/ (function(module, exports) {
-
-var g;
-
-// This works in non-strict mode
-g = (function() {
-	return this;
-})();
-
-try {
-	// This works if eval is allowed (see CSP)
-	g = g || Function("return this")() || (1,eval)("this");
-} catch(e) {
-	// This works if the window reference is available
-	if(typeof window === "object")
-		g = window;
-}
-
-// g can still be undefined, but nothing to do about it...
-// We return undefined, instead of nothing here, so it's
-// easier to handle this case. if(!global) { ...}
-
-module.exports = g;
-
-
-/***/ }),
 /* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -955,7 +955,7 @@ module.exports = function (fn, that, length) {
 /* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var isObject = __webpack_require__(12);
+var isObject = __webpack_require__(9);
 var document = __webpack_require__(1).document;
 // typeof document.createElement is 'object' in old IE
 var is = isObject(document) && isObject(document.createElement);
@@ -983,7 +983,7 @@ module.exports = Object.keys || function keys(O) {
 
 // to indexed object, toObject with fallback for non-array-like ES3 strings
 var IObject = __webpack_require__(26);
-var defined = __webpack_require__(15);
+var defined = __webpack_require__(12);
 module.exports = function (it) {
   return IObject(defined(it));
 };
@@ -1017,7 +1017,7 @@ module.exports = function (it) {
 /***/ (function(module, exports, __webpack_require__) {
 
 // 7.1.15 ToLength
-var toInteger = __webpack_require__(16);
+var toInteger = __webpack_require__(13);
 var min = Math.min;
 module.exports = function (it) {
   return it > 0 ? min(toInteger(it), 0x1fffffffffffff) : 0; // pow(2, 53) - 1 == 9007199254740991
@@ -8932,7 +8932,7 @@ Vue$3.nextTick(function () {
 
 /* harmony default export */ __webpack_exports__["default"] = (Vue$3);
 
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(20), __webpack_require__(21), __webpack_require__(35).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(17), __webpack_require__(18), __webpack_require__(35).setImmediate))
 
 /***/ }),
 /* 35 */
@@ -9184,7 +9184,7 @@ exports.clearImmediate = clearImmediate;
     attachTo.clearImmediate = clearImmediate;
 }(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(21), __webpack_require__(20)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(18), __webpack_require__(17)))
 
 /***/ }),
 /* 37 */
@@ -9194,13 +9194,13 @@ exports.clearImmediate = clearImmediate;
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_IndexPage_vue__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_IndexPage_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_IndexPage_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_610dace4_hasScoped_true_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_IndexPage_vue__ = __webpack_require__(90);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_610dace4_hasScoped_true_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_IndexPage_vue__ = __webpack_require__(85);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(38)
 }
-var normalizeComponent = __webpack_require__(10)
+var normalizeComponent = __webpack_require__(21)
 /* script */
 
 /* template */
@@ -9254,7 +9254,7 @@ var content = __webpack_require__(39);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(9)("0b52f622", content, false);
+var update = __webpack_require__(20)("0b52f622", content, false);
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -9273,12 +9273,12 @@ if(false) {
 /* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(8)();
+exports = module.exports = __webpack_require__(19)();
 // imports
 
 
 // module
-exports.push([module.i, "\n.page-wrapper[data-v-610dace4] {\n  display: flex;\n  flex-direction: row;\n  flex-wrap: nowrap;\n  justify-content: flex-start;\n  align-items: stretch;\n  height: 100%;\n}\n.aside[data-v-610dace4] {\n  width: 250px;\n  height: 100%;\n  padding: 40px 0;\n  min-height: 100%;\n  max-height: 100%;\n  background-color: #333;\n  border-right: 1px solid #DDD;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  overflow-y: auto;\n}\n.intro[data-v-610dace4] {\n  margin-bottom: 30px;\n}\n.github-logo[data-v-610dace4] {\n  width: 64px;\n  height: 64px;\n}\n.language-select[data-v-610dace4] {\n  width: 140px;\n  font-size: 18px;\n  margin: 0;\n  margin-bottom: 30px;\n}\n.tab-list[data-v-610dace4] {\n  width: 100%;\n  list-style: none;\n  padding: 0;\n}\n.tab-item[data-v-610dace4] {\n  list-style: none;\n  padding: 15px;\n  color: #FFF;\n  font-size: 26px;\n  cursor: pointer;\n}\n.zh .tab-item[data-v-610dace4] {\n  font-size: 28px;\n  text-align: center;\n  letter-spacing: 0.2em;\n}\n.en .tab-item[data-v-610dace4] {\n  padding-left: 40px;\n}\n.tab-item[data-v-610dace4]:hover {\n  background-color: #444;\n}\n.tab-item.active-tab[data-v-610dace4] {\n  background-color: #555;\n}\n.main[data-v-610dace4] {\n  flex: 1;\n  height: 100%;\n  min-height: 100%;\n  max-height: 100%;\n  overflow-y: auto;\n}\n", ""]);
+exports.push([module.i, "\n.page-wrapper[data-v-610dace4] {\n  display: flex;\n  flex-direction: row;\n  flex-wrap: nowrap;\n  justify-content: flex-start;\n  align-items: stretch;\n  height: 100%;\n}\n.aside[data-v-610dace4] {\n  width: 250px;\n  height: 100%;\n  padding: 40px 0;\n  min-height: 100%;\n  max-height: 100%;\n  background-color: #333;\n  border-right: 1px solid #DDD;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  overflow-y: auto;\n}\n.github[data-v-610dace4] {\n  margin-bottom: 30px;\n}\n.github-logo[data-v-610dace4] {\n  width: 64px;\n  height: 64px;\n}\n.language-select[data-v-610dace4] {\n  width: 140px;\n  font-size: 18px;\n  margin: 0;\n  margin-bottom: 30px;\n}\n.tab-list[data-v-610dace4] {\n  width: 100%;\n  list-style: none;\n  padding: 0;\n}\n.tab-item[data-v-610dace4] {\n  list-style: none;\n  padding: 15px;\n  color: #FFF;\n  font-size: 26px;\n  cursor: pointer;\n}\n.zh .tab-item[data-v-610dace4] {\n  font-size: 28px;\n  text-align: center;\n  letter-spacing: 0.2em;\n}\n.en .tab-item[data-v-610dace4] {\n  padding-left: 40px;\n}\n.tab-item[data-v-610dace4]:hover {\n  background-color: #444;\n}\n.tab-item.active-tab[data-v-610dace4] {\n  background-color: #555;\n}\n.main[data-v-610dace4] {\n  flex: 1;\n  height: 100%;\n  min-height: 100%;\n  max-height: 100%;\n  overflow-y: auto;\n}\n", ""]);
 
 // exports
 
@@ -9433,7 +9433,7 @@ module.exports = __webpack_require__(2).Object.assign;
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.3.1 Object.assign(target, source)
-var $export = __webpack_require__(11);
+var $export = __webpack_require__(8);
 
 $export($export.S + $export.F, 'Object', { assign: __webpack_require__(48) });
 
@@ -9452,7 +9452,7 @@ module.exports = function (it) {
 /* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = !__webpack_require__(6) && !__webpack_require__(13)(function () {
+module.exports = !__webpack_require__(6) && !__webpack_require__(10)(function () {
   return Object.defineProperty(__webpack_require__(23)('div'), 'a', { get: function () { return 7; } }).a != 7;
 });
 
@@ -9462,7 +9462,7 @@ module.exports = !__webpack_require__(6) && !__webpack_require__(13)(function ()
 /***/ (function(module, exports, __webpack_require__) {
 
 // 7.1.1 ToPrimitive(input [, PreferredType])
-var isObject = __webpack_require__(12);
+var isObject = __webpack_require__(9);
 // instead of the ES6 spec version, we didn't implement @@toPrimitive case
 // and the second argument - flag - preferred type is a string
 module.exports = function (it, S) {
@@ -9485,12 +9485,12 @@ module.exports = function (it, S) {
 var getKeys = __webpack_require__(24);
 var gOPS = __webpack_require__(52);
 var pIE = __webpack_require__(53);
-var toObject = __webpack_require__(18);
+var toObject = __webpack_require__(15);
 var IObject = __webpack_require__(26);
 var $assign = Object.assign;
 
 // should work with symbols and should have deterministic property order (V8 bug)
-module.exports = !$assign || __webpack_require__(13)(function () {
+module.exports = !$assign || __webpack_require__(10)(function () {
   var A = {};
   var B = {};
   // eslint-disable-next-line no-undef
@@ -9523,7 +9523,7 @@ module.exports = !$assign || __webpack_require__(13)(function () {
 var has = __webpack_require__(7);
 var toIObject = __webpack_require__(25);
 var arrayIndexOf = __webpack_require__(50)(false);
-var IE_PROTO = __webpack_require__(17)('IE_PROTO');
+var IE_PROTO = __webpack_require__(14)('IE_PROTO');
 
 module.exports = function (object, names) {
   var O = toIObject(object);
@@ -9572,7 +9572,7 @@ module.exports = function (IS_INCLUDES) {
 /* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var toInteger = __webpack_require__(16);
+var toInteger = __webpack_require__(13);
 var max = Math.max;
 var min = Math.min;
 module.exports = function (index, length) {
@@ -9700,8 +9700,8 @@ __webpack_require__(60)(String, 'String', function (iterated) {
 /* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var toInteger = __webpack_require__(16);
-var defined = __webpack_require__(15);
+var toInteger = __webpack_require__(13);
+var defined = __webpack_require__(12);
 // true  -> String#at
 // false -> String#codePointAt
 module.exports = function (TO_STRING) {
@@ -9726,11 +9726,11 @@ module.exports = function (TO_STRING) {
 "use strict";
 
 var LIBRARY = __webpack_require__(61);
-var $export = __webpack_require__(11);
+var $export = __webpack_require__(8);
 var redefine = __webpack_require__(62);
 var hide = __webpack_require__(3);
 var has = __webpack_require__(7);
-var Iterators = __webpack_require__(19);
+var Iterators = __webpack_require__(16);
 var $iterCreate = __webpack_require__(63);
 var setToStringTag = __webpack_require__(32);
 var getPrototypeOf = __webpack_require__(67);
@@ -9817,7 +9817,7 @@ module.exports = __webpack_require__(3);
 "use strict";
 
 var create = __webpack_require__(64);
-var descriptor = __webpack_require__(14);
+var descriptor = __webpack_require__(11);
 var setToStringTag = __webpack_require__(32);
 var IteratorPrototype = {};
 
@@ -9838,7 +9838,7 @@ module.exports = function (Constructor, NAME, next) {
 var anObject = __webpack_require__(5);
 var dPs = __webpack_require__(65);
 var enumBugKeys = __webpack_require__(31);
-var IE_PROTO = __webpack_require__(17)('IE_PROTO');
+var IE_PROTO = __webpack_require__(14)('IE_PROTO');
 var Empty = function () { /* empty */ };
 var PROTOTYPE = 'prototype';
 
@@ -9910,8 +9910,8 @@ module.exports = document && document.documentElement;
 
 // 19.1.2.9 / 15.2.3.2 Object.getPrototypeOf(O)
 var has = __webpack_require__(7);
-var toObject = __webpack_require__(18);
-var IE_PROTO = __webpack_require__(17)('IE_PROTO');
+var toObject = __webpack_require__(15);
+var IE_PROTO = __webpack_require__(14)('IE_PROTO');
 var ObjectProto = Object.prototype;
 
 module.exports = Object.getPrototypeOf || function (O) {
@@ -9930,8 +9930,8 @@ module.exports = Object.getPrototypeOf || function (O) {
 "use strict";
 
 var ctx = __webpack_require__(22);
-var $export = __webpack_require__(11);
-var toObject = __webpack_require__(18);
+var $export = __webpack_require__(8);
+var toObject = __webpack_require__(15);
 var call = __webpack_require__(69);
 var isArrayIter = __webpack_require__(70);
 var toLength = __webpack_require__(28);
@@ -9990,7 +9990,7 @@ module.exports = function (iterator, fn, value, entries) {
 /***/ (function(module, exports, __webpack_require__) {
 
 // check on default Array iterator
-var Iterators = __webpack_require__(19);
+var Iterators = __webpack_require__(16);
 var ITERATOR = __webpack_require__(0)('iterator');
 var ArrayProto = Array.prototype;
 
@@ -10006,7 +10006,7 @@ module.exports = function (it) {
 "use strict";
 
 var $defineProperty = __webpack_require__(4);
-var createDesc = __webpack_require__(14);
+var createDesc = __webpack_require__(11);
 
 module.exports = function (object, index, value) {
   if (index in object) $defineProperty.f(object, index, createDesc(0, value));
@@ -10020,7 +10020,7 @@ module.exports = function (object, index, value) {
 
 var classof = __webpack_require__(73);
 var ITERATOR = __webpack_require__(0)('iterator');
-var Iterators = __webpack_require__(19);
+var Iterators = __webpack_require__(16);
 module.exports = __webpack_require__(2).getIteratorMethod = function (it) {
   if (it != undefined) return it[ITERATOR]
     || it['@@iterator']
@@ -10124,15 +10124,24 @@ module.exports = {
     type: 'text',
     name: 'text',
     title: { zh: '<text> 组件', en: '<text>' },
-    desc: '<text> 是 Weex 内置的组件，用来将文本按照指定的样式渲染出来。<text> 只能包含文本值，不支持子组件，你可以使用 {{}} 标记插入变量值作为文本内容。',
+    desc: {
+      zh: '<text> 是 Weex 内置的组件，用来将文本按照指定的样式渲染出来。<text> 只能包含文本值，不支持子组件，你可以使用 {{}} 标记插入变量值作为文本内容。',
+      en: 'The weex builtin component ‘text’ is used to render text with specified style rule. tag can contain text value only. You can use variable interpolation in the text content with the mark {{}}.'
+    },
     docLink: {
       zh: 'http://weex-project.io/cn/references/components/text.html',
       en: 'http://weex-project.io/references/components/text.html'
     },
     examples: [{
-      hash: '3e0220d7b379955a26039131f153a360',
+      hash: {
+        zh: '3e0220d7b379955a26039131f153a360',
+        en: 'a718b029a7ba9cea08e84a6c22ec9bc4'
+      },
       title: { zh: '最简例子', en: 'Sample' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1V5IXcMMPMeJjy1XdXXasrXXa-540-844.png'
+      screenshot: {
+        zh: 'https://gw.alicdn.com/tfs/TB1V5IXcMMPMeJjy1XdXXasrXXa-540-844.png',
+        en: 'https://gw.alicdn.com/tfs/TB19gKsb8fH8KJjy1XbXXbLdXXa-540-844.png'
+      }
     }, {
       hash: '25b96fb0283300df1b183d019d835e4f',
       title: { zh: 'lines 属性', en: '"lines"' },
@@ -10150,7 +10159,10 @@ module.exports = {
     type: 'image',
     name: 'image',
     title: { zh: '<image> 组件', en: '<image>' },
-    desc: '<image> 组件用于渲染图片，并且它不能包含任何子组件。需要注意的是，必须明确指定 width 和 height，否则图片无法显示。',
+    desc: {
+      zh: '<image> 组件用于渲染图片，并且它不能包含任何子组件。需要注意的是，必须明确指定 width 和 height，否则图片无法显示。',
+      en: 'image tag is used to render a specified picture, and it shouldn’t contain any child component. <img> is not supported currently.'
+    },
     docLink: {
       zh: 'http://weex-project.io/cn/references/components/image.html',
       en: 'http://weex-project.io/references/components/image.html'
@@ -10163,30 +10175,33 @@ module.exports = {
       screenshot: 'https://gw.alicdn.com/tfs/TB12KPGbS_I8KJjy0FoXXaFnVXa-540-844.png'
     }, {
       hash: '5bac698a83ca8c0467426746be011252',
-      title: 'resize 属性',
+      title: { zh: 'resize 属性', en: '"resize" Attribute' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1wKHLbILJ8KJjy0FnXXcFDpXa-540-844.png'
     }, {
       hash: '97d978c234dffe96f594c7c10e9119d0',
-      title: '浮层文字',
+      title: { zh: '浮层文字', en: '' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1Mx1UcMoQMeJjy1XaXXcSsFXa-540-844.png'
     }, {
       hash: '23703f3be5512d0419086d8e7937bd8d',
-      title: '图片实际大小',
+      title: { zh: '图片实际大小', en: 'Original Size' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sAh1gMMPMeJjy1XbXXcwxVXa-540-844.png'
     }, {
       hash: '571231d08dee12a8feaa76d1109fbcdc',
-      title: 'Gif 图片',
+      title: { zh: 'Gif 图片', en: 'Gif Image' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1cbYxdwMPMeJjy1XdXXasrXXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: 'Base64 图片',
+      title: { zh: 'Base64 图片', en: 'Base64 Image' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }]
   }, {
     type: 'list',
     name: 'list',
     title: { zh: '<list> 组件', en: '<list>' },
-    desc: '<list> 组件是提供垂直列表功能的核心组件，拥有平滑的滚动和高效的内存管理，非常适合用于长列表的展示。最简单的使用方法是在 <list> 标签内使用数组循环生成的多个 <cell> 标签。',
+    desc: {
+      zh: '<list> 组件是提供垂直列表功能的核心组件，拥有平滑的滚动和高效的内存管理，非常适合用于长列表的展示。最简单的使用方法是在 <list> 标签内使用数组循环生成的多个 <cell> 标签。',
+      en: 'The List component, which inherits from Scroller component, is a core component, and it provides the most popular features for using a list of items.'
+    },
     docLink: {
       zh: 'http://weex-project.io/cn/references/components/list.html',
       en: 'http://weex-project.io/references/components/list.html'
@@ -10209,18 +10224,21 @@ module.exports = {
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: 'f4e660c403c0fd5140ac2747f498d948',
-      title: 'loadmore 事件',
+      title: { zh: 'loadmore 事件', en: '"loadmore" Event' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1tK66cMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: 'appear 事件',
+      title: { zh: 'appear 事件', en: '"appear" Event' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }]
   }, {
     type: 'scroller',
     name: 'scroller',
     title: { zh: '<scroller> 组件', en: '<scroller>' },
-    desc: '<scroller> 是一个竖直的，可以容纳多个排成一列的子组件的滚动器。如果子组件的总高度高于其本身，那么所有的子组件都可滚动。',
+    desc: {
+      zh: '<scroller> 是一个竖直的，可以容纳多个排成一列的子组件的滚动器。如果子组件的总高度高于其本身，那么所有的子组件都可滚动。',
+      en: 'A scroller is a component in vertical direction which can have multiple child components in one column. If total height of its child components exceed the height of the scroller, the whole child components will be scrollable.'
+    },
     docLink: {
       zh: 'http://weex-project.io/cn/references/components/scroller.html',
       en: 'http://weex-project.io/references/components/scroller.html'
@@ -10231,8 +10249,8 @@ module.exports = {
       screenshot: 'https://gw.alicdn.com/tfs/TB1tK66cMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: 'c626a5fb4981e8e8bce92d7b012c26b4',
-      title: '水平滚动',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      title: { zh: '水平滚动', en: 'Horizontal Scroll' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1QkqGb2DH8KJjy1XcXXcpdXXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
       title: '<loading>',
@@ -10243,7 +10261,7 @@ module.exports = {
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: 'eb1f5edea6cb8f4fea06d67dc071eff7',
-      title: 'loadmore',
+      title: { zh: 'loadmore 事件', en: '"loadmore" Event' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1tK66cMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: 'c38fbd7922d42810393c7a23529d48a1',
@@ -10254,7 +10272,10 @@ module.exports = {
     type: 'input',
     name: 'input',
     title: { zh: '<input> 组件', en: '<input>' },
-    desc: 'Weex 内置的 <input> 组件用来创建接收用户输入字符的输入组件。 <input> 组件的工作方式因 type 属性的值而异，比如 text, password, url, email, tel 等。此组件不支持子组件和 click 事件。',
+    desc: {
+      zh: 'Weex 内置的 <input> 组件用来创建接收用户输入字符的输入组件。 <input> 组件的工作方式因 type 属性的值而异，比如 text, password, url, email, tel 等。此组件不支持子组件和 click 事件。',
+      en: 'The weex builtin component input is used to create input controls to receive the user’s input characters.'
+    },
     docLink: {
       zh: 'http://weex-project.io/cn/references/components/input.html',
       en: 'http://weex-project.io/references/components/input.html'
@@ -10265,26 +10286,29 @@ module.exports = {
       screenshot: 'https://gw.alicdn.com/tfs/TB1IQ9cdgMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: '185e8574389d3242a79090414c336e4d',
-      title: 'placeholder',
+      title: 'Placeholder',
       screenshot: 'https://gw.alicdn.com/tfs/TB1XPmcdgoQMeJjy0FoXXcShVXa-540-844.png'
     }, {
       hash: 'aab3e1a3835c9cdbed53fb127738507f',
-      title: '初始状态',
+      title: { zh: '初始状态', en: 'Initial State' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1rnh_diERMeJjy0FcXXc7opXa-540-844.png'
     }, {
       hash: '75492bb1c1af2b44293ce11164c0b3ba',
-      title: '输入框类型',
+      title: { zh: '输入框类型', en: 'Input Type' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1qDh_diERMeJjy0FcXXc7opXa-540-844.png'
     }, {
       hash: '38cfc531ae3c0a10ac10236cd869e9eb',
-      title: '事件处理',
+      title: { zh: '事件处理', en: 'Handle Events' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1IQ9cdgMPMeJjy1XcXXXpppXa-540-844.png'
     }]
   }, {
     type: 'textarea',
     name: 'textarea',
     title: { zh: '<textarea> 组件', en: '<textarea>' },
-    desc: 'textarea 是 Weex 内置的一个组件，用于用户交互，接受用户输入数据。可以认为是允许多行的 <input> 组件。',
+    desc: {
+      zh: 'textarea 是 Weex 内置的一个组件，用于用户交互，接受用户输入数据。可以认为是允许多行的 <input> 组件。',
+      en: 'The weex builtin component textarea is used to create interactive controls to accept data from users. It can be a multi-line input.'
+    },
     docLink: {
       zh: 'http://weex-project.io/cn/references/components/textarea.html',
       en: 'http://weex-project.io/references/components/textarea.html'
@@ -10295,14 +10319,17 @@ module.exports = {
       screenshot: 'https://gw.alicdn.com/tfs/TB1TSyddgoQMeJjy0FoXXcShVXa-540-844.png'
     }, {
       hash: '03caa359a9c4bf9fdc8a1d343f7f7a69',
-      title: '默认行数',
+      title: { zh: '默认行数', en: 'Default "rows"' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1AsF1diERMeJjSspjXXcpOXXa-540-844.png'
     }]
   }, {
     type: 'switch',
     name: 'switch',
     title: { zh: '<switch> 组件', en: '<switch>' },
-    desc: '<switch> 是 Weex 的内置组件，用来创建与 iOS 一致样式的按钮。例如在 iPhone 中的设置应用中的飞行模式按钮就是一个 switch 按钮。',
+    desc: {
+      zh: '<switch> 是 Weex 的内置组件，用来创建与 iOS 一致样式的按钮。例如在 iPhone 中的设置应用中的飞行模式按钮就是一个 switch 按钮。',
+      en: 'The weex builtin component switch is used to create and manage an IOS styled On/Off buttons, for example, the Airplane mode button in the Settings app is a switch button.'
+    },
     docLink: {
       zh: 'http://weex-project.io/cn/references/components/switch.html',
       en: 'http://weex-project.io/references/components/switch.html'
@@ -10313,18 +10340,21 @@ module.exports = {
       screenshot: 'https://gw.alicdn.com/tfs/TB1p7eDdGagSKJjy0FhXXcrbFXa-540-843.jpg'
     }, {
       hash: '8a049fb7ff19c0ee9316a483b235dd26',
-      title: '初始状态',
+      title: { zh: '初始状态', en: 'Initial State' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1u0HRc2NNTKJjSspkXXaeWFXa-540-844.jpg'
     }, {
       hash: 'b48549c39f2e82178ce8b94b395d1d0b',
-      title: '事件处理',
+      title: { zh: '事件处理', en: 'Handle Events' },
       screenshot: 'https://gw.alicdn.com/tfs/TB14HWzdGagSKJjy0FbXXa.mVXa-540-844.jpg'
     }]
   }, {
     type: 'video',
     name: 'video',
     title: { zh: '<video> 组件', en: '<video>' },
-    desc: '<video> 组件可以让我们在 Weex 页面中嵌入视频内容。<text> 是唯一合法的子组件。',
+    desc: {
+      zh: '<video> 组件可以让我们在 Weex 页面中嵌入视频内容。<text> 是唯一合法的子组件。',
+      en: 'The video component can be used to embed video content in a weex page.'
+    },
     docLink: {
       zh: 'http://weex-project.io/cn/references/components/video.html',
       en: 'http://weex-project.io/references/components/video.html'
@@ -10335,18 +10365,21 @@ module.exports = {
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '播放控制',
+      title: { zh: '播放控制', en: 'Play Control' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '事件处理',
+      title: { zh: '事件处理', en: 'Handle Events' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }]
   }, {
     type: 'web',
     name: 'web',
     title: { zh: '<web> 组件', en: '<web>' },
-    desc: '使用 <web> 组件在 Weex 页面中嵌入一张网页内容。src 属性用来指定资源地址。你也可以使用 webview module 来控制 web 的行为，比如前进、后退和重载。',
+    desc: {
+      zh: '使用 <web> 组件在 Weex 页面中嵌入一张网页内容。src 属性用来指定资源地址。你也可以使用 webview module 来控制 web 的行为，比如前进、后退和重载。',
+      en: 'Use web component to display any web content in the weex page. The src attribute is used to specify a special source. You also can use webview module to control some web operation such as goBack,goForward and reload.'
+    },
     docLink: {
       zh: 'http://weex-project.io/cn/references/components/web.html',
       en: 'http://weex-project.io/references/components/web.html'
@@ -10357,36 +10390,42 @@ module.exports = {
       screenshot: 'https://gw.alicdn.com/tfs/TB1LpGHdgMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '页面跳转',
+      title: { zh: '页面跳转', en: 'Jump' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '传递参数',
+      title: { zh: '传递参数', en: 'Pass Params' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '事件处理',
+      title: { zh: '事件处理', en: 'Handle Events' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }]
   }, {
     type: 'richtext',
     name: 'richtext',
     title: { zh: '富文本组件', en: '<richtext>' },
-    desc: '',
+    desc: {
+      zh: '',
+      en: ''
+    },
     examples: [{
       hash: '36a1999a7957de7bcbeb7cca95ba46d2',
-      title: '图文混排',
+      title: { zh: '图文混排', en: 'Use richtext' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1VPOPcMMPMeJjy1XdXXasrXXa-540-844.png'
     }, {
       hash: '8e3c274f5cae4a391a14ac81c890325f',
-      title: '内容输入',
+      title: { zh: '内容输入', en: 'With Binding' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1SzOPcMMPMeJjy1XdXXasrXXa-540-844.png'
     }]
   }, {
     type: 'waterfall',
     name: 'waterfall',
     title: { zh: '瀑布流组件', en: '<waterfall>' },
-    desc: '提供瀑布流布局的组件。',
+    desc: {
+      zh: '提供瀑布流布局的组件。',
+      en: 'A component providing waterfall layout.'
+    },
     docLink: {
       zh: 'http://weex-project.io/cn/references/components/waterfall.html',
       en: 'http://weex-project.io/references/components/waterfall.html'
@@ -10412,8 +10451,11 @@ module.exports = {
   group: [{
     type: 'modal',
     name: 'modal',
-    title: 'modal 模块',
-    desc: 'modal 模块提供了以下展示消息框的 API：toast、alert、confirm 和 prompt。',
+    title: { zh: 'modal 模块', en: 'modal' },
+    desc: {
+      zh: 'modal 模块提供了以下展示消息框的 API：toast、alert、confirm 和 prompt。',
+      en: 'Weex provides a series of message boxes: toast, alert, confirm and prompt.'
+    },
     docLink: {
       zh: 'http://weex-project.io/cn/references/modules/modal.html',
       en: 'http://weex-project.io/references/modules/modal.html'
@@ -10438,8 +10480,11 @@ module.exports = {
   }, {
     type: 'dom',
     name: 'dom',
-    title: 'dom 模块',
-    desc: '操作页面中的 Virtual-DOM 或者获取其信息。需要注意的是原生平台中并没有 Web 标准中的 DOM 结构。',
+    title: { zh: 'dom 模块', en: 'dom' },
+    desc: {
+      zh: '操作页面中的 Virtual-DOM 或者获取其信息。需要注意的是原生平台中并没有 Web 标准中的 DOM 结构。',
+      en: ''
+    },
     docLink: {
       zh: 'http://weex-project.io/cn/references/modules/dom.html',
       en: 'http://weex-project.io/references/modules/dom.html'
@@ -10450,7 +10495,7 @@ module.exports = {
       screenshot: 'https://gw.alicdn.com/tfs/TB1ZIPecwoQMeJjy0FoXXcShVXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '获取布局数据',
+      title: 'getComponentRect',
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
@@ -10460,8 +10505,11 @@ module.exports = {
   }, {
     type: 'stream',
     name: 'stream',
-    title: 'stream 模块',
-    desc: '发送网络请求并获取响应。',
+    title: { zh: 'stream 模块', en: 'stream' },
+    desc: {
+      zh: '发送网络请求并获取响应。',
+      en: ''
+    },
     docLink: {
       zh: 'http://weex-project.io/cn/references/modules/stream.html',
       en: 'http://weex-project.io/references/modules/stream.html'
@@ -10474,8 +10522,11 @@ module.exports = {
   }, {
     type: 'animation',
     name: 'animation',
-    title: 'animation 模块',
-    desc: 'animation 模块被用于在组件上执行动画。动画可以对组件执行一系列简单的变换 (位置、大小、旋转角度、背景颜色和不透明度等)。',
+    title: { zh: 'animation 模块', en: 'animation' },
+    desc: {
+      zh: 'animation 模块被用于在组件上执行动画。动画可以对组件执行一系列简单的变换 (位置、大小、旋转角度、背景颜色和不透明度等)。',
+      en: ''
+    },
     docLink: {
       zh: 'http://weex-project.io/cn/references/modules/animation.html',
       en: 'http://weex-project.io/references/modules/animation.html'
@@ -10486,14 +10537,17 @@ module.exports = {
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: 'tarnsform',
+      title: 'transform',
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }]
   }, {
     type: 'navigator',
     name: 'navigator',
-    title: 'navigator 模块',
-    desc: '众所周知，在浏览器里，我们可以通过前进或者回退按钮来切换页面，iOS/Android 的 navigator 模块就是用来实现类似的效果的。除了前进、回退功能，该模块还允许我们指定在切换页面的时候是否应用动画效果。',
+    title: { zh: 'navigator 模块', en: 'navigator' },
+    desc: {
+      zh: '众所周知，在浏览器里，我们可以通过前进或者回退按钮来切换页面，iOS/Android 的 navigator 模块就是用来实现类似的效果的。除了前进、回退功能，该模块还允许我们指定在切换页面的时候是否应用动画效果。',
+      en: ''
+    },
     docLink: {
       zh: 'http://weex-project.io/cn/references/modules/navigator.html',
       en: 'http://weex-project.io/references/modules/navigator.html'
@@ -10510,30 +10564,36 @@ module.exports = {
   }, {
     type: 'storage',
     name: 'storage',
-    title: 'storage 模块',
-    desc: 'storage 模块可以对本地数据进行存储、修改、删除，并且该数据是永久保存的，除非手动清除或者代码清除。但是，storage 模块有一个限制就是浏览器端（H5）只能存储小于5M的数据，而在 Android 和 iOS 中是没什么限制的。',
+    title: { zh: 'storage 模块', en: 'storage' },
+    desc: {
+      zh: 'storage 模块可以对本地数据进行存储、修改、删除，并且该数据是永久保存的，除非手动清除或者代码清除。但是，storage 模块有一个限制就是浏览器端（H5）只能存储小于5M的数据，而在 Android 和 iOS 中是没什么限制的。',
+      en: ''
+    },
     docLink: {
       zh: 'http://weex-project.io/cn/references/modules/storage.html',
       en: 'http://weex-project.io/references/modules/storage.html'
     },
     examples: [{
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '数据存取',
+      title: 'setItem',
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '数据查询',
+      title: 'getItem',
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '数据清除',
+      title: 'removeItem',
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }]
   }, {
     type: 'clipboard',
     name: 'clipboard',
-    title: 'clipboard 模块',
-    desc: 'clipboard 模块可以实现从系统的剪贴板中获取内容或者设置内容。',
+    title: { zh: 'clipboard 模块', en: 'clipboard' },
+    desc: {
+      zh: 'clipboard 模块可以实现从系统的剪贴板中获取内容或者设置内容。',
+      en: ''
+    },
     docLink: {
       zh: 'http://weex-project.io/cn/references/modules/clipboard.html',
       en: 'http://weex-project.io/references/modules/clipboard.html'
@@ -10543,55 +10603,68 @@ module.exports = {
       title: { zh: '最简例子', en: 'Sample' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
-      hash: '377c4f4a6030b5842938afb814cf169f',
-      title: '复制环境信息',
+      hash: '3abe25e7dd6d52bf35edffd62ac6199e',
+      title: { zh: '复制环境信息', en: 'Copy Environment Message' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1yJC8cEgQMeJjy0FjXXaExFXa-540-844.png'
     }]
   }, {
     type: 'picker',
     name: 'picker',
-    title: 'picker 模块',
-    desc: '以下为 picker 相关的 API：用于数据选择，日期选择，时间选择。（ H5模块如需使用，请手动引入weex-picker组件）',
+    title: { zh: 'picker 模块', en: 'picker' },
+    desc: {
+      zh: '以下为 picker 相关的 API：用于数据选择，日期选择，时间选择。（ H5模块如需使用，请手动引入weex-picker组件）',
+      en: ''
+    },
     docLink: {
       zh: 'http://weex-project.io/cn/references/modules/picker.html',
       en: 'http://weex-project.io/references/modules/picker.html'
     },
     examples: [{
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '数据选择',
+      title: 'pick',
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '日期选择',
+      title: 'pickDate',
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '时间选择',
+      title: 'pickTime',
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }]
   }, {
     type: 'webview',
     name: 'webview',
-    title: 'webview 模块',
-    desc: '一系列的 <web> 组件操作接口。 比如 goBack、goForward、和 reload。通常与 <web> 组件共用。',
+    title: { zh: 'webview 模块', en: 'webview' },
+    desc: {
+      zh: '一系列的 <web> 组件操作接口。 比如 goBack、goForward、和 reload。通常与 <web> 组件共用。',
+      en: ''
+    },
     docLink: {
       zh: 'http://weex-project.io/cn/references/modules/webview.html',
       en: 'http://weex-project.io/references/modules/webview.html'
     },
     examples: [{
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '页面跳转',
+      title: 'goBack',
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '页面刷新',
+      title: 'goForward',
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      title: 'reload',
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }]
   }, {
     type: 'meta',
     name: 'meta',
-    title: 'meta 模块',
-    desc: 'meta 模块可用于声明单个页面的元信息，通常是一些页面的配置，如容器的显示宽度 (viewport) 等。',
+    title: { zh: 'meta 模块', en: 'meta' },
+    desc: {
+      zh: 'meta 模块可用于声明单个页面的元信息，通常是一些页面的配置，如容器的显示宽度 (viewport) 等。',
+      en: ''
+    },
     docLink: {
       zh: 'http://weex-project.io/cn/references/modules/meta.html',
       en: 'http://weex-project.io/references/modules/meta.html'
@@ -10604,15 +10677,18 @@ module.exports = {
   }, {
     type: 'WebSocket',
     name: 'WebSocket',
-    title: 'WebSocket 模块',
-    desc: 'WebSockets 是一种先进的技术, 这使得在用户的 H5/iOS/Android 和一个服务器之间打开一个的交互式通信会话成为可能, 有了这个 API，你可以向服务器发送消息, 并接收事件驱动的响应, 无需轮询服务器的响应。',
+    title: { zh: 'WebSocket 模块', en: 'WebSocket' },
+    desc: {
+      zh: 'WebSockets 是一种先进的技术, 这使得在用户的 H5/iOS/Android 和一个服务器之间打开一个的交互式通信会话成为可能, 有了这个 API，你可以向服务器发送消息, 并接收事件驱动的响应, 无需轮询服务器的响应。',
+      en: ''
+    },
     docLink: {
       zh: 'http://weex-project.io/cn/references/modules/websocket.html',
       en: 'http://weex-project.io/references/modules/websocket.html'
     },
     examples: [{
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '使用范例',
+      title: { zh: '使用范例', en: 'Use WebSocket' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }]
   }]
@@ -10629,9 +10705,9 @@ module.exports = {
   type: 'syntax',
   name: { zh: '语法', en: 'Syntax' },
   group: [{
-    type: 'mustache',
-    name: 'Mustache',
-    title: { zh: '文本绑定的语法', en: 'Text Data-binding' },
+    type: 'text-binding',
+    name: 'Text Binding',
+    title: { zh: '文本绑定', en: 'Text Binding' },
     desc: {
       zh: '数据绑定最常见的形式就是使用 “Mustache” 语法（双大括号）的文本插值。',
       en: 'The most basic form of data binding is text interpolation using the “Mustache” syntax (double curly braces).'
@@ -10641,18 +10717,24 @@ module.exports = {
       en: 'https://vuejs.org/v2/guide/syntax.html#Interpolations'
     },
     examples: [{
-      hash: '34e42c91e1f86591563ec8897e6a095c',
-      title: { zh: '文本插值', en: 'Inline text' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1V5IXcMMPMeJjy1XdXXasrXXa-540-844.png'
+      hash: {
+        zh: '34e42c91e1f86591563ec8897e6a095c',
+        en: '207411d00e8af32213443b4d0c5db689'
+      },
+      title: { zh: '文本插值', en: 'Inline TextNode' },
+      screenshot: {
+        zh: 'https://gw.alicdn.com/tfs/TB1V5IXcMMPMeJjy1XdXXasrXXa-540-844.png',
+        en: 'https://gw.alicdn.com/tfs/TB19gKsb8fH8KJjy1XbXXbLdXXa-540-844.png'
+      }
     }, {
       hash: '68b02a5371eb7da5cb9dde1946ce2b68',
-      title: { zh: '使用表达式', en: 'Using expression' },
+      title: { zh: '使用表达式', en: 'Using Expression' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1veLGbS_I8KJjy0FoXXaFnVXa-540-844.png'
     }]
   }, {
     type: 'v-bind',
     name: 'v-bind',
-    title: { zh: '绑定属性值', en: 'v-bind' },
+    title: { zh: '绑定属性值（v-bind）', en: 'v-bind' },
     desc: {
       zh: 'v-bind 可以动态地绑定一个或多个特性，或一个组件 prop 到表达式。可以简写成 `:` (半角冒号)。',
       en: 'Dynamically bind one or more attributes, or a component prop to an expression.'
@@ -10667,22 +10749,22 @@ module.exports = {
       screenshot: 'https://gw.alicdn.com/tfs/TB150aYcMoQMeJjy0FpXXcTxpXa-540-844.png'
     }, {
       hash: 'b142f24d2f0ab27f5f65448d2aa16970',
-      title: { zh: '绑定表达式', en: 'Using expression' },
+      title: { zh: '绑定表达式', en: 'Using Expression' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1veLGbS_I8KJjy0FoXXaFnVXa-540-844.png'
     }, {
       hash: '3a2cc3c7a465f6a07c4bd3a868c7e393',
-      title: { zh: '样式值绑定', en: 'Style binding' },
+      title: { zh: '样式值绑定', en: 'Style Binding' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1o.62bH_I8KJjy1XaXXbsxpXa-540-844.png'
     }, {
       hash: '2bc0de9ec2448a1f852f354349f66600',
       // hash: 'b4b1f5e4679efbe3c94864a1404bfeaf',
-      title: { zh: '类名绑定', en: 'Class binding' },
+      title: { zh: '类名绑定', en: 'Class Binding' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1o.62bH_I8KJjy1XaXXbsxpXa-540-844.png'
     }]
   }, {
     type: 'v-for',
     name: 'v-for',
-    title: { zh: '循环指令', en: 'v-for' },
+    title: { zh: '循环指令（v-for）', en: 'v-for' },
     desc: {
       zh: 'v-for 基于源数据多次渲染元素或模板块。此指令之值，必须使用特定语法 `alias in expression` 为当前遍历的元素提供别名。',
       en: 'We can use the v-for directive to render a `alias in expression` based on an array. The v-for directive requires a special syntax in the form of item in items.'
@@ -10697,21 +10779,21 @@ module.exports = {
       screenshot: 'https://gw.alicdn.com/tfs/TB1R_7.bjihSKJjy0FlXXadEXXa-540-844.png'
     }, {
       hash: '2cd124954175721d9145571bf722ce7a',
-      title: { zh: '下标索引', en: 'Array index' },
+      title: { zh: '下标索引', en: 'Array Index' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1dAivaLBNTKJjy0FdXXcPpVXa-540-844.png'
     }, {
       hash: '2b4222b828fac65257d9ed9f8932f2a1',
-      title: { zh: '遍历 JS 对象', en: 'v-for with an object' },
+      title: { zh: '遍历 JS 对象', en: 'v-for With an Object' },
       screenshot: 'https://gw.alicdn.com/tfs/TB10r25bH_I8KJjy1XaXXbsxpXa-540-844.png'
     }, {
       hash: '7364e9c3c25ab2cbc945903cea7b0878',
-      title: { zh: '多层循环', en: 'multiple v-for' },
+      title: { zh: '多层循环', en: 'Multiple v-for' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1giSLfwoQMeJjy0FoXXcShVXa-540-844.png'
     }]
   }, {
     type: 'v-if',
     name: 'v-if',
-    title: { zh: '条件指令', en: 'v-if' },
+    title: { zh: '条件指令（v-if)', en: 'v-if' },
     desc: {
       zh: 'v-if 根据表达式的值的真假条件渲染元素，在切换时元素及它的数据绑定/组件被销毁并重建。同类指令还有 v-else 和 v-else-if。',
       en: 'Conditionally render the element based on the truthy-ness of the expression value.'
@@ -10722,8 +10804,8 @@ module.exports = {
     },
     examples: [{
       hash: '736a5dd112a1a114a559218ed20cae08',
-      title: { zh: '最简例子', en: 'Sample' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      title: 'v-if',
+      screenshot: 'https://gw.alicdn.com/tfs/TB1BAuGb2DH8KJjy1XcXXcpdXXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
       title: 'v-else',
@@ -10736,7 +10818,7 @@ module.exports = {
   }, {
     type: 'v-on',
     name: 'v-on',
-    title: { zh: '事件绑定', en: 'v-on' },
+    title: { zh: '事件绑定（v-on）', en: 'v-on' },
     desc: {
       zh: '可以用 v-on 指令监听 DOM 事件来触发一些 JavaScript 代码，可以简写成 `@`。用在普通元素上时，只能监听 原生 DOM 事件。用在自定义元素组件上时，也可以监听子组件触发的自定义事件。',
       en: 'We can use the v-on directive to listen to DOM events and run some JavaScript when they’re triggered.'
@@ -10751,21 +10833,21 @@ module.exports = {
       screenshot: 'https://gw.alicdn.com/tfs/TB1dcTaewMPMeJjy1XdXXasrXXa-540-844.png'
     }, {
       hash: '8e3a1cbcf1ba9af94fe6f77e9668e354',
-      title: { zh: '内联语句', en: '' },
+      title: { zh: '内联语句', en: 'Inline Statement' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1dcTaewMPMeJjy1XdXXasrXXa-540-844.png'
     }, {
       hash: '3a019f2eca4a6966ee0c3b91e5b2fc5b',
-      title: { zh: '传递参数', en: '' },
+      title: { zh: '传递参数', en: 'Inline Handler' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1dcTaewMPMeJjy1XdXXasrXXa-540-844.png'
     }, {
       hash: '8581f4d2ff8fb48bdc547d2465c0cf24',
-      title: { zh: 'once 修饰符', en: '' },
+      title: { zh: 'once 修饰符', en: '.once Modifier' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1dcTaewMPMeJjy1XdXXasrXXa-540-844.png'
     }]
   }, {
     type: 'v-model',
     name: 'v-model',
-    title: { zh: '表单双向绑定', en: 'v-model' },
+    title: { zh: '表单双向绑定（v-model）', en: 'v-model' },
     desc: {
       zh: '可以用 v-model 指令在表单控件元素上创建双向数据绑定。它会根据控件类型自动选取正确的方法来更新元素。尽管有些神奇，但 v-model 本质上不过是语法糖，它负责监听用户的输入事件以更新数据，并特别处理一些极端的例子。',
       en: 'You can use the v-model directive to create two-way data bindings on form input and textarea elements. It automatically picks the correct way to update the element based on the input type.'
@@ -10780,7 +10862,7 @@ module.exports = {
       screenshot: 'https://gw.alicdn.com/tfs/TB1IQ9cdgMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: '39684e82ad9a8e0b175f49e058cf7af6',
-      title: { zh: 'textarea', en: '' },
+      title: { zh: '绑定 <textarea>', en: 'Using <textarea>' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1y738XiqAXuNjy1XdXXaYcVXa-540-844.png'
       // }, {
       //   hash: '4624d605004fc7eb9f14ca9c5a226fe3',
@@ -10802,7 +10884,7 @@ module.exports = {
   }, {
     type: 'v-once',
     name: 'v-once',
-    title: { zh: '一次性渲染', en: 'v-once' },
+    title: { zh: '一次性渲染（v-once）', en: 'v-once' },
     desc: {
       zh: '只渲染元素和组件一次。随后的重新渲染,元素/组件及其所有的子节点将被视为静态内容并跳过。这可以用于优化更新性能。',
       en: 'Render the element and component once only. On subsequent re-renders, the element/component and all its children will be treated as static content and skipped. This can be used to optimize update performance.'
@@ -10856,7 +10938,7 @@ module.exports = {
   }, {
     type: 'filters',
     name: 'Filters',
-    title: { zh: '过滤器', en: 'Filters' },
+    title: { zh: '过滤器（Filters）', en: 'Filters' },
     desc: {
       zh: 'Vue.js 允许你自定义过滤器，可被用作一些常见的文本格式化。过滤器可以用在两个地方：mustache 插值和 v-bind 表达式。过滤器应该被添加在 JavaScript 表达式的尾部，由“管道”符指示。',
       en: 'Vue.js allows you to define filters that can be used to apply common text formatting.'
@@ -10871,17 +10953,17 @@ module.exports = {
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: { zh: '传递额外参数', en: '' },
+      title: { zh: '传递额外参数', en: 'Pass Arguments' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: { zh: '过滤器串联', en: '' },
+      title: { zh: '过滤器串联', en: 'Chained Filters' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }]
   }, {
     type: 'mixins',
     name: 'Mixins',
-    title: { zh: '混合', en: 'Mixins' },
+    title: { zh: '混合（Mixins）', en: 'Mixins' },
     desc: {
       zh: '混合 (mixins) 是一种分发 Vue 组件中可复用功能的非常灵活的方式。混合对象可以包含任意组件选项。以组件使用混合对象时，所有混合对象的选项将被混入该组件本身的选项。',
       en: 'Mixins are a flexible way to distribute reusable functionalities for Vue components. A mixin object can contain any component options. When a component uses a mixin, all options in the mixin will be “mixed” into the component’s own options.'
@@ -10896,15 +10978,15 @@ module.exports = {
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: { zh: '全局混合', en: 'Global mixin' },
+      title: { zh: '全局混合', en: 'Global Mixin' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: { zh: '选项合并', en: 'Mixin options' },
+      title: { zh: '选项合并', en: 'Mixin Options' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: { zh: '生命周期混合', en: 'Lifecycle mixin' },
+      title: { zh: '生命周期混合', en: 'Lifecycle Mixin' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }]
     // }, {
@@ -11125,21 +11207,45 @@ module.exports = {
     type: 'learn',
     name: { zh: '学习', en: 'Learn' },
     examples: [{
-      hash: '43ede9db84425bce17e598456758eb3b',
+      hash: {
+        zh: '43ede9db84425bce17e598456758eb3b',
+        en: '82c3e1768163ae0155b436ce5d5f5640'
+      },
       title: { zh: '学习 Weex', en: 'Learn Weex' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB13VkjhMoQMeJjy0FnXXb8gFXa-540-844.png'
+      screenshot: {
+        zh: 'https://gw.alicdn.com/tfs/TB13VkjhMoQMeJjy0FnXXb8gFXa-540-844.png',
+        en: 'https://gw.alicdn.com/tfs/TB1EJuGbY_I8KJjy1XaXXbsxpXa-540-844.png'
+      }
     }, {
-      hash: '59958038a2009d3eefca29da107d3e7d',
+      hash: {
+        zh: '59958038a2009d3eefca29da107d3e7d',
+        en: '4f0456987961d45bb5cc0b3f14f92c02'
+      },
       title: { zh: '学习 Vue.js', en: 'Learn Vue.js' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1kfEAhMoQMeJjy0FoXXcShVXa-540-844.png'
+      screenshot: {
+        zh: 'https://gw.alicdn.com/tfs/TB1kfEAhMoQMeJjy0FoXXcShVXa-540-844.png',
+        en: 'https://gw.alicdn.com/tfs/TB1JBjEXyqAXuNjy1XdXXaYcVXa-540-844.png'
+      }
     }, {
-      hash: 'd1426e1cd14718ebff51ea46bdae0224',
+      hash: {
+        zh: 'd1426e1cd14718ebff51ea46bdae0224',
+        en: 'e7ea10acfc29f8a08fd75f9fa80f9703'
+      },
       title: { zh: '学习 Javascript', en: 'Learn Javascript' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1Dz3dhMoQMeJjy1XaXXcSsFXa-540-844.png'
+      screenshot: {
+        zh: 'https://gw.alicdn.com/tfs/TB1Dz3dhMoQMeJjy1XaXXcSsFXa-540-844.png',
+        en: 'https://gw.alicdn.com/tfs/TB1JljEXyqAXuNjy1XdXXaYcVXa-540-844.png'
+      }
     }, {
-      hash: '8d2a4e9b2e8e6f1d25d08472f3bb48cf',
+      hash: {
+        zh: '8d2a4e9b2e8e6f1d25d08472f3bb48cf',
+        en: '1190538862e882f9bfa96bf3787aa879'
+      },
       title: { zh: '学习 CSS', en: 'Learn CSS' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB10LcihMoQMeJjy0FpXXcTxpXa-540-844.png'
+      screenshot: {
+        zh: 'https://gw.alicdn.com/tfs/TB10LcihMoQMeJjy0FpXXcTxpXa-540-844.png',
+        en: 'https://gw.alicdn.com/tfs/TB1m3Ksb8fH8KJjy1XbXXbLdXXa-540-844.png'
+      }
     }, {
       hash: 'ffec8fcae798c1bc1dfb0259b125f477',
       title: { zh: '手把手教你…', en: 'Step by Step' },
@@ -11204,13 +11310,13 @@ module.exports = {
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_ExampleList_vue__ = __webpack_require__(83);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_ExampleList_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_ExampleList_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_3033756a_hasScoped_true_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_ExampleList_vue__ = __webpack_require__(89);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_3033756a_hasScoped_true_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_ExampleList_vue__ = __webpack_require__(84);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(81)
 }
-var normalizeComponent = __webpack_require__(10)
+var normalizeComponent = __webpack_require__(21)
 /* script */
 
 /* template */
@@ -11264,7 +11370,7 @@ var content = __webpack_require__(82);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(9)("330e12a4", content, false);
+var update = __webpack_require__(20)("330e12a4", content, false);
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -11283,12 +11389,12 @@ if(false) {
 /* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(8)();
+exports = module.exports = __webpack_require__(19)();
 // imports
 
 
 // module
-exports.push([module.i, "\n.example-panel[data-v-3033756a] {\n  padding: 20px 20px 40px 30px;\n}\n.example-section[data-v-3033756a] {\n  margin: 20px 0 60px;\n}\n.example-list[data-v-3033756a] {\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap;\n  justify-content: flex-start;\n}\n.title[data-v-3033756a] {\n  height: 50px;\n  line-height: 50px;\n  font-size: 36px;\n  color: rgb(0, 180, 255);\n  cursor: pointer;\n}\n.desc[data-v-3033756a] {\n  width: 80%;\n  max-width: 800px;\n  color: #888;\n}\n.desc a[data-v-3033756a], .desc a[data-v-3033756a]:link {\n  color: rgba(0, 180, 255, 0.8);\n}\n.desc a[data-v-3033756a]:hover, .desc a[data-v-3033756a]:active {\n  color: rgb(0, 180, 255);\n}\n.example-card[data-v-3033756a] {\n  display: flex;\n  flex-direction: column;\n  justify-content: flex-start;\n  align-items: center;\n  margin: 15px 35px;\n  color: #666;\n}\n.preview[data-v-3033756a] {\n  display: block;\n  width: 182px;\n  height: 329px;\n  position: relative;\n  background: url(\"https://gw.alicdn.com/tfs/TB1rRl8bwnD8KJjy1XdXXaZsVXa-661-1195.png\") 0 0 no-repeat;\n  background-size: 182px 329px;\n}\n.screenshot[data-v-3033756a] {\n  position: absolute;\n  width: 145px;\n  height: 228px;\n  top: 42px;\n  left: 18px;\n}\n.message[data-v-3033756a] {\n  flex: 1;\n  text-align: center;\n}\n.tag[data-v-3033756a] {\n  border: 1px solid #DDD;\n  margin: 0 12px;\n}\n", ""]);
+exports.push([module.i, "\n.example-panel[data-v-3033756a] {\n  padding: 10px 20px 0 30px;\n}\n.banner[data-v-3033756a] {\n  background-color: #EEE;\n  color: #757575;\n  padding: 10px 30px;\n  font-size: 16px;\n}\n.copyright[data-v-3033756a] {\n  border-top: 1px solid #DDD;\n  color: #BBB;\n  font-size: 12px;\n  text-align: center;\n}\n.example-section[data-v-3033756a] {\n  margin: 20px 0 60px;\n}\n.example-list[data-v-3033756a] {\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap;\n  justify-content: flex-start;\n}\n.title[data-v-3033756a] {\n  height: 50px;\n  line-height: 50px;\n  font-size: 36px;\n  color: rgb(0, 180, 255);\n  cursor: pointer;\n}\n.desc[data-v-3033756a] {\n  width: 80%;\n  max-width: 800px;\n  color: #888;\n}\n.desc a[data-v-3033756a], .desc a[data-v-3033756a]:link {\n  color: rgba(0, 180, 255, 0.8);\n}\n.desc a[data-v-3033756a]:hover, .desc a[data-v-3033756a]:active {\n  color: rgb(0, 180, 255);\n}\n.example-card[data-v-3033756a] {\n  display: flex;\n  flex-direction: column;\n  justify-content: flex-start;\n  align-items: center;\n  margin: 15px 35px;\n  color: #666;\n}\n.preview[data-v-3033756a] {\n  display: block;\n  width: 182px;\n  height: 329px;\n  position: relative;\n  background: url(\"https://gw.alicdn.com/tfs/TB1rRl8bwnD8KJjy1XdXXaZsVXa-661-1195.png\") 0 0 no-repeat;\n  background-size: 182px 329px;\n}\n.screenshot[data-v-3033756a] {\n  position: absolute;\n  width: 145px;\n  height: 228px;\n  top: 42px;\n  left: 18px;\n}\n.message[data-v-3033756a] {\n  flex: 1;\n  text-align: center;\n}\n.tag[data-v-3033756a] {\n  border: 1px solid #DDD;\n  margin: 0 12px;\n}\n", ""]);
 
 // exports
 
@@ -11325,13 +11431,19 @@ Object.defineProperty(exports, "__esModule", {
 //
 //
 //
+//
+//
+//
+//
 
 exports.default = {
   props: ['type', 'category', 'language'],
-  methods: {
+  filters: {
     url: function url(hash) {
       return 'http://dotwe.org/vue/' + hash;
-    },
+    }
+  },
+  methods: {
     scrollTo: function scrollTo(hash) {
       if (!hash) {
         hash = this.parseHash().hash;
@@ -11358,12 +11470,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 84 */,
-/* 85 */,
-/* 86 */,
-/* 87 */,
-/* 88 */,
-/* 89 */
+/* 84 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11374,81 +11481,117 @@ var render = function() {
   return _c(
     "main",
     { ref: "container", staticClass: "example-panel" },
-    _vm._l(_vm.category.group, function(category, i) {
-      return _c(
-        "section",
-        { key: category.type + "-" + i, staticClass: "example-section" },
-        [
-          _c(
-            "h2",
-            {
-              ref: category.type,
-              refInFor: true,
-              staticClass: "title",
-              on: {
-                click: function($event) {
-                  _vm.scrollTo(category.type)
+    [
+      _vm._m(0),
+      _vm._v(" "),
+      _vm._l(_vm.category.group, function(category, i) {
+        return _c(
+          "section",
+          { key: category.type + "-" + i, staticClass: "example-section" },
+          [
+            _c(
+              "h2",
+              {
+                ref: category.type,
+                refInFor: true,
+                staticClass: "title",
+                on: {
+                  click: function($event) {
+                    _vm.scrollTo(category.type)
+                  }
                 }
-              }
-            },
-            [_vm._v(_vm._s(_vm._f("i18n")(category.name)))]
-          ),
-          _vm._v(" "),
-          category.desc
-            ? _c("p", { staticClass: "desc" }, [
-                _c("span", { staticClass: "text" }, [
-                  _vm._v(_vm._s(_vm._f("i18n")(category.desc)))
-                ]),
-                _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "link",
-                    attrs: {
-                      target: "_blank",
-                      href: _vm._f("i18n")(category.docLink)
-                    }
-                  },
-                  [_vm._v("Read more")]
-                )
-              ])
-            : _vm._e(),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "example-list" },
-            _vm._l(category.examples, function(example) {
-              return _c(
-                "div",
-                { key: example.hash, staticClass: "example-card" },
-                [
+              },
+              [_vm._v(_vm._s(_vm._f("i18n")(category.title || category.name)))]
+            ),
+            _vm._v(" "),
+            category.desc
+              ? _c("p", { staticClass: "desc" }, [
+                  _c("span", { staticClass: "text" }, [
+                    _vm._v(_vm._s(_vm._f("i18n")(category.desc)))
+                  ]),
+                  _vm._v(" "),
                   _c(
                     "a",
                     {
-                      staticClass: "preview",
-                      attrs: { target: "_blank", href: _vm.url(example.hash) }
+                      staticClass: "link",
+                      attrs: {
+                        target: "_blank",
+                        href: _vm._f("i18n")(category.docLink)
+                      }
                     },
-                    [
-                      _c("img", {
-                        staticClass: "screenshot",
-                        attrs: { src: example.screenshot }
-                      })
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("section", { staticClass: "message" }, [
-                    _c("div", [_vm._v(_vm._s(_vm._f("i18n")(example.title)))])
-                  ])
-                ]
-              )
-            })
-          )
-        ]
-      )
-    })
+                    [_vm._v("Read more")]
+                  )
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "example-list" },
+              _vm._l(category.examples, function(example) {
+                return _c(
+                  "figure",
+                  {
+                    key: _vm._f("i18n")(example.hash),
+                    staticClass: "example-card"
+                  },
+                  [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "preview",
+                        attrs: {
+                          target: "_blank",
+                          href: _vm._f("url")(_vm._f("i18n")(example.hash))
+                        }
+                      },
+                      [
+                        _c("img", {
+                          staticClass: "screenshot",
+                          attrs: { src: _vm._f("i18n")(example.screenshot) }
+                        })
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("figcaption", { staticClass: "message" }, [
+                      _vm._v(_vm._s(_vm._f("i18n")(example.title)))
+                    ])
+                  ]
+                )
+              })
+            )
+          ]
+        )
+      }),
+      _vm._v(" "),
+      _vm._m(1)
+    ],
+    2
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", { staticClass: "banner" }, [
+      _c("p", [
+        _vm._v(
+          "All examples are written in Weex and Vue.js, each of them works fine on both iOS, Android and web platform with the same source code."
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", { staticClass: "copyright" }, [
+      _c("p", [
+        _vm._v("No License. Anyone can use the source code in anywhere.")
+      ])
+    ])
+  }
+]
 render._withStripped = true
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
@@ -11460,7 +11603,7 @@ if (false) {
 }
 
 /***/ }),
-/* 90 */
+/* 85 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11557,7 +11700,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "intro" }, [
+    return _c("div", { staticClass: "github" }, [
       _c(
         "a",
         {

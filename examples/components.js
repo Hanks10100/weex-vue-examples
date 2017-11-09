@@ -30,15 +30,24 @@ module.exports = {
     type: 'text',
     name: 'text',
     title: { zh: '<text> 组件', en: '<text>' },
-    desc: '<text> 是 Weex 内置的组件，用来将文本按照指定的样式渲染出来。<text> 只能包含文本值，不支持子组件，你可以使用 {{}} 标记插入变量值作为文本内容。',
+    desc: {
+      zh: '<text> 是 Weex 内置的组件，用来将文本按照指定的样式渲染出来。<text> 只能包含文本值，不支持子组件，你可以使用 {{}} 标记插入变量值作为文本内容。',
+      en: 'The weex builtin component ‘text’ is used to render text with specified style rule. tag can contain text value only. You can use variable interpolation in the text content with the mark {{}}.'
+    },
     docLink: {
       zh: 'http://weex-project.io/cn/references/components/text.html',
       en: 'http://weex-project.io/references/components/text.html'
     },
     examples: [{
-      hash: '3e0220d7b379955a26039131f153a360',
+      hash: {
+        zh: '3e0220d7b379955a26039131f153a360',
+        en: 'a718b029a7ba9cea08e84a6c22ec9bc4'
+      },
       title: { zh: '最简例子', en: 'Sample' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1V5IXcMMPMeJjy1XdXXasrXXa-540-844.png'
+      screenshot: {
+        zh: 'https://gw.alicdn.com/tfs/TB1V5IXcMMPMeJjy1XdXXasrXXa-540-844.png',
+        en: 'https://gw.alicdn.com/tfs/TB19gKsb8fH8KJjy1XbXXbLdXXa-540-844.png'
+      }
     }, {
       hash: '25b96fb0283300df1b183d019d835e4f',
       title: { zh: 'lines 属性', en: '"lines"' },
@@ -56,7 +65,10 @@ module.exports = {
     type: 'image',
     name: 'image',
     title: { zh: '<image> 组件', en: '<image>' },
-    desc: '<image> 组件用于渲染图片，并且它不能包含任何子组件。需要注意的是，必须明确指定 width 和 height，否则图片无法显示。',
+    desc: {
+      zh: '<image> 组件用于渲染图片，并且它不能包含任何子组件。需要注意的是，必须明确指定 width 和 height，否则图片无法显示。',
+      en: 'image tag is used to render a specified picture, and it shouldn’t contain any child component. <img> is not supported currently.'
+    },
     docLink: {
       zh: 'http://weex-project.io/cn/references/components/image.html',
       en: 'http://weex-project.io/references/components/image.html'
@@ -69,30 +81,33 @@ module.exports = {
       screenshot: 'https://gw.alicdn.com/tfs/TB12KPGbS_I8KJjy0FoXXaFnVXa-540-844.png'
     }, {
       hash: '5bac698a83ca8c0467426746be011252',
-      title: 'resize 属性',
+      title: { zh: 'resize 属性', en: '"resize" Attribute' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1wKHLbILJ8KJjy0FnXXcFDpXa-540-844.png'
     }, {
       hash: '97d978c234dffe96f594c7c10e9119d0',
-      title: '浮层文字',
+      title: { zh: '浮层文字', en: '' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1Mx1UcMoQMeJjy1XaXXcSsFXa-540-844.png'
     }, {
       hash: '23703f3be5512d0419086d8e7937bd8d',
-      title: '图片实际大小',
+      title: { zh: '图片实际大小', en: 'Original Size' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sAh1gMMPMeJjy1XbXXcwxVXa-540-844.png'
     }, {
       hash: '571231d08dee12a8feaa76d1109fbcdc',
-      title: 'Gif 图片',
+      title: { zh: 'Gif 图片', en: 'Gif Image' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1cbYxdwMPMeJjy1XdXXasrXXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: 'Base64 图片',
+      title: { zh: 'Base64 图片', en: 'Base64 Image' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }]
   }, {
     type: 'list',
     name: 'list',
     title: { zh: '<list> 组件', en: '<list>' },
-    desc: '<list> 组件是提供垂直列表功能的核心组件，拥有平滑的滚动和高效的内存管理，非常适合用于长列表的展示。最简单的使用方法是在 <list> 标签内使用数组循环生成的多个 <cell> 标签。',
+    desc: {
+      zh: '<list> 组件是提供垂直列表功能的核心组件，拥有平滑的滚动和高效的内存管理，非常适合用于长列表的展示。最简单的使用方法是在 <list> 标签内使用数组循环生成的多个 <cell> 标签。',
+      en: 'The List component, which inherits from Scroller component, is a core component, and it provides the most popular features for using a list of items.'
+    },
     docLink: {
       zh: 'http://weex-project.io/cn/references/components/list.html',
       en: 'http://weex-project.io/references/components/list.html'
@@ -115,18 +130,21 @@ module.exports = {
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: 'f4e660c403c0fd5140ac2747f498d948',
-      title: 'loadmore 事件',
+      title: { zh: 'loadmore 事件', en: '"loadmore" Event' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1tK66cMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: 'appear 事件',
+      title: { zh: 'appear 事件', en: '"appear" Event' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }]
   }, {
     type: 'scroller',
     name: 'scroller',
     title: { zh: '<scroller> 组件', en: '<scroller>' },
-    desc: '<scroller> 是一个竖直的，可以容纳多个排成一列的子组件的滚动器。如果子组件的总高度高于其本身，那么所有的子组件都可滚动。',
+    desc: {
+      zh: '<scroller> 是一个竖直的，可以容纳多个排成一列的子组件的滚动器。如果子组件的总高度高于其本身，那么所有的子组件都可滚动。',
+      en: 'A scroller is a component in vertical direction which can have multiple child components in one column. If total height of its child components exceed the height of the scroller, the whole child components will be scrollable.'
+    },
     docLink: {
       zh: 'http://weex-project.io/cn/references/components/scroller.html',
       en: 'http://weex-project.io/references/components/scroller.html'
@@ -137,8 +155,8 @@ module.exports = {
       screenshot: 'https://gw.alicdn.com/tfs/TB1tK66cMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: 'c626a5fb4981e8e8bce92d7b012c26b4',
-      title: '水平滚动',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      title: { zh: '水平滚动', en: 'Horizontal Scroll' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1QkqGb2DH8KJjy1XcXXcpdXXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
       title: '<loading>',
@@ -149,7 +167,7 @@ module.exports = {
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: 'eb1f5edea6cb8f4fea06d67dc071eff7',
-      title: 'loadmore',
+      title: { zh: 'loadmore 事件', en: '"loadmore" Event' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1tK66cMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: 'c38fbd7922d42810393c7a23529d48a1',
@@ -160,7 +178,10 @@ module.exports = {
     type: 'input',
     name: 'input',
     title: { zh: '<input> 组件', en: '<input>' },
-    desc: 'Weex 内置的 <input> 组件用来创建接收用户输入字符的输入组件。 <input> 组件的工作方式因 type 属性的值而异，比如 text, password, url, email, tel 等。此组件不支持子组件和 click 事件。',
+    desc: {
+      zh: 'Weex 内置的 <input> 组件用来创建接收用户输入字符的输入组件。 <input> 组件的工作方式因 type 属性的值而异，比如 text, password, url, email, tel 等。此组件不支持子组件和 click 事件。',
+      en: 'The weex builtin component input is used to create input controls to receive the user’s input characters.'
+    },
     docLink: {
       zh: 'http://weex-project.io/cn/references/components/input.html',
       en: 'http://weex-project.io/references/components/input.html'
@@ -171,26 +192,29 @@ module.exports = {
       screenshot: 'https://gw.alicdn.com/tfs/TB1IQ9cdgMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: '185e8574389d3242a79090414c336e4d',
-      title: 'placeholder',
+      title: 'Placeholder',
       screenshot: 'https://gw.alicdn.com/tfs/TB1XPmcdgoQMeJjy0FoXXcShVXa-540-844.png'
     }, {
       hash: 'aab3e1a3835c9cdbed53fb127738507f',
-      title: '初始状态',
+      title: { zh: '初始状态', en: 'Initial State' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1rnh_diERMeJjy0FcXXc7opXa-540-844.png'
     }, {
       hash: '75492bb1c1af2b44293ce11164c0b3ba',
-      title: '输入框类型',
+      title: { zh: '输入框类型', en: 'Input Type' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1qDh_diERMeJjy0FcXXc7opXa-540-844.png'
     }, {
       hash: '38cfc531ae3c0a10ac10236cd869e9eb',
-      title: '事件处理',
+      title: { zh: '事件处理', en: 'Handle Events' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1IQ9cdgMPMeJjy1XcXXXpppXa-540-844.png'
     }]
   }, {
     type: 'textarea',
     name: 'textarea',
     title: { zh: '<textarea> 组件', en: '<textarea>' },
-    desc: 'textarea 是 Weex 内置的一个组件，用于用户交互，接受用户输入数据。可以认为是允许多行的 <input> 组件。',
+    desc: {
+      zh: 'textarea 是 Weex 内置的一个组件，用于用户交互，接受用户输入数据。可以认为是允许多行的 <input> 组件。',
+      en: 'The weex builtin component textarea is used to create interactive controls to accept data from users. It can be a multi-line input.'
+    },
     docLink: {
       zh: 'http://weex-project.io/cn/references/components/textarea.html',
       en: 'http://weex-project.io/references/components/textarea.html'
@@ -201,14 +225,17 @@ module.exports = {
       screenshot: 'https://gw.alicdn.com/tfs/TB1TSyddgoQMeJjy0FoXXcShVXa-540-844.png'
     }, {
       hash: '03caa359a9c4bf9fdc8a1d343f7f7a69',
-      title: '默认行数',
+      title: { zh: '默认行数', en: 'Default "rows"' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1AsF1diERMeJjSspjXXcpOXXa-540-844.png'
     }]
   }, {
     type: 'switch',
     name: 'switch',
     title: { zh: '<switch> 组件', en: '<switch>' },
-    desc: '<switch> 是 Weex 的内置组件，用来创建与 iOS 一致样式的按钮。例如在 iPhone 中的设置应用中的飞行模式按钮就是一个 switch 按钮。',
+    desc: {
+      zh: '<switch> 是 Weex 的内置组件，用来创建与 iOS 一致样式的按钮。例如在 iPhone 中的设置应用中的飞行模式按钮就是一个 switch 按钮。',
+      en: 'The weex builtin component switch is used to create and manage an IOS styled On/Off buttons, for example, the Airplane mode button in the Settings app is a switch button.'
+    },
     docLink: {
       zh: 'http://weex-project.io/cn/references/components/switch.html',
       en: 'http://weex-project.io/references/components/switch.html'
@@ -219,18 +246,21 @@ module.exports = {
       screenshot: 'https://gw.alicdn.com/tfs/TB1p7eDdGagSKJjy0FhXXcrbFXa-540-843.jpg'
     }, {
       hash: '8a049fb7ff19c0ee9316a483b235dd26',
-      title: '初始状态',
+      title: { zh: '初始状态', en: 'Initial State' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1u0HRc2NNTKJjSspkXXaeWFXa-540-844.jpg'
     }, {
       hash: 'b48549c39f2e82178ce8b94b395d1d0b',
-      title: '事件处理',
+      title: { zh: '事件处理', en: 'Handle Events' },
       screenshot: 'https://gw.alicdn.com/tfs/TB14HWzdGagSKJjy0FbXXa.mVXa-540-844.jpg'
     }]
   }, {
     type: 'video',
     name: 'video',
     title: { zh: '<video> 组件', en: '<video>' },
-    desc: '<video> 组件可以让我们在 Weex 页面中嵌入视频内容。<text> 是唯一合法的子组件。',
+    desc: {
+      zh: '<video> 组件可以让我们在 Weex 页面中嵌入视频内容。<text> 是唯一合法的子组件。',
+      en: 'The video component can be used to embed video content in a weex page.'
+    },
     docLink: {
       zh: 'http://weex-project.io/cn/references/components/video.html',
       en: 'http://weex-project.io/references/components/video.html'
@@ -241,18 +271,21 @@ module.exports = {
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '播放控制',
+      title: { zh: '播放控制', en: 'Play Control' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '事件处理',
+      title: { zh: '事件处理', en: 'Handle Events' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }]
   }, {
     type: 'web',
     name: 'web',
     title: { zh: '<web> 组件', en: '<web>' },
-    desc: '使用 <web> 组件在 Weex 页面中嵌入一张网页内容。src 属性用来指定资源地址。你也可以使用 webview module 来控制 web 的行为，比如前进、后退和重载。',
+    desc: {
+      zh: '使用 <web> 组件在 Weex 页面中嵌入一张网页内容。src 属性用来指定资源地址。你也可以使用 webview module 来控制 web 的行为，比如前进、后退和重载。',
+      en: 'Use web component to display any web content in the weex page. The src attribute is used to specify a special source. You also can use webview module to control some web operation such as goBack,goForward and reload.'
+    },
     docLink: {
       zh: 'http://weex-project.io/cn/references/components/web.html',
       en: 'http://weex-project.io/references/components/web.html'
@@ -263,36 +296,42 @@ module.exports = {
       screenshot: 'https://gw.alicdn.com/tfs/TB1LpGHdgMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '页面跳转',
+      title: { zh: '页面跳转', en: 'Jump' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '传递参数',
+      title: { zh: '传递参数', en: 'Pass Params' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '事件处理',
+      title: { zh: '事件处理', en: 'Handle Events' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }]
   }, {
     type: 'richtext',
     name: 'richtext',
     title: { zh: '富文本组件', en: '<richtext>' },
-    desc: '',
+    desc: {
+      zh: '',
+      en: ''
+    },
     examples: [{
       hash: '36a1999a7957de7bcbeb7cca95ba46d2',
-      title: '图文混排',
+      title: { zh: '图文混排', en: 'Use richtext' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1VPOPcMMPMeJjy1XdXXasrXXa-540-844.png'
     }, {
       hash: '8e3c274f5cae4a391a14ac81c890325f',
-      title: '内容输入',
+      title: { zh: '内容输入', en: 'With Binding' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1SzOPcMMPMeJjy1XdXXasrXXa-540-844.png'
     }]
   }, {
     type: 'waterfall',
     name: 'waterfall',
     title: { zh: '瀑布流组件', en: '<waterfall>' },
-    desc: '提供瀑布流布局的组件。',
+    desc: {
+      zh: '提供瀑布流布局的组件。',
+      en: 'A component providing waterfall layout.'
+    },
     docLink: {
       zh: 'http://weex-project.io/cn/references/components/waterfall.html',
       en: 'http://weex-project.io/references/components/waterfall.html'

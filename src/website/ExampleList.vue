@@ -1,21 +1,25 @@
 <template>
   <main ref="container" class="example-panel">
+    <section class="banner">
+      <p>All examples are written in Weex and Vue.js, each of them works fine on both iOS, Android and web platform with the same source code.</p>
+    </section>
     <section class="example-section" v-for="(category, i) in category.group" :key="`${category.type}-${i}`">
-      <h2 :ref="category.type" class="title" @click="scrollTo(category.type)">{{category.name | i18n}}</h2>
+      <h2 :ref="category.type" class="title" @click="scrollTo(category.type)">{{category.title || category.name | i18n}}</h2>
       <p class="desc" v-if="category.desc">
         <span class="text">{{category.desc | i18n}}</span>
         <a class="link" target="_blank" :href="category.docLink | i18n">Read more</a>
       </p>
       <div class="example-list">
-        <div class="example-card" v-for="example in category.examples" :key="example.hash">
-          <a class="preview" target="_blank" :href="url(example.hash)">
-            <img class="screenshot" :src="example.screenshot">
+        <figure class="example-card" v-for="example in category.examples" :key="example.hash | i18n">
+          <a class="preview" target="_blank" :href="example.hash | i18n | url">
+            <img class="screenshot" :src="example.screenshot | i18n">
           </a>
-          <section class="message">
-            <div>{{example.title | i18n}}</div>
-          </section>
-        </div>
+          <figcaption class="message">{{example.title | i18n}}</figcaption>
+        </figure>
       </div>
+    </section>
+    <section class="copyright">
+      <p>No License. Anyone can use the source code in anywhere.</p>
     </section>
   </main>
 </template>
@@ -23,10 +27,12 @@
 <script>
   export default {
     props: ['type', 'category', 'language'],
-    methods: {
+    filters: {
       url (hash) {
         return `http://dotwe.org/vue/${hash}`
-      },
+      }
+    },
+    methods: {
       scrollTo (hash) {
         if (!hash) {
           hash = this.parseHash().hash
@@ -51,7 +57,19 @@
 
 <style scoped>
   .example-panel {
-    padding: 20px 20px 40px 30px;
+    padding: 10px 20px 0 30px;
+  }
+  .banner {
+    background-color: #EEE;
+    color: #757575;
+    padding: 10px 30px;
+    font-size: 16px;
+  }
+  .copyright {
+    border-top: 1px solid #DDD;
+    color: #BBB;
+    font-size: 12px;
+    text-align: center;
   }
   .example-section {
     margin: 20px 0 60px;

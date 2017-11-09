@@ -66,21 +66,45 @@ module.exports = {
     type: 'learn',
     name: { zh: '学习', en: 'Learn' },
     examples: [{
-      hash: '43ede9db84425bce17e598456758eb3b',
+      hash: {
+        zh: '43ede9db84425bce17e598456758eb3b',
+        en: '82c3e1768163ae0155b436ce5d5f5640'
+      },
       title: { zh: '学习 Weex', en: 'Learn Weex' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB13VkjhMoQMeJjy0FnXXb8gFXa-540-844.png'
+      screenshot: {
+        zh: 'https://gw.alicdn.com/tfs/TB13VkjhMoQMeJjy0FnXXb8gFXa-540-844.png',
+        en: 'https://gw.alicdn.com/tfs/TB1EJuGbY_I8KJjy1XaXXbsxpXa-540-844.png'
+      }
     }, {
-      hash: '59958038a2009d3eefca29da107d3e7d',
+      hash: {
+        zh: '59958038a2009d3eefca29da107d3e7d',
+        en: '4f0456987961d45bb5cc0b3f14f92c02'
+      },
       title: { zh: '学习 Vue.js', en: 'Learn Vue.js' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1kfEAhMoQMeJjy0FoXXcShVXa-540-844.png'
+      screenshot: {
+        zh: 'https://gw.alicdn.com/tfs/TB1kfEAhMoQMeJjy0FoXXcShVXa-540-844.png',
+        en: 'https://gw.alicdn.com/tfs/TB1JBjEXyqAXuNjy1XdXXaYcVXa-540-844.png'
+      }
     }, {
-      hash: 'd1426e1cd14718ebff51ea46bdae0224',
+      hash: {
+        zh: 'd1426e1cd14718ebff51ea46bdae0224',
+        en: 'e7ea10acfc29f8a08fd75f9fa80f9703'
+      },
       title: { zh: '学习 Javascript', en: 'Learn Javascript' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1Dz3dhMoQMeJjy1XaXXcSsFXa-540-844.png'
+      screenshot: {
+        zh: 'https://gw.alicdn.com/tfs/TB1Dz3dhMoQMeJjy1XaXXcSsFXa-540-844.png',
+        en: 'https://gw.alicdn.com/tfs/TB1JljEXyqAXuNjy1XdXXaYcVXa-540-844.png'
+      }
     }, {
-      hash: '8d2a4e9b2e8e6f1d25d08472f3bb48cf',
+      hash: {
+        zh: '8d2a4e9b2e8e6f1d25d08472f3bb48cf',
+        en: '1190538862e882f9bfa96bf3787aa879'
+      },
       title: { zh: '学习 CSS', en: 'Learn CSS' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB10LcihMoQMeJjy0FpXXcTxpXa-540-844.png'
+      screenshot: {
+        zh: 'https://gw.alicdn.com/tfs/TB10LcihMoQMeJjy0FpXXcTxpXa-540-844.png',
+        en: 'https://gw.alicdn.com/tfs/TB1m3Ksb8fH8KJjy1XbXXbLdXXa-540-844.png'
+      }
     }, {
       hash: 'ffec8fcae798c1bc1dfb0259b125f477',
       title: { zh: '手把手教你…', en: 'Step by Step' },

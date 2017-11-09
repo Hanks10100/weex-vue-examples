@@ -1,7 +1,7 @@
 <template>
   <div class="page-wrapper">
     <aside :class="['aside', language]">
-      <div class="intro">
+      <div class="github">
         <a href="https://github.com/hanks10100/weex-vue-examples" target="_blank" class="repo-link">
           <img class="github-logo" src="https://gw.alicdn.com/tfs/TB1y.g1bMvD8KJjy0FlXXagBFXa-120-120.png" alt="apache/incubator-weex">
         </a>
@@ -90,7 +90,7 @@
     align-items: center;
     overflow-y: auto;
   }
-  .intro {
+  .github {
     margin-bottom: 30px;
   }
   .github-logo {

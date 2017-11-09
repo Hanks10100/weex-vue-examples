@@ -2,9 +2,9 @@ module.exports = {
   type: 'syntax',
   name: { zh: '语法', en: 'Syntax' },
   group: [{
-    type: 'mustache',
-    name: 'Mustache',
-    title: { zh: '文本绑定的语法', en: 'Text Data-binding' },
+    type: 'text-binding',
+    name: 'Text Binding',
+    title: { zh: '文本绑定', en: 'Text Binding' },
     desc: {
       zh: '数据绑定最常见的形式就是使用 “Mustache” 语法（双大括号）的文本插值。',
       en: 'The most basic form of data binding is text interpolation using the “Mustache” syntax (double curly braces).'
@@ -14,18 +14,24 @@ module.exports = {
       en: 'https://vuejs.org/v2/guide/syntax.html#Interpolations'
     },
     examples: [{
-      hash: '34e42c91e1f86591563ec8897e6a095c',
-      title: { zh: '文本插值', en: 'Inline text' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1V5IXcMMPMeJjy1XdXXasrXXa-540-844.png'
+      hash: {
+        zh: '34e42c91e1f86591563ec8897e6a095c',
+        en: '207411d00e8af32213443b4d0c5db689'
+      },
+      title: { zh: '文本插值', en: 'Inline TextNode' },
+      screenshot: {
+        zh: 'https://gw.alicdn.com/tfs/TB1V5IXcMMPMeJjy1XdXXasrXXa-540-844.png',
+        en: 'https://gw.alicdn.com/tfs/TB19gKsb8fH8KJjy1XbXXbLdXXa-540-844.png'
+      }
     }, {
       hash: '68b02a5371eb7da5cb9dde1946ce2b68',
-      title: { zh: '使用表达式', en: 'Using expression' },
+      title: { zh: '使用表达式', en: 'Using Expression' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1veLGbS_I8KJjy0FoXXaFnVXa-540-844.png'
     }]
   }, {
     type: 'v-bind',
     name: 'v-bind',
-    title: { zh: '绑定属性值', en: 'v-bind' },
+    title: { zh: '绑定属性值（v-bind）', en: 'v-bind' },
     desc: {
       zh: 'v-bind 可以动态地绑定一个或多个特性，或一个组件 prop 到表达式。可以简写成 `:` (半角冒号)。',
       en: 'Dynamically bind one or more attributes, or a component prop to an expression.'
@@ -40,22 +46,22 @@ module.exports = {
       screenshot: 'https://gw.alicdn.com/tfs/TB150aYcMoQMeJjy0FpXXcTxpXa-540-844.png'
     }, {
       hash: 'b142f24d2f0ab27f5f65448d2aa16970',
-      title: { zh: '绑定表达式', en: 'Using expression' },
+      title: { zh: '绑定表达式', en: 'Using Expression' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1veLGbS_I8KJjy0FoXXaFnVXa-540-844.png'
     }, {
       hash: '3a2cc3c7a465f6a07c4bd3a868c7e393',
-      title: { zh: '样式值绑定', en: 'Style binding' },
+      title: { zh: '样式值绑定', en: 'Style Binding' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1o.62bH_I8KJjy1XaXXbsxpXa-540-844.png'
     }, {
       hash: '2bc0de9ec2448a1f852f354349f66600',
       // hash: 'b4b1f5e4679efbe3c94864a1404bfeaf',
-      title: { zh: '类名绑定', en: 'Class binding' },
+      title: { zh: '类名绑定', en: 'Class Binding' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1o.62bH_I8KJjy1XaXXbsxpXa-540-844.png'
     }]
   }, {
     type: 'v-for',
     name: 'v-for',
-    title: { zh: '循环指令', en: 'v-for' },
+    title: { zh: '循环指令（v-for）', en: 'v-for' },
     desc: {
       zh: 'v-for 基于源数据多次渲染元素或模板块。此指令之值，必须使用特定语法 `alias in expression` 为当前遍历的元素提供别名。',
       en: 'We can use the v-for directive to render a `alias in expression` based on an array. The v-for directive requires a special syntax in the form of item in items.'
@@ -70,21 +76,21 @@ module.exports = {
       screenshot: 'https://gw.alicdn.com/tfs/TB1R_7.bjihSKJjy0FlXXadEXXa-540-844.png'
     }, {
       hash: '2cd124954175721d9145571bf722ce7a',
-      title: { zh: '下标索引', en: 'Array index' },
+      title: { zh: '下标索引', en: 'Array Index' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1dAivaLBNTKJjy0FdXXcPpVXa-540-844.png'
     }, {
       hash: '2b4222b828fac65257d9ed9f8932f2a1',
-      title: { zh: '遍历 JS 对象', en: 'v-for with an object' },
+      title: { zh: '遍历 JS 对象', en: 'v-for With an Object' },
       screenshot: 'https://gw.alicdn.com/tfs/TB10r25bH_I8KJjy1XaXXbsxpXa-540-844.png'
     }, {
       hash: '7364e9c3c25ab2cbc945903cea7b0878',
-      title: { zh: '多层循环', en: 'multiple v-for' },
+      title: { zh: '多层循环', en: 'Multiple v-for' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1giSLfwoQMeJjy0FoXXcShVXa-540-844.png'
     }]
   }, {
     type: 'v-if',
     name: 'v-if',
-    title: { zh: '条件指令', en: 'v-if' },
+    title: { zh: '条件指令（v-if)', en: 'v-if' },
     desc: {
       zh: 'v-if 根据表达式的值的真假条件渲染元素，在切换时元素及它的数据绑定/组件被销毁并重建。同类指令还有 v-else 和 v-else-if。',
       en: 'Conditionally render the element based on the truthy-ness of the expression value.'
@@ -95,8 +101,8 @@ module.exports = {
     },
     examples: [{
       hash: '736a5dd112a1a114a559218ed20cae08',
-      title: { zh: '最简例子', en: 'Sample' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      title: 'v-if',
+      screenshot: 'https://gw.alicdn.com/tfs/TB1BAuGb2DH8KJjy1XcXXcpdXXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
       title: 'v-else',
@@ -109,7 +115,7 @@ module.exports = {
   }, {
     type: 'v-on',
     name: 'v-on',
-    title: { zh: '事件绑定', en: 'v-on' },
+    title: { zh: '事件绑定（v-on）', en: 'v-on' },
     desc: {
       zh: '可以用 v-on 指令监听 DOM 事件来触发一些 JavaScript 代码，可以简写成 `@`。用在普通元素上时，只能监听 原生 DOM 事件。用在自定义元素组件上时，也可以监听子组件触发的自定义事件。',
       en: 'We can use the v-on directive to listen to DOM events and run some JavaScript when they’re triggered.'
@@ -124,21 +130,21 @@ module.exports = {
       screenshot: 'https://gw.alicdn.com/tfs/TB1dcTaewMPMeJjy1XdXXasrXXa-540-844.png'
     }, {
       hash: '8e3a1cbcf1ba9af94fe6f77e9668e354',
-      title: { zh: '内联语句', en: '' },
+      title: { zh: '内联语句', en: 'Inline Statement' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1dcTaewMPMeJjy1XdXXasrXXa-540-844.png'
     }, {
       hash: '3a019f2eca4a6966ee0c3b91e5b2fc5b',
-      title: { zh: '传递参数', en: '' },
+      title: { zh: '传递参数', en: 'Inline Handler' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1dcTaewMPMeJjy1XdXXasrXXa-540-844.png'
     }, {
       hash: '8581f4d2ff8fb48bdc547d2465c0cf24',
-      title: { zh: 'once 修饰符', en: '' },
+      title: { zh: 'once 修饰符', en: '.once Modifier' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1dcTaewMPMeJjy1XdXXasrXXa-540-844.png'
     }]
   }, {
     type: 'v-model',
     name: 'v-model',
-    title: { zh: '表单双向绑定', en: 'v-model' },
+    title: { zh: '表单双向绑定（v-model）', en: 'v-model' },
     desc: {
       zh: '可以用 v-model 指令在表单控件元素上创建双向数据绑定。它会根据控件类型自动选取正确的方法来更新元素。尽管有些神奇，但 v-model 本质上不过是语法糖，它负责监听用户的输入事件以更新数据，并特别处理一些极端的例子。',
       en: 'You can use the v-model directive to create two-way data bindings on form input and textarea elements. It automatically picks the correct way to update the element based on the input type.'
@@ -153,7 +159,7 @@ module.exports = {
       screenshot: 'https://gw.alicdn.com/tfs/TB1IQ9cdgMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: '39684e82ad9a8e0b175f49e058cf7af6',
-      title: { zh: 'textarea', en: '' },
+      title: { zh: '绑定 <textarea>', en: 'Using <textarea>' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1y738XiqAXuNjy1XdXXaYcVXa-540-844.png'
     // }, {
     //   hash: '4624d605004fc7eb9f14ca9c5a226fe3',
@@ -175,7 +181,7 @@ module.exports = {
   }, {
     type: 'v-once',
     name: 'v-once',
-    title: { zh: '一次性渲染', en: 'v-once' },
+    title: { zh: '一次性渲染（v-once）', en: 'v-once' },
     desc: {
       zh: '只渲染元素和组件一次。随后的重新渲染,元素/组件及其所有的子节点将被视为静态内容并跳过。这可以用于优化更新性能。',
       en: 'Render the element and component once only. On subsequent re-renders, the element/component and all its children will be treated as static content and skipped. This can be used to optimize update performance.'
@@ -229,7 +235,7 @@ module.exports = {
   }, {
     type: 'filters',
     name: 'Filters',
-    title: { zh: '过滤器', en: 'Filters' },
+    title: { zh: '过滤器（Filters）', en: 'Filters' },
     desc: {
       zh: 'Vue.js 允许你自定义过滤器，可被用作一些常见的文本格式化。过滤器可以用在两个地方：mustache 插值和 v-bind 表达式。过滤器应该被添加在 JavaScript 表达式的尾部，由“管道”符指示。',
       en: 'Vue.js allows you to define filters that can be used to apply common text formatting.'
@@ -244,17 +250,17 @@ module.exports = {
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: { zh: '传递额外参数', en: '' },
+      title: { zh: '传递额外参数', en: 'Pass Arguments' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: { zh: '过滤器串联', en: '' },
+      title: { zh: '过滤器串联', en: 'Chained Filters' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }]
   }, {
     type: 'mixins',
     name: 'Mixins',
-    title: { zh: '混合', en: 'Mixins' },
+    title: { zh: '混合（Mixins）', en: 'Mixins' },
     desc: {
       zh: '混合 (mixins) 是一种分发 Vue 组件中可复用功能的非常灵活的方式。混合对象可以包含任意组件选项。以组件使用混合对象时，所有混合对象的选项将被混入该组件本身的选项。',
       en: 'Mixins are a flexible way to distribute reusable functionalities for Vue components. A mixin object can contain any component options. When a component uses a mixin, all options in the mixin will be “mixed” into the component’s own options.'
@@ -269,15 +275,15 @@ module.exports = {
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: { zh: '全局混合', en: 'Global mixin' },
+      title: { zh: '全局混合', en: 'Global Mixin' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: { zh: '选项合并', en: 'Mixin options' },
+      title: { zh: '选项合并', en: 'Mixin Options' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: { zh: '生命周期混合', en: 'Lifecycle mixin' },
+      title: { zh: '生命周期混合', en: 'Lifecycle Mixin' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }]
   // }, {

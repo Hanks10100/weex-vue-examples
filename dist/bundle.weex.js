@@ -62,105 +62,16 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 26);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-
-
-var _App = __webpack_require__(1);
-
-var _App2 = _interopRequireDefault(_App);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-_App2.default.el = '#root';
-new Vue(_App2.default);
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var __vue_exports__, __vue_options__
-var __vue_styles__ = []
-
-/* script */
-__vue_exports__ = __webpack_require__(3)
-
-/* template */
-var __vue_template__ = __webpack_require__(4)
-__vue_options__ = __vue_exports__ = __vue_exports__ || {}
-if (
-  typeof __vue_exports__.default === "object" ||
-  typeof __vue_exports__.default === "function"
-) {
-if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
-__vue_options__ = __vue_exports__ = __vue_exports__.default
-}
-if (typeof __vue_options__ === "function") {
-  __vue_options__ = __vue_options__.options
-}
-__vue_options__.__file = "/Users/Hanks/Codes/work/weex-vue-examples/src/App.vue"
-__vue_options__.render = __vue_template__.render
-__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
-__vue_options__.style = __vue_options__.style || {}
-__vue_styles__.forEach(function (module) {
-  for (var name in module) {
-    __vue_options__.style[name] = module[name]
-  }
-})
-if (typeof __register_static_styles__ === "function") {
-  __register_static_styles__(__vue_options__._scopeId, __vue_styles__)
-}
-
-module.exports = __vue_exports__
-
-
-/***/ }),
-/* 2 */,
-/* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _show = __webpack_require__(31);
-
-var _show2 = _interopRequireDefault(_show);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = {
-  components: { Example: _show2.default }
-}; //
-//
-//
-//
-
-/***/ }),
-/* 4 */
-/***/ (function(module, exports) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('example')
-},staticRenderFns: []}
-module.exports.render._withStripped = true
-
-/***/ }),
-/* 5 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var store = __webpack_require__(26)('wks');
-var uid = __webpack_require__(27);
-var Symbol = __webpack_require__(6).Symbol;
+var store = __webpack_require__(21)('wks');
+var uid = __webpack_require__(22);
+var Symbol = __webpack_require__(1).Symbol;
 var USE_SYMBOL = typeof Symbol == 'function';
 
 var $exports = module.exports = function (name) {
@@ -172,7 +83,7 @@ $exports.store = store;
 
 
 /***/ }),
-/* 6 */
+/* 1 */
 /***/ (function(module, exports) {
 
 // https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
@@ -184,12 +95,12 @@ if (typeof __g == 'number') __g = global; // eslint-disable-line no-undef
 
 
 /***/ }),
-/* 7 */
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var dP = __webpack_require__(8);
-var createDesc = __webpack_require__(16);
-module.exports = __webpack_require__(10) ? function (object, key, value) {
+var dP = __webpack_require__(3);
+var createDesc = __webpack_require__(11);
+module.exports = __webpack_require__(5) ? function (object, key, value) {
   return dP.f(object, key, createDesc(1, value));
 } : function (object, key, value) {
   object[key] = value;
@@ -198,15 +109,15 @@ module.exports = __webpack_require__(10) ? function (object, key, value) {
 
 
 /***/ }),
-/* 8 */
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var anObject = __webpack_require__(9);
-var IE8_DOM_DEFINE = __webpack_require__(43);
-var toPrimitive = __webpack_require__(44);
+var anObject = __webpack_require__(4);
+var IE8_DOM_DEFINE = __webpack_require__(41);
+var toPrimitive = __webpack_require__(42);
 var dP = Object.defineProperty;
 
-exports.f = __webpack_require__(10) ? Object.defineProperty : function defineProperty(O, P, Attributes) {
+exports.f = __webpack_require__(5) ? Object.defineProperty : function defineProperty(O, P, Attributes) {
   anObject(O);
   P = toPrimitive(P, true);
   anObject(Attributes);
@@ -220,10 +131,10 @@ exports.f = __webpack_require__(10) ? Object.defineProperty : function definePro
 
 
 /***/ }),
-/* 9 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var isObject = __webpack_require__(15);
+var isObject = __webpack_require__(10);
 module.exports = function (it) {
   if (!isObject(it)) throw TypeError(it + ' is not an object!');
   return it;
@@ -231,17 +142,17 @@ module.exports = function (it) {
 
 
 /***/ }),
-/* 10 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Thank's IE8 for his funny defineProperty
-module.exports = !__webpack_require__(21)(function () {
+module.exports = !__webpack_require__(16)(function () {
   return Object.defineProperty({}, 'a', { get: function () { return 7; } }).a != 7;
 });
 
 
 /***/ }),
-/* 11 */
+/* 6 */
 /***/ (function(module, exports) {
 
 var hasOwnProperty = {}.hasOwnProperty;
@@ -251,7 +162,7 @@ module.exports = function (it, key) {
 
 
 /***/ }),
-/* 12 */
+/* 7 */
 /***/ (function(module, exports) {
 
 // 7.1.4 ToInteger
@@ -263,7 +174,7 @@ module.exports = function (it) {
 
 
 /***/ }),
-/* 13 */
+/* 8 */
 /***/ (function(module, exports) {
 
 // 7.2.1 RequireObjectCoercible(argument)
@@ -274,7 +185,7 @@ module.exports = function (it) {
 
 
 /***/ }),
-/* 14 */
+/* 9 */
 /***/ (function(module, exports) {
 
 var core = module.exports = { version: '2.5.1' };
@@ -282,7 +193,7 @@ if (typeof __e == 'number') __e = core; // eslint-disable-line no-undef
 
 
 /***/ }),
-/* 15 */
+/* 10 */
 /***/ (function(module, exports) {
 
 module.exports = function (it) {
@@ -291,7 +202,7 @@ module.exports = function (it) {
 
 
 /***/ }),
-/* 16 */
+/* 11 */
 /***/ (function(module, exports) {
 
 module.exports = function (bitmap, value) {
@@ -305,31 +216,31 @@ module.exports = function (bitmap, value) {
 
 
 /***/ }),
-/* 17 */
+/* 12 */
 /***/ (function(module, exports) {
 
 module.exports = {};
 
 
 /***/ }),
-/* 18 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var shared = __webpack_require__(26)('keys');
-var uid = __webpack_require__(27);
+var shared = __webpack_require__(21)('keys');
+var uid = __webpack_require__(22);
 module.exports = function (key) {
   return shared[key] || (shared[key] = uid(key));
 };
 
 
 /***/ }),
-/* 19 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var global = __webpack_require__(6);
-var core = __webpack_require__(14);
-var ctx = __webpack_require__(20);
-var hide = __webpack_require__(7);
+var global = __webpack_require__(1);
+var core = __webpack_require__(9);
+var ctx = __webpack_require__(15);
+var hide = __webpack_require__(2);
 var PROTOTYPE = 'prototype';
 
 var $export = function (type, name, source) {
@@ -390,11 +301,11 @@ module.exports = $export;
 
 
 /***/ }),
-/* 20 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // optional / simple context binding
-var aFunction = __webpack_require__(42);
+var aFunction = __webpack_require__(40);
 module.exports = function (fn, that, length) {
   aFunction(fn);
   if (that === undefined) return fn;
@@ -416,7 +327,7 @@ module.exports = function (fn, that, length) {
 
 
 /***/ }),
-/* 21 */
+/* 16 */
 /***/ (function(module, exports) {
 
 module.exports = function (exec) {
@@ -429,11 +340,11 @@ module.exports = function (exec) {
 
 
 /***/ }),
-/* 22 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var isObject = __webpack_require__(15);
-var document = __webpack_require__(6).document;
+var isObject = __webpack_require__(10);
+var document = __webpack_require__(1).document;
 // typeof document.createElement is 'object' in old IE
 var is = isObject(document) && isObject(document.createElement);
 module.exports = function (it) {
@@ -442,19 +353,19 @@ module.exports = function (it) {
 
 
 /***/ }),
-/* 23 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // to indexed object, toObject with fallback for non-array-like ES3 strings
-var IObject = __webpack_require__(51);
-var defined = __webpack_require__(13);
+var IObject = __webpack_require__(49);
+var defined = __webpack_require__(8);
 module.exports = function (it) {
   return IObject(defined(it));
 };
 
 
 /***/ }),
-/* 24 */
+/* 19 */
 /***/ (function(module, exports) {
 
 var toString = {}.toString;
@@ -465,11 +376,11 @@ module.exports = function (it) {
 
 
 /***/ }),
-/* 25 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 7.1.15 ToLength
-var toInteger = __webpack_require__(12);
+var toInteger = __webpack_require__(7);
 var min = Math.min;
 module.exports = function (it) {
   return it > 0 ? min(toInteger(it), 0x1fffffffffffff) : 0; // pow(2, 53) - 1 == 9007199254740991
@@ -477,10 +388,10 @@ module.exports = function (it) {
 
 
 /***/ }),
-/* 26 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var global = __webpack_require__(6);
+var global = __webpack_require__(1);
 var SHARED = '__core-js_shared__';
 var store = global[SHARED] || (global[SHARED] = {});
 module.exports = function (key) {
@@ -489,7 +400,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 27 */
+/* 22 */
 /***/ (function(module, exports) {
 
 var id = 0;
@@ -500,7 +411,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 28 */
+/* 23 */
 /***/ (function(module, exports) {
 
 // IE 8- don't enum bug keys
@@ -510,12 +421,12 @@ module.exports = (
 
 
 /***/ }),
-/* 29 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var def = __webpack_require__(8).f;
-var has = __webpack_require__(11);
-var TAG = __webpack_require__(5)('toStringTag');
+var def = __webpack_require__(3).f;
+var has = __webpack_require__(6);
+var TAG = __webpack_require__(0)('toStringTag');
 
 module.exports = function (it, tag, stat) {
   if (it && !has(it = stat ? it : it.prototype, TAG)) def(it, TAG, { configurable: true, value: tag });
@@ -523,32 +434,111 @@ module.exports = function (it, tag, stat) {
 
 
 /***/ }),
-/* 30 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 7.1.13 ToObject(argument)
-var defined = __webpack_require__(13);
+var defined = __webpack_require__(8);
 module.exports = function (it) {
   return Object(defined(it));
 };
 
 
 /***/ }),
-/* 31 */
+/* 26 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _App = __webpack_require__(27);
+
+var _App2 = _interopRequireDefault(_App);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+_App2.default.el = '#root';
+new Vue(_App2.default);
+
+/***/ }),
+/* 27 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __vue_exports__, __vue_options__
+var __vue_styles__ = []
+
+/* script */
+__vue_exports__ = __webpack_require__(28)
+
+/* template */
+var __vue_template__ = __webpack_require__(67)
+__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+if (
+  typeof __vue_exports__.default === "object" ||
+  typeof __vue_exports__.default === "function"
+) {
+if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
+__vue_options__ = __vue_exports__ = __vue_exports__.default
+}
+if (typeof __vue_options__ === "function") {
+  __vue_options__ = __vue_options__.options
+}
+__vue_options__.__file = "/Users/Hanks/Codes/work/weex-vue-examples/src/App.vue"
+__vue_options__.render = __vue_template__.render
+__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+__vue_options__.style = __vue_options__.style || {}
+__vue_styles__.forEach(function (module) {
+  for (var name in module) {
+    __vue_options__.style[name] = module[name]
+  }
+})
+if (typeof __register_static_styles__ === "function") {
+  __register_static_styles__(__vue_options__._scopeId, __vue_styles__)
+}
+
+module.exports = __vue_exports__
+
+
+/***/ }),
+/* 28 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _show = __webpack_require__(29);
+
+var _show2 = _interopRequireDefault(_show);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = {
+  components: { Example: _show2.default }
+}; //
+//
+//
+//
+
+/***/ }),
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(32)
+__vue_styles__.push(__webpack_require__(30)
 )
 
 /* script */
-__vue_exports__ = __webpack_require__(33)
+__vue_exports__ = __webpack_require__(31)
 
 /* template */
-var __vue_template__ = __webpack_require__(68)
+var __vue_template__ = __webpack_require__(66)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -578,7 +568,7 @@ module.exports = __vue_exports__
 
 
 /***/ }),
-/* 32 */
+/* 30 */
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -761,7 +751,7 @@ module.exports = {
 }
 
 /***/ }),
-/* 33 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -771,7 +761,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _examples = __webpack_require__(34);
+var _examples = __webpack_require__(32);
 
 var _examples2 = _interopRequireDefault(_examples);
 
@@ -1133,23 +1123,23 @@ exports.default = {
 };
 
 /***/ }),
-/* 34 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _toConsumableArray2 = __webpack_require__(35);
+var _toConsumableArray2 = __webpack_require__(33);
 
 var _toConsumableArray3 = _interopRequireDefault(_toConsumableArray2);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var components = __webpack_require__(63);
-var modules = __webpack_require__(64);
-var syntax = __webpack_require__(65);
-var styles = __webpack_require__(66);
-var others = __webpack_require__(67);
+var components = __webpack_require__(61);
+var modules = __webpack_require__(62);
+var syntax = __webpack_require__(63);
+var styles = __webpack_require__(64);
+var others = __webpack_require__(65);
 
 var examples = [components, modules, syntax, styles, others];
 
@@ -1168,7 +1158,7 @@ module.exports = function getExamples() {
 };
 
 /***/ }),
-/* 35 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1176,7 +1166,7 @@ module.exports = function getExamples() {
 
 exports.__esModule = true;
 
-var _from = __webpack_require__(36);
+var _from = __webpack_require__(34);
 
 var _from2 = _interopRequireDefault(_from);
 
@@ -1195,30 +1185,30 @@ exports.default = function (arr) {
 };
 
 /***/ }),
+/* 34 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = { "default": __webpack_require__(35), __esModule: true };
+
+/***/ }),
+/* 35 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(36);
+__webpack_require__(54);
+module.exports = __webpack_require__(9).Array.from;
+
+
+/***/ }),
 /* 36 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = { "default": __webpack_require__(37), __esModule: true };
-
-/***/ }),
-/* 37 */
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(38);
-__webpack_require__(56);
-module.exports = __webpack_require__(14).Array.from;
-
-
-/***/ }),
-/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var $at = __webpack_require__(39)(true);
+var $at = __webpack_require__(37)(true);
 
 // 21.1.3.27 String.prototype[@@iterator]()
-__webpack_require__(40)(String, 'String', function (iterated) {
+__webpack_require__(38)(String, 'String', function (iterated) {
   this._t = String(iterated); // target
   this._i = 0;                // next index
 // 21.1.5.2.1 %StringIteratorPrototype%.next()
@@ -1234,11 +1224,11 @@ __webpack_require__(40)(String, 'String', function (iterated) {
 
 
 /***/ }),
-/* 39 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var toInteger = __webpack_require__(12);
-var defined = __webpack_require__(13);
+var toInteger = __webpack_require__(7);
+var defined = __webpack_require__(8);
 // true  -> String#at
 // false -> String#codePointAt
 module.exports = function (TO_STRING) {
@@ -1257,21 +1247,21 @@ module.exports = function (TO_STRING) {
 
 
 /***/ }),
-/* 40 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var LIBRARY = __webpack_require__(41);
-var $export = __webpack_require__(19);
-var redefine = __webpack_require__(45);
-var hide = __webpack_require__(7);
-var has = __webpack_require__(11);
-var Iterators = __webpack_require__(17);
-var $iterCreate = __webpack_require__(46);
-var setToStringTag = __webpack_require__(29);
-var getPrototypeOf = __webpack_require__(55);
-var ITERATOR = __webpack_require__(5)('iterator');
+var LIBRARY = __webpack_require__(39);
+var $export = __webpack_require__(14);
+var redefine = __webpack_require__(43);
+var hide = __webpack_require__(2);
+var has = __webpack_require__(6);
+var Iterators = __webpack_require__(12);
+var $iterCreate = __webpack_require__(44);
+var setToStringTag = __webpack_require__(24);
+var getPrototypeOf = __webpack_require__(53);
+var ITERATOR = __webpack_require__(0)('iterator');
 var BUGGY = !([].keys && 'next' in [].keys()); // Safari has buggy iterators w/o `next`
 var FF_ITERATOR = '@@iterator';
 var KEYS = 'keys';
@@ -1334,14 +1324,14 @@ module.exports = function (Base, NAME, Constructor, next, DEFAULT, IS_SET, FORCE
 
 
 /***/ }),
-/* 41 */
+/* 39 */
 /***/ (function(module, exports) {
 
 module.exports = true;
 
 
 /***/ }),
-/* 42 */
+/* 40 */
 /***/ (function(module, exports) {
 
 module.exports = function (it) {
@@ -1351,20 +1341,20 @@ module.exports = function (it) {
 
 
 /***/ }),
-/* 43 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = !__webpack_require__(10) && !__webpack_require__(21)(function () {
-  return Object.defineProperty(__webpack_require__(22)('div'), 'a', { get: function () { return 7; } }).a != 7;
+module.exports = !__webpack_require__(5) && !__webpack_require__(16)(function () {
+  return Object.defineProperty(__webpack_require__(17)('div'), 'a', { get: function () { return 7; } }).a != 7;
 });
 
 
 /***/ }),
-/* 44 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 7.1.1 ToPrimitive(input [, PreferredType])
-var isObject = __webpack_require__(15);
+var isObject = __webpack_require__(10);
 // instead of the ES6 spec version, we didn't implement @@toPrimitive case
 // and the second argument - flag - preferred type is a string
 module.exports = function (it, S) {
@@ -1378,25 +1368,25 @@ module.exports = function (it, S) {
 
 
 /***/ }),
-/* 45 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(7);
+module.exports = __webpack_require__(2);
 
 
 /***/ }),
-/* 46 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var create = __webpack_require__(47);
-var descriptor = __webpack_require__(16);
-var setToStringTag = __webpack_require__(29);
+var create = __webpack_require__(45);
+var descriptor = __webpack_require__(11);
+var setToStringTag = __webpack_require__(24);
 var IteratorPrototype = {};
 
 // 25.1.2.1.1 %IteratorPrototype%[@@iterator]()
-__webpack_require__(7)(IteratorPrototype, __webpack_require__(5)('iterator'), function () { return this; });
+__webpack_require__(2)(IteratorPrototype, __webpack_require__(0)('iterator'), function () { return this; });
 
 module.exports = function (Constructor, NAME, next) {
   Constructor.prototype = create(IteratorPrototype, { next: descriptor(1, next) });
@@ -1405,27 +1395,27 @@ module.exports = function (Constructor, NAME, next) {
 
 
 /***/ }),
-/* 47 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.2.2 / 15.2.3.5 Object.create(O [, Properties])
-var anObject = __webpack_require__(9);
-var dPs = __webpack_require__(48);
-var enumBugKeys = __webpack_require__(28);
-var IE_PROTO = __webpack_require__(18)('IE_PROTO');
+var anObject = __webpack_require__(4);
+var dPs = __webpack_require__(46);
+var enumBugKeys = __webpack_require__(23);
+var IE_PROTO = __webpack_require__(13)('IE_PROTO');
 var Empty = function () { /* empty */ };
 var PROTOTYPE = 'prototype';
 
 // Create object with fake `null` prototype: use iframe Object with cleared prototype
 var createDict = function () {
   // Thrash, waste and sodomy: IE GC bug
-  var iframe = __webpack_require__(22)('iframe');
+  var iframe = __webpack_require__(17)('iframe');
   var i = enumBugKeys.length;
   var lt = '<';
   var gt = '>';
   var iframeDocument;
   iframe.style.display = 'none';
-  __webpack_require__(54).appendChild(iframe);
+  __webpack_require__(52).appendChild(iframe);
   iframe.src = 'javascript:'; // eslint-disable-line no-script-url
   // createDict = iframe.contentWindow.Object;
   // html.removeChild(iframe);
@@ -1452,14 +1442,14 @@ module.exports = Object.create || function create(O, Properties) {
 
 
 /***/ }),
-/* 48 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var dP = __webpack_require__(8);
-var anObject = __webpack_require__(9);
-var getKeys = __webpack_require__(49);
+var dP = __webpack_require__(3);
+var anObject = __webpack_require__(4);
+var getKeys = __webpack_require__(47);
 
-module.exports = __webpack_require__(10) ? Object.defineProperties : function defineProperties(O, Properties) {
+module.exports = __webpack_require__(5) ? Object.defineProperties : function defineProperties(O, Properties) {
   anObject(O);
   var keys = getKeys(Properties);
   var length = keys.length;
@@ -1471,12 +1461,12 @@ module.exports = __webpack_require__(10) ? Object.defineProperties : function de
 
 
 /***/ }),
-/* 49 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.2.14 / 15.2.3.14 Object.keys(O)
-var $keys = __webpack_require__(50);
-var enumBugKeys = __webpack_require__(28);
+var $keys = __webpack_require__(48);
+var enumBugKeys = __webpack_require__(23);
 
 module.exports = Object.keys || function keys(O) {
   return $keys(O, enumBugKeys);
@@ -1484,13 +1474,13 @@ module.exports = Object.keys || function keys(O) {
 
 
 /***/ }),
-/* 50 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var has = __webpack_require__(11);
-var toIObject = __webpack_require__(23);
-var arrayIndexOf = __webpack_require__(52)(false);
-var IE_PROTO = __webpack_require__(18)('IE_PROTO');
+var has = __webpack_require__(6);
+var toIObject = __webpack_require__(18);
+var arrayIndexOf = __webpack_require__(50)(false);
+var IE_PROTO = __webpack_require__(13)('IE_PROTO');
 
 module.exports = function (object, names) {
   var O = toIObject(object);
@@ -1507,11 +1497,11 @@ module.exports = function (object, names) {
 
 
 /***/ }),
-/* 51 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // fallback for non-array-like ES3 and non-enumerable old V8 strings
-var cof = __webpack_require__(24);
+var cof = __webpack_require__(19);
 // eslint-disable-next-line no-prototype-builtins
 module.exports = Object('z').propertyIsEnumerable(0) ? Object : function (it) {
   return cof(it) == 'String' ? it.split('') : Object(it);
@@ -1519,14 +1509,14 @@ module.exports = Object('z').propertyIsEnumerable(0) ? Object : function (it) {
 
 
 /***/ }),
-/* 52 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // false -> Array#indexOf
 // true  -> Array#includes
-var toIObject = __webpack_require__(23);
-var toLength = __webpack_require__(25);
-var toAbsoluteIndex = __webpack_require__(53);
+var toIObject = __webpack_require__(18);
+var toLength = __webpack_require__(20);
+var toAbsoluteIndex = __webpack_require__(51);
 module.exports = function (IS_INCLUDES) {
   return function ($this, el, fromIndex) {
     var O = toIObject($this);
@@ -1548,10 +1538,10 @@ module.exports = function (IS_INCLUDES) {
 
 
 /***/ }),
-/* 53 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var toInteger = __webpack_require__(12);
+var toInteger = __webpack_require__(7);
 var max = Math.max;
 var min = Math.min;
 module.exports = function (index, length) {
@@ -1561,21 +1551,21 @@ module.exports = function (index, length) {
 
 
 /***/ }),
-/* 54 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var document = __webpack_require__(6).document;
+var document = __webpack_require__(1).document;
 module.exports = document && document.documentElement;
 
 
 /***/ }),
-/* 55 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.2.9 / 15.2.3.2 Object.getPrototypeOf(O)
-var has = __webpack_require__(11);
-var toObject = __webpack_require__(30);
-var IE_PROTO = __webpack_require__(18)('IE_PROTO');
+var has = __webpack_require__(6);
+var toObject = __webpack_require__(25);
+var IE_PROTO = __webpack_require__(13)('IE_PROTO');
 var ObjectProto = Object.prototype;
 
 module.exports = Object.getPrototypeOf || function (O) {
@@ -1588,21 +1578,21 @@ module.exports = Object.getPrototypeOf || function (O) {
 
 
 /***/ }),
-/* 56 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var ctx = __webpack_require__(20);
-var $export = __webpack_require__(19);
-var toObject = __webpack_require__(30);
-var call = __webpack_require__(57);
-var isArrayIter = __webpack_require__(58);
-var toLength = __webpack_require__(25);
-var createProperty = __webpack_require__(59);
-var getIterFn = __webpack_require__(60);
+var ctx = __webpack_require__(15);
+var $export = __webpack_require__(14);
+var toObject = __webpack_require__(25);
+var call = __webpack_require__(55);
+var isArrayIter = __webpack_require__(56);
+var toLength = __webpack_require__(20);
+var createProperty = __webpack_require__(57);
+var getIterFn = __webpack_require__(58);
 
-$export($export.S + $export.F * !__webpack_require__(62)(function (iter) { Array.from(iter); }), 'Array', {
+$export($export.S + $export.F * !__webpack_require__(60)(function (iter) { Array.from(iter); }), 'Array', {
   // 22.1.2.1 Array.from(arrayLike, mapfn = undefined, thisArg = undefined)
   from: function from(arrayLike /* , mapfn = undefined, thisArg = undefined */) {
     var O = toObject(arrayLike);
@@ -1632,11 +1622,11 @@ $export($export.S + $export.F * !__webpack_require__(62)(function (iter) { Array
 
 
 /***/ }),
-/* 57 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // call something on iterator step with safe closing on error
-var anObject = __webpack_require__(9);
+var anObject = __webpack_require__(4);
 module.exports = function (iterator, fn, value, entries) {
   try {
     return entries ? fn(anObject(value)[0], value[1]) : fn(value);
@@ -1650,12 +1640,12 @@ module.exports = function (iterator, fn, value, entries) {
 
 
 /***/ }),
-/* 58 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // check on default Array iterator
-var Iterators = __webpack_require__(17);
-var ITERATOR = __webpack_require__(5)('iterator');
+var Iterators = __webpack_require__(12);
+var ITERATOR = __webpack_require__(0)('iterator');
 var ArrayProto = Array.prototype;
 
 module.exports = function (it) {
@@ -1664,13 +1654,13 @@ module.exports = function (it) {
 
 
 /***/ }),
-/* 59 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var $defineProperty = __webpack_require__(8);
-var createDesc = __webpack_require__(16);
+var $defineProperty = __webpack_require__(3);
+var createDesc = __webpack_require__(11);
 
 module.exports = function (object, index, value) {
   if (index in object) $defineProperty.f(object, index, createDesc(0, value));
@@ -1679,13 +1669,13 @@ module.exports = function (object, index, value) {
 
 
 /***/ }),
-/* 60 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var classof = __webpack_require__(61);
-var ITERATOR = __webpack_require__(5)('iterator');
-var Iterators = __webpack_require__(17);
-module.exports = __webpack_require__(14).getIteratorMethod = function (it) {
+var classof = __webpack_require__(59);
+var ITERATOR = __webpack_require__(0)('iterator');
+var Iterators = __webpack_require__(12);
+module.exports = __webpack_require__(9).getIteratorMethod = function (it) {
   if (it != undefined) return it[ITERATOR]
     || it['@@iterator']
     || Iterators[classof(it)];
@@ -1693,12 +1683,12 @@ module.exports = __webpack_require__(14).getIteratorMethod = function (it) {
 
 
 /***/ }),
-/* 61 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // getting tag from 19.1.3.6 Object.prototype.toString()
-var cof = __webpack_require__(24);
-var TAG = __webpack_require__(5)('toStringTag');
+var cof = __webpack_require__(19);
+var TAG = __webpack_require__(0)('toStringTag');
 // ES3 wrong here
 var ARG = cof(function () { return arguments; }()) == 'Arguments';
 
@@ -1722,10 +1712,10 @@ module.exports = function (it) {
 
 
 /***/ }),
-/* 62 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var ITERATOR = __webpack_require__(5)('iterator');
+var ITERATOR = __webpack_require__(0)('iterator');
 var SAFE_CLOSING = false;
 
 try {
@@ -1750,7 +1740,7 @@ module.exports = function (exec, skipClosing) {
 
 
 /***/ }),
-/* 63 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1788,15 +1778,24 @@ module.exports = {
     type: 'text',
     name: 'text',
     title: { zh: '<text> 组件', en: '<text>' },
-    desc: '<text> 是 Weex 内置的组件，用来将文本按照指定的样式渲染出来。<text> 只能包含文本值，不支持子组件，你可以使用 {{}} 标记插入变量值作为文本内容。',
+    desc: {
+      zh: '<text> 是 Weex 内置的组件，用来将文本按照指定的样式渲染出来。<text> 只能包含文本值，不支持子组件，你可以使用 {{}} 标记插入变量值作为文本内容。',
+      en: 'The weex builtin component ‘text’ is used to render text with specified style rule. tag can contain text value only. You can use variable interpolation in the text content with the mark {{}}.'
+    },
     docLink: {
       zh: 'http://weex-project.io/cn/references/components/text.html',
       en: 'http://weex-project.io/references/components/text.html'
     },
     examples: [{
-      hash: '3e0220d7b379955a26039131f153a360',
+      hash: {
+        zh: '3e0220d7b379955a26039131f153a360',
+        en: 'a718b029a7ba9cea08e84a6c22ec9bc4'
+      },
       title: { zh: '最简例子', en: 'Sample' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1V5IXcMMPMeJjy1XdXXasrXXa-540-844.png'
+      screenshot: {
+        zh: 'https://gw.alicdn.com/tfs/TB1V5IXcMMPMeJjy1XdXXasrXXa-540-844.png',
+        en: 'https://gw.alicdn.com/tfs/TB19gKsb8fH8KJjy1XbXXbLdXXa-540-844.png'
+      }
     }, {
       hash: '25b96fb0283300df1b183d019d835e4f',
       title: { zh: 'lines 属性', en: '"lines"' },
@@ -1814,7 +1813,10 @@ module.exports = {
     type: 'image',
     name: 'image',
     title: { zh: '<image> 组件', en: '<image>' },
-    desc: '<image> 组件用于渲染图片，并且它不能包含任何子组件。需要注意的是，必须明确指定 width 和 height，否则图片无法显示。',
+    desc: {
+      zh: '<image> 组件用于渲染图片，并且它不能包含任何子组件。需要注意的是，必须明确指定 width 和 height，否则图片无法显示。',
+      en: 'image tag is used to render a specified picture, and it shouldn’t contain any child component. <img> is not supported currently.'
+    },
     docLink: {
       zh: 'http://weex-project.io/cn/references/components/image.html',
       en: 'http://weex-project.io/references/components/image.html'
@@ -1827,30 +1829,33 @@ module.exports = {
       screenshot: 'https://gw.alicdn.com/tfs/TB12KPGbS_I8KJjy0FoXXaFnVXa-540-844.png'
     }, {
       hash: '5bac698a83ca8c0467426746be011252',
-      title: 'resize 属性',
+      title: { zh: 'resize 属性', en: '"resize" Attribute' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1wKHLbILJ8KJjy0FnXXcFDpXa-540-844.png'
     }, {
       hash: '97d978c234dffe96f594c7c10e9119d0',
-      title: '浮层文字',
+      title: { zh: '浮层文字', en: '' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1Mx1UcMoQMeJjy1XaXXcSsFXa-540-844.png'
     }, {
       hash: '23703f3be5512d0419086d8e7937bd8d',
-      title: '图片实际大小',
+      title: { zh: '图片实际大小', en: 'Original Size' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sAh1gMMPMeJjy1XbXXcwxVXa-540-844.png'
     }, {
       hash: '571231d08dee12a8feaa76d1109fbcdc',
-      title: 'Gif 图片',
+      title: { zh: 'Gif 图片', en: 'Gif Image' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1cbYxdwMPMeJjy1XdXXasrXXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: 'Base64 图片',
+      title: { zh: 'Base64 图片', en: 'Base64 Image' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }]
   }, {
     type: 'list',
     name: 'list',
     title: { zh: '<list> 组件', en: '<list>' },
-    desc: '<list> 组件是提供垂直列表功能的核心组件，拥有平滑的滚动和高效的内存管理，非常适合用于长列表的展示。最简单的使用方法是在 <list> 标签内使用数组循环生成的多个 <cell> 标签。',
+    desc: {
+      zh: '<list> 组件是提供垂直列表功能的核心组件，拥有平滑的滚动和高效的内存管理，非常适合用于长列表的展示。最简单的使用方法是在 <list> 标签内使用数组循环生成的多个 <cell> 标签。',
+      en: 'The List component, which inherits from Scroller component, is a core component, and it provides the most popular features for using a list of items.'
+    },
     docLink: {
       zh: 'http://weex-project.io/cn/references/components/list.html',
       en: 'http://weex-project.io/references/components/list.html'
@@ -1873,18 +1878,21 @@ module.exports = {
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: 'f4e660c403c0fd5140ac2747f498d948',
-      title: 'loadmore 事件',
+      title: { zh: 'loadmore 事件', en: '"loadmore" Event' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1tK66cMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: 'appear 事件',
+      title: { zh: 'appear 事件', en: '"appear" Event' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }]
   }, {
     type: 'scroller',
     name: 'scroller',
     title: { zh: '<scroller> 组件', en: '<scroller>' },
-    desc: '<scroller> 是一个竖直的，可以容纳多个排成一列的子组件的滚动器。如果子组件的总高度高于其本身，那么所有的子组件都可滚动。',
+    desc: {
+      zh: '<scroller> 是一个竖直的，可以容纳多个排成一列的子组件的滚动器。如果子组件的总高度高于其本身，那么所有的子组件都可滚动。',
+      en: 'A scroller is a component in vertical direction which can have multiple child components in one column. If total height of its child components exceed the height of the scroller, the whole child components will be scrollable.'
+    },
     docLink: {
       zh: 'http://weex-project.io/cn/references/components/scroller.html',
       en: 'http://weex-project.io/references/components/scroller.html'
@@ -1895,8 +1903,8 @@ module.exports = {
       screenshot: 'https://gw.alicdn.com/tfs/TB1tK66cMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: 'c626a5fb4981e8e8bce92d7b012c26b4',
-      title: '水平滚动',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      title: { zh: '水平滚动', en: 'Horizontal Scroll' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1QkqGb2DH8KJjy1XcXXcpdXXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
       title: '<loading>',
@@ -1907,7 +1915,7 @@ module.exports = {
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: 'eb1f5edea6cb8f4fea06d67dc071eff7',
-      title: 'loadmore',
+      title: { zh: 'loadmore 事件', en: '"loadmore" Event' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1tK66cMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: 'c38fbd7922d42810393c7a23529d48a1',
@@ -1918,7 +1926,10 @@ module.exports = {
     type: 'input',
     name: 'input',
     title: { zh: '<input> 组件', en: '<input>' },
-    desc: 'Weex 内置的 <input> 组件用来创建接收用户输入字符的输入组件。 <input> 组件的工作方式因 type 属性的值而异，比如 text, password, url, email, tel 等。此组件不支持子组件和 click 事件。',
+    desc: {
+      zh: 'Weex 内置的 <input> 组件用来创建接收用户输入字符的输入组件。 <input> 组件的工作方式因 type 属性的值而异，比如 text, password, url, email, tel 等。此组件不支持子组件和 click 事件。',
+      en: 'The weex builtin component input is used to create input controls to receive the user’s input characters.'
+    },
     docLink: {
       zh: 'http://weex-project.io/cn/references/components/input.html',
       en: 'http://weex-project.io/references/components/input.html'
@@ -1929,26 +1940,29 @@ module.exports = {
       screenshot: 'https://gw.alicdn.com/tfs/TB1IQ9cdgMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: '185e8574389d3242a79090414c336e4d',
-      title: 'placeholder',
+      title: 'Placeholder',
       screenshot: 'https://gw.alicdn.com/tfs/TB1XPmcdgoQMeJjy0FoXXcShVXa-540-844.png'
     }, {
       hash: 'aab3e1a3835c9cdbed53fb127738507f',
-      title: '初始状态',
+      title: { zh: '初始状态', en: 'Initial State' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1rnh_diERMeJjy0FcXXc7opXa-540-844.png'
     }, {
       hash: '75492bb1c1af2b44293ce11164c0b3ba',
-      title: '输入框类型',
+      title: { zh: '输入框类型', en: 'Input Type' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1qDh_diERMeJjy0FcXXc7opXa-540-844.png'
     }, {
       hash: '38cfc531ae3c0a10ac10236cd869e9eb',
-      title: '事件处理',
+      title: { zh: '事件处理', en: 'Handle Events' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1IQ9cdgMPMeJjy1XcXXXpppXa-540-844.png'
     }]
   }, {
     type: 'textarea',
     name: 'textarea',
     title: { zh: '<textarea> 组件', en: '<textarea>' },
-    desc: 'textarea 是 Weex 内置的一个组件，用于用户交互，接受用户输入数据。可以认为是允许多行的 <input> 组件。',
+    desc: {
+      zh: 'textarea 是 Weex 内置的一个组件，用于用户交互，接受用户输入数据。可以认为是允许多行的 <input> 组件。',
+      en: 'The weex builtin component textarea is used to create interactive controls to accept data from users. It can be a multi-line input.'
+    },
     docLink: {
       zh: 'http://weex-project.io/cn/references/components/textarea.html',
       en: 'http://weex-project.io/references/components/textarea.html'
@@ -1959,14 +1973,17 @@ module.exports = {
       screenshot: 'https://gw.alicdn.com/tfs/TB1TSyddgoQMeJjy0FoXXcShVXa-540-844.png'
     }, {
       hash: '03caa359a9c4bf9fdc8a1d343f7f7a69',
-      title: '默认行数',
+      title: { zh: '默认行数', en: 'Default "rows"' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1AsF1diERMeJjSspjXXcpOXXa-540-844.png'
     }]
   }, {
     type: 'switch',
     name: 'switch',
     title: { zh: '<switch> 组件', en: '<switch>' },
-    desc: '<switch> 是 Weex 的内置组件，用来创建与 iOS 一致样式的按钮。例如在 iPhone 中的设置应用中的飞行模式按钮就是一个 switch 按钮。',
+    desc: {
+      zh: '<switch> 是 Weex 的内置组件，用来创建与 iOS 一致样式的按钮。例如在 iPhone 中的设置应用中的飞行模式按钮就是一个 switch 按钮。',
+      en: 'The weex builtin component switch is used to create and manage an IOS styled On/Off buttons, for example, the Airplane mode button in the Settings app is a switch button.'
+    },
     docLink: {
       zh: 'http://weex-project.io/cn/references/components/switch.html',
       en: 'http://weex-project.io/references/components/switch.html'
@@ -1977,18 +1994,21 @@ module.exports = {
       screenshot: 'https://gw.alicdn.com/tfs/TB1p7eDdGagSKJjy0FhXXcrbFXa-540-843.jpg'
     }, {
       hash: '8a049fb7ff19c0ee9316a483b235dd26',
-      title: '初始状态',
+      title: { zh: '初始状态', en: 'Initial State' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1u0HRc2NNTKJjSspkXXaeWFXa-540-844.jpg'
     }, {
       hash: 'b48549c39f2e82178ce8b94b395d1d0b',
-      title: '事件处理',
+      title: { zh: '事件处理', en: 'Handle Events' },
       screenshot: 'https://gw.alicdn.com/tfs/TB14HWzdGagSKJjy0FbXXa.mVXa-540-844.jpg'
     }]
   }, {
     type: 'video',
     name: 'video',
     title: { zh: '<video> 组件', en: '<video>' },
-    desc: '<video> 组件可以让我们在 Weex 页面中嵌入视频内容。<text> 是唯一合法的子组件。',
+    desc: {
+      zh: '<video> 组件可以让我们在 Weex 页面中嵌入视频内容。<text> 是唯一合法的子组件。',
+      en: 'The video component can be used to embed video content in a weex page.'
+    },
     docLink: {
       zh: 'http://weex-project.io/cn/references/components/video.html',
       en: 'http://weex-project.io/references/components/video.html'
@@ -1999,18 +2019,21 @@ module.exports = {
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '播放控制',
+      title: { zh: '播放控制', en: 'Play Control' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '事件处理',
+      title: { zh: '事件处理', en: 'Handle Events' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }]
   }, {
     type: 'web',
     name: 'web',
     title: { zh: '<web> 组件', en: '<web>' },
-    desc: '使用 <web> 组件在 Weex 页面中嵌入一张网页内容。src 属性用来指定资源地址。你也可以使用 webview module 来控制 web 的行为，比如前进、后退和重载。',
+    desc: {
+      zh: '使用 <web> 组件在 Weex 页面中嵌入一张网页内容。src 属性用来指定资源地址。你也可以使用 webview module 来控制 web 的行为，比如前进、后退和重载。',
+      en: 'Use web component to display any web content in the weex page. The src attribute is used to specify a special source. You also can use webview module to control some web operation such as goBack,goForward and reload.'
+    },
     docLink: {
       zh: 'http://weex-project.io/cn/references/components/web.html',
       en: 'http://weex-project.io/references/components/web.html'
@@ -2021,36 +2044,42 @@ module.exports = {
       screenshot: 'https://gw.alicdn.com/tfs/TB1LpGHdgMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '页面跳转',
+      title: { zh: '页面跳转', en: 'Jump' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '传递参数',
+      title: { zh: '传递参数', en: 'Pass Params' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '事件处理',
+      title: { zh: '事件处理', en: 'Handle Events' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }]
   }, {
     type: 'richtext',
     name: 'richtext',
     title: { zh: '富文本组件', en: '<richtext>' },
-    desc: '',
+    desc: {
+      zh: '',
+      en: ''
+    },
     examples: [{
       hash: '36a1999a7957de7bcbeb7cca95ba46d2',
-      title: '图文混排',
+      title: { zh: '图文混排', en: 'Use richtext' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1VPOPcMMPMeJjy1XdXXasrXXa-540-844.png'
     }, {
       hash: '8e3c274f5cae4a391a14ac81c890325f',
-      title: '内容输入',
+      title: { zh: '内容输入', en: 'With Binding' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1SzOPcMMPMeJjy1XdXXasrXXa-540-844.png'
     }]
   }, {
     type: 'waterfall',
     name: 'waterfall',
     title: { zh: '瀑布流组件', en: '<waterfall>' },
-    desc: '提供瀑布流布局的组件。',
+    desc: {
+      zh: '提供瀑布流布局的组件。',
+      en: 'A component providing waterfall layout.'
+    },
     docLink: {
       zh: 'http://weex-project.io/cn/references/components/waterfall.html',
       en: 'http://weex-project.io/references/components/waterfall.html'
@@ -2064,7 +2093,7 @@ module.exports = {
 };
 
 /***/ }),
-/* 64 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2076,8 +2105,11 @@ module.exports = {
   group: [{
     type: 'modal',
     name: 'modal',
-    title: 'modal 模块',
-    desc: 'modal 模块提供了以下展示消息框的 API：toast、alert、confirm 和 prompt。',
+    title: { zh: 'modal 模块', en: 'modal' },
+    desc: {
+      zh: 'modal 模块提供了以下展示消息框的 API：toast、alert、confirm 和 prompt。',
+      en: 'Weex provides a series of message boxes: toast, alert, confirm and prompt.'
+    },
     docLink: {
       zh: 'http://weex-project.io/cn/references/modules/modal.html',
       en: 'http://weex-project.io/references/modules/modal.html'
@@ -2102,8 +2134,11 @@ module.exports = {
   }, {
     type: 'dom',
     name: 'dom',
-    title: 'dom 模块',
-    desc: '操作页面中的 Virtual-DOM 或者获取其信息。需要注意的是原生平台中并没有 Web 标准中的 DOM 结构。',
+    title: { zh: 'dom 模块', en: 'dom' },
+    desc: {
+      zh: '操作页面中的 Virtual-DOM 或者获取其信息。需要注意的是原生平台中并没有 Web 标准中的 DOM 结构。',
+      en: ''
+    },
     docLink: {
       zh: 'http://weex-project.io/cn/references/modules/dom.html',
       en: 'http://weex-project.io/references/modules/dom.html'
@@ -2114,7 +2149,7 @@ module.exports = {
       screenshot: 'https://gw.alicdn.com/tfs/TB1ZIPecwoQMeJjy0FoXXcShVXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '获取布局数据',
+      title: 'getComponentRect',
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
@@ -2124,8 +2159,11 @@ module.exports = {
   }, {
     type: 'stream',
     name: 'stream',
-    title: 'stream 模块',
-    desc: '发送网络请求并获取响应。',
+    title: { zh: 'stream 模块', en: 'stream' },
+    desc: {
+      zh: '发送网络请求并获取响应。',
+      en: ''
+    },
     docLink: {
       zh: 'http://weex-project.io/cn/references/modules/stream.html',
       en: 'http://weex-project.io/references/modules/stream.html'
@@ -2138,8 +2176,11 @@ module.exports = {
   }, {
     type: 'animation',
     name: 'animation',
-    title: 'animation 模块',
-    desc: 'animation 模块被用于在组件上执行动画。动画可以对组件执行一系列简单的变换 (位置、大小、旋转角度、背景颜色和不透明度等)。',
+    title: { zh: 'animation 模块', en: 'animation' },
+    desc: {
+      zh: 'animation 模块被用于在组件上执行动画。动画可以对组件执行一系列简单的变换 (位置、大小、旋转角度、背景颜色和不透明度等)。',
+      en: ''
+    },
     docLink: {
       zh: 'http://weex-project.io/cn/references/modules/animation.html',
       en: 'http://weex-project.io/references/modules/animation.html'
@@ -2150,14 +2191,17 @@ module.exports = {
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: 'tarnsform',
+      title: 'transform',
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }]
   }, {
     type: 'navigator',
     name: 'navigator',
-    title: 'navigator 模块',
-    desc: '众所周知，在浏览器里，我们可以通过前进或者回退按钮来切换页面，iOS/Android 的 navigator 模块就是用来实现类似的效果的。除了前进、回退功能，该模块还允许我们指定在切换页面的时候是否应用动画效果。',
+    title: { zh: 'navigator 模块', en: 'navigator' },
+    desc: {
+      zh: '众所周知，在浏览器里，我们可以通过前进或者回退按钮来切换页面，iOS/Android 的 navigator 模块就是用来实现类似的效果的。除了前进、回退功能，该模块还允许我们指定在切换页面的时候是否应用动画效果。',
+      en: ''
+    },
     docLink: {
       zh: 'http://weex-project.io/cn/references/modules/navigator.html',
       en: 'http://weex-project.io/references/modules/navigator.html'
@@ -2174,30 +2218,36 @@ module.exports = {
   }, {
     type: 'storage',
     name: 'storage',
-    title: 'storage 模块',
-    desc: 'storage 模块可以对本地数据进行存储、修改、删除，并且该数据是永久保存的，除非手动清除或者代码清除。但是，storage 模块有一个限制就是浏览器端（H5）只能存储小于5M的数据，而在 Android 和 iOS 中是没什么限制的。',
+    title: { zh: 'storage 模块', en: 'storage' },
+    desc: {
+      zh: 'storage 模块可以对本地数据进行存储、修改、删除，并且该数据是永久保存的，除非手动清除或者代码清除。但是，storage 模块有一个限制就是浏览器端（H5）只能存储小于5M的数据，而在 Android 和 iOS 中是没什么限制的。',
+      en: ''
+    },
     docLink: {
       zh: 'http://weex-project.io/cn/references/modules/storage.html',
       en: 'http://weex-project.io/references/modules/storage.html'
     },
     examples: [{
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '数据存取',
+      title: 'setItem',
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '数据查询',
+      title: 'getItem',
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '数据清除',
+      title: 'removeItem',
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }]
   }, {
     type: 'clipboard',
     name: 'clipboard',
-    title: 'clipboard 模块',
-    desc: 'clipboard 模块可以实现从系统的剪贴板中获取内容或者设置内容。',
+    title: { zh: 'clipboard 模块', en: 'clipboard' },
+    desc: {
+      zh: 'clipboard 模块可以实现从系统的剪贴板中获取内容或者设置内容。',
+      en: ''
+    },
     docLink: {
       zh: 'http://weex-project.io/cn/references/modules/clipboard.html',
       en: 'http://weex-project.io/references/modules/clipboard.html'
@@ -2207,55 +2257,68 @@ module.exports = {
       title: { zh: '最简例子', en: 'Sample' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
-      hash: '377c4f4a6030b5842938afb814cf169f',
-      title: '复制环境信息',
+      hash: '3abe25e7dd6d52bf35edffd62ac6199e',
+      title: { zh: '复制环境信息', en: 'Copy Environment Message' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1yJC8cEgQMeJjy0FjXXaExFXa-540-844.png'
     }]
   }, {
     type: 'picker',
     name: 'picker',
-    title: 'picker 模块',
-    desc: '以下为 picker 相关的 API：用于数据选择，日期选择，时间选择。（ H5模块如需使用，请手动引入weex-picker组件）',
+    title: { zh: 'picker 模块', en: 'picker' },
+    desc: {
+      zh: '以下为 picker 相关的 API：用于数据选择，日期选择，时间选择。（ H5模块如需使用，请手动引入weex-picker组件）',
+      en: ''
+    },
     docLink: {
       zh: 'http://weex-project.io/cn/references/modules/picker.html',
       en: 'http://weex-project.io/references/modules/picker.html'
     },
     examples: [{
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '数据选择',
+      title: 'pick',
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '日期选择',
+      title: 'pickDate',
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '时间选择',
+      title: 'pickTime',
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }]
   }, {
     type: 'webview',
     name: 'webview',
-    title: 'webview 模块',
-    desc: '一系列的 <web> 组件操作接口。 比如 goBack、goForward、和 reload。通常与 <web> 组件共用。',
+    title: { zh: 'webview 模块', en: 'webview' },
+    desc: {
+      zh: '一系列的 <web> 组件操作接口。 比如 goBack、goForward、和 reload。通常与 <web> 组件共用。',
+      en: ''
+    },
     docLink: {
       zh: 'http://weex-project.io/cn/references/modules/webview.html',
       en: 'http://weex-project.io/references/modules/webview.html'
     },
     examples: [{
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '页面跳转',
+      title: 'goBack',
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '页面刷新',
+      title: 'goForward',
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      title: 'reload',
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }]
   }, {
     type: 'meta',
     name: 'meta',
-    title: 'meta 模块',
-    desc: 'meta 模块可用于声明单个页面的元信息，通常是一些页面的配置，如容器的显示宽度 (viewport) 等。',
+    title: { zh: 'meta 模块', en: 'meta' },
+    desc: {
+      zh: 'meta 模块可用于声明单个页面的元信息，通常是一些页面的配置，如容器的显示宽度 (viewport) 等。',
+      en: ''
+    },
     docLink: {
       zh: 'http://weex-project.io/cn/references/modules/meta.html',
       en: 'http://weex-project.io/references/modules/meta.html'
@@ -2268,22 +2331,25 @@ module.exports = {
   }, {
     type: 'WebSocket',
     name: 'WebSocket',
-    title: 'WebSocket 模块',
-    desc: 'WebSockets 是一种先进的技术, 这使得在用户的 H5/iOS/Android 和一个服务器之间打开一个的交互式通信会话成为可能, 有了这个 API，你可以向服务器发送消息, 并接收事件驱动的响应, 无需轮询服务器的响应。',
+    title: { zh: 'WebSocket 模块', en: 'WebSocket' },
+    desc: {
+      zh: 'WebSockets 是一种先进的技术, 这使得在用户的 H5/iOS/Android 和一个服务器之间打开一个的交互式通信会话成为可能, 有了这个 API，你可以向服务器发送消息, 并接收事件驱动的响应, 无需轮询服务器的响应。',
+      en: ''
+    },
     docLink: {
       zh: 'http://weex-project.io/cn/references/modules/websocket.html',
       en: 'http://weex-project.io/references/modules/websocket.html'
     },
     examples: [{
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: '使用范例',
+      title: { zh: '使用范例', en: 'Use WebSocket' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }]
   }]
 };
 
 /***/ }),
-/* 65 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2293,9 +2359,9 @@ module.exports = {
   type: 'syntax',
   name: { zh: '语法', en: 'Syntax' },
   group: [{
-    type: 'mustache',
-    name: 'Mustache',
-    title: { zh: '文本绑定的语法', en: 'Text Data-binding' },
+    type: 'text-binding',
+    name: 'Text Binding',
+    title: { zh: '文本绑定', en: 'Text Binding' },
     desc: {
       zh: '数据绑定最常见的形式就是使用 “Mustache” 语法（双大括号）的文本插值。',
       en: 'The most basic form of data binding is text interpolation using the “Mustache” syntax (double curly braces).'
@@ -2305,18 +2371,24 @@ module.exports = {
       en: 'https://vuejs.org/v2/guide/syntax.html#Interpolations'
     },
     examples: [{
-      hash: '34e42c91e1f86591563ec8897e6a095c',
-      title: { zh: '文本插值', en: 'Inline text' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1V5IXcMMPMeJjy1XdXXasrXXa-540-844.png'
+      hash: {
+        zh: '34e42c91e1f86591563ec8897e6a095c',
+        en: '207411d00e8af32213443b4d0c5db689'
+      },
+      title: { zh: '文本插值', en: 'Inline TextNode' },
+      screenshot: {
+        zh: 'https://gw.alicdn.com/tfs/TB1V5IXcMMPMeJjy1XdXXasrXXa-540-844.png',
+        en: 'https://gw.alicdn.com/tfs/TB19gKsb8fH8KJjy1XbXXbLdXXa-540-844.png'
+      }
     }, {
       hash: '68b02a5371eb7da5cb9dde1946ce2b68',
-      title: { zh: '使用表达式', en: 'Using expression' },
+      title: { zh: '使用表达式', en: 'Using Expression' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1veLGbS_I8KJjy0FoXXaFnVXa-540-844.png'
     }]
   }, {
     type: 'v-bind',
     name: 'v-bind',
-    title: { zh: '绑定属性值', en: 'v-bind' },
+    title: { zh: '绑定属性值（v-bind）', en: 'v-bind' },
     desc: {
       zh: 'v-bind 可以动态地绑定一个或多个特性，或一个组件 prop 到表达式。可以简写成 `:` (半角冒号)。',
       en: 'Dynamically bind one or more attributes, or a component prop to an expression.'
@@ -2331,22 +2403,22 @@ module.exports = {
       screenshot: 'https://gw.alicdn.com/tfs/TB150aYcMoQMeJjy0FpXXcTxpXa-540-844.png'
     }, {
       hash: 'b142f24d2f0ab27f5f65448d2aa16970',
-      title: { zh: '绑定表达式', en: 'Using expression' },
+      title: { zh: '绑定表达式', en: 'Using Expression' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1veLGbS_I8KJjy0FoXXaFnVXa-540-844.png'
     }, {
       hash: '3a2cc3c7a465f6a07c4bd3a868c7e393',
-      title: { zh: '样式值绑定', en: 'Style binding' },
+      title: { zh: '样式值绑定', en: 'Style Binding' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1o.62bH_I8KJjy1XaXXbsxpXa-540-844.png'
     }, {
       hash: '2bc0de9ec2448a1f852f354349f66600',
       // hash: 'b4b1f5e4679efbe3c94864a1404bfeaf',
-      title: { zh: '类名绑定', en: 'Class binding' },
+      title: { zh: '类名绑定', en: 'Class Binding' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1o.62bH_I8KJjy1XaXXbsxpXa-540-844.png'
     }]
   }, {
     type: 'v-for',
     name: 'v-for',
-    title: { zh: '循环指令', en: 'v-for' },
+    title: { zh: '循环指令（v-for）', en: 'v-for' },
     desc: {
       zh: 'v-for 基于源数据多次渲染元素或模板块。此指令之值，必须使用特定语法 `alias in expression` 为当前遍历的元素提供别名。',
       en: 'We can use the v-for directive to render a `alias in expression` based on an array. The v-for directive requires a special syntax in the form of item in items.'
@@ -2361,21 +2433,21 @@ module.exports = {
       screenshot: 'https://gw.alicdn.com/tfs/TB1R_7.bjihSKJjy0FlXXadEXXa-540-844.png'
     }, {
       hash: '2cd124954175721d9145571bf722ce7a',
-      title: { zh: '下标索引', en: 'Array index' },
+      title: { zh: '下标索引', en: 'Array Index' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1dAivaLBNTKJjy0FdXXcPpVXa-540-844.png'
     }, {
       hash: '2b4222b828fac65257d9ed9f8932f2a1',
-      title: { zh: '遍历 JS 对象', en: 'v-for with an object' },
+      title: { zh: '遍历 JS 对象', en: 'v-for With an Object' },
       screenshot: 'https://gw.alicdn.com/tfs/TB10r25bH_I8KJjy1XaXXbsxpXa-540-844.png'
     }, {
       hash: '7364e9c3c25ab2cbc945903cea7b0878',
-      title: { zh: '多层循环', en: 'multiple v-for' },
+      title: { zh: '多层循环', en: 'Multiple v-for' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1giSLfwoQMeJjy0FoXXcShVXa-540-844.png'
     }]
   }, {
     type: 'v-if',
     name: 'v-if',
-    title: { zh: '条件指令', en: 'v-if' },
+    title: { zh: '条件指令（v-if)', en: 'v-if' },
     desc: {
       zh: 'v-if 根据表达式的值的真假条件渲染元素，在切换时元素及它的数据绑定/组件被销毁并重建。同类指令还有 v-else 和 v-else-if。',
       en: 'Conditionally render the element based on the truthy-ness of the expression value.'
@@ -2386,8 +2458,8 @@ module.exports = {
     },
     examples: [{
       hash: '736a5dd112a1a114a559218ed20cae08',
-      title: { zh: '最简例子', en: 'Sample' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      title: 'v-if',
+      screenshot: 'https://gw.alicdn.com/tfs/TB1BAuGb2DH8KJjy1XcXXcpdXXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
       title: 'v-else',
@@ -2400,7 +2472,7 @@ module.exports = {
   }, {
     type: 'v-on',
     name: 'v-on',
-    title: { zh: '事件绑定', en: 'v-on' },
+    title: { zh: '事件绑定（v-on）', en: 'v-on' },
     desc: {
       zh: '可以用 v-on 指令监听 DOM 事件来触发一些 JavaScript 代码，可以简写成 `@`。用在普通元素上时，只能监听 原生 DOM 事件。用在自定义元素组件上时，也可以监听子组件触发的自定义事件。',
       en: 'We can use the v-on directive to listen to DOM events and run some JavaScript when they’re triggered.'
@@ -2415,21 +2487,21 @@ module.exports = {
       screenshot: 'https://gw.alicdn.com/tfs/TB1dcTaewMPMeJjy1XdXXasrXXa-540-844.png'
     }, {
       hash: '8e3a1cbcf1ba9af94fe6f77e9668e354',
-      title: { zh: '内联语句', en: '' },
+      title: { zh: '内联语句', en: 'Inline Statement' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1dcTaewMPMeJjy1XdXXasrXXa-540-844.png'
     }, {
       hash: '3a019f2eca4a6966ee0c3b91e5b2fc5b',
-      title: { zh: '传递参数', en: '' },
+      title: { zh: '传递参数', en: 'Inline Handler' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1dcTaewMPMeJjy1XdXXasrXXa-540-844.png'
     }, {
       hash: '8581f4d2ff8fb48bdc547d2465c0cf24',
-      title: { zh: 'once 修饰符', en: '' },
+      title: { zh: 'once 修饰符', en: '.once Modifier' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1dcTaewMPMeJjy1XdXXasrXXa-540-844.png'
     }]
   }, {
     type: 'v-model',
     name: 'v-model',
-    title: { zh: '表单双向绑定', en: 'v-model' },
+    title: { zh: '表单双向绑定（v-model）', en: 'v-model' },
     desc: {
       zh: '可以用 v-model 指令在表单控件元素上创建双向数据绑定。它会根据控件类型自动选取正确的方法来更新元素。尽管有些神奇，但 v-model 本质上不过是语法糖，它负责监听用户的输入事件以更新数据，并特别处理一些极端的例子。',
       en: 'You can use the v-model directive to create two-way data bindings on form input and textarea elements. It automatically picks the correct way to update the element based on the input type.'
@@ -2444,7 +2516,7 @@ module.exports = {
       screenshot: 'https://gw.alicdn.com/tfs/TB1IQ9cdgMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: '39684e82ad9a8e0b175f49e058cf7af6',
-      title: { zh: 'textarea', en: '' },
+      title: { zh: '绑定 <textarea>', en: 'Using <textarea>' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1y738XiqAXuNjy1XdXXaYcVXa-540-844.png'
       // }, {
       //   hash: '4624d605004fc7eb9f14ca9c5a226fe3',
@@ -2466,7 +2538,7 @@ module.exports = {
   }, {
     type: 'v-once',
     name: 'v-once',
-    title: { zh: '一次性渲染', en: 'v-once' },
+    title: { zh: '一次性渲染（v-once）', en: 'v-once' },
     desc: {
       zh: '只渲染元素和组件一次。随后的重新渲染,元素/组件及其所有的子节点将被视为静态内容并跳过。这可以用于优化更新性能。',
       en: 'Render the element and component once only. On subsequent re-renders, the element/component and all its children will be treated as static content and skipped. This can be used to optimize update performance.'
@@ -2520,7 +2592,7 @@ module.exports = {
   }, {
     type: 'filters',
     name: 'Filters',
-    title: { zh: '过滤器', en: 'Filters' },
+    title: { zh: '过滤器（Filters）', en: 'Filters' },
     desc: {
       zh: 'Vue.js 允许你自定义过滤器，可被用作一些常见的文本格式化。过滤器可以用在两个地方：mustache 插值和 v-bind 表达式。过滤器应该被添加在 JavaScript 表达式的尾部，由“管道”符指示。',
       en: 'Vue.js allows you to define filters that can be used to apply common text formatting.'
@@ -2535,17 +2607,17 @@ module.exports = {
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: { zh: '传递额外参数', en: '' },
+      title: { zh: '传递额外参数', en: 'Pass Arguments' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: { zh: '过滤器串联', en: '' },
+      title: { zh: '过滤器串联', en: 'Chained Filters' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }]
   }, {
     type: 'mixins',
     name: 'Mixins',
-    title: { zh: '混合', en: 'Mixins' },
+    title: { zh: '混合（Mixins）', en: 'Mixins' },
     desc: {
       zh: '混合 (mixins) 是一种分发 Vue 组件中可复用功能的非常灵活的方式。混合对象可以包含任意组件选项。以组件使用混合对象时，所有混合对象的选项将被混入该组件本身的选项。',
       en: 'Mixins are a flexible way to distribute reusable functionalities for Vue components. A mixin object can contain any component options. When a component uses a mixin, all options in the mixin will be “mixed” into the component’s own options.'
@@ -2560,15 +2632,15 @@ module.exports = {
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: { zh: '全局混合', en: 'Global mixin' },
+      title: { zh: '全局混合', en: 'Global Mixin' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: { zh: '选项合并', en: 'Mixin options' },
+      title: { zh: '选项合并', en: 'Mixin Options' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: { zh: '生命周期混合', en: 'Lifecycle mixin' },
+      title: { zh: '生命周期混合', en: 'Lifecycle Mixin' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }]
     // }, {
@@ -2597,7 +2669,7 @@ module.exports = {
 };
 
 /***/ }),
-/* 66 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2715,7 +2787,7 @@ module.exports = {
 };
 
 /***/ }),
-/* 67 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2789,21 +2861,45 @@ module.exports = {
     type: 'learn',
     name: { zh: '学习', en: 'Learn' },
     examples: [{
-      hash: '43ede9db84425bce17e598456758eb3b',
+      hash: {
+        zh: '43ede9db84425bce17e598456758eb3b',
+        en: '82c3e1768163ae0155b436ce5d5f5640'
+      },
       title: { zh: '学习 Weex', en: 'Learn Weex' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB13VkjhMoQMeJjy0FnXXb8gFXa-540-844.png'
+      screenshot: {
+        zh: 'https://gw.alicdn.com/tfs/TB13VkjhMoQMeJjy0FnXXb8gFXa-540-844.png',
+        en: 'https://gw.alicdn.com/tfs/TB1EJuGbY_I8KJjy1XaXXbsxpXa-540-844.png'
+      }
     }, {
-      hash: '59958038a2009d3eefca29da107d3e7d',
+      hash: {
+        zh: '59958038a2009d3eefca29da107d3e7d',
+        en: '4f0456987961d45bb5cc0b3f14f92c02'
+      },
       title: { zh: '学习 Vue.js', en: 'Learn Vue.js' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1kfEAhMoQMeJjy0FoXXcShVXa-540-844.png'
+      screenshot: {
+        zh: 'https://gw.alicdn.com/tfs/TB1kfEAhMoQMeJjy0FoXXcShVXa-540-844.png',
+        en: 'https://gw.alicdn.com/tfs/TB1JBjEXyqAXuNjy1XdXXaYcVXa-540-844.png'
+      }
     }, {
-      hash: 'd1426e1cd14718ebff51ea46bdae0224',
+      hash: {
+        zh: 'd1426e1cd14718ebff51ea46bdae0224',
+        en: 'e7ea10acfc29f8a08fd75f9fa80f9703'
+      },
       title: { zh: '学习 Javascript', en: 'Learn Javascript' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1Dz3dhMoQMeJjy1XaXXcSsFXa-540-844.png'
+      screenshot: {
+        zh: 'https://gw.alicdn.com/tfs/TB1Dz3dhMoQMeJjy1XaXXcSsFXa-540-844.png',
+        en: 'https://gw.alicdn.com/tfs/TB1JljEXyqAXuNjy1XdXXaYcVXa-540-844.png'
+      }
     }, {
-      hash: '8d2a4e9b2e8e6f1d25d08472f3bb48cf',
+      hash: {
+        zh: '8d2a4e9b2e8e6f1d25d08472f3bb48cf',
+        en: '1190538862e882f9bfa96bf3787aa879'
+      },
       title: { zh: '学习 CSS', en: 'Learn CSS' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB10LcihMoQMeJjy0FpXXcTxpXa-540-844.png'
+      screenshot: {
+        zh: 'https://gw.alicdn.com/tfs/TB10LcihMoQMeJjy0FpXXcTxpXa-540-844.png',
+        en: 'https://gw.alicdn.com/tfs/TB1m3Ksb8fH8KJjy1XbXXbLdXXa-540-844.png'
+      }
     }, {
       hash: 'ffec8fcae798c1bc1dfb0259b125f477',
       title: { zh: '手把手教你…', en: 'Step by Step' },
@@ -2861,7 +2957,7 @@ module.exports = {
 };
 
 /***/ }),
-/* 68 */
+/* 66 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -2983,6 +3079,15 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: ["setting-title"]
   }, [_vm._v("Settings")])])
 }]}
+module.exports.render._withStripped = true
+
+/***/ }),
+/* 67 */
+/***/ (function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('example')
+},staticRenderFns: []}
 module.exports.render._withStripped = true
 
 /***/ })
