@@ -19,7 +19,7 @@ Clone the project and install dependencies (`npm install`), then:
 
 ## Contribute
 
-Write an example on [Weex online playground](http://dotwe.org/vue) and add the url to a proper place in [`examples/`](./examples/), then send a PR.
+**Write an example on [Weex online playground](http://dotwe.org/vue) and add the url to a proper place in [`examples/`](./examples/), then send a PR.**
 
 The example should contain these massages:
 
