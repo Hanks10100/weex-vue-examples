@@ -25,10 +25,10 @@
             <text class="doc-link" v-if="currentGroup.docLink" @click="jumpTo(currentGroup.docLink)">{{i18n(tips.SEE_MORE)}} >></text>
           </cell>
           <cell class="case" v-for="(group, i) in currentExamples" :key="i">
-            <div class="example-box" v-for="example in group" :key="example.title">
+            <div class="example-box" v-for="example in group" :key="i18n(example.title)">
               <text class="example-title">{{i18n(example.title)}}</text>
-              <a :href="example.hash | url">
-                <image class="screenshot" :src="example.screenshot"></image>
+              <a :href="i18n(example.hash) | url">
+                <image class="screenshot" :src="i18n(example.screenshot)"></image>
               </a>
               <text @click="viewSource(example.hash)" class="example-tips">{{i18n(tips.VIEW_SOURCE)}}</text>
             </div>

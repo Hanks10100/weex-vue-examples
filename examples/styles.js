@@ -14,7 +14,7 @@ module.exports = {
       screenshot: 'https://gw.alicdn.com/tfs/TB1FPAzd3MPMeJjy1XdXXasrXXa-540-844.png'
     }, {
       hash: '5219829fd0a5f59dc9208c8327e02e92',
-      title: { zh: 'positon 布局', en: 'Position Layout'},
+      title: { zh: 'position 布局', en: 'Position Layout'},
       screenshot: 'https://gw.alicdn.com/tfs/TB1CCP1ewMPMeJjy1XdXXasrXXa-540-844.png'
     }, {
       hash: 'd1648814d06fdf59cd99ea92c716694a',
@@ -24,6 +24,10 @@ module.exports = {
       hash: '94a627f3ffa7007f3a2e9c97a5e245ec',
       title: { zh: '阴影', en: 'Box Shadow' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1J7goczihSKJjy0FlXXadEXXa-540-844.png'
+    // }, {
+    //   hash: 'ff1332f9a343d211a72051a04e2e1c3c',
+    //   title: { zh: '多层阴影', en: 'Box Shadow' },
+    //   screenshot: 'https://gw.alicdn.com/tfs/TB1J7goczihSKJjy0FlXXadEXXa-540-844.png'
     }, {
       hash: 'e68f268dffcf0481935e19c9b0ab315f',
       title: { zh: '伪类选择器', en: 'Pseudo-classes' },
@@ -37,13 +41,17 @@ module.exports = {
       title: { zh: '透明背景', en: 'Transparent Background' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1CL3nbMDD8KJjy0FdXXcjvXXa-540-844.png'
     }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: { zh: '瀑布流', en: 'Waterfall' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-    }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: 'Grid',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      hash: '55f596b3c0374f05249c3e3c851e1889',
+      title: { zh: '三角形', en: 'Triangles' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB14yzscMvD8KJjy0FlXXagBFXa-540-844.png'
+    // }, {
+    //   hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+    //   title: { zh: '瀑布流', en: 'Waterfall' },
+    //   screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    // }, {
+    //   hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+    //   title: 'Grid',
+    //   screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }]
   }, {
     type: 'flexbox',
@@ -101,10 +109,10 @@ module.exports = {
       hash: 'b23c7139b09cfc99e6df3dd0a9f7b326',
       title: 'flex-basis',
       screenshot: 'https://gw.alicdn.com/tfs/TB14h8mb2xNTKJjy0FjXXX6yVXa-540-844.png'
-    }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: 'flex',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    // }, {
+    //   hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+    //   title: 'flex',
+    //   screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }]
   }]
 }

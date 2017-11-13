@@ -47,9 +47,9 @@ module.exports = {
       title: 'scrollTo',
       screenshot: 'https://gw.alicdn.com/tfs/TB1ZIPecwoQMeJjy0FoXXcShVXa-540-844.png'
     }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      hash: '13afb9ed3e3a79eda435113478fd83d9',
       title: 'getComponentRect',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1v5zscMvD8KJjy0FlXXagBFXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
       title: 'addRule',
@@ -106,13 +106,13 @@ module.exports = {
       en: 'http://weex-project.io/references/modules/navigator.html'
     },
     examples: [{
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      hash: '28815dba72ee4091dfdb471f3b294e3e',
       title: 'push',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1Wh_CcILJ8KJjy0FnXXcFDpXa-540-844.png'
     }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      hash: '2af40e54aeef15228cb221c3cd57ae8f',
       title: 'pop',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1syzscMvD8KJjy0FlXXagBFXa-540-844.png'
     }]
   }, {
     type: 'storage',
@@ -173,17 +173,17 @@ module.exports = {
       en: 'http://weex-project.io/references/modules/picker.html'
     },
     examples: [{
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      hash: 'eddde63fc2f57debed15d4f0eaf38d7e',
       title: 'pick',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB128rrcL6H8KJjy0FjXXaXepXa-540-844.png'
     }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      hash: 'e71e82157a8c65b33ac213a6a399c971',
       title: 'pickDate',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1gybCcILJ8KJjy0FnXXcFDpXa-540-844.png'
     }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      hash: 'cd8cae300c4b02d3e6f6f7ba54307029',
       title: 'pickTime',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1TyzscMvD8KJjy0FlXXagBFXa-540-844.png'
     }]
   }, {
     type: 'webview',

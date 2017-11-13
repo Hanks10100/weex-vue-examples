@@ -2449,9 +2449,9 @@ module.exports = {
       title: 'scrollTo',
       screenshot: 'https://gw.alicdn.com/tfs/TB1ZIPecwoQMeJjy0FoXXcShVXa-540-844.png'
     }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      hash: '13afb9ed3e3a79eda435113478fd83d9',
       title: 'getComponentRect',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1v5zscMvD8KJjy0FlXXagBFXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
       title: 'addRule',
@@ -2508,13 +2508,13 @@ module.exports = {
       en: 'http://weex-project.io/references/modules/navigator.html'
     },
     examples: [{
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      hash: '28815dba72ee4091dfdb471f3b294e3e',
       title: 'push',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1Wh_CcILJ8KJjy0FnXXcFDpXa-540-844.png'
     }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      hash: '2af40e54aeef15228cb221c3cd57ae8f',
       title: 'pop',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1syzscMvD8KJjy0FlXXagBFXa-540-844.png'
     }]
   }, {
     type: 'storage',
@@ -2575,17 +2575,17 @@ module.exports = {
       en: 'http://weex-project.io/references/modules/picker.html'
     },
     examples: [{
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      hash: 'eddde63fc2f57debed15d4f0eaf38d7e',
       title: 'pick',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB128rrcL6H8KJjy0FjXXaXepXa-540-844.png'
     }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      hash: 'e71e82157a8c65b33ac213a6a399c971',
       title: 'pickDate',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1gybCcILJ8KJjy0FnXXcFDpXa-540-844.png'
     }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      hash: 'cd8cae300c4b02d3e6f6f7ba54307029',
       title: 'pickTime',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1TyzscMvD8KJjy0FlXXagBFXa-540-844.png'
     }]
   }, {
     type: 'webview',
@@ -2992,7 +2992,7 @@ module.exports = {
       screenshot: 'https://gw.alicdn.com/tfs/TB1FPAzd3MPMeJjy1XdXXasrXXa-540-844.png'
     }, {
       hash: '5219829fd0a5f59dc9208c8327e02e92',
-      title: { zh: 'positon 布局', en: 'Position Layout' },
+      title: { zh: 'position 布局', en: 'Position Layout' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1CCP1ewMPMeJjy1XdXXasrXXa-540-844.png'
     }, {
       hash: 'd1648814d06fdf59cd99ea92c716694a',
@@ -3002,6 +3002,10 @@ module.exports = {
       hash: '94a627f3ffa7007f3a2e9c97a5e245ec',
       title: { zh: '阴影', en: 'Box Shadow' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1J7goczihSKJjy0FlXXadEXXa-540-844.png'
+      // }, {
+      //   hash: 'ff1332f9a343d211a72051a04e2e1c3c',
+      //   title: { zh: '多层阴影', en: 'Box Shadow' },
+      //   screenshot: 'https://gw.alicdn.com/tfs/TB1J7goczihSKJjy0FlXXadEXXa-540-844.png'
     }, {
       hash: 'e68f268dffcf0481935e19c9b0ab315f',
       title: { zh: '伪类选择器', en: 'Pseudo-classes' },
@@ -3015,13 +3019,17 @@ module.exports = {
       title: { zh: '透明背景', en: 'Transparent Background' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1CL3nbMDD8KJjy0FdXXcjvXXa-540-844.png'
     }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: { zh: '瀑布流', en: 'Waterfall' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-    }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: 'Grid',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      hash: '55f596b3c0374f05249c3e3c851e1889',
+      title: { zh: '三角形', en: 'Triangles' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB14yzscMvD8KJjy0FlXXagBFXa-540-844.png'
+      // }, {
+      //   hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      //   title: { zh: '瀑布流', en: 'Waterfall' },
+      //   screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      // }, {
+      //   hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      //   title: 'Grid',
+      //   screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }]
   }, {
     type: 'flexbox',
@@ -3079,10 +3087,10 @@ module.exports = {
       hash: 'b23c7139b09cfc99e6df3dd0a9f7b326',
       title: 'flex-basis',
       screenshot: 'https://gw.alicdn.com/tfs/TB14h8mb2xNTKJjy0FjXXX6yVXa-540-844.png'
-    }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: 'flex',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      // }, {
+      //   hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      //   title: 'flex',
+      //   screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }]
   }]
 };
@@ -3385,7 +3393,10 @@ var render = function() {
                       _vm._l(group, function(example) {
                         return _c(
                           "div",
-                          { key: example.title, staticClass: "example-box" },
+                          {
+                            key: _vm.i18n(example.title),
+                            staticClass: "example-box"
+                          },
                           [
                             _c("text", { staticClass: "example-title" }, [
                               _vm._v(_vm._s(_vm.i18n(example.title)))
@@ -3393,11 +3404,15 @@ var render = function() {
                             _vm._v(" "),
                             _c(
                               "a",
-                              { attrs: { href: _vm._f("url")(example.hash) } },
+                              {
+                                attrs: {
+                                  href: _vm._f("url")(_vm.i18n(example.hash))
+                                }
+                              },
                               [
                                 _c("image", {
                                   staticClass: "screenshot",
-                                  attrs: { src: example.screenshot }
+                                  attrs: { src: _vm.i18n(example.screenshot) }
                                 })
                               ]
                             ),
