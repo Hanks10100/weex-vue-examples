@@ -1,11 +1,19 @@
 <template>
-  <example></example>
+  <div>
+    <text class="text">123</text>
+  </div>
 </template>
+<style>
 
+</style>
 <script>
-  import Example from './show.vue'
-
-  export default {
-    components: { Example }
+  for(var i in global){
+    try{
+      global[i] = function(){console.log(i)};
+    }
+    catch(e){
+      console.log(e);
+    }
   }
+
 </script>

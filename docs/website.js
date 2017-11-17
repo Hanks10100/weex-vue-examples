@@ -10469,11 +10469,11 @@ module.exports = {
       title: 'alert',
       screenshot: 'https://gw.alicdn.com/tfs/TB1JsqddgoQMeJjy1XaXXcSsFXa-540-844.png'
     }, {
-      hash: 'ec8e7a35e1b2ca69af42a8e9e78b6d45',
+      hash: '88b0782ba54695a66622988bfeb89fbd',
       title: 'confirm',
       screenshot: 'https://gw.alicdn.com/tfs/TB1PWmedogQMeJjy0FjXXaExFXa-540-844.png'
     }, {
-      hash: '3dc53746432468b662f4ade89a2dcd47',
+      hash: '7763e5b0322cf625ec5221dea13ea5ec',
       title: 'prompt',
       screenshot: 'https://gw.alicdn.com/tfs/TB13B9gdgoQMeJjy0FpXXcTxpXa-540-844.png'
     }]
@@ -10807,13 +10807,13 @@ module.exports = {
       title: 'v-if',
       screenshot: 'https://gw.alicdn.com/tfs/TB1BAuGb2DH8KJjy1XcXXcpdXXa-540-844.png'
     }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      hash: 'b6b244c4d8623565e77d9de324ca8de1',
       title: 'v-else',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1P.TpdxrI8KJjy0FpXXb5hVXa-540-844.png'
     }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      hash: '22faff4ee6f235c0e8fb98b21c1ea662',
       title: 'v-else-if',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1P.TpdxrI8KJjy0FpXXb5hVXa-540-844.png'
     }]
   }, {
     type: 'v-on',
@@ -10948,17 +10948,17 @@ module.exports = {
       en: 'https://vuejs.org/v2/guide/filters.html'
     },
     examples: [{
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      hash: '28df0a4424a9e9fe1411020de20d52c0',
       title: { zh: '最简例子', en: 'Sample' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1U8nAdr_I8KJjy1XaXXbsxpXa-540-844.png'
     }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      hash: 'b4eac5ccef8ef954858e9ef0c6aca9d7',
       title: { zh: '传递额外参数', en: 'Pass Arguments' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1SV_adBfH8KJjy1XbXXbLdXXa-540-844.png'
     }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      hash: '7b4a2ee438abe343b0a2f38556e730f1',
       title: { zh: '过滤器串联', en: 'Chained Filters' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1lETpdxrI8KJjy0FpXXb5hVXa-540-844.png'
     }]
   }, {
     type: 'mixins',
@@ -10973,21 +10973,21 @@ module.exports = {
       en: 'https://vuejs.org/v2/guide/mixins.html'
     },
     examples: [{
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      hash: 'c69cb31319ffe8e0b25543cfabcf06d6',
       title: { zh: '最简例子', en: 'Sample' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1HJHcdtfJ8KJjy0FeXXXKEXXa-540-844.png'
     }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      hash: '804d427a56528c3dc2706e77b93df516',
       title: { zh: '全局混合', en: 'Global Mixin' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1HJHcdtfJ8KJjy0FeXXXKEXXa-540-844.png'
     }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: { zh: '选项合并', en: 'Mixin Options' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-    }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      hash: '92ab52525cb0d7d55d1ef007df90cf77',
       title: { zh: '生命周期混合', en: 'Lifecycle Mixin' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1bRLCdwDD8KJjy0FdXXcjvXXa-540-844.png'
+    }, {
+      hash: 'ee84c44bb3f4b23f83d52aecad30f8ea',
+      title: { zh: '选项合并', en: 'Mixin Options' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1FUTpdxrI8KJjy0FpXXb5hVXa-540-844.png'
     }]
     // }, {
     //   type: 'transition',
@@ -11064,10 +11064,14 @@ module.exports = {
       title: { zh: '透明背景', en: 'Transparent Background' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1CL3nbMDD8KJjy0FdXXcjvXXa-540-844.png'
     }, {
-      hash: '55f596b3c0374f05249c3e3c851e1889',
+      hash: 'b90dbc5fbecf160a8f6c10b752b44c53',
       title: { zh: '三角形', en: 'Triangles' },
       screenshot: 'https://gw.alicdn.com/tfs/TB14yzscMvD8KJjy0FlXXagBFXa-540-844.png'
-      // }, {
+    }, {
+      hash: '190d8baf578fb7b4efd82f19322a69da',
+      title: { zh: '西瓜(阴影)', en: 'Watermelon (box-shadow)' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
       //   hash: '4624d605004fc7eb9f14ca9c5a226fe3',
       //   title: { zh: '瀑布流', en: 'Waterfall' },
       //   screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
@@ -11168,6 +11172,10 @@ module.exports = {
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
       title: { zh: '自定义字体', en: 'iconfont' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      title: { zh: '多页签', en: 'Multi Tabs' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }]
   }, {
@@ -11402,7 +11410,7 @@ exports = module.exports = __webpack_require__(19)();
 
 
 // module
-exports.push([module.i, "\n.example-panel[data-v-3033756a] {\n  padding: 10px 20px 0 30px;\n}\n.banner[data-v-3033756a] {\n  background-color: #EEE;\n  color: #757575;\n  padding: 10px 30px;\n  font-size: 16px;\n}\n.copyright[data-v-3033756a] {\n  border-top: 1px solid #DDD;\n  color: #BBB;\n  font-size: 12px;\n  text-align: center;\n}\n.example-section[data-v-3033756a] {\n  margin: 20px 0 60px;\n}\n.example-list[data-v-3033756a] {\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap;\n  justify-content: flex-start;\n}\n.title[data-v-3033756a] {\n  height: 50px;\n  line-height: 50px;\n  font-size: 36px;\n  color: rgb(0, 180, 255);\n  cursor: pointer;\n}\n.desc[data-v-3033756a] {\n  width: 80%;\n  max-width: 800px;\n  color: #888;\n}\n.desc a[data-v-3033756a], .desc a[data-v-3033756a]:link {\n  color: rgba(0, 180, 255, 0.8);\n}\n.desc a[data-v-3033756a]:hover, .desc a[data-v-3033756a]:active {\n  color: rgb(0, 180, 255);\n}\n.example-card[data-v-3033756a] {\n  display: flex;\n  flex-direction: column;\n  justify-content: flex-start;\n  align-items: center;\n  margin: 15px 35px;\n  color: #666;\n}\n.preview[data-v-3033756a] {\n  display: block;\n  width: 182px;\n  height: 329px;\n  position: relative;\n  background: url(\"https://gw.alicdn.com/tfs/TB1rRl8bwnD8KJjy1XdXXaZsVXa-661-1195.png\") 0 0 no-repeat;\n  background-size: 182px 329px;\n}\n.screenshot[data-v-3033756a] {\n  position: absolute;\n  width: 145px;\n  height: 228px;\n  top: 42px;\n  left: 18px;\n}\n.message[data-v-3033756a] {\n  flex: 1;\n  text-align: center;\n}\n.tag[data-v-3033756a] {\n  border: 1px solid #DDD;\n  margin: 0 12px;\n}\n", ""]);
+exports.push([module.i, "\n.example-panel[data-v-3033756a] {\n  padding: 10px 20px 0 30px;\n}\n.banner[data-v-3033756a] {\n  background-color: #EEE;\n  color: #757575;\n  padding: 10px 30px;\n  font-size: 16px;\n}\n.copyright[data-v-3033756a] {\n  border-top: 1px solid #DDD;\n  color: #BBB;\n  font-size: 12px;\n  text-align: center;\n}\n.example-section[data-v-3033756a] {\n  margin: 20px 0 60px;\n}\n.example-list[data-v-3033756a] {\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap;\n  justify-content: flex-start;\n}\n.title[data-v-3033756a] {\n  height: 50px;\n  line-height: 50px;\n  font-size: 36px;\n  color: rgb(0, 180, 255);\n  cursor: pointer;\n}\n.desc[data-v-3033756a] {\n  width: 80%;\n  max-width: 800px;\n  color: #888;\n}\n.desc a[data-v-3033756a], .desc a[data-v-3033756a]:link {\n  color: rgba(0, 180, 255, 0.8);\n}\n.desc a[data-v-3033756a]:hover, .desc a[data-v-3033756a]:active {\n  color: rgb(0, 180, 255);\n}\n.example-card[data-v-3033756a] {\n  display: flex;\n  flex-direction: column;\n  justify-content: flex-start;\n  align-items: center;\n  margin: 15px 35px;\n  color: #666;\n}\n.preview[data-v-3033756a] {\n  display: block;\n  width: 182px;\n  height: 329px;\n  position: relative;\n  background: url(\"https://gw.alicdn.com/tfs/TB1rRl8bwnD8KJjy1XdXXaZsVXa-661-1195.png\") 0 0 no-repeat;\n  background-size: 182px 329px;\n}\n.screenshot[data-v-3033756a] {\n  position: absolute;\n  width: 145px;\n  height: 228px;\n  top: 42px;\n  left: 17.5px;\n}\n.message[data-v-3033756a] {\n  flex: 1;\n  text-align: center;\n}\n.tag[data-v-3033756a] {\n  border: 1px solid #DDD;\n  margin: 0 12px;\n}\n", ""]);
 
 // exports
 

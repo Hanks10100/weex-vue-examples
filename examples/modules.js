@@ -22,11 +22,11 @@ module.exports = {
       title: 'alert',
       screenshot: 'https://gw.alicdn.com/tfs/TB1JsqddgoQMeJjy1XaXXcSsFXa-540-844.png'
     }, {
-      hash: 'ec8e7a35e1b2ca69af42a8e9e78b6d45',
+      hash: '88b0782ba54695a66622988bfeb89fbd',
       title: 'confirm',
       screenshot: 'https://gw.alicdn.com/tfs/TB1PWmedogQMeJjy0FjXXaExFXa-540-844.png'
     }, {
-      hash: '3dc53746432468b662f4ade89a2dcd47',
+      hash: '7763e5b0322cf625ec5221dea13ea5ec',
       title: 'prompt',
       screenshot: 'https://gw.alicdn.com/tfs/TB13B9gdgoQMeJjy0FpXXcTxpXa-540-844.png'
     }]

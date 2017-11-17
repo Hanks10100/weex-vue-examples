@@ -119,7 +119,7 @@
     width: 145px;
     height: 228px;
     top: 42px;
-    left: 18px;
+    left: 17.5px;
   }
   .message {
     flex: 1;

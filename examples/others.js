@@ -20,6 +20,10 @@ module.exports = {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
       title: { zh: '自定义字体', en: 'iconfont' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      title: { zh: '多页签', en: 'Multi Tabs' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }]
   }, {
     type: 'cases',

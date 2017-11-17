@@ -104,13 +104,13 @@ module.exports = {
       title: 'v-if',
       screenshot: 'https://gw.alicdn.com/tfs/TB1BAuGb2DH8KJjy1XcXXcpdXXa-540-844.png'
     }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      hash: 'b6b244c4d8623565e77d9de324ca8de1',
       title: 'v-else',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1P.TpdxrI8KJjy0FpXXb5hVXa-540-844.png'
     }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      hash: '22faff4ee6f235c0e8fb98b21c1ea662',
       title: 'v-else-if',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1P.TpdxrI8KJjy0FpXXb5hVXa-540-844.png'
     }]
   }, {
     type: 'v-on',
@@ -245,17 +245,17 @@ module.exports = {
       en: 'https://vuejs.org/v2/guide/filters.html'
     },
     examples: [{
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      hash: '28df0a4424a9e9fe1411020de20d52c0',
       title: { zh: '最简例子', en: 'Sample' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1U8nAdr_I8KJjy1XaXXbsxpXa-540-844.png'
     }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      hash: 'b4eac5ccef8ef954858e9ef0c6aca9d7',
       title: { zh: '传递额外参数', en: 'Pass Arguments' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1SV_adBfH8KJjy1XbXXbLdXXa-540-844.png'
     }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      hash: '7b4a2ee438abe343b0a2f38556e730f1',
       title: { zh: '过滤器串联', en: 'Chained Filters' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1lETpdxrI8KJjy0FpXXb5hVXa-540-844.png'
     }]
   }, {
     type: 'mixins',
@@ -270,21 +270,21 @@ module.exports = {
       en: 'https://vuejs.org/v2/guide/mixins.html'
     },
     examples: [{
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      hash: 'c69cb31319ffe8e0b25543cfabcf06d6',
       title: { zh: '最简例子', en: 'Sample' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1HJHcdtfJ8KJjy0FeXXXKEXXa-540-844.png'
     }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      hash: '804d427a56528c3dc2706e77b93df516',
       title: { zh: '全局混合', en: 'Global Mixin' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1HJHcdtfJ8KJjy0FeXXXKEXXa-540-844.png'
     }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: { zh: '选项合并', en: 'Mixin Options' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-    }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      hash: '92ab52525cb0d7d55d1ef007df90cf77',
       title: { zh: '生命周期混合', en: 'Lifecycle Mixin' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1bRLCdwDD8KJjy0FdXXcjvXXa-540-844.png'
+    }, {
+      hash: 'ee84c44bb3f4b23f83d52aecad30f8ea',
+      title: { zh: '选项合并', en: 'Mixin Options' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1FUTpdxrI8KJjy0FpXXb5hVXa-540-844.png'
     }]
   // }, {
   //   type: 'transition',
