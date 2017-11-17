@@ -33,11 +33,11 @@ module.exports = {
       title: { zh: '伪类选择器', en: 'Pseudo-classes' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1J7goczihSKJjy0FlXXadEXXa-540-844.png'
     }, {
-      hash: '27cc765282b692bb87d9fddf55df12e4',
+      hash: 'bb3afbc65afb96e4099a8b6b6a03185a',
       title: { zh: '网格背景', en: 'Mesh Background' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1kU3abRTH8KJjy0FiXXcRsXXa-540-844.png'
     }, {
-      hash: '12b9bd84439b1adafb4b0eace4a73ec2',
+      hash: 'e510f73afb31b3228a5a9ef1b7a5a456',
       title: { zh: '透明背景', en: 'Transparent Background' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1CL3nbMDD8KJjy0FdXXcjvXXa-540-844.png'
     }, {
@@ -46,9 +46,9 @@ module.exports = {
       screenshot: 'https://gw.alicdn.com/tfs/TB14yzscMvD8KJjy0FlXXagBFXa-540-844.png'
     }, {
       hash: '190d8baf578fb7b4efd82f19322a69da',
-      title: { zh: '西瓜(阴影)', en: 'Watermelon (box-shadow)' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-    }, {
+      title: { zh: '西瓜（阴影）', en: 'Watermelon (box-shadow)' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1RIzDdx6I8KJjy0FgXXXXzVXa-540-844.png'
+    // }, {
     //   hash: '4624d605004fc7eb9f14ca9c5a226fe3',
     //   title: { zh: '瀑布流', en: 'Waterfall' },
     //   screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'

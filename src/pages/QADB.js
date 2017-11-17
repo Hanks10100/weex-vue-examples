@@ -88,7 +88,7 @@ const QADB = [
     options: [
       { nextQid: 900002, title: 'About Weex', content: 'I want to know something about Weex.' },
       { nextQid: 900000, title: 'How to write CSS?' },
-      { nextQid: 900000, title: 'Where to learn JS?' },
+      { nextQid: 900000, title: 'How to learn JS?' },
       { nextQid: 900000, title: 'How to learn English?' },
     ]
   }, {
@@ -97,6 +97,14 @@ const QADB = [
     options: [
       { reset: true,  nextQid: 100001, title: 'You win...' },
       { nextQid: 400001, title: '←_←' },
+      { nextQid: 400002, title: '(ー_ー)!!', content: '(ー_ー)!! Could you stop ...' },
+    ]
+  }, {
+    qid: 400002,
+    content: `(◔◡◔) What do you think? I am an offline robot.`,
+    options: [
+      { reset: true,  nextQid: 100001, title: 'You win...' },
+      { reset: true,  nextQid: 100001, title: '╮(￣▽￣")╭ ' },
     ]
   }, {
     qid: 900000,

@@ -54,8 +54,8 @@ module.exports = {
       title: { zh: '朋友圈', en: 'Moment' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1G7LydwMPMeJjy1XdXXasrXXa-540-844.png'
     }, {
-      hash: '03e9275f49963a4367e08c41edc725d7',
-      title: { zh: '聊天框', en: 'Chat' },
+      hash: '97c0dc80f34d51aff2551a9916d48fba',
+      title: { zh: '聊天', en: 'Chat' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: '013b1e76d2c5419e32bc3e02aa1bef26',
