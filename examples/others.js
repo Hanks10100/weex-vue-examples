@@ -9,7 +9,7 @@ module.exports = {
       title: { zh: '获取环境信息', en: 'Environment' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1yJC8cEgQMeJjy0FjXXaExFXa-540-844.png'
     }, {
-      hash: 'd877dd3bab71943e64320679dcd7ddac',
+      hash: 'b3c0d8b5b3753f028cc84a55a29b2b6a',
       title: { zh: '功能检测', en: 'Feature Detect' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1TOGuc3MPMeJjy1XdXXasrXXa-540-844.png'
     }, {

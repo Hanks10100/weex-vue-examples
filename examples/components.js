@@ -117,9 +117,9 @@ module.exports = {
       title: { zh: '最简例子', en: 'Sample' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1pgDZcMoQMeJjy1XaXXcSsFXa-540-844.png'
     }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      hash: '9eb4a7d067e4d49903e691cb94ff2834',
       title: '<header>',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1N_zLdxrI8KJjy0FpXXb5hVXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
       title: '<loading>',
@@ -133,9 +133,9 @@ module.exports = {
       title: { zh: 'loadmore 事件', en: '"loadmore" Event' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1tK66cMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      hash: 'c7f682768e18b83bfca7f1327dfab9cd',
       title: { zh: 'appear 事件', en: '"appear" Event' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1MnzLdxrI8KJjy0FpXXb5hVXa-540-844.png'
     }]
   }, {
     type: 'scroller',
@@ -169,6 +169,10 @@ module.exports = {
       hash: 'eb1f5edea6cb8f4fea06d67dc071eff7',
       title: { zh: 'loadmore 事件', en: '"loadmore" Event' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1tK66cMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '7e17173fb09cd29f3daa3a87739df60d',
+      title: { zh: 'appear 事件', en: '"appear" Event' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1MnzLdxrI8KJjy0FpXXb5hVXa-540-844.png'
     }, {
       hash: 'c38fbd7922d42810393c7a23529d48a1',
       title: 'scrollTo',
