@@ -1,13 +1,9 @@
 <template>
   <div class="wrapper">
-    <div class="main">
-      <div ref="screen" class="screen">
-        <image class="poster" resize="cover" :src="poster"></image>
-      </div>
-    </div>
+    <embed class="doodle" :src="doodle | url"></embed>
     <div class="menu-list">
-      <div class="menu-row" v-for="(row, r) in menus" :key="r">
-        <a :href="menu.hash | url" :class="['menu-item', `menu-item-${menu.name}`]" v-for="(menu, i) in row" :key="i" :ref="`menu${r+i}`">
+      <div :class="['menu-row', `menu-row-${r+1}`]" v-for="(row, r) in menus" :key="r">
+        <a :href="menu.hash | url" :class="['menu-item', `menu-item-${i+1}`,`menu-item-${menu.name}`]" v-for="(menu, i) in row" :key="menu.name">
           <text :class="['menu-text', `menu-text-${menu.name}`]">{{menu.title}}</text>
         </a>
       </div>
@@ -15,104 +11,12 @@
   </div>
 </template>
 
-<style>
-  .wrapper {
-    justify-content: space-around;
-    background-color: #F5F5F5;
-    min-height: 100%;
-  }
-  .main {
-    justify-content: center;
-    align-items: center;
-    margin-top: 30px;
-    height: 500px;
-  }
-  .screen {
-    width: 750px;
-    height: 100px;
-    height: 500px;
-    border-left-width: 2px;
-    border-right-width: 2px;
-    border-top-width: 8px;
-    border-bottom-width: 8px;
-    border-style: solid;
-    border-color: #CCC;
-    border-radius: 100px;
-    background-color: #FFF;
-    box-shadow: inset 0 6px 15px rgba(0, 0, 0, 0.2);
-    justify-content: center;
-    align-items: center;
-    overflow:hidden;
-  }
-  .poster {
-    width: 750px;
-    height: 500px;
-    /* width: 400px;
-    height: 400px; */
-  }
-  .menu-list {
-    height: 500px;
-    justify-content: center;
-    align-items: center;
-  }
-  .menu-row {
-    flex-direction: row;
-    justify-content: center;
-    margin-top: 15px;
-    margin-bottom: 15px;
-  }
-  .menu-item {
-    width: 300px;
-    height: 200px;
-    margin-left: 15px;
-    margin-right: 15px;
-    border-width: 6px;
-    background-color: #FFF;
-    justify-content: center;
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
-    background-color: #BCAADB;
-    border-color: #9f71f1;
-  }
-  .menu-text {
-    text-align: center;
-    font-size: 50px;
-    font-weight: bold;
-    color: #808080;
-    color: #7d49da;
-  }
-  /* .menu-item-guide {
-    border-color: #80CE8D;
-    background-color: #B4FFCE;
-  }
-  .menu-text-guide {
-    color: #49b75b;
-  } */
-  /* .menu-item-examples {
-    background-color: #8DEEFD;
-    border-color: #00B8DE;
-  }
-  .menu-text-examples {
-    color: #00a0c1;
-  } */
-  /* .menu-item-news {
-    background-color: #FFDDCE;
-    border-color: #ffb99a;
-  }
-  .menu-text-news {
-    color: #ff915e;
-  } */
-  /* .menu-item-chat {
-    background-color: #BCAADB;
-    border-color: #9f71f1;
-  }
-  .menu-text-chat {
-    color: #7d49da;
-  } */
-</style>
-
 <script>
-  const animation = weex.requireModule('animation')
+  const stream = weex.requireModule('stream')
   function createURL (hash) {
+    if (WXEnvironment.platform === 'Web') {
+      return `http://dotwe.org/raw/htmlVue/${hash}`
+    }
     const url = `http://dotwe.org/raw/dist/${hash}.bundle.wx`
     return `${url}?_wx_tpl=${url}`
   }
@@ -120,33 +24,78 @@
     filters: { url: createURL },
     data () {
       return {
-        poster: 'https://cdn.dribbble.com/users/230740/screenshots/3838011/rcs_eagles_dribbble_preview.jpg',
+        doodle: '9a55664ca51986295ce6982766760ed6',
         menus: [[{
           name: 'guide',
           title: 'Guide',
-          hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+          hash: '14d51b459007f697613319b1d82c61a9',
         }, {
           name: 'examples',
           title: 'Examples',
           hash: '8acee0446b41edce51d1c335ecd13d78',
         }], [{
-          name: 'news',
-          title: 'News',
+          name: 'blogs',
+          title: 'Blogs',
           hash: '4624d605004fc7eb9f14ca9c5a226fe3',
         }, {
-          name: 'chat',
-          title: 'Chat',
-          hash: '799cd02508e113afb389e67fcad711ba',
+          name: 'about',
+          title: 'About',
+          hash: '45bf501ff7671054202a9263d17cacc6',
         }]]
       }
     },
-    mounted () {
-      // animation.transition(this.$refs.screen, {
-      //   styles: { height: 500 },
-      //   duration: 300,
-      //   timingFunction: 'ease-out',
-      //   needLayout: true
+    beforeCreate () {
+      // fetch the latest doodle and menus
+      // stream.fetch({
+      //   method: 'GET',
+      //   type: 'json',
+      //   url: ''
+      // }, res => {
+      //   if (res.ok && res.data) {
+      //     this.doodle = res.data.doodle
+      //     // TODO: update menus
+      //   }
       // })
     }
   }
 </script>
+
+<style scoped>
+  .doodle {
+    width: 750px;
+    height: 750px;
+    background-color: #BBB;
+  }
+  .menu-list {
+    flex: 1;
+  }
+  .menu-row {
+    flex: 1;
+    flex-direction: row;
+    justify-content: center;
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-top-color: #CCC;
+  }
+  .menu-item {
+    flex: 1;
+    background-color: #FBFBFB;
+    justify-content: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  .menu-item:active {
+    background-color: #EEE;
+  }
+  .menu-item-1 {
+    border-right-width: 1px;
+    border-right-style: solid;
+    border-right-color: #CCC;
+  }
+  .menu-text {
+    text-align: center;
+    font-size: 60px;
+    font-weight: bold;
+    color: #808080;
+  }
+</style>

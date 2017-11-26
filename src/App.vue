@@ -1,19 +1,10 @@
 <template>
-  <div>
-    <text class="text">123</text>
-  </div>
+  <Example class="text">123</Example>
 </template>
-<style>
 
-</style>
 <script>
-  for(var i in global){
-    try{
-      global[i] = function(){console.log(i)};
-    }
-    catch(e){
-      console.log(e);
-    }
+  import Example from './pages/landing.vue'
+  export default {
+    components: { Example }
   }
-
 </script>

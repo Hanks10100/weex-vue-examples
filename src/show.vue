@@ -44,7 +44,7 @@
   </div>
 </template>
 
-<style>
+<style scoped>
   .content {
     width: 750px;
     position: absolute;
