@@ -9194,7 +9194,7 @@ exports.clearImmediate = clearImmediate;
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_IndexPage_vue__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_IndexPage_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_IndexPage_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_610dace4_hasScoped_true_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_IndexPage_vue__ = __webpack_require__(85);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_610dace4_hasScoped_true_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_IndexPage_vue__ = __webpack_require__(86);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
@@ -9335,7 +9335,7 @@ var _examples = __webpack_require__(54);
 
 var _examples2 = _interopRequireDefault(_examples);
 
-var _ExampleList = __webpack_require__(80);
+var _ExampleList = __webpack_require__(81);
 
 var _ExampleList2 = _interopRequireDefault(_ExampleList);
 
@@ -9612,18 +9612,20 @@ var components = __webpack_require__(75);
 var modules = __webpack_require__(76);
 var syntax = __webpack_require__(77);
 var styles = __webpack_require__(78);
-var others = __webpack_require__(79);
+var cases = __webpack_require__(79);
+var others = __webpack_require__(80);
 
-var examples = [components, modules, syntax, styles, others];
+var examples = [components, modules, syntax, styles, cases, others];
 
 module.exports = function getExamples() {
   var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
   if (options.scope === 'mobile') {
-    var _others$group;
+    var _others$group, _others$group2;
 
     var selected = [components, modules, syntax];
-    (_others$group = others.group).unshift.apply(_others$group, (0, _toConsumableArray3.default)(styles.group));
+    (_others$group = others.group).unshift.apply(_others$group, (0, _toConsumableArray3.default)(cases.group));
+    (_others$group2 = others.group).unshift.apply(_others$group2, (0, _toConsumableArray3.default)(styles.group));
     selected.push(others);
     return selected;
   }
@@ -11156,35 +11158,43 @@ module.exports = {
 
 
 module.exports = {
-  type: 'others',
-  name: { zh: '其他', en: 'Others' },
+  type: 'cases',
+  name: { zh: '实例', en: 'Cases' },
   group: [{
-    type: 'utils',
-    name: { zh: '功能', en: 'Utils' },
+    type: 'useful',
+    name: { zh: '常用', en: 'Common Cases' },
     examples: [{
-      hash: '3abe25e7dd6d52bf35edffd62ac6199e',
-      title: { zh: '获取环境信息', en: 'Environment' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1yJC8cEgQMeJjy0FjXXaExFXa-540-844.png'
-    }, {
-      hash: 'b3c0d8b5b3753f028cc84a55a29b2b6a',
-      title: { zh: '功能检测', en: 'Feature Detect' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1TOGuc3MPMeJjy1XdXXasrXXa-540-844.png'
-    }, {
-      hash: '8313d0b11a4e90b2f002833ba6b50bc4',
-      title: { zh: '支持 WebAssembly？', en: 'Support WebAssembly?' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1cHyefwMPMeJjy1XbXXcwxVXa-540-844.png'
-    }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: { zh: '自定义字体', en: 'iconfont' },
+      hash: '123b69b57e099036558745298fb6e8ca',
+      title: { zh: '查看图片', en: 'Preview Image' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      hash: '123b69b57e099036558745298fb6e8ca',
       title: { zh: '多页签', en: 'Multi Tabs' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '123b69b57e099036558745298fb6e8ca',
+      title: { zh: '楼层电梯', en: 'Elevator' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '123b69b57e099036558745298fb6e8ca',
+      title: { zh: '返回顶部', en: 'Back to Top' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '123b69b57e099036558745298fb6e8ca',
+      title: { zh: '网格布局', en: 'Grid Layout' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '123b69b57e099036558745298fb6e8ca',
+      title: { zh: '模态框', en: 'Modal Box' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '123b69b57e099036558745298fb6e8ca',
+      title: { zh: '全屏遮罩', en: 'Fullscreen Mask' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }]
   }, {
-    type: 'cases',
-    name: { zh: '实例', en: 'Use Cases' },
+    type: 'real-cases',
+    name: { zh: '完整例子', en: 'Examples' },
     examples: [{
       hash: '3a52d415dc7307d1594079574fe553c7',
       title: 'Todo List',
@@ -11222,6 +11232,39 @@ module.exports = {
       hash: '6c458803b2a83a336099ff43dae4d1a5',
       title: '商品展示',
       screenshot: 'https://gw.alicdn.com/tfs/TB1juElXjihSKJjy0FfXXbGzFXa-540-844.png'
+    }]
+  }]
+};
+
+/***/ }),
+/* 80 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = {
+  type: 'others',
+  name: { zh: '其他', en: 'Others' },
+  group: [{
+    type: 'utils',
+    name: { zh: '功能', en: 'Utils' },
+    examples: [{
+      hash: '3abe25e7dd6d52bf35edffd62ac6199e',
+      title: { zh: '获取环境信息', en: 'Environment' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1yJC8cEgQMeJjy0FjXXaExFXa-540-844.png'
+    }, {
+      hash: 'b3c0d8b5b3753f028cc84a55a29b2b6a',
+      title: { zh: '功能检测', en: 'Feature Detect' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1TOGuc3MPMeJjy1XdXXasrXXa-540-844.png'
+    }, {
+      hash: '8313d0b11a4e90b2f002833ba6b50bc4',
+      title: { zh: '支持 WebAssembly？', en: 'Support WebAssembly?' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1cHyefwMPMeJjy1XbXXcwxVXa-540-844.png'
+    }, {
+      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      title: { zh: '自定义字体', en: 'iconfont' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }]
   }, {
     type: 'learn',
@@ -11323,18 +11366,18 @@ module.exports = {
 };
 
 /***/ }),
-/* 80 */
+/* 81 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_ExampleList_vue__ = __webpack_require__(83);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_ExampleList_vue__ = __webpack_require__(84);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_ExampleList_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_ExampleList_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_3033756a_hasScoped_true_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_ExampleList_vue__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_3033756a_hasScoped_true_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_ExampleList_vue__ = __webpack_require__(85);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(81)
+  __webpack_require__(82)
 }
 var normalizeComponent = __webpack_require__(21)
 /* script */
@@ -11380,13 +11423,13 @@ if (false) {(function () {
 
 
 /***/ }),
-/* 81 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(82);
+var content = __webpack_require__(83);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -11406,7 +11449,7 @@ if(false) {
 }
 
 /***/ }),
-/* 82 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(19)();
@@ -11420,7 +11463,7 @@ exports.push([module.i, "\n.example-panel[data-v-3033756a] {\n  padding: 10px 20
 
 
 /***/ }),
-/* 83 */
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11490,7 +11533,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 84 */
+/* 85 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11623,7 +11666,7 @@ if (false) {
 }
 
 /***/ }),
-/* 85 */
+/* 86 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
