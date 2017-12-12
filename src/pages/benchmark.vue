@@ -1,26 +1,24 @@
 <template>
-  <list class="canvas">
+  <scroller>
     <template v-for="x in repeat">
-      <cell :key="'title' + x">
-        <text class="title">BENCHMARK</text>
-      </cell>
-      <cell class="row" v-for="(vector, r) in matrix" :key="x + r">
+      <text :key="'title' + x" class="title">BENCHMARK</text>
+      <div class="row" v-for="(vector, r) in matrix" :key="x + r" append="tree">
         <div class="cell" v-for="(number, c) in vector" :key="c" :style="{width:cellSize, height:cellSize}">
           <text class="text" :style="{fontSize:fontSize}">{{number}}</text>
         </div>
-      </cell>
-      <cell :key="x + depth">
+      </div>
+      <div :key="x + depth" append="tree">
         <mesh style="height:750px" :depth="depth"></mesh>
-      </cell>
+      </div>
     </template>
-  </list>
+  </scroller>
 </template>
 
 <script>
-  const COLUMN = 10
-  const ROW = 10
-  const REPEAT = 3
-  const DEPTH = 20
+  const COLUMN = 20
+  const ROW = 20
+  const REPEAT = 10
+  const DEPTH = 35
 
   Vue.component('mesh', {
     name: 'mesh',
