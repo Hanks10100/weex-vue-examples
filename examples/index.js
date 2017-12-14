@@ -14,6 +14,9 @@ const examples = [
   others
 ]
 
+// screen shot
+// http://dotwe.org/vue/5e9b359de1cbd977dec54654170d2a05
+
 module.exports = function getExamples (options = {}) {
   if (options.scope === 'mobile') {
     const selected = [components, modules, syntax]

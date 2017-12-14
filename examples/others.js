@@ -121,31 +121,31 @@ module.exports = {
     type: 'composed-benchmark',
     name: { zh: '混合压测', en: 'Composed Benchmark' },
     examples: [{
-      hash: 'd1124c829f09d7180ffa9f3556fb75f8',
+      hash: 'c4849fe9950c03bbb59f1ac7660b9430',
       title: '10 x 10',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-    // }, {
-    //   hash: '2f608f596c38634994deabd35011ff0c',
-    //   title: '15 x 15',
-    //   screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1YGouihrI8KJjy0FpXXb5hVXa-540-844.png'
     }, {
-      hash: 'bdca8a28f523dae9343dbc961d43094c',
+      hash: '08b7bd34da310cc3a173bef5be8aee68',
+      title: '15 x 15',
+      screenshot: 'https://gw.alicdn.com/tfs/TB1oPMVibYI8KJjy0FaXXbAiVXa-540-844.png'
+    }, {
+      hash: '41cc7b9a252d7cd88233b5e70e633ae5',
       title: '20 x 20',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1kbvSilfH8KJjy1XbXXbLdXXa-540-844.png'
     }, {
-      hash: '3f005929182d0e3517cad2ebb37338b2',
+      hash: '290873a8734eecf4d7d8060e0f34bc4a',
       title: '25 x 25',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1oTkJifDH8KJjy1XcXXcpdXXa-540-844.png'
     }, {
-      hash: '319720159eceee976d65e63b4fcd7c9e',
+      hash: 'bf5e9e6bb1f4a8a451e638165aca586d',
       title: '30 x 30',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1LGQZib_I8KJjy1XaXXbsxpXa-540-844.png'
     }, {
-      hash: 'e19e4572bfbb7b7456bb89430be57ef0',
+      hash: '80ea75498c49406c5493b596baa738e9',
       title: '40 x 40',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1uGnQilfH8KJjy1XbXXbLdXXa-540-844.png'
     // }, {
-    //   hash: 'f4d3b02f5f03415131683814daa326a8',
+    //   hash: 'a7e1f6fa5afb413689bc15f58ed085c7',
     //   title: '50 x 50',
     //   screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }]
@@ -155,15 +155,15 @@ module.exports = {
     examples: [{
       hash: '8fb49bf98996a9f26f4f8123b40d763c',
       title: '<list>',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1JGrQilfH8KJjy1XbXXbLdXXa-540-844.png'
     }, {
       hash: 'cbffa887a26cb040c10c56117bcfd655',
       title: '<scroller>',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1JGrQilfH8KJjy1XbXXbLdXXa-540-844.png'
     }, {
       hash: '5c705064c078296bd0e6a2ee94963af7',
       title: '<recycle-list>',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1JGrQilfH8KJjy1XbXXbLdXXa-540-844.png'
     }]
   }]
 }

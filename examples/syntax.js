@@ -3,7 +3,7 @@ module.exports = {
   name: { zh: '语法', en: 'Syntax' },
   group: [{
     type: 'text-binding',
-    name: 'Text Binding',
+    name: { zh: '文本绑定', en: 'Text Binding' },
     title: { zh: '文本绑定', en: 'Text Binding' },
     desc: {
       zh: '数据绑定最常见的形式就是使用 “Mustache” 语法（双大括号）的文本插值。',
@@ -258,7 +258,7 @@ module.exports = {
     }]
   }, {
     type: 'component',
-    name: 'component',
+    name: { zh: '组件', en: 'Component' },
     title: { zh: '组件', en: 'Component' },
     desc: {
       zh: '组件系统是 Vue 的另一个重要概念，因为它是一种抽象，允许我们使用小型、独立和通常可复用的组件构建大型应用。仔细想想，几乎任意类型的应用界面都可以抽象为一个组件树。',
@@ -301,9 +301,9 @@ module.exports = {
       title: { zh: '注册全局组件', en: 'Global Registration' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
-      hash: 'ccefdea9e9ef695acca7fb1b439277e2',
+      hash: 'df46cfd946e3479ffce93196b86e9d9c',
       title: { zh: '递归组件', en: 'Recursive Components' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1U868icrI8KJjy0FhXXbfnpXa-540-844.png'
     }, {
       hash: 'ccefdea9e9ef695acca7fb1b439277e2',
       title: { zh: '异步组件', en: '' },
@@ -315,7 +315,7 @@ module.exports = {
     }]
   }, {
     type: 'built-in',
-    name: 'Built-in Components',
+    name: { zh: '内置组件', en: 'Built-in' },
     title: { zh: '内置组件', en: 'Built-in Components' },
     examples: [{
       hash: 'ccefdea9e9ef695acca7fb1b439277e2',
@@ -335,11 +335,11 @@ module.exports = {
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: 'ccefdea9e9ef695acca7fb1b439277e2',
-      title: { zh: '<transition>', en: ' <transition>' },
+      title: { zh: '<transition>', en: '<transition>' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: 'ccefdea9e9ef695acca7fb1b439277e2',
-      title: { zh: '<transition-group>', en: ' <transition-group>' },
+      title: { zh: '<transition-group>', en: '<transition-group>' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     // }, {
     //   hash: 'ccefdea9e9ef695acca7fb1b439277e2',
@@ -348,7 +348,7 @@ module.exports = {
     }]
   }, {
     type: 'communication',
-    name: 'Component Communication',
+    name: { zh: '组件通信', en: 'Communication' },
     title: { zh: '组件通信', en: 'Component Communication' },
     examples: [{
       hash: 'ccefdea9e9ef695acca7fb1b439277e2',

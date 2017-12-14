@@ -179,6 +179,48 @@ module.exports = {
       screenshot: 'https://gw.alicdn.com/tfs/TB1ZIPecwoQMeJjy0FoXXcShVXa-540-844.png'
     }]
   }, {
+    type: 'recycle-list',
+    name: 'recycle-list',
+    title: { zh: '<recycle-list> 组件', en: '<recycle-list>' },
+    docLink: 'https://github.com/Hanks10100/weex-native-directive',
+    examples: [{
+      hash: '0658e5ec6c1d83e8c19adde7e0b2a0fa',
+      title: { zh: '文本绑定', en: 'Text Binding' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '6eb27e33b05182f2f453ebbde124d417',
+      title: { zh: '属性绑定', en: 'Attribute Binding' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '6cd9625cf1b5912289189efdba33d34c',
+      title: { zh: '使用 v-for', en: 'Using v-for' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '28145f9d5efd522ef507245829f04566',
+      title: { zh: '多层循环', en: 'Multiple v-for' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: 'ccefdea9e9ef695acca7fb1b439277e2',
+      title: { zh: '条件渲染', en: 'v-if/v-else' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '54500d15b5c8f2af2fbd443ab34af822',
+      title: { zh: '双向绑定', en: 'Using v-model' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: 'cd211e74bcf2cd918284234380f3c43a',
+      title: { zh: '绑定事件', en: 'Event Binding' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: 'a95fca7835aa3fc8bf2c24ec68c7d8cd',
+      title: { zh: '绑定样式', en: 'Style Binding' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '5c705064c078296bd0e6a2ee94963af7',
+      title: { zh: '压测页面', en: 'Benchmark' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1JGrQilfH8KJjy1XbXXbLdXXa-540-844.png'
+    }]
+  }, {
     type: 'input',
     name: 'input',
     title: { zh: '<input> 组件', en: '<input>' },
