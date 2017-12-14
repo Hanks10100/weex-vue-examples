@@ -27,10 +27,12 @@
           <cell class="case" v-for="(group, i) in currentExamples" :key="i">
             <div class="example-box" v-for="example in group" :key="i18n(example.title)">
               <text class="example-title">{{i18n(example.title)}}</text>
-              <a :href="i18n(example.hash) | url">
-                <image class="screenshot" :src="i18n(example.screenshot)"></image>
-              </a>
-              <text @click="viewSource(example.hash)" class="example-tips">{{i18n(tips.VIEW_SOURCE)}}</text>
+              <div style="align-items: center">
+                <a :href="i18n(example.hash) | url">
+                  <image class="screenshot" :src="i18n(example.screenshot)"></image>
+                </a>
+                <text @click="viewSource(example.hash)" class="example-tips">{{i18n(tips.VIEW_SOURCE)}}</text>
+              </div>
             </div>
           </cell>
         </list>
@@ -61,7 +63,7 @@
   }
   .group-type {
     width: 200px;
-    height: 108px;
+    height: 100px;
     transition-property: width, background-color;
     transition-duration: 0.2s;
     border-bottom-width: 1px;
@@ -73,7 +75,7 @@
   }
   .group-name {
     text-align: center;
-    font-size: 34px;
+    font-size: 32px;
     color: #888888;
   }
   .active-group-type {
@@ -84,7 +86,7 @@
     border-bottom-color: rgba(0, 189, 255, 0.1);
   }
   .active-group-name {
-    font-size: 38px;
+    font-size: 34px;
     font-weight: bold;
     color: #00B4FF;
   }
@@ -115,19 +117,22 @@
   .case {
     flex-direction: row;
     justify-content: flex-start;
-    padding-left: 15px;
-    padding-right: 25px;
+    padding-left: 5px;
+    padding-right: 10px;
     padding-top: 20px;
     padding-bottom: 20px;
   }
   .example-box {
+    /* flex: 1; */
+    justify-content: space-between;
     align-items: center;
-    padding-left: 25px;
-    padding-right: 25px;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 270px;
   }
   .screenshot {
-    width: 200px;
-    height: 312px;
+    width: 220px;
+    height: 343px;
     border-width: 1px;
     border-color: #DDD;
   }
@@ -180,7 +185,7 @@
     width: 750px;
     position: fixed;
     bottom: 0;
-    height: 110px;
+    height: 100px;
     flex-direction: row;
     justify-content: space-around;
     align-items: flex-end;
@@ -188,7 +193,7 @@
   }
   .tab-cell {
     width: 186px;
-    height: 110px;
+    height: 100px;
     border-top-width: 2px;
     border-top-style: solid;
     border-top-color: #DDDDDD;
@@ -313,6 +318,10 @@
           'en': 'a9b64158408b8e03d75fa26ba2095b2e',
           'zh': 'a411ffc411c4a07ab50e277343f8b64e'
         }
+        // const hash = {
+        //   'en': 'ac01372f70a52361efb844cfc6886033',
+        //   'zh': '60ff3fd30d764a1ef81599b214864d0b'
+        // }
         storage.setItem('CURRENT_SOURCE_HASH', this.i18n(url))
         navigator.push({ url: createURL(this.i18n(hash)) })
       },
