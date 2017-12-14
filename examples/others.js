@@ -117,5 +117,53 @@ module.exports = {
       title: { zh: '层级 1000', en: '1000 Layers' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1I1z8cMMPMeJjy1XdXXasrXXa-540-844.png'
     }]
+  }, {
+    type: 'composed-benchmark',
+    name: { zh: '混合压测', en: 'Composed Benchmark' },
+    examples: [{
+      hash: 'd1124c829f09d7180ffa9f3556fb75f8',
+      title: '10 x 10',
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    // }, {
+    //   hash: '2f608f596c38634994deabd35011ff0c',
+    //   title: '15 x 15',
+    //   screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: 'bdca8a28f523dae9343dbc961d43094c',
+      title: '20 x 20',
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '3f005929182d0e3517cad2ebb37338b2',
+      title: '25 x 25',
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '319720159eceee976d65e63b4fcd7c9e',
+      title: '30 x 30',
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: 'e19e4572bfbb7b7456bb89430be57ef0',
+      title: '40 x 40',
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    // }, {
+    //   hash: 'f4d3b02f5f03415131683814daa326a8',
+    //   title: '50 x 50',
+    //   screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }]
+  }, {
+    type: 'case-benchmark',
+    name: { zh: '实例压测', en: 'Real Case Benchmark' },
+    examples: [{
+      hash: '8fb49bf98996a9f26f4f8123b40d763c',
+      title: '<list>',
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: 'cbffa887a26cb040c10c56117bcfd655',
+      title: '<scroller>',
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '5c705064c078296bd0e6a2ee94963af7',
+      title: '<recycle-list>',
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }]
   }]
 }

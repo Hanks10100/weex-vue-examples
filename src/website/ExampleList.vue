@@ -5,9 +5,9 @@
     </section>
     <section class="example-section" v-for="(category, i) in category.group" :key="`${category.type}-${i}`">
       <h2 :ref="category.type" class="title" @click="scrollTo(category.type)">{{category.title || category.name | i18n}}</h2>
-      <p class="desc" v-if="category.desc">
-        <span class="text">{{category.desc | i18n}}</span>
-        <a class="link" target="_blank" :href="category.docLink | i18n">Read more</a>
+      <p class="desc" v-if="category.desc || category.docLink">
+        <span class="text" v-if="category.desc">{{category.desc | i18n}}</span>
+        <a class="link" target="_blank" v-if="category.docLink" :href="category.docLink | i18n">Read more</a>
       </p>
       <div class="example-list">
         <figure class="example-card" v-for="example in category.examples" :key="example.hash | i18n">

@@ -43,7 +43,7 @@ module.exports = {
       en: 'http://weex-project.io/references/modules/dom.html'
     },
     examples: [{
-      hash: 'c38fbd7922d42810393c7a23529d48a1',
+      hash: '14df0c05474fd16d4690e22194a69599',
       title: 'scrollTo',
       screenshot: 'https://gw.alicdn.com/tfs/TB1ZIPecwoQMeJjy0FoXXcShVXa-540-844.png'
     }, {

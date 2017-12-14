@@ -42,7 +42,7 @@ module.exports = {
     },
     examples: [{
       hash: 'b62f1a5f4973f43fae9adca02864eb8b',
-      title: { zh: '最简例子', en: 'Sample' },
+      title: { zh: '绑定属性值', en: 'Binding Props' },
       screenshot: 'https://gw.alicdn.com/tfs/TB150aYcMoQMeJjy0FpXXcTxpXa-540-844.png'
     }, {
       hash: 'b142f24d2f0ab27f5f65448d2aa16970',
@@ -161,22 +161,22 @@ module.exports = {
       hash: '39684e82ad9a8e0b175f49e058cf7af6',
       title: { zh: '绑定 <textarea>', en: 'Using <textarea>' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1y738XiqAXuNjy1XdXXaYcVXa-540-844.png'
-    // }, {
-    //   hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-    //   title: { zh: '各种表单组件', en: '' },
-    //   screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-    // }, {
-    //   hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-    //   title: { zh: 'lazy 修饰符', en: '' },
-    //   screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-    // }, {
-    //   hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-    //   title: { zh: 'trim 修饰符', en: '' },
-    //   screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-    // }, {
-    //   hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-    //   title: { zh: 'number 修饰符', en: '' },
-    //   screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      title: { zh: '各种表单组件', en: '' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      title: { zh: 'lazy 修饰符', en: '' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      title: { zh: 'trim 修饰符', en: '' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      title: { zh: 'number 修饰符', en: '' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }]
   }, {
     type: 'v-once',
@@ -202,36 +202,6 @@ module.exports = {
       },
       screenshot: 'https://gw.alicdn.com/tfs/TB1cITaewMPMeJjy1XdXXasrXXa-540-844.png'
     }]
-  // }, {
-  //   type: 'component',
-  //   name: 'component',
-  //   title: { zh: '动态组件', en: '' },
-  //   desc: { zh: '通过使用保留的 <component> 元素，动态地绑定到它的 is 特性，我们让多个组件可以使用同一个挂载点，并动态切换。', en: '' },
-  //   docLink: { zh: 'https://cn.vuejs.org/v2/guide/components.html#动态组件', en: '' },
-  //   examples: [{
-  //     hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-  //     title: { zh: '最简例子', en: 'Sample' },
-  //     screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-  //   }]
-  // }, {
-  //   type: 'slot',
-  //   name: 'slot',
-  //   title: { zh: '内容分发', en: '' },
-  //   desc: { zh: '为了让组件可以组合，我们需要一种方式来混合父组件的内容与子组件自己的模板。这个过程被称为内容分发(或 “transclusion”)。Vue.js 实现了一个内容分发 API，参照了当前 Web 组件规范草案，使用特殊的 <slot> 元素作为原始内容的插槽。', en: '' },
-  //   docLink: { zh: 'https://cn.vuejs.org/v2/guide/components.html#使用-Slots-分发内容', en: '' },
-  //   examples: [{
-  //     hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-  //     title: { zh: '最简例子', en: 'Sample' },
-  //     screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-  //   }, {
-  //     hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-  //     title: { zh: '单个 solt', en: '' },
-  //     screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-  //   }, {
-  //     hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-  //     title: { zh: '具名 slot', en: '' },
-  //     screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-  //   }]
   }, {
     type: 'filters',
     name: 'Filters',
@@ -286,27 +256,116 @@ module.exports = {
       title: { zh: '选项合并', en: 'Mixin Options' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1FUTpdxrI8KJjy0FpXXb5hVXa-540-844.png'
     }]
-  // }, {
-  //   type: 'transition',
-  //   name: 'transition',
-  //   title: { zh: '节点过渡动画', en: '' },
-  //   desc: { zh: '<transition> 元素作为单个元素/组件的过渡效果。<transition> 不会渲染额外的 DOM 元素，也不会出现在检测过的组件层级中。它只是将内容包裹在其中，简单的运用过渡行为。', en: '' },
-  //   docLink: { zh: 'https://cn.vuejs.org/v2/api/#transition', en: '' },
-  //   examples: [{
-  //     hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-  //     title: { zh: '最简例子', en: 'Sample' },
-  //     screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-  //   }]
-  // }, {
-  //   type: 'keep-alive',
-  //   name: 'keep-alive',
-  //   title: { zh: '缓存组件', en: '' },
-  //   desc: { zh: '<keep-alive> 包裹动态组件时，会缓存不活动的组件实例，而不是销毁它们。和 <transition> 相似，<keep-alive> 是一个抽象组件：它自身不会渲染一个 DOM 元素，也不会出现在父组件链中。当组件在 <keep-alive> 内被切换，它的 activated 和 deactivated 这两个生命周期钩子函数将会被对应执行。', en: '' },
-  //   docLink: { zh: 'https://cn.vuejs.org/v2/api/#keep-alive', en: '' },
-  //   examples: [{
-  //     hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-  //     title: { zh: '最简例子', en: 'Sample' },
-  //     screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-  //   }]
+  }, {
+    type: 'component',
+    name: 'component',
+    title: { zh: '组件', en: 'Component' },
+    desc: {
+      zh: '组件系统是 Vue 的另一个重要概念，因为它是一种抽象，允许我们使用小型、独立和通常可复用的组件构建大型应用。仔细想想，几乎任意类型的应用界面都可以抽象为一个组件树。',
+      en: 'The component system is another important concept in Vue, because it’s an abstraction that allows us to build large-scale applications composed of small, self-contained, and often reusable components. If we think about it, almost any type of application interface can be abstracted into a tree of components'
+    },
+    docLink: {
+      zh: 'https://cn.vuejs.org/v2/guide/index.html#组件化应用构建',
+      en: 'https://vuejs.org/v2/guide/#Composing-with-Components'
+    },
+    examples: [{
+      hash: '0ee7b5af70129e89b662ab07f927cf0a',
+      title: { zh: '使用子组件', en: 'Composing Components' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB12KPGbS_I8KJjy0FoXXaFnVXa-540-844.png'
+    }, {
+      hash: 'ccefdea9e9ef695acca7fb1b439277e2',
+      title: { zh: '传递属性', en: 'Passing Data with Props' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: 'ccefdea9e9ef695acca7fb1b439277e2',
+      title: { zh: '传递并绑定属性', en: 'Dynamic Props' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: 'ccefdea9e9ef695acca7fb1b439277e2',
+      title: { zh: '属性校验', en: 'Props Validation' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: 'ccefdea9e9ef695acca7fb1b439277e2',
+      title: { zh: '子组件的引用', en: 'Child Component Refs' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: 'ccefdea9e9ef695acca7fb1b439277e2',
+      title: { zh: '多层子组件', en: 'Deep Composed Components' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: 'ccefdea9e9ef695acca7fb1b439277e2',
+      title: { zh: '生命周期', en: 'Lifecycles' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: 'ccefdea9e9ef695acca7fb1b439277e2',
+      title: { zh: '注册全局组件', en: 'Global Registration' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: 'ccefdea9e9ef695acca7fb1b439277e2',
+      title: { zh: '递归组件', en: 'Recursive Components' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: 'ccefdea9e9ef695acca7fb1b439277e2',
+      title: { zh: '异步组件', en: '' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: 'ccefdea9e9ef695acca7fb1b439277e2',
+      title: { zh: '内联模板', en: '' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }]
+  }, {
+    type: 'built-in',
+    name: 'Built-in Components',
+    title: { zh: '内置组件', en: 'Built-in Components' },
+    examples: [{
+      hash: 'ccefdea9e9ef695acca7fb1b439277e2',
+      title: { zh: '动态组件 <component>', en: 'Dynamic Components' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: 'ccefdea9e9ef695acca7fb1b439277e2',
+      title: { zh: '用 <slot> 分发内容', en: 'Content Distribution with Slots' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      title: { zh: '单个 solt', en: 'Single Slot' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: 'ccefdea9e9ef695acca7fb1b439277e2',
+      title: { zh: '具名 slot', en: 'Named Slot' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: 'ccefdea9e9ef695acca7fb1b439277e2',
+      title: { zh: '<transition>', en: ' <transition>' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: 'ccefdea9e9ef695acca7fb1b439277e2',
+      title: { zh: '<transition-group>', en: ' <transition-group>' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    // }, {
+    //   hash: 'ccefdea9e9ef695acca7fb1b439277e2',
+    //   title: { zh: '<keep-alive>', en: ' <keep-alive>' },
+    //   screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }]
+  }, {
+    type: 'communication',
+    name: 'Component Communication',
+    title: { zh: '组件通信', en: 'Component Communication' },
+    examples: [{
+      hash: 'ccefdea9e9ef695acca7fb1b439277e2',
+      title: { zh: '自定义事件', en: 'Custom Events' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: 'ccefdea9e9ef695acca7fb1b439277e2',
+      title: { zh: '父子组件通信', en: 'Parent-Child Communication' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: 'ccefdea9e9ef695acca7fb1b439277e2',
+      title: { zh: '表单组件传值', en: 'Form Components' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: 'ccefdea9e9ef695acca7fb1b439277e2',
+      title: { zh: '非父子组件通信', en: 'Non Parent-Child Communication' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }]
   }]
 }
