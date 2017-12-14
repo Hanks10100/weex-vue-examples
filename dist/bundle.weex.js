@@ -573,27 +573,27 @@ module.exports = __vue_exports__
 
 module.exports = {
   "content": {
-    "width": 750,
+    "width": "750",
     "position": "absolute",
     "top": 0,
-    "bottom": 110,
+    "bottom": "110",
     "flexDirection": "row",
     "justifyContent": "space-between"
   },
   "group": {
-    "width": 210
+    "width": "210"
   },
   "examples": {
-    "width": 540
+    "width": "540"
   },
   "group-type": {
-    "width": 200,
-    "height": 108,
+    "width": "200",
+    "height": "100",
     "transitionProperty": "width,backgroundColor",
     "transitionDuration": 200,
-    "borderBottomWidth": 1,
+    "borderBottomWidth": "1",
     "borderBottomColor": "#EEEEEE",
-    "borderRightWidth": 2,
+    "borderRightWidth": "2",
     "borderRightColor": "#E0E0E0",
     "justifyContent": "center",
     "backgroundColor": "#FEFEFE"
@@ -606,92 +606,94 @@ module.exports = {
   },
   "group-name": {
     "textAlign": "center",
-    "fontSize": 34,
+    "fontSize": "32",
     "color": "#888888"
   },
   "active-group-type": {
-    "width": 210,
-    "borderRadius": 10,
+    "width": "210",
+    "borderRadius": "10",
     "backgroundColor": "rgba(0,189,255,0.1)",
     "borderRightColor": "rgba(0,189,255,0.2)",
     "borderBottomColor": "rgba(0,189,255,0.1)"
   },
   "active-group-name": {
-    "fontSize": 38,
+    "fontSize": "34",
     "fontWeight": "bold",
     "color": "#00B4FF"
   },
   "group-intro": {
-    "paddingTop": 60,
-    "paddingBottom": 45
+    "paddingTop": "60",
+    "paddingBottom": "45"
   },
   "group-title": {
-    "paddingRight": 10,
-    "paddingBottom": 30,
-    "fontSize": 40,
+    "paddingRight": "10",
+    "paddingBottom": "30",
+    "fontSize": "40",
     "textAlign": "center",
     "color": "#00B4FF"
   },
   "group-desc": {
-    "fontSize": 28,
+    "fontSize": "28",
     "color": "#999999",
-    "marginLeft": 30,
-    "marginRight": 40
+    "marginLeft": "30",
+    "marginRight": "40"
   },
   "doc-link": {
-    "fontSize": 26,
+    "fontSize": "26",
     "color": "rgba(0,189,255,0.6)",
     "textAlign": "right",
-    "marginTop": 10,
-    "marginRight": 60
+    "marginTop": "10",
+    "marginRight": "60"
   },
   "case": {
     "flexDirection": "row",
     "justifyContent": "flex-start",
-    "paddingLeft": 15,
-    "paddingRight": 25,
-    "paddingTop": 20,
-    "paddingBottom": 20
+    "paddingLeft": "5",
+    "paddingRight": "10",
+    "paddingTop": "20",
+    "paddingBottom": "20"
   },
   "example-box": {
+    "justifyContent": "space-between",
     "alignItems": "center",
-    "paddingLeft": 25,
-    "paddingRight": 25
+    "paddingLeft": "15",
+    "paddingRight": "15",
+    "width": "270"
   },
   "screenshot": {
-    "width": 200,
-    "height": 312,
-    "borderWidth": 1,
+    "width": "220",
+    "height": "343",
+    "borderWidth": "1",
     "borderColor": "#DDDDDD"
   },
   "example-title": {
-    "fontSize": 32,
+    "fontSize": "32",
     "textAlign": "center",
     "color": "#606060",
-    "paddingTop": 10,
-    "paddingBottom": 10
+    "paddingTop": "10",
+    "paddingBottom": "10"
   },
   "example-tips": {
-    "fontSize": 26,
+    "fontSize": "26",
     "textAlign": "center",
     "color": "#999999",
-    "paddingTop": 10,
-    "paddingBottom": 10
+    "paddingTop": "10",
+    "paddingBottom": "10"
   },
   "setting-title-cell": {
     "alignItems": "center",
     "justifyContent": "center",
-    "borderBottomWidth": 1,
+    "borderBottomWidth": "1",
     "borderBottomStyle": "solid",
     "borderBottomColor": "#DDDDDD",
-    "paddingTop": 50,
-    "paddingRight": 50,
-    "paddingBottom": 50,
-    "paddingLeft": 50
+    "paddingTop": "50",
+    "paddingRight": "50",
+    "paddingBottom": "50",
+    "paddingLeft": "50"
   },
   "setting-title": {
-    "fontSize": 50,
-    "paddingBottom": 30,
+    "fontSize": "50",
+    "paddingBottom": "30",
     "textAlign": "center",
     "color": "#686868"
   },
@@ -699,36 +701,36 @@ module.exports = {
     "flexDirection": "row",
     "justifyContent": "space-between",
     "alignItems": "center",
-    "paddingTop": 30,
-    "paddingRight": 30,
-    "paddingBottom": 30,
-    "paddingLeft": 30,
-    "borderBottomWidth": 1,
+    "paddingTop": "30",
+    "paddingRight": "30",
+    "paddingBottom": "30",
+    "paddingLeft": "30",
+    "borderBottomWidth": "1",
     "borderBottomStyle": "solid",
     "borderBottomColor": "#DDDDDD"
   },
   "setting-label": {
-    "fontSize": 36,
+    "fontSize": "36",
     "color": "#707070"
   },
   "setting-value": {
-    "fontSize": 36,
+    "fontSize": "36",
     "color": "#999999"
   },
   "tabbar": {
-    "width": 750,
+    "width": "750",
     "position": "fixed",
     "bottom": 0,
-    "height": 110,
+    "height": "100",
     "flexDirection": "row",
     "justifyContent": "space-around",
     "alignItems": "flex-end",
     "backgroundColor": "#E6E6E6"
   },
   "tab-cell": {
-    "width": 186,
-    "height": 110,
-    "borderTopWidth": 2,
+    "width": "186",
+    "height": "100",
+    "borderTopWidth": "2",
     "borderTopStyle": "solid",
     "borderTopColor": "#DDDDDD",
     "justifyContent": "center",
@@ -740,12 +742,12 @@ module.exports = {
   },
   "tab-name": {
     "textAlign": "center",
-    "fontSize": 36,
+    "fontSize": "36",
     "color": "#666666"
   },
   "active-tab-name": {
     "color": "#00B4FF",
-    "fontSize": 45,
+    "fontSize": "45",
     "fontWeight": "bold"
   }
 }
@@ -768,6 +770,11 @@ var _examples2 = _interopRequireDefault(_examples);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var navigator = weex.requireModule('navigator'); //
+//
+//
+//
+//
+//
 //
 //
 //
@@ -1095,8 +1102,11 @@ exports.default = {
       var hash = {
         'en': 'a9b64158408b8e03d75fa26ba2095b2e',
         'zh': 'a411ffc411c4a07ab50e277343f8b64e'
-      };
-      storage.setItem('CURRENT_SOURCE_HASH', this.i18n(url));
+        // const hash = {
+        //   'en': 'ac01372f70a52361efb844cfc6886033',
+        //   'zh': '60ff3fd30d764a1ef81599b214864d0b'
+        // }
+      };storage.setItem('CURRENT_SOURCE_HASH', this.i18n(url));
       navigator.push({ url: createURL(this.i18n(hash)) });
     },
     chooseLanguage: function chooseLanguage() {
@@ -1143,6 +1153,9 @@ var cases = __webpack_require__(65);
 var others = __webpack_require__(66);
 
 var examples = [components, modules, syntax, styles, cases, others];
+
+// screen shot
+// http://dotwe.org/vue/5e9b359de1cbd977dec54654170d2a05
 
 module.exports = function getExamples() {
   var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
@@ -1924,9 +1937,51 @@ module.exports = {
       title: { zh: 'appear 事件', en: '"appear" Event' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1MnzLdxrI8KJjy0FpXXb5hVXa-540-844.png'
     }, {
-      hash: 'c38fbd7922d42810393c7a23529d48a1',
+      hash: '14df0c05474fd16d4690e22194a69599',
       title: 'scrollTo',
       screenshot: 'https://gw.alicdn.com/tfs/TB1ZIPecwoQMeJjy0FoXXcShVXa-540-844.png'
+    }]
+  }, {
+    type: 'recycle-list',
+    name: 'recycle-list',
+    title: { zh: '<recycle-list> 组件', en: '<recycle-list>' },
+    docLink: 'https://github.com/Hanks10100/weex-native-directive',
+    examples: [{
+      hash: '0658e5ec6c1d83e8c19adde7e0b2a0fa',
+      title: { zh: '文本绑定', en: 'Text Binding' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '6eb27e33b05182f2f453ebbde124d417',
+      title: { zh: '属性绑定', en: 'Attribute Binding' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '6cd9625cf1b5912289189efdba33d34c',
+      title: { zh: '使用 v-for', en: 'Using v-for' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '28145f9d5efd522ef507245829f04566',
+      title: { zh: '多层循环', en: 'Multiple v-for' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: 'ccefdea9e9ef695acca7fb1b439277e2',
+      title: { zh: '条件渲染', en: 'v-if/v-else' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '54500d15b5c8f2af2fbd443ab34af822',
+      title: { zh: '双向绑定', en: 'Using v-model' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: 'cd211e74bcf2cd918284234380f3c43a',
+      title: { zh: '绑定事件', en: 'Event Binding' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: 'a95fca7835aa3fc8bf2c24ec68c7d8cd',
+      title: { zh: '绑定样式', en: 'Style Binding' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '5c705064c078296bd0e6a2ee94963af7',
+      title: { zh: '压测页面', en: 'Benchmark' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1JGrQilfH8KJjy1XbXXbLdXXa-540-844.png'
     }]
   }, {
     type: 'input',
@@ -2150,7 +2205,7 @@ module.exports = {
       en: 'http://weex-project.io/references/modules/dom.html'
     },
     examples: [{
-      hash: 'c38fbd7922d42810393c7a23529d48a1',
+      hash: '14df0c05474fd16d4690e22194a69599',
       title: 'scrollTo',
       screenshot: 'https://gw.alicdn.com/tfs/TB1ZIPecwoQMeJjy0FoXXcShVXa-540-844.png'
     }, {
@@ -2366,7 +2421,7 @@ module.exports = {
   name: { zh: '语法', en: 'Syntax' },
   group: [{
     type: 'text-binding',
-    name: 'Text Binding',
+    name: { zh: '文本绑定', en: 'Text Binding' },
     title: { zh: '文本绑定', en: 'Text Binding' },
     desc: {
       zh: '数据绑定最常见的形式就是使用 “Mustache” 语法（双大括号）的文本插值。',
@@ -2405,7 +2460,7 @@ module.exports = {
     },
     examples: [{
       hash: 'b62f1a5f4973f43fae9adca02864eb8b',
-      title: { zh: '最简例子', en: 'Sample' },
+      title: { zh: '绑定属性值', en: 'Binding Props' },
       screenshot: 'https://gw.alicdn.com/tfs/TB150aYcMoQMeJjy0FpXXcTxpXa-540-844.png'
     }, {
       hash: 'b142f24d2f0ab27f5f65448d2aa16970',
@@ -2524,22 +2579,22 @@ module.exports = {
       hash: '39684e82ad9a8e0b175f49e058cf7af6',
       title: { zh: '绑定 <textarea>', en: 'Using <textarea>' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1y738XiqAXuNjy1XdXXaYcVXa-540-844.png'
-      // }, {
-      //   hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      //   title: { zh: '各种表单组件', en: '' },
-      //   screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-      // }, {
-      //   hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      //   title: { zh: 'lazy 修饰符', en: '' },
-      //   screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-      // }, {
-      //   hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      //   title: { zh: 'trim 修饰符', en: '' },
-      //   screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-      // }, {
-      //   hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      //   title: { zh: 'number 修饰符', en: '' },
-      //   screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      title: { zh: '各种表单组件', en: '' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      title: { zh: 'lazy 修饰符', en: '' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      title: { zh: 'trim 修饰符', en: '' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      title: { zh: 'number 修饰符', en: '' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }]
   }, {
     type: 'v-once',
@@ -2565,36 +2620,6 @@ module.exports = {
       },
       screenshot: 'https://gw.alicdn.com/tfs/TB1cITaewMPMeJjy1XdXXasrXXa-540-844.png'
     }]
-    // }, {
-    //   type: 'component',
-    //   name: 'component',
-    //   title: { zh: '动态组件', en: '' },
-    //   desc: { zh: '通过使用保留的 <component> 元素，动态地绑定到它的 is 特性，我们让多个组件可以使用同一个挂载点，并动态切换。', en: '' },
-    //   docLink: { zh: 'https://cn.vuejs.org/v2/guide/components.html#动态组件', en: '' },
-    //   examples: [{
-    //     hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-    //     title: { zh: '最简例子', en: 'Sample' },
-    //     screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-    //   }]
-    // }, {
-    //   type: 'slot',
-    //   name: 'slot',
-    //   title: { zh: '内容分发', en: '' },
-    //   desc: { zh: '为了让组件可以组合，我们需要一种方式来混合父组件的内容与子组件自己的模板。这个过程被称为内容分发(或 “transclusion”)。Vue.js 实现了一个内容分发 API，参照了当前 Web 组件规范草案，使用特殊的 <slot> 元素作为原始内容的插槽。', en: '' },
-    //   docLink: { zh: 'https://cn.vuejs.org/v2/guide/components.html#使用-Slots-分发内容', en: '' },
-    //   examples: [{
-    //     hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-    //     title: { zh: '最简例子', en: 'Sample' },
-    //     screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-    //   }, {
-    //     hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-    //     title: { zh: '单个 solt', en: '' },
-    //     screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-    //   }, {
-    //     hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-    //     title: { zh: '具名 slot', en: '' },
-    //     screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-    //   }]
   }, {
     type: 'filters',
     name: 'Filters',
@@ -2649,28 +2674,117 @@ module.exports = {
       title: { zh: '选项合并', en: 'Mixin Options' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1FUTpdxrI8KJjy0FpXXb5hVXa-540-844.png'
     }]
-    // }, {
-    //   type: 'transition',
-    //   name: 'transition',
-    //   title: { zh: '节点过渡动画', en: '' },
-    //   desc: { zh: '<transition> 元素作为单个元素/组件的过渡效果。<transition> 不会渲染额外的 DOM 元素，也不会出现在检测过的组件层级中。它只是将内容包裹在其中，简单的运用过渡行为。', en: '' },
-    //   docLink: { zh: 'https://cn.vuejs.org/v2/api/#transition', en: '' },
-    //   examples: [{
-    //     hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-    //     title: { zh: '最简例子', en: 'Sample' },
-    //     screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-    //   }]
-    // }, {
-    //   type: 'keep-alive',
-    //   name: 'keep-alive',
-    //   title: { zh: '缓存组件', en: '' },
-    //   desc: { zh: '<keep-alive> 包裹动态组件时，会缓存不活动的组件实例，而不是销毁它们。和 <transition> 相似，<keep-alive> 是一个抽象组件：它自身不会渲染一个 DOM 元素，也不会出现在父组件链中。当组件在 <keep-alive> 内被切换，它的 activated 和 deactivated 这两个生命周期钩子函数将会被对应执行。', en: '' },
-    //   docLink: { zh: 'https://cn.vuejs.org/v2/api/#keep-alive', en: '' },
-    //   examples: [{
-    //     hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-    //     title: { zh: '最简例子', en: 'Sample' },
-    //     screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-    //   }]
+  }, {
+    type: 'component',
+    name: { zh: '组件', en: 'Component' },
+    title: { zh: '组件', en: 'Component' },
+    desc: {
+      zh: '组件系统是 Vue 的另一个重要概念，因为它是一种抽象，允许我们使用小型、独立和通常可复用的组件构建大型应用。仔细想想，几乎任意类型的应用界面都可以抽象为一个组件树。',
+      en: 'The component system is another important concept in Vue, because it’s an abstraction that allows us to build large-scale applications composed of small, self-contained, and often reusable components. If we think about it, almost any type of application interface can be abstracted into a tree of components'
+    },
+    docLink: {
+      zh: 'https://cn.vuejs.org/v2/guide/index.html#组件化应用构建',
+      en: 'https://vuejs.org/v2/guide/#Composing-with-Components'
+    },
+    examples: [{
+      hash: '0ee7b5af70129e89b662ab07f927cf0a',
+      title: { zh: '使用子组件', en: 'Composing Components' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB12KPGbS_I8KJjy0FoXXaFnVXa-540-844.png'
+    }, {
+      hash: 'ccefdea9e9ef695acca7fb1b439277e2',
+      title: { zh: '传递属性', en: 'Passing Data with Props' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: 'ccefdea9e9ef695acca7fb1b439277e2',
+      title: { zh: '传递并绑定属性', en: 'Dynamic Props' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: 'ccefdea9e9ef695acca7fb1b439277e2',
+      title: { zh: '属性校验', en: 'Props Validation' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: 'ccefdea9e9ef695acca7fb1b439277e2',
+      title: { zh: '子组件的引用', en: 'Child Component Refs' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: 'ccefdea9e9ef695acca7fb1b439277e2',
+      title: { zh: '多层子组件', en: 'Deep Composed Components' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: 'ccefdea9e9ef695acca7fb1b439277e2',
+      title: { zh: '生命周期', en: 'Lifecycles' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: 'ccefdea9e9ef695acca7fb1b439277e2',
+      title: { zh: '注册全局组件', en: 'Global Registration' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: 'df46cfd946e3479ffce93196b86e9d9c',
+      title: { zh: '递归组件', en: 'Recursive Components' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1U868icrI8KJjy0FhXXbfnpXa-540-844.png'
+    }, {
+      hash: 'ccefdea9e9ef695acca7fb1b439277e2',
+      title: { zh: '异步组件', en: '' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: 'ccefdea9e9ef695acca7fb1b439277e2',
+      title: { zh: '内联模板', en: '' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }]
+  }, {
+    type: 'built-in',
+    name: { zh: '内置组件', en: 'Built-in' },
+    title: { zh: '内置组件', en: 'Built-in Components' },
+    examples: [{
+      hash: 'ccefdea9e9ef695acca7fb1b439277e2',
+      title: { zh: '动态组件 <component>', en: 'Dynamic Components' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: 'ccefdea9e9ef695acca7fb1b439277e2',
+      title: { zh: '用 <slot> 分发内容', en: 'Content Distribution with Slots' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      title: { zh: '单个 solt', en: 'Single Slot' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: 'ccefdea9e9ef695acca7fb1b439277e2',
+      title: { zh: '具名 slot', en: 'Named Slot' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: 'ccefdea9e9ef695acca7fb1b439277e2',
+      title: { zh: '<transition>', en: '<transition>' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: 'ccefdea9e9ef695acca7fb1b439277e2',
+      title: { zh: '<transition-group>', en: '<transition-group>' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      // }, {
+      //   hash: 'ccefdea9e9ef695acca7fb1b439277e2',
+      //   title: { zh: '<keep-alive>', en: ' <keep-alive>' },
+      //   screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }]
+  }, {
+    type: 'communication',
+    name: { zh: '组件通信', en: 'Communication' },
+    title: { zh: '组件通信', en: 'Component Communication' },
+    examples: [{
+      hash: 'ccefdea9e9ef695acca7fb1b439277e2',
+      title: { zh: '自定义事件', en: 'Custom Events' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: 'ccefdea9e9ef695acca7fb1b439277e2',
+      title: { zh: '父子组件通信', en: 'Parent-Child Communication' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: 'ccefdea9e9ef695acca7fb1b439277e2',
+      title: { zh: '表单组件传值', en: 'Form Components' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: 'ccefdea9e9ef695acca7fb1b439277e2',
+      title: { zh: '非父子组件通信', en: 'Non Parent-Child Communication' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }]
   }]
 };
 
@@ -3016,6 +3130,54 @@ module.exports = {
       title: { zh: '层级 1000', en: '1000 Layers' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1I1z8cMMPMeJjy1XdXXasrXXa-540-844.png'
     }]
+  }, {
+    type: 'composed-benchmark',
+    name: { zh: '混合压测', en: 'Composed Benchmark' },
+    examples: [{
+      hash: 'c4849fe9950c03bbb59f1ac7660b9430',
+      title: '10 x 10',
+      screenshot: 'https://gw.alicdn.com/tfs/TB1YGouihrI8KJjy0FpXXb5hVXa-540-844.png'
+    }, {
+      hash: '08b7bd34da310cc3a173bef5be8aee68',
+      title: '15 x 15',
+      screenshot: 'https://gw.alicdn.com/tfs/TB1oPMVibYI8KJjy0FaXXbAiVXa-540-844.png'
+    }, {
+      hash: '41cc7b9a252d7cd88233b5e70e633ae5',
+      title: '20 x 20',
+      screenshot: 'https://gw.alicdn.com/tfs/TB1kbvSilfH8KJjy1XbXXbLdXXa-540-844.png'
+    }, {
+      hash: '290873a8734eecf4d7d8060e0f34bc4a',
+      title: '25 x 25',
+      screenshot: 'https://gw.alicdn.com/tfs/TB1oTkJifDH8KJjy1XcXXcpdXXa-540-844.png'
+    }, {
+      hash: 'bf5e9e6bb1f4a8a451e638165aca586d',
+      title: '30 x 30',
+      screenshot: 'https://gw.alicdn.com/tfs/TB1LGQZib_I8KJjy1XaXXbsxpXa-540-844.png'
+    }, {
+      hash: '80ea75498c49406c5493b596baa738e9',
+      title: '40 x 40',
+      screenshot: 'https://gw.alicdn.com/tfs/TB1uGnQilfH8KJjy1XbXXbLdXXa-540-844.png'
+      // }, {
+      //   hash: 'a7e1f6fa5afb413689bc15f58ed085c7',
+      //   title: '50 x 50',
+      //   screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }]
+  }, {
+    type: 'case-benchmark',
+    name: { zh: '实例压测', en: 'Real Case Benchmark' },
+    examples: [{
+      hash: '8fb49bf98996a9f26f4f8123b40d763c',
+      title: '<list>',
+      screenshot: 'https://gw.alicdn.com/tfs/TB1JGrQilfH8KJjy1XbXXbLdXXa-540-844.png'
+    }, {
+      hash: 'cbffa887a26cb040c10c56117bcfd655',
+      title: '<scroller>',
+      screenshot: 'https://gw.alicdn.com/tfs/TB1JGrQilfH8KJjy1XbXXbLdXXa-540-844.png'
+    }, {
+      hash: '5c705064c078296bd0e6a2ee94963af7',
+      title: '<recycle-list>',
+      screenshot: 'https://gw.alicdn.com/tfs/TB1JGrQilfH8KJjy1XbXXbLdXXa-540-844.png'
+    }]
   }]
 };
 
@@ -3052,7 +3214,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: ["examples"]
   }, [(_vm.currentGroup.type === 'settings') ? _c('list', {
     staticClass: ["settings"]
-  }, [_vm._m(0), _c('cell', {
+  }, [_vm._m(0, false, false), _c('cell', {
     staticClass: ["setting-cell"],
     appendAsTree: true,
     attrs: {
@@ -3098,7 +3260,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         staticClass: ["example-box"]
       }, [_c('text', {
         staticClass: ["example-title"]
-      }, [_vm._v(_vm._s(_vm.i18n(example.title)))]), _c('a', {
+      }, [_vm._v(_vm._s(_vm.i18n(example.title)))]), _c('div', {
+        staticStyle: {
+          alignItems: "center"
+        }
+      }, [_c('a', {
         attrs: {
           "href": _vm._f("url")(_vm.i18n(example.hash))
         }
@@ -3114,7 +3280,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
             _vm.viewSource(example.hash)
           }
         }
-      }, [_vm._v(_vm._s(_vm.i18n(_vm.tips.VIEW_SOURCE)))])])
+      }, [_vm._v(_vm._s(_vm.i18n(_vm.tips.VIEW_SOURCE)))])])])
     }))
   })], 2)])]), _c('div', {
     staticClass: ["tabbar"]
