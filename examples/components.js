@@ -179,46 +179,37 @@ module.exports = {
       screenshot: 'https://gw.alicdn.com/tfs/TB1ZIPecwoQMeJjy0FoXXcShVXa-540-844.png'
     }]
   }, {
-    type: 'recycle-list',
-    name: 'recycle-list',
-    title: { zh: '<recycle-list> 组件', en: '<recycle-list>' },
-    docLink: 'https://github.com/Hanks10100/weex-native-directive',
+    type: 'slider',
+    name: 'slider',
+    title: { zh: '<slider> 组件', en: '<slider>' },
+    desc: {
+      zh: '<slider> 组件用于在一个页面中展示多个图片，在前端，这种效果被称为 轮播图。',
+      en: 'A slide’s player to show slides (mostly as pictures) one page by another. The default interval between two slides is 3 seconds.'
+    },
+    docLink: {
+      zh: 'http://weex-project.io/cn/references/components/slider.html',
+      en: 'http://weex-project.io/references/components/slider.html'
+    },
     examples: [{
-      hash: '0658e5ec6c1d83e8c19adde7e0b2a0fa',
-      title: { zh: '文本绑定', en: 'Text Binding' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      hash: 'd8f6759dc25d31274aed106041952290',
+      title: { zh: '最简例子', en: 'Simple' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1aIH3hiqAXuNjy1XdXXaYcVXa-540-844.png'
     }, {
-      hash: '6eb27e33b05182f2f453ebbde124d417',
-      title: { zh: '属性绑定', en: 'Attribute Binding' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      hash: '9ff7050b2d012b2ece066bf17fe907d5',
+      title: { zh: '自动播放', en: 'Auto Play' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1ecL3hiqAXuNjy1XdXXaYcVXa-540-844.png'
     }, {
-      hash: '6cd9625cf1b5912289189efdba33d34c',
-      title: { zh: '使用 v-for', en: 'Using v-for' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      hash: '0817ed75b49ebfa04d499b3aa5f91925',
+      title: { zh: '<indicator>', en: 'With Indicator' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sdb3hiqAXuNjy1XdXXaYcVXa-540-844.png'
     }, {
-      hash: '28145f9d5efd522ef507245829f04566',
-      title: { zh: '多层循环', en: 'Multiple v-for' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      hash: '0bb9f6e469edafe4da587b80de08e0ba',
+      title: { zh: '间隔时间', en: 'Interval' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1XJj3hiqAXuNjy1XdXXaYcVXa-540-844.png'
     }, {
-      hash: 'ccefdea9e9ef695acca7fb1b439277e2',
-      title: { zh: '条件渲染', en: 'v-if/v-else' },
+      hash: '2d8da136e33f63a0bfe4b1e42362405b',
+      title: '<slider-neighbor>',
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-    }, {
-      hash: '54500d15b5c8f2af2fbd443ab34af822',
-      title: { zh: '双向绑定', en: 'Using v-model' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-    }, {
-      hash: 'cd211e74bcf2cd918284234380f3c43a',
-      title: { zh: '绑定事件', en: 'Event Binding' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-    }, {
-      hash: 'a95fca7835aa3fc8bf2c24ec68c7d8cd',
-      title: { zh: '绑定样式', en: 'Style Binding' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-    }, {
-      hash: '5c705064c078296bd0e6a2ee94963af7',
-      title: { zh: '压测页面', en: 'Benchmark' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1JGrQilfH8KJjy1XbXXbLdXXa-540-844.png'
     }]
   }, {
     type: 'input',
@@ -386,6 +377,48 @@ module.exports = {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
       title: { zh: '最简例子', en: 'Sample' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }]
+  }, {
+    type: 'recycle-list',
+    name: 'recycle-list',
+    title: { zh: '<recycle-list> 组件', en: '<recycle-list>' },
+    docLink: 'https://github.com/Hanks10100/weex-native-directive',
+    examples: [{
+      hash: '0658e5ec6c1d83e8c19adde7e0b2a0fa',
+      title: { zh: '文本绑定', en: 'Text Binding' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '6eb27e33b05182f2f453ebbde124d417',
+      title: { zh: '属性绑定', en: 'Attribute Binding' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '6cd9625cf1b5912289189efdba33d34c',
+      title: { zh: '使用 v-for', en: 'Using v-for' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '28145f9d5efd522ef507245829f04566',
+      title: { zh: '多层循环', en: 'Multiple v-for' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: 'ccefdea9e9ef695acca7fb1b439277e2',
+      title: { zh: '条件渲染', en: 'v-if/v-else' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '54500d15b5c8f2af2fbd443ab34af822',
+      title: { zh: '双向绑定', en: 'Using v-model' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: 'cd211e74bcf2cd918284234380f3c43a',
+      title: { zh: '绑定事件', en: 'Event Binding' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: 'a95fca7835aa3fc8bf2c24ec68c7d8cd',
+      title: { zh: '绑定样式', en: 'Style Binding' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '5c705064c078296bd0e6a2ee94963af7',
+      title: { zh: '压测页面', en: 'Benchmark' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1JGrQilfH8KJjy1XbXXbLdXXa-540-844.png'
     }]
   }]
 }

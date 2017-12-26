@@ -229,7 +229,7 @@
     return `${url}?_wx_tpl=${url}`
   }
 
-  const exampleMap = getExamples({ scope: 'mobile' })
+  const exampleMap = getExamples({ scope: 'mobile', filterTODO: true })
   export default {
     filters: {
       url: createURL,
@@ -314,14 +314,14 @@
         navigator.push({ url: createURL(this.i18n(hash)) })
       },
       viewSource (url) {
-        const hash =  {
-          'en': 'a9b64158408b8e03d75fa26ba2095b2e',
-          'zh': 'a411ffc411c4a07ab50e277343f8b64e'
-        }
-        // const hash = {
-        //   'en': 'ac01372f70a52361efb844cfc6886033',
-        //   'zh': '60ff3fd30d764a1ef81599b214864d0b'
+        // const hash =  {
+        //   'en': 'a9b64158408b8e03d75fa26ba2095b2e',
+        //   'zh': 'a411ffc411c4a07ab50e277343f8b64e'
         // }
+        const hash = {
+          'en': '032afafed7947de7d5123a45b3ca9704',
+          'zh': '785cf2804ac6a6dd807a0c988b5729cd'
+        }
         storage.setItem('CURRENT_SOURCE_HASH', this.i18n(url))
         navigator.push({ url: createURL(this.i18n(hash)) })
       },

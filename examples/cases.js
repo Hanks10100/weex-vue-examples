@@ -10,10 +10,6 @@ module.exports = {
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: '123b69b57e099036558745298fb6e8ca',
-      title: { zh: '多页签', en: 'Multi Tabs' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-    }, {
-      hash: '123b69b57e099036558745298fb6e8ca',
       title: { zh: '楼层电梯', en: 'Elevator' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
@@ -31,6 +27,46 @@ module.exports = {
     }, {
       hash: '123b69b57e099036558745298fb6e8ca',
       title: { zh: '全屏遮罩', en: 'Fullscreen Mask' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }]
+  }, {
+    type: 'tabs',
+    name: { zh: '多页签', en: 'Tabs' },
+    examples: [{
+      hash: '6415774229aec7f0161504b356e7e94e',
+      title: 'Tabbar',
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: 'c5f7cb6cc90fe4883436534167563dd3',
+      title: { zh: '带切换动画', en: 'Tabbar with Animation' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '643ac211e70a3c733f1d2ef848b3e7f0',
+      title: { zh: '带内容', en: 'Tabbar with Panels' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      title: { zh: '多个页签实例', en: '<embed>' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      title: { zh: '手势滑动', en: '' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }]
+  }, {
+    type: 'spa',
+    name: { zh: '单页应用', en: 'Single Page App' },
+    examples: [{
+      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      title: { zh: '使用 Vuex', en: 'Using Vuex' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      title: { zh: '使用 vue-router', en: 'Using vue-router' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      title: { zh: '单页应用', en: 'Single Page App' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }]
   }, {

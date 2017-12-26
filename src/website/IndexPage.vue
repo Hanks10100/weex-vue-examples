@@ -28,7 +28,7 @@
   import getExamples from '../../examples'
   import ExampleList from './ExampleList.vue'
 
-  const examples = getExamples()
+  const examples = getExamples({ filterTODO: false })
   export default {
     components: { ExampleList },
     data () {

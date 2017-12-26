@@ -1297,7 +1297,7 @@ function createURL(hash) {
   return url + '?_wx_tpl=' + url;
 }
 
-var exampleMap = (0, _examples2.default)({ scope: 'mobile' });
+var exampleMap = (0, _examples2.default)({ scope: 'mobile', filterTODO: true });
 exports.default = {
   filters: {
     url: createURL,
@@ -1398,14 +1398,15 @@ exports.default = {
       navigator.push({ url: createURL(this.i18n(hash)) });
     },
     viewSource: function viewSource(url) {
+      // const hash =  {
+      //   'en': 'a9b64158408b8e03d75fa26ba2095b2e',
+      //   'zh': 'a411ffc411c4a07ab50e277343f8b64e'
+      // }
       var hash = {
-        'en': 'a9b64158408b8e03d75fa26ba2095b2e',
-        'zh': 'a411ffc411c4a07ab50e277343f8b64e'
-        // const hash = {
-        //   'en': 'ac01372f70a52361efb844cfc6886033',
-        //   'zh': '60ff3fd30d764a1ef81599b214864d0b'
-        // }
-      };storage.setItem('CURRENT_SOURCE_HASH', this.i18n(url));
+        'en': '032afafed7947de7d5123a45b3ca9704',
+        'zh': '785cf2804ac6a6dd807a0c988b5729cd'
+      };
+      storage.setItem('CURRENT_SOURCE_HASH', this.i18n(url));
       navigator.push({ url: createURL(this.i18n(hash)) });
     },
     chooseLanguage: function chooseLanguage() {
@@ -1456,19 +1457,35 @@ var examples = [components, modules, syntax, styles, cases, others];
 // screen shot
 // http://dotwe.org/vue/5e9b359de1cbd977dec54654170d2a05
 
+function isTODO(example) {
+  return example.hash === '' || example.hash === '4624d605004fc7eb9f14ca9c5a226fe3' || example.hash === 'ccefdea9e9ef695acca7fb1b439277e2' || example.hash === '123b69b57e099036558745298fb6e8ca' || example.hash === '2d8da136e33f63a0bfe4b1e42362405b';
+}
+
 module.exports = function getExamples() {
   var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
+  var selected = examples;
   if (options.scope === 'mobile') {
     var _others$group, _others$group2;
 
-    var selected = [components, modules, syntax];
+    selected = [components, modules, syntax];
     (_others$group = others.group).unshift.apply(_others$group, (0, _toConsumableArray3.default)(cases.group));
     (_others$group2 = others.group).unshift.apply(_others$group2, (0, _toConsumableArray3.default)(styles.group));
     selected.push(others);
-    return selected;
   }
-  return examples;
+  // filter WIP examples
+  if (options.filterTODO) {
+    selected = selected.filter(function (item) {
+      item.group = item.group.filter(function (group) {
+        group.examples = group.examples.filter(function (_) {
+          return !isTODO(_);
+        });
+        return !!group.examples.length;
+      });
+      return !!item.group.length;
+    });
+  }
+  return selected;
 };
 
 /***/ }),
@@ -2241,46 +2258,37 @@ module.exports = {
       screenshot: 'https://gw.alicdn.com/tfs/TB1ZIPecwoQMeJjy0FoXXcShVXa-540-844.png'
     }]
   }, {
-    type: 'recycle-list',
-    name: 'recycle-list',
-    title: { zh: '<recycle-list> 组件', en: '<recycle-list>' },
-    docLink: 'https://github.com/Hanks10100/weex-native-directive',
+    type: 'slider',
+    name: 'slider',
+    title: { zh: '<slider> 组件', en: '<slider>' },
+    desc: {
+      zh: '<slider> 组件用于在一个页面中展示多个图片，在前端，这种效果被称为 轮播图。',
+      en: 'A slide’s player to show slides (mostly as pictures) one page by another. The default interval between two slides is 3 seconds.'
+    },
+    docLink: {
+      zh: 'http://weex-project.io/cn/references/components/slider.html',
+      en: 'http://weex-project.io/references/components/slider.html'
+    },
     examples: [{
-      hash: '0658e5ec6c1d83e8c19adde7e0b2a0fa',
-      title: { zh: '文本绑定', en: 'Text Binding' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      hash: 'd8f6759dc25d31274aed106041952290',
+      title: { zh: '最简例子', en: 'Simple' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1aIH3hiqAXuNjy1XdXXaYcVXa-540-844.png'
     }, {
-      hash: '6eb27e33b05182f2f453ebbde124d417',
-      title: { zh: '属性绑定', en: 'Attribute Binding' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      hash: '9ff7050b2d012b2ece066bf17fe907d5',
+      title: { zh: '自动播放', en: 'Auto Play' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1ecL3hiqAXuNjy1XdXXaYcVXa-540-844.png'
     }, {
-      hash: '6cd9625cf1b5912289189efdba33d34c',
-      title: { zh: '使用 v-for', en: 'Using v-for' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      hash: '0817ed75b49ebfa04d499b3aa5f91925',
+      title: { zh: '<indicator>', en: 'With Indicator' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sdb3hiqAXuNjy1XdXXaYcVXa-540-844.png'
     }, {
-      hash: '28145f9d5efd522ef507245829f04566',
-      title: { zh: '多层循环', en: 'Multiple v-for' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      hash: '0bb9f6e469edafe4da587b80de08e0ba',
+      title: { zh: '间隔时间', en: 'Interval' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1XJj3hiqAXuNjy1XdXXaYcVXa-540-844.png'
     }, {
-      hash: 'ccefdea9e9ef695acca7fb1b439277e2',
-      title: { zh: '条件渲染', en: 'v-if/v-else' },
+      hash: '2d8da136e33f63a0bfe4b1e42362405b',
+      title: '<slider-neighbor>',
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-    }, {
-      hash: '54500d15b5c8f2af2fbd443ab34af822',
-      title: { zh: '双向绑定', en: 'Using v-model' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-    }, {
-      hash: 'cd211e74bcf2cd918284234380f3c43a',
-      title: { zh: '绑定事件', en: 'Event Binding' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-    }, {
-      hash: 'a95fca7835aa3fc8bf2c24ec68c7d8cd',
-      title: { zh: '绑定样式', en: 'Style Binding' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-    }, {
-      hash: '5c705064c078296bd0e6a2ee94963af7',
-      title: { zh: '压测页面', en: 'Benchmark' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1JGrQilfH8KJjy1XbXXbLdXXa-540-844.png'
     }]
   }, {
     type: 'input',
@@ -2448,6 +2456,48 @@ module.exports = {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
       title: { zh: '最简例子', en: 'Sample' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }]
+  }, {
+    type: 'recycle-list',
+    name: 'recycle-list',
+    title: { zh: '<recycle-list> 组件', en: '<recycle-list>' },
+    docLink: 'https://github.com/Hanks10100/weex-native-directive',
+    examples: [{
+      hash: '0658e5ec6c1d83e8c19adde7e0b2a0fa',
+      title: { zh: '文本绑定', en: 'Text Binding' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '6eb27e33b05182f2f453ebbde124d417',
+      title: { zh: '属性绑定', en: 'Attribute Binding' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '6cd9625cf1b5912289189efdba33d34c',
+      title: { zh: '使用 v-for', en: 'Using v-for' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '28145f9d5efd522ef507245829f04566',
+      title: { zh: '多层循环', en: 'Multiple v-for' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: 'ccefdea9e9ef695acca7fb1b439277e2',
+      title: { zh: '条件渲染', en: 'v-if/v-else' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '54500d15b5c8f2af2fbd443ab34af822',
+      title: { zh: '双向绑定', en: 'Using v-model' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: 'cd211e74bcf2cd918284234380f3c43a',
+      title: { zh: '绑定事件', en: 'Event Binding' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: 'a95fca7835aa3fc8bf2c24ec68c7d8cd',
+      title: { zh: '绑定样式', en: 'Style Binding' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '5c705064c078296bd0e6a2ee94963af7',
+      title: { zh: '压测页面', en: 'Benchmark' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1JGrQilfH8KJjy1XbXXbLdXXa-540-844.png'
     }]
   }]
 };
@@ -2990,21 +3040,13 @@ module.exports = {
       title: { zh: '使用子组件', en: 'Composing Components' },
       screenshot: 'https://gw.alicdn.com/tfs/TB12KPGbS_I8KJjy0FoXXaFnVXa-540-844.png'
     }, {
-      hash: 'ccefdea9e9ef695acca7fb1b439277e2',
+      hash: 'a91730c73df88b1649149dd2ebd61d20',
       title: { zh: '传递属性', en: 'Passing Data with Props' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB12KPGbS_I8KJjy0FoXXaFnVXa-540-844.png'
     }, {
-      hash: 'ccefdea9e9ef695acca7fb1b439277e2',
-      title: { zh: '传递并绑定属性', en: 'Dynamic Props' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-    }, {
-      hash: 'ccefdea9e9ef695acca7fb1b439277e2',
-      title: { zh: '属性校验', en: 'Props Validation' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-    }, {
-      hash: 'ccefdea9e9ef695acca7fb1b439277e2',
+      hash: 'f5b561041de77d9fba8e70e0226c548e',
       title: { zh: '子组件的引用', en: 'Child Component Refs' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB12KPGbS_I8KJjy0FoXXaFnVXa-540-844.png'
     }, {
       hash: 'ccefdea9e9ef695acca7fb1b439277e2',
       title: { zh: '多层子组件', en: 'Deep Composed Components' },
@@ -3236,10 +3278,6 @@ module.exports = {
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
       hash: '123b69b57e099036558745298fb6e8ca',
-      title: { zh: '多页签', en: 'Multi Tabs' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-    }, {
-      hash: '123b69b57e099036558745298fb6e8ca',
       title: { zh: '楼层电梯', en: 'Elevator' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
@@ -3257,6 +3295,46 @@ module.exports = {
     }, {
       hash: '123b69b57e099036558745298fb6e8ca',
       title: { zh: '全屏遮罩', en: 'Fullscreen Mask' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }]
+  }, {
+    type: 'tabs',
+    name: { zh: '多页签', en: 'Tabs' },
+    examples: [{
+      hash: '6415774229aec7f0161504b356e7e94e',
+      title: 'Tabbar',
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: 'c5f7cb6cc90fe4883436534167563dd3',
+      title: { zh: '带切换动画', en: 'Tabbar with Animation' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '643ac211e70a3c733f1d2ef848b3e7f0',
+      title: { zh: '带内容', en: 'Tabbar with Panels' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      title: { zh: '多个页签实例', en: '<embed>' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      title: { zh: '手势滑动', en: '' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }]
+  }, {
+    type: 'spa',
+    name: { zh: '单页应用', en: 'Single Page App' },
+    examples: [{
+      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      title: { zh: '使用 Vuex', en: 'Using Vuex' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      title: { zh: '使用 vue-router', en: 'Using vue-router' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      title: { zh: '单页应用', en: 'Single Page App' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }]
   }, {
@@ -3325,7 +3403,7 @@ module.exports = {
       title: { zh: '功能检测', en: 'Feature Detect' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1TOGuc3MPMeJjy1XdXXasrXXa-540-844.png'
     }, {
-      hash: '8313d0b11a4e90b2f002833ba6b50bc4',
+      hash: '071c9372edea9530546b6fb61201702f',
       title: { zh: '支持 WebAssembly？', en: 'Support WebAssembly?' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1cHyefwMPMeJjy1XbXXcwxVXa-540-844.png'
     }, {

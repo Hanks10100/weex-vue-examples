@@ -273,21 +273,13 @@ module.exports = {
       title: { zh: '使用子组件', en: 'Composing Components' },
       screenshot: 'https://gw.alicdn.com/tfs/TB12KPGbS_I8KJjy0FoXXaFnVXa-540-844.png'
     }, {
-      hash: 'ccefdea9e9ef695acca7fb1b439277e2',
+      hash: 'a91730c73df88b1649149dd2ebd61d20',
       title: { zh: '传递属性', en: 'Passing Data with Props' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB12KPGbS_I8KJjy0FoXXaFnVXa-540-844.png'
     }, {
-      hash: 'ccefdea9e9ef695acca7fb1b439277e2',
-      title: { zh: '传递并绑定属性', en: 'Dynamic Props' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-    }, {
-      hash: 'ccefdea9e9ef695acca7fb1b439277e2',
-      title: { zh: '属性校验', en: 'Props Validation' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-    }, {
-      hash: 'ccefdea9e9ef695acca7fb1b439277e2',
+      hash: 'f5b561041de77d9fba8e70e0226c548e',
       title: { zh: '子组件的引用', en: 'Child Component Refs' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB12KPGbS_I8KJjy0FoXXaFnVXa-540-844.png'
     }, {
       hash: 'ccefdea9e9ef695acca7fb1b439277e2',
       title: { zh: '多层子组件', en: 'Deep Composed Components' },
