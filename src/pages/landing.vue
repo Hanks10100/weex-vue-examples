@@ -53,7 +53,7 @@
     padding-bottom: 50px;
   }
   .menu-item:active {
-    background-color: #EEE;
+    background-color: #F2F2F2;
   }
   .menu-item-1 {
     border-right-width: 1px;
@@ -64,6 +64,6 @@
     text-align: center;
     font-size: 60px;
     font-weight: bold;
-    color: #808080;
+    color: #8B8B8B;
   }
 </style>
