@@ -1,78 +1,81 @@
-var path = require('path')
-var webpack = require('webpack')
-var UglifyJSPlugin = require('uglifyjs-webpack-plugin')
+const path = require('path')
+const webpack = require('webpack')
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 
-function addMinSuffix (string) {
-  return string.replace(/\.js$/i, '.min.js')
-}
-
-function createBuildConfig (option) {
-  if (!option) {
-    option = {}
-  }
-  var isNative = option.isNative || false
-  var commonConfig = {
+function createConfig (option = {}) {
+  const { isWeex, minify } = option
+  const suffix = `.${isWeex ? 'weex' : 'web'}${minify ? '.min': '' }.js`
+  const webpackConfig = {
     entry: option.entry,
     output: {
       path: path.resolve(__dirname, option.outputPath || 'dist'),
-      filename: option.outputName || (isNative ? 'bundle.weex.js' : 'bundle.web.js')
+      filename: (option.outputName || 'bundle') + suffix
     },
     module: {
-      rules: [
-        {
-          test: /\.js$/,
-          use: ['babel-loader'],
-          exclude: /node_modules/
-        }, {
-          test: /\.vue(\?[^?]+)?$/,
-          use: [isNative ? 'weex-loader' : 'vue-loader']
-        }
-      ]
+      rules: [{
+        test: /\.js$/,
+        use: ['babel-loader'],
+        exclude: /node_modules/
+      }, {
+        test: /\.vue(\?[^?]+)?$/,
+        use: [isWeex ? 'weex-loader' : 'vue-loader']
+      }]
     },
+		node: {
+			// prevent webpack from injecting useless polyfill
+			__filename: false,
+			__dirname: false,
+			child_process: false,
+			Buffer: false,
+			global: false,
+			console: false,
+			setImmediate: false,
+			process: false,
+			timers: false,
+			dgram: false,
+			fs: false,
+			path: false,
+			net: false,
+			crypto: false,
+			http: false,
+			https: false,
+			url: false,
+			dns: false,
+			tls: false,
+			vm: false
+		},
     plugins: []
   }
-  if (option.minify) {
-    commonConfig.output.filename = addMinSuffix(commonConfig.output.filename)
-    commonConfig.plugins.push(new UglifyJSPlugin())
+  if (minify) {
+    webpackConfig.plugins.push(new UglifyJSPlugin())
   }
-  if (isNative) {
-    var bannerPlugin = new webpack.BannerPlugin({
-      banner:  '// { "framework": "Vue" }\n',
+  if (isWeex) {
+    webpackConfig.plugins.push(new webpack.BannerPlugin({
+      banner:  '// { "framework": "Vue" }\n"use weex:vue";\n',
       raw: true
-    })
-    commonConfig.plugins.push(bannerPlugin)
+    }))
   }
-  return commonConfig
+  return webpackConfig
 }
 
-function duplicateOptions (options) {
-  if (!Array.isArray(options)) {
-    return []
-  }
+function generateWebpackConfigs (options) {
   const buildOptions = []
-  options.forEach(option => {
-    if (option.isNative === false) {
-      buildOptions.push(Object.assign({ minify: true }, option))
-      buildOptions.push(Object.assign({ minify: false }, option))
-    } else {
-      buildOptions.push(Object.assign({ isNative: true, minify: true }, option))
-      buildOptions.push(Object.assign({ isNative: false, minify: true }, option))
-      buildOptions.push(Object.assign({ isNative: true, minify: false }, option))
-      buildOptions.push(Object.assign({ isNative: false, minify: false }, option))
-    }
-  })
-  return buildOptions
+  for (const name in options) {
+    const option = typeof options[name] === 'string'
+      ? ({ entry: options[name] })
+      : options[name]
+    option.outputName = name
+    buildOptions.push(Object.assign({}, option, { isWeex: true, minify: false }))
+    buildOptions.push(Object.assign({}, option, { isWeex: false, minify: false }))
+    buildOptions.push(Object.assign({}, option, { isWeex: true, minify: true }))
+    buildOptions.push(Object.assign({}, option, { isWeex: false, minify: true }))
+  }
+  return buildOptions.map(opt => createConfig(opt))
 }
 
-var options = [{
-  entry: path.resolve('src', 'entry.js')
-}, {
-  isNative: false,
-  entry: path.resolve('src/website', 'entry.js'),
-  outputPath: 'docs',
-  outputName: 'website.js'
-}]
-
-module.exports = duplicateOptions(options).map(function (option) {
-  return createBuildConfig(option)
+module.exports = generateWebpackConfigs({
+  landing: path.resolve('src/entries', 'landing.js'),
+  about: path.resolve('src/entries', 'about.js'),
+  examples: path.resolve('src/entries', 'examples.js'),
+  guide: path.resolve('src/entries', 'guide.js')
 })

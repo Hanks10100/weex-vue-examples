@@ -6,6 +6,8 @@
   "scripts": {
     "build": "webpack",
     "dev": "webpack --watch",
+    "build:website": "webpack --config webpack.website.config.js",
+    "dev:website": "webpack --watch --config webpack.website.config.js",
     "serve": "serve -p 8080"
   },
   "main": "src/entry.js",
