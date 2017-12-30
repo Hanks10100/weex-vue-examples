@@ -40,9 +40,9 @@
         QR.make()
         $QR.innerHTML = QR.createImgTag(6, 12)
       }
-      // TODO: get local ip address
-      var ip = '127.0.0.1'
-      createQRCode('http://' + ip + ':8080/dist/bundle.weex.js')
+      // TODO: get origin
+      var origin = location.origin || 'http://127.0.0.1:8080'
+      createQRCode(origin + '/dist/landing.weex.js')
     })();
   </script>
 </body>

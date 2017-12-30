@@ -77,5 +77,6 @@ module.exports = generateWebpackConfigs({
   landing: path.resolve('src/entries', 'landing.js'),
   about: path.resolve('src/entries', 'about.js'),
   examples: path.resolve('src/entries', 'examples.js'),
+  news: path.resolve('src/entries', 'news.js'),
   guide: path.resolve('src/entries', 'guide.js')
 })

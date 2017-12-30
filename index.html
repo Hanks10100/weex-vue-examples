@@ -15,6 +15,28 @@
 </head>
 <body>
   <div id="root"></div>
-  <script src="./dist/bundle.web.js"></script>
+  <script>
+    /**
+     * these iife is just for the convenience for the showcase of demos.
+     * you can import a jsbundle by wrapping it in a <script> tag.
+     * e.g. <script src="./dist/landing.web.js"></*script>
+     */
+    ;(function () {
+      var defaultPage = 'landing.web.js'
+
+      var match = location.search.match(new RegExp('[?|&]page=([^&]+)'))
+      var page = match && match[1]
+      if (!page) {
+        return location.href = location.href.replace(/\?|$/, function(f) {
+          var query = '?page=' + defaultPage
+          return f ? query + '&' : query
+        })
+      }
+
+      var $script = document.createElement('script')
+      $script.src = './dist/' + page
+      document.body.appendChild($script)
+    })()
+  </script>
 </body>
 </html>

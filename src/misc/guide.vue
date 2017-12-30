@@ -963,7 +963,7 @@
           height: '300px'
         },
         mainColor: '#00B4FF',
-      }, learnWeex)
+      }, learnJS)
     },
     beforeCreate () {
       storage.getItem('WEEX_PLAYGROUND_LANGUAGE', event => {
