@@ -3,7 +3,7 @@
     <doodle class="doodle" />
     <div class="menu-list">
       <div :class="['menu-row', `menu-row-${r+1}`]" v-for="(row, r) in menus" :key="r">
-        <a :href="menu.name | url" :class="['menu-item', `menu-item-${i+1}`,`menu-item-${menu.name}`]" v-for="(menu, i) in row" :key="menu.name">
+        <a :href="menu.name | link" :class="['menu-item', `menu-item-${i+1}`,`menu-item-${menu.name}`]" v-for="(menu, i) in row" :key="menu.name">
           <text :class="['menu-text', `menu-text-${menu.name}`]">{{menu.title}}</text>
         </a>
       </div>

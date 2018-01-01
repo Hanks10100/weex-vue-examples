@@ -1,7 +1,7 @@
 import LandingPage from '../pages/Landing.vue'
-import { createURL } from '../shared/utils'
+import { createLink } from '../shared/utils'
 
-Vue.filter('url', createURL)
+Vue.filter('link', createLink)
 
 LandingPage.el = '#root'
 new Vue(LandingPage)

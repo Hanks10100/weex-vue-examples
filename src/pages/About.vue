@@ -1,168 +1,57 @@
 <template>
   <list class="list">
-    <template v-for="(group, g) in catalogues">
-      <header :key="group.title">
-        <div class="group-header center">
-          <text class="group-title">{{group.title}}</text>
-        </div>
-      </header>
-      <template v-for="(content, c) in group.contents">
-        <cell class="content-cell" :key="content.title">
-          <text class="content-title">{{content.title}}</text>
-        </cell>
-        <cell :class="['article-cell', `article-cell-${i+1}`]" v-for="(article, i) in content.articles" :key="i">
-          <div :class="['article', `article-${i+1}`]" v-if="article.link" @click="jumpTo(article.link)">
-            <text class="article-title">{{article.title}}</text>
-          </div>
-          <a :class="['article', `article-${i+1}`]" v-else-if="article.hash" :href="article.hash | url">
-            <text class="article-title">{{article.title}}</text>
-          </a>
-        </cell>
-        <cell class="group-gap" :key="c"></cell>
-      </template>
-    </template>
+    <cell class="brand-cell">
+      <div class="weex-brand">
+        <image class="asf-logo" src="http://gw.alicdn.com/tfs/TB1pTBZQFXXXXX9XXXXXXXXXXXX-794-280.png"></image>
+        <image class="weex-logo" src="https://gw.alicdn.com/tfs/TB1Q9VBkRfH8KJjy1XbXXbLdXXa-3799-1615.png"></image>
+        <!-- <text class="weex-slogan">Weex is a framework for building high-performance mobile applications with modern web development experience.</text> -->
+      </div>
+    </cell>
+    <cell :class="['item-cell', `item-cell-${i+1}`]" v-for="(item, i) in items" :key="i">
+      <a :class="['item', `item-${i+1}`]" v-if="item.route" :href="item.route">
+        <text class="item-title">{{item.title}}</text>
+        <image class="arrow-icon" src="https://gw.alicdn.com/tfs/TB1iL2fkLDH8KJjy1XcXXcpdXXa-32-49.png"></image>
+      </a>
+      <div :class="['item', `item-${i+1}`]" v-else-if="item.link" @click="jumpTo(item.link)">
+        <text class="item-title">{{item.title}}</text>
+        <image class="arrow-icon" src="https://gw.alicdn.com/tfs/TB1iL2fkLDH8KJjy1XcXXcpdXXa-32-49.png"></image>
+      </div>
+    </cell>
+    <cell><app-info-card /></cell>
+    <cell>
+      <div class="copyright">
+        <text class="copyright-text">Copyright(c) 2017 The Apache Software Foundation.</text>
+        <text class="copyright-text">Licensed under the Apache License, Version 2.0</text>
+      </div>
+    </cell>
   </list>
 </template>
 
 <script>
-  const navigator = weex.requireModule('navigator')
-  const storage = weex.requireModule('storage')
-  function createURL (hash) {
-    if (WXEnvironment.platform === 'Web') {
-      return `http://dotwe.org/raw/htmlVue/${hash}`
-    }
-    const url = `http://dotwe.org/raw/dist/${hash}.bundle.wx`
-    return `${url}?_wx_tpl=${url}`
-  }
+  import AppInfoCard from '../components/AppInfoCard.vue'
   export default {
-    filters: {
-      url: createURL
-    },
+    components: { AppInfoCard },
     data () {
       return {
         language: 'en',
-        catalogues: [{
-          title: 'Guide',
-          contents: [{
-            title: 'Overview',
-            articles: [{
-              title: 'Get Started',
-              link: 'http://weex-project.io/guide/'
-            }, {
-              title: 'Integrate to Your App',
-              link: 'http://weex-project.io/guide/integrate-to-your-app.html'
-            }]
+        items: [
+          {
+            title: 'Apache Software Foundation',
+            link: 'http://www.apache.org/'
           }, {
-            title: 'Develop',
-            articles: [{
-              title: 'Setup Develop Environment',
-              link: 'http://weex-project.io/guide/set-up-env.html'
-            }, {
-              title: 'Integrate Devtool to Android',
-              link: 'http://weex-project.io/guide/integrate-devtool-to-android.html'
-            }, {
-              title: 'Integrate Devtool to iOS',
-              link: 'http://weex-project.io/guide/integrate-devtool-to-ios.html'
-            }]
-          }]
-        }, {
-          title: 'References',
-          contents: [{
-            title: 'APIs',
-            articles: [{
-              title: 'Android APIs',
-              link: 'http://weex-project.io/references/android-apis.html'
-            }, {
-              title: 'iOS APIs',
-              link: 'http://weex-project.io/references/ios-apis.html'
-            }]
+            title: 'Who is using Weex',
+            link: 'http://weex-project.io/who-is-using-weex.html'
           }, {
-            title: 'Build-in Components',
-            articles: [{
-              title: '<div>',
-              link: 'http://weex-project.io/references/components/div.html'
-            }, {
-              title: '<text>',
-              link: 'http://weex-project.io/references/components/text.html'
-            }, {
-              title: '<image>',
-              link: 'http://weex-project.io/references/components/image.html'
-            }]
+            title: 'Contribution',
+            link: 'http://weex-project.io/contributing.html'
           }, {
-            title: 'Build-in Modules',
-            articles: [{
-              title: 'modal',
-              link: 'http://weex-project.io/references/modules/modal.html'
-            }, {
-              title: 'dom',
-              link: 'http://weex-project.io/references/modules/dom.html'
-            }, {
-              title: 'stream',
-              link: 'http://weex-project.io/references/modules/stream.html'
-            }]
-          }]
-        }, {
-          title: 'WiKi',
-          contents: [{
-            title: 'Design',
-            articles: [{
-              title: 'How it works',
-              link: 'http://weex-project.io/wiki/'
-            }]
+            title: 'Ask For Help',
+            route: this.createLink('chat-bot')
           }, {
-            title: 'Style',
-            articles: [{
-              title: 'Common Styles',
-              link: 'http://weex-project.io/wiki/common-styles.html'
-            }, {
-              title: 'Text Styles',
-              link: 'http://weex-project.io/wiki/text-styles.html'
-            }]
-          }, {
-            title: 'Event',
-            articles: [{
-              title: 'Common Events',
-              link: 'http://weex-project.io/wiki/common-events.html'
-            }, {
-              title: 'Event Bubble',
-              link: 'http://weex-project.io/wiki/event-bubble.html'
-            }]
-          }]
-        }, {
-          title: 'Other Resources',
-          contents: [{
-            title: 'Learn',
-            articles: [{
-              title: 'Learn Vue.js',
-              hash: '4f0456987961d45bb5cc0b3f14f92c02'
-            }, {
-              title: 'Learn Javascript',
-              hash: 'e7ea10acfc29f8a08fd75f9fa80f9703'
-            }, {
-              title: 'Learn CSS',
-              hash: '1190538862e882f9bfa96bf3787aa879'
-            }, ]
-          }]
-        }]
-      }
-    },
-    methods: {
-      i18n (text) {
-        if (typeof text === 'string') {
-          return text
-        }
-        if (Object.prototype.toString.call(text) === '[object Object]') {
-          const lang = this.language || 'en'
-          return text[lang]
-        }
-      },
-      jumpTo (url) {
-        const hash = {
-          'en': '06f6a4f7a03ceffc93ec09ddaebb0a51',
-          'zh': 'fa7d084ea1dc617e1c4e03ecd65263db'
-        }
-        storage.setItem('CURRENT_DOCUMENT_URL', this.i18n(url))
-        navigator.push({ url: createURL(this.i18n(hash)) })
+            title: 'Settings',
+            route: this.createLink('settings')
+          }
+        ]
       }
     }
   }
@@ -170,48 +59,67 @@
 
 <style scoped>
   .list {
-    background-color: #F8F8F8;
+    background-color: #F5F5F5;
   }
   .center {
     align-items: center;
-    justify-content: center;
+    justify-item: center;
   }
-  .group-header {
-    background-color: #00B4FF;
-    height: 100px;
+  .weex-brand {
+    background-color: #FFF;
+    padding-top: 60px;
+    padding-bottom: 40px;
+    margin-bottom: 30px;
+    align-items: center;
   }
-  .group-title {
-    font-size: 50px;
-    text-align: center;
-    color: #FFF;
+  .asf-logo {
+    width: 360px;
+    height: 120px;
   }
-  .group-gap {
-    height: 60px;
+  .weex-logo {
+    width: 750px;
+    height: 318px;
   }
-  .content-title {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    padding-left: 20px;
-    font-size: 34px;
-    color: #989898;
-    background-color: #EEE;
-    /* border-top-width: 1px; */
-    border-bottom-width: 1px;
-    border-style: solid;
-    border-color: #E6E6E6;
+  .weex-slogan {
+    padding-top: 10px;
+    padding-left: 100px;
+    padding-right: 100px;
+    background-color: #FFF;
+    font-size: 32px;
+    color: #727272;
   }
-  .article {
+  .item {
     padding-top: 30px;
     padding-bottom: 30px;
     padding-left: 60px;
-    padding-right: 60px;
+    padding-right: 40px;
     border-bottom-width: 1px;
     border-bottom-style: solid;
     border-bottom-color: #E6E6E6;
     background-color: #FFF;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
-  .article-title {
+  .item-1 {
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-top-color: #E6E6E6;
+  }
+  .item-title {
     font-size: 42px;
     color: #606060;
+  }
+  .arrow-icon {
+    width: 22px;
+    height: 36px;
+  }
+  .copyright {
+    padding-bottom: 20px;
+  }
+  .copyright-text {
+    font-size: 22px;
+    color: #A0A0A0;
+    text-align: center;
   }
 </style>

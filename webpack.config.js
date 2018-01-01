@@ -78,5 +78,7 @@ module.exports = generateWebpackConfigs({
   about: path.resolve('src/entries', 'about.js'),
   examples: path.resolve('src/entries', 'examples.js'),
   news: path.resolve('src/entries', 'news.js'),
-  guide: path.resolve('src/entries', 'guide.js')
+  guide: path.resolve('src/entries', 'guide.js'),
+  'chat-bot': path.resolve('src/entries', 'chat-bot.js'),
+  settings: path.resolve('src/entries', 'settings.js')
 })

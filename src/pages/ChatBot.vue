@@ -161,7 +161,7 @@
 </style>
 
 <script>
-  import { judge } from './chat'
+  import { judge } from '../misc/chat'
 
   const dom = weex.requireModule('dom')
   const modal = weex.requireModule('modal')
