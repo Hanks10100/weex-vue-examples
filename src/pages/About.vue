@@ -8,7 +8,7 @@
       </div>
     </cell>
     <cell :class="['item-cell', `item-cell-${i+1}`]" v-for="(item, i) in items" :key="i">
-      <a :class="['item', `item-${i+1}`]" v-if="item.route" :href="item.route">
+      <a :class="['item', `item-${i+1}`]" v-if="item.route" :href="item.route | link">
         <text class="item-title">{{item.title}}</text>
         <image class="arrow-icon" src="https://gw.alicdn.com/tfs/TB1iL2fkLDH8KJjy1XcXXcpdXXa-32-49.png"></image>
       </a>
@@ -46,10 +46,10 @@
             link: 'http://weex-project.io/contributing.html'
           }, {
             title: 'Ask For Help',
-            route: this.createLink('chat-bot')
+            route: 'chat-bot'
           }, {
             title: 'Settings',
-            route: this.createLink('settings')
+            route: 'settings'
           }
         ]
       }

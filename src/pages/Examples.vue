@@ -1,25 +1,16 @@
 <template>
   <div class="wrapper">
-    <div class="content">
+    <div class="content" v-if="examples && examples.length">
       <div class="group">
-        <list class="group-list">
+        <list class="group-list" v-if="currentTab && currentTab.group">
           <cell :class="['group-type', item.type === activeGroup ? 'active-group-type': '']" v-for="item in currentTab.group" :key="item.type" @click="toggleGroup(item.type)">
             <text :class="['group-name', item.type === activeGroup ? 'active-group-name': '']">{{i18n(item.name)}}</text>
           </cell>
         </list>
       </div>
       <div class="examples">
-        <list class="settings" v-if="currentGroup.type === 'settings'">
-          <cell class="setting-title-cell">
-            <text class="setting-title">Settings</text>
-          </cell>
-          <cell class="setting-cell" @click="chooseLanguage">
-            <text class="setting-label">{{i18n(tips.LANGUAGE)}}</text>
-            <text class="setting-value">{{language | lang}}</text>
-          </cell>
-        </list>
-        <list class="examples-list" v-else>
-          <cell class="group-intro" v-if="currentGroup.title">
+        <list class="examples-list">
+          <cell class="group-intro" v-if="currentGroup && currentGroup.title">
             <text class="group-title">{{i18n(currentGroup.title)}}</text>
             <text class="group-desc">{{i18n(currentGroup.desc)}}</text>
             <text class="doc-link" v-if="currentGroup.docLink" @click="jumpTo(currentGroup.docLink)">{{i18n(tips.SEE_MORE)}} >></text>
@@ -38,7 +29,10 @@
         </list>
       </div>
     </div>
-    <div class="tabbar">
+    <div class="loading" v-else-if="showLoading">
+      <text class="loading-text">loading ...</text>
+    </div>
+    <div class="tabbar" v-if="tabs && tabs.length">
       <div :class="['tab-cell', tab.type === activeTab ? 'active-tab-cell': '']" v-for="tab in tabs" :key="tab.type" @click="toggleTab(tab.type)">
         <text :class="['tab-name', tab.type === activeTab ? 'active-tab-name': '']">{{i18n(tab.name)}}</text>
       </div>
@@ -54,6 +48,15 @@
     bottom: 110px;
     flex-direction: row;
     justify-content: space-between;
+  }
+  .loading {
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+  }
+  .loading-text {
+    font-size: 60px;
+    color: #BBB;
   }
   .group {
     width: 210px;
@@ -150,37 +153,6 @@
     padding-top: 10px;
     padding-bottom: 10px;
   }
-  .setting-title-cell {
-    align-items: center;
-    justify-content: center;
-    border-bottom-width: 1px;
-    border-bottom-style: solid;
-    border-bottom-color: #DDD;
-    padding: 50px;
-  }
-  .setting-title {
-    font-size: 50px;
-    padding-bottom: 30px;
-    text-align: center;
-    color: #686868;
-  }
-  .setting-cell {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 30px;
-    border-bottom-width: 1px;
-    border-bottom-style: solid;
-    border-bottom-color: #DDD;
-  }
-  .setting-label {
-    font-size: 36px;
-    color: #707070;
-  }
-  .setting-value {
-    font-size: 36px;
-    color: #999999;
-  }
   .tabbar {
     width: 750px;
     position: fixed;
@@ -217,33 +189,21 @@
 </style>
 
 <script>
-  import getExamples from '../../examples'
+  import { fetchExamples } from '../shared/utils'
+  // import getExamples from '../../examples'
+  // const exampleMap = getExamples({ scope: 'mobile', filterTODO: true })
+  const exampleMap = []
+
   const navigator = weex.requireModule('navigator')
   const storage = weex.requireModule('storage')
   const picker = weex.requireModule('picker')
-  function createURL (hash) {
-    if (WXEnvironment.platform === 'Web') {
-      return `http://dotwe.org/raw/htmlVue/${hash}`
-    }
-    const url = `http://dotwe.org/raw/dist/${hash}.bundle.wx`
-    return `${url}?_wx_tpl=${url}`
-  }
-
-  const exampleMap = getExamples({ scope: 'mobile', filterTODO: true })
+  const examplesKey = 'WEEX_PLAYGROUND_APP_EXAMPLES'
+  let useStorage = false
   export default {
-    filters: {
-      url: createURL,
-      lang (type) {
-        switch (type) {
-          case 'en': return 'English'
-          case 'zh': return '中文'
-        }
-        return type
-      }
-    },
     data () {
       return {
         examples: exampleMap,
+        showLoading: false,
         language: 'zh',
         activeTab: 'component',
         activeGroup: 'div',
@@ -265,21 +225,52 @@
           this.language = event.data
         }
       })
+
+      // read examples from storage
+      storage.getItem(examplesKey, event => {
+        if (event.result === 'success') {
+          const data = JSON.parse(event.data)
+          if (data && Array.isArray(data.examples)) {s
+            this.examples = data.examples
+            if (WXEnvironment.platform.toLowwerCase() !== 'web') {
+              useStorage = true
+            }
+          }
+        }
+      })
+
+      // update examples to storage
+      fetchExamples(result => {
+        result.timestamp = Date.now()
+        storage.setItem(examplesKey, JSON.stringify(result))
+        if (!useStorage) {
+          this.examples = result.examples
+        }
+      })
+
+      setTimeout(() => { this.showLoading = true }, 400);
     },
     computed: {
       tabs () {
-        return this.examples.map(group => ({ type: group.type, name: group.name }))
+        return this.examples.map(group => ({
+          type: group.type,
+          name: group.name
+        }))
       },
       currentTab () {
         return this.examples.filter(tab => tab.type === this.activeTab)[0]
       },
       currentGroup () {
-        return this.currentTab.group.filter(group => group.type === this.activeGroup)[0]
+        if (this.currentTab && this.currentTab.group) {
+          return this.currentTab.group.filter(
+            group => group.type === this.activeGroup
+          )[0]
+        }
       },
       currentExamples () {
         const result = []
-        const exps = this.currentGroup.examples
-        if (exps) {
+        if (this.currentGroup && this.currentGroup.examples) {
+          const exps = this.currentGroup.examples
           for (let i = 0; i < exps.length; ++i) {
             const idx = Math.floor(i/2)
             if (!result[idx]) {
@@ -298,46 +289,6 @@
       },
       toggleGroup (type) {
         this.activeGroup = type
-      },
-      i18n (text) {
-        if (typeof text === 'string') {
-          return text
-        }
-        if (Object.prototype.toString.call(text) === '[object Object]') {
-          const lang = this.language || 'en'
-          return text[lang]
-        }
-      },
-      jumpTo (url) {
-        const hash = {
-          'en': '06f6a4f7a03ceffc93ec09ddaebb0a51',
-          'zh': 'fa7d084ea1dc617e1c4e03ecd65263db'
-        }
-        storage.setItem('CURRENT_DOCUMENT_URL', this.i18n(url))
-        navigator.push({ url: createURL(this.i18n(hash)) })
-      },
-      viewSource (url) {
-        // const hash =  {
-        //   'en': 'a9b64158408b8e03d75fa26ba2095b2e',
-        //   'zh': 'a411ffc411c4a07ab50e277343f8b64e'
-        // }
-        const hash = {
-          'en': '032afafed7947de7d5123a45b3ca9704',
-          'zh': '785cf2804ac6a6dd807a0c988b5729cd'
-        }
-        storage.setItem('CURRENT_SOURCE_HASH', this.i18n(url))
-        navigator.push({ url: createURL(this.i18n(hash)) })
-      },
-      chooseLanguage () {
-        const options = ['en', 'zh']
-        picker.pick({
-          index: options.indexOf(this.language),
-          items: ['English', '中文'],
-        }, ({result, data}) => {
-          if (result === 'success') {
-            this.language = options[data]
-          }
-        })
       }
     },
     beforeDestroy () {
