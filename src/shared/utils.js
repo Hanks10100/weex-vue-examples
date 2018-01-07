@@ -6,8 +6,8 @@ export function createLink (name) {
   if (WXEnvironment.platform === 'Web') {
     return `/?page=${name}.web.js`
   }
-  // TODO
-  return `${name}.weex.js`
+  const base = getBaseURL()
+  return `${base}${name}.weex.js`
 }
 
 export function createURL (hash) {
@@ -16,6 +16,21 @@ export function createURL (hash) {
   }
   const url = `http://dotwe.org/raw/dist/${hash}.bundle.wx`
   return `${url}?_wx_tpl=${url}`
+}
+
+function getBaseURL () {
+  var bundleUrl = weex.config.bundleUrl
+  var isAndroidAssets = bundleUrl.indexOf('your_current_IP') >= 0 || bundleUrl.indexOf('file://assets/')>=0;
+  var isiOSAssets = bundleUrl.indexOf('file:///') >= 0 && bundleUrl.indexOf('WeexDemo.app') > 0;
+  if (isAndroidAssets) {
+    return 'file://assets/';
+  }
+  else if (isiOSAssets) {
+    // file:///var/mobile/Containers/Bundle/Application/{id}/WeexDemo.app/
+    // file:///Users/{user}/Library/Developer/CoreSimulator/Devices/{id}/data/Containers/Bundle/Application/{id}/WeexDemo.app/
+    return bundleUrl.substring(0, bundleUrl.lastIndexOf('/') + 1);
+  }
+  return ''
 }
 
 export function i18n (text) {
@@ -52,7 +67,7 @@ export function viewSource (url) {
 
 export function fetchData (name, done) {
   stream.fetch({
-    url: 'http://192.168.0.103:5000/query/weex-playground-app',
+    url: 'http://dotwe.org/query/weex-playground-app',
     method: 'post',
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded'
