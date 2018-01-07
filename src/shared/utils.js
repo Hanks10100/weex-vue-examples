@@ -1,4 +1,6 @@
 const stream = weex.requireModule('stream')
+const storage = weex.requireModule('storage')
+const navigator = weex.requireModule('navigator')
 
 export function createLink (name) {
   if (WXEnvironment.platform === 'Web') {
@@ -21,7 +23,7 @@ export function i18n (text) {
     return text
   }
   if (Object.prototype.toString.call(text) === '[object Object]') {
-    const lang = this.language || 'en'
+    const lang = (this && this.language) || 'en'
     return text[lang]
   }
 }

@@ -48,7 +48,6 @@
       },
       body: encodeJSON(params)
     }, (error, response, body) => {
-      // console.log('response', response, body)
       if (body) {
         done(body)
       }
@@ -75,7 +74,25 @@
         })
       },
       storeNews () {
-        const news = [{}, {}]
+        const news = [{
+          type: 'article',
+          poster: 'https://gw.alicdn.com/tfs/TB1iMVtlZLJ8KJjy0FnXXcFDpXa-1293-496.png',
+          title: 'Weex Conf 2018 等你来',
+          // summary: '2018年1月19日，分享 Weex 的蜕变之旅',
+          link: 'http://weex-project.io/weexconf2018/',
+          time: '2018年1月5日 17:30',
+        }, {
+          type: 'article',
+          poster: 'https://gw.alicdn.com/tfs/TB1Q9VBkRfH8KJjy1XbXXbLdXXa-3799-1615.png',
+          title: 'Getting Started With Weex',
+          link: 'http://weex-project.io/guide/',
+          time: '2018年1月1日 0:0',
+          related: [{
+            poster: 'https://gw.alicdn.com/tfs/TB1qOlHdgMPMeJjy1XbXXcwxVXa-328-328.png',
+            title: '快速上手 Weex',
+            link: 'http://weex-project.io/cn/guide/index.html'
+          }]
+        }]
         store({ name: 'news', news }, res => {
           console.log(res)
         })

@@ -25,13 +25,13 @@
 
 <style scoped>
   .card {
-    width: 600px;
+    width: 650px;
     justify-content: center;
     border-width: 1px;
     border-color: #DDD;
     border-radius: 20px;
     padding: 50px;
-    margin: 75px;
+    margin: 50px;
     background-color: #FFF;
   }
   .title {
@@ -51,13 +51,13 @@
     flex-direction: row;
   }
   .label {
-    width: 230px;
+    width: 260px;
     font-size: 32px;
     text-align: right;
     color: #888888;
   }
   .value {
-    width: 200px;
+    width: 230px;
     padding-left: 50px;
     font-size: 32px;
     color: #414141;

@@ -1,12 +1,6 @@
 <template>
   <list class="list">
-    <cell class="brand-cell">
-      <div class="weex-brand">
-        <image class="asf-logo" src="http://gw.alicdn.com/tfs/TB1pTBZQFXXXXX9XXXXXXXXXXXX-794-280.png"></image>
-        <image class="weex-logo" src="https://gw.alicdn.com/tfs/TB1Q9VBkRfH8KJjy1XbXXbLdXXa-3799-1615.png"></image>
-        <!-- <text class="weex-slogan">Weex is a framework for building high-performance mobile applications with modern web development experience.</text> -->
-      </div>
-    </cell>
+    <cell><app-info-card /></cell>
     <cell :class="['item-cell', `item-cell-${i+1}`]" v-for="(item, i) in items" :key="i">
       <a :class="['item', `item-${i+1}`]" v-if="item.route" :href="item.route | link">
         <text class="item-title">{{item.title}}</text>
@@ -17,7 +11,6 @@
         <image class="arrow-icon" src="https://gw.alicdn.com/tfs/TB1iL2fkLDH8KJjy1XcXXcpdXXa-32-49.png"></image>
       </div>
     </cell>
-    <cell><app-info-card /></cell>
     <cell>
       <div class="copyright">
         <text class="copyright-text">Copyright(c) 2017 The Apache Software Foundation.</text>
@@ -45,11 +38,20 @@
             title: 'Contribution',
             link: 'http://weex-project.io/contributing.html'
           }, {
-            title: 'Ask For Help',
-            route: 'chat-bot'
+          //   title: 'Resources',
+          //   link: 'http://weex-project.io/resources.html'
+          // }, {
+            title: 'Release Notes',
+            link: 'http://weex-project.io/releasenote.html'
           }, {
-            title: 'Settings',
-            route: 'settings'
+            title: 'FAQ',
+            link: 'http://weex-project.io/faq.html'
+          // }, {
+          //   title: 'Ask For Help',
+          //   route: 'chat-bot'
+          // }, {
+          //   title: 'Settings',
+          //   route: 'settings'
           }
         ]
       }
@@ -64,29 +66,6 @@
   .center {
     align-items: center;
     justify-item: center;
-  }
-  .weex-brand {
-    background-color: #FFF;
-    padding-top: 60px;
-    padding-bottom: 40px;
-    margin-bottom: 30px;
-    align-items: center;
-  }
-  .asf-logo {
-    width: 360px;
-    height: 120px;
-  }
-  .weex-logo {
-    width: 750px;
-    height: 318px;
-  }
-  .weex-slogan {
-    padding-top: 10px;
-    padding-left: 100px;
-    padding-right: 100px;
-    background-color: #FFF;
-    font-size: 32px;
-    color: #727272;
   }
   .item {
     padding-top: 30px;
@@ -115,6 +94,7 @@
     height: 36px;
   }
   .copyright {
+    margin-top: 50px;
     padding-bottom: 20px;
   }
   .copyright-text {
