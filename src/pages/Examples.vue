@@ -243,6 +243,7 @@
     },
     data () {
       return {
+        examples: exampleMap,
         language: 'zh',
         activeTab: 'component',
         activeGroup: 'div',
@@ -250,8 +251,7 @@
           VIEW_SOURCE: { en: 'view source', zh: '查看源码' },
           LANGUAGE: { en: 'Language', zh: '语言' },
           SEE_MORE: { en: 'see more', zh: '查看更多' }
-        },
-        tabs: exampleMap.map(group => ({ type: group.type, name: group.name }))
+        }
       }
     },
     watch: {
@@ -267,8 +267,11 @@
       })
     },
     computed: {
+      tabs () {
+        return this.examples.map(group => ({ type: group.type, name: group.name }))
+      },
       currentTab () {
-        return exampleMap.filter(tab => tab.type === this.activeTab)[0]
+        return this.examples.filter(tab => tab.type === this.activeTab)[0]
       },
       currentGroup () {
         return this.currentTab.group.filter(group => group.type === this.activeGroup)[0]
