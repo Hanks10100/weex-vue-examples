@@ -50,6 +50,18 @@ export function i18n (text) {
   }
 }
 
+export function setLanguage (language) {
+  storage.setItem('WEEX_PLAYGROUND_LANGUAGE', language || 'en')
+}
+
+export function getLanguage (done) {
+  storage.getItem('WEEX_PLAYGROUND_LANGUAGE', event => {
+    if (event.result === 'success' && typeof done === 'function') {
+      done(event.data)
+    }
+  })
+}
+
 export function jumpTo (url) {
   const hash = {
     'en': '06f6a4f7a03ceffc93ec09ddaebb0a51',

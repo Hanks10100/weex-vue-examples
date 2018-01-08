@@ -29,6 +29,7 @@
 
   function encodeJSON (json) {
     const arr = []
+    json.token = '4fe14953b4af234a0876c5c1247f6250'
     Object.keys(json).forEach((key) => {
       if (typeof json[key] === 'object') {
         arr.push(encodeURIComponent(key) + '=' + encodeURIComponent(JSON.stringify(json[key])));

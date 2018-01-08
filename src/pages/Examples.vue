@@ -4,7 +4,11 @@
       <div class="group">
         <list class="group-list" v-if="currentTab && currentTab.group">
           <cell :class="['group-type', item.type === activeGroup ? 'active-group-type': '']" v-for="item in currentTab.group" :key="item.type" @click="toggleGroup(item.type)">
-            <text :class="['group-name', item.type === activeGroup ? 'active-group-name': '']">{{i18n(item.name)}}</text>
+            <text :class="[
+              'group-name',
+              `group-name-${language}`,
+              item.type === activeGroup ? `active-group-name`: '',
+            ]">{{i18n(item.name)}}</text>
           </cell>
         </list>
       </div>
@@ -34,7 +38,11 @@
     </div>
     <div class="tabbar" v-if="tabs && tabs.length">
       <div :class="['tab-cell', tab.type === activeTab ? 'active-tab-cell': '']" v-for="tab in tabs" :key="tab.type" @click="toggleTab(tab.type)">
-        <text :class="['tab-name', tab.type === activeTab ? 'active-tab-name': '']">{{i18n(tab.name)}}</text>
+        <text :class="[
+          'tab-name',
+          `tab-name-${language}`,
+          tab.type === activeTab ? `active-tab-name-${language}`: ''
+        ]">{{i18n(tab.name)}}</text>
       </div>
     </div>
   </div>
@@ -178,18 +186,28 @@
   }
   .tab-name {
     text-align: center;
-    font-size: 36px;
     color: #666666;
   }
-  .active-tab-name {
+  .tab-name-zh {
+    font-size: 36px;
+  }
+  .tab-name-en {
+    font-size: 32px;
+  }
+  .active-tab-name-zh {
     color: #00B4FF;
     font-size: 45px;
+    font-weight: bold;
+  }
+  .active-tab-name-en {
+    color: #00B4FF;
+    font-size: 34px;
     font-weight: bold;
   }
 </style>
 
 <script>
-  import { fetchExamples } from '../shared/utils'
+  import { fetchExamples, getLanguage } from '../shared/utils'
   // import getExamples from '../../examples'
   // const exampleMap = getExamples({ scope: 'mobile', filterTODO: true })
   const exampleMap = []
@@ -204,7 +222,7 @@
       return {
         examples: exampleMap,
         showLoading: false,
-        language: 'zh',
+        language: 'en',
         activeTab: 'component',
         activeGroup: 'div',
         tips: {
@@ -214,16 +232,9 @@
         }
       }
     },
-    watch: {
-      language () {
-        storage.setItem('WEEX_PLAYGROUND_LANGUAGE', this.language)
-      }
-    },
     beforeCreate () {
-      storage.getItem('WEEX_PLAYGROUND_LANGUAGE', event => {
-        if (event.result === 'success') {
-          this.language = event.data
-        }
+      getLanguage(language => {
+        this.language = language
       })
 
       // read examples from storage

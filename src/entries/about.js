@@ -1,5 +1,5 @@
 import About from '../pages/About.vue'
-import { createURL, createLink, i18n } from '../shared/utils'
+import { createURL, createLink, i18n, getLanguage, setLanguage } from '../shared/utils'
 
 const navigator = weex.requireModule('navigator')
 const storage = weex.requireModule('storage')
@@ -10,6 +10,8 @@ Vue.filter('i18n', i18n)
 Vue.mixin({
   methods: {
     i18n,
+    setLanguage,
+    getLanguage,
     createLink,
     jumpTo (url) {
       const hash = {

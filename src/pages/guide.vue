@@ -33,6 +33,7 @@
 </template>
 
 <script>
+  import { getLanguage } from '../shared/utils'
   const learnWeex = {
     mainColor: '#00B4FF',
     poster: 'https://gw.alicdn.com/tfs/TB17hlIdgoQMeJjy0FpXXcTxpXa-328-328.png',
@@ -316,6 +317,11 @@
           }
         }]
       }, learnWeex)
+    },
+    beforeCreate () {
+      getLanguage(language => {
+        this.language = language
+      })
     }
   }
 </script>
