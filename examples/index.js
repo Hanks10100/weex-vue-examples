@@ -27,7 +27,8 @@ function isTODO (example) {
 
 module.exports = function getExamples (options = {}) {
   let selected = examples
-  if (options.scope === 'mobile') {
+  const scope = options.scope
+  if (scope === 'mobile') {
     selected = [components, modules, syntax]
     others.group.unshift(...cases.group)
     others.group.unshift(...styles.group)
@@ -36,8 +37,16 @@ module.exports = function getExamples (options = {}) {
   // filter WIP examples
   if (options.filterTODO) {
     selected = selected.filter(item => {
+      if (item.scope && scope && item.scope !== scope) {
+        return false
+      }
       item.group = item.group.filter(group => {
-        group.examples = group.examples.filter(_ => !isTODO(_))
+        if (group.scope && scope && group.scope !== scope) {
+          return false
+        }
+        group.examples = group.examples.filter(_ =>
+          !isTODO(_) && !(group.scope && scope && group.scope !== scope)
+        )
         return !!group.examples.length
       })
       return !!item.group.length

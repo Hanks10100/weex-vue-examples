@@ -71,6 +71,7 @@ module.exports = {
     }]
   }, {
     type: 'flatten-benchmark',
+    scope: 'website',
     name: { zh: '平铺压测', en: 'Flatten Benchmark' },
     examples: [{
       hash: 'ae5fd588a6522ebb62c8cc9fa049098b',
@@ -99,6 +100,7 @@ module.exports = {
     }]
   }, {
     type: 'layer-benchmark',
+    scope: 'website',
     name: { zh: '层级压测', en: 'Layer Benchmark' },
     examples: [{
       hash: '33c93497fe648eeb3bd5a8b9eb709977',
@@ -119,6 +121,7 @@ module.exports = {
     }]
   }, {
     type: 'composed-benchmark',
+    scope: 'website',
     name: { zh: '混合压测', en: 'Composed Benchmark' },
     examples: [{
       hash: 'c4849fe9950c03bbb59f1ac7660b9430',
