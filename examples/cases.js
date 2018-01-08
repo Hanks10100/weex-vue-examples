@@ -102,6 +102,7 @@ module.exports = {
       title: { zh: '聊天', en: 'Chat' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
+      scope: 'website',
       hash: '013b1e76d2c5419e32bc3e02aa1bef26',
       title: '应用列表',
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'

@@ -1,55 +1,43 @@
 <template>
   <div class="wrapper">
-    <list class="example-list" v-if="examples && examples.length">
-      <template v-for="(exampleGroup, n) in currentTab.group">
-        <cell class="group-info"
-          v-if="exampleGroup && exampleGroup.title || exampleGroup.name"
-          :ref="exampleGroup.type"
-          :key="exampleGroup.type">
-          <text class="group-title">{{i18n(exampleGroup.title || exampleGroup.name)}}</text>
-          <text class="group-desc" v-if="exampleGroup.desc">{{i18n(exampleGroup.desc)}}</text>
-          <text class="doc-link"
-            v-if="exampleGroup.desc && exampleGroup.docLink"
-            @click="jumpTo(exampleGroup.docLink)"
-            >{{i18n(tips.SEE_MORE)}} >></text>
-        </cell>
-        <cell class="section"
-          v-for="(row, i) in divideArary(exampleGroup.examples)"
-          :key="exampleGroup.type + '-row-' + i">
-          <div class="example-row">
-            <div class="example-box"
-              v-for="example in row"
-              :key="'title' + i18n(example.title)">
+    <div class="content" v-if="examples && examples.length">
+      <div class="group">
+        <list class="group-list" v-if="currentTab && currentTab.group">
+          <cell :class="['group-type', item.type === activeGroup ? 'active-group-type': '']" v-for="item in currentTab.group" :key="item.type" @click="toggleGroup(item.type)">
+            <text :class="[
+              'group-name',
+              `group-name-${language}`,
+              item.type === activeGroup ? `active-group-name`: '',
+            ]">{{i18n(item.name)}}</text>
+          </cell>
+        </list>
+      </div>
+      <div class="examples">
+        <list class="examples-list">
+          <cell class="group-intro" v-if="currentGroup && currentGroup.title">
+            <text class="group-title">{{i18n(currentGroup.title)}}</text>
+            <text class="group-desc">{{i18n(currentGroup.desc)}}</text>
+            <text class="doc-link" v-if="currentGroup.docLink" @click="jumpTo(currentGroup.docLink)">{{i18n(tips.SEE_MORE)}} >></text>
+          </cell>
+          <cell class="case" v-for="(group, i) in currentExamples" :key="i">
+            <div class="example-box" v-for="example in group" :key="i18n(example.title)">
               <text class="example-title">{{i18n(example.title)}}</text>
-            </div>
-          </div>
-          <div class="example-row">
-            <div class="example-box"
-              v-for="example in row"
-              :key="i18n(example.title)">
               <div style="align-items: center">
                 <a :href="i18n(example.hash) | url">
-                  <image class="screenshot" :src="i18n(example.screenshot)" />
+                  <image class="screenshot" :src="i18n(example.screenshot)"></image>
                 </a>
-                <text class="example-tips"
-                  @click="viewSource(example.hash)"
-                  >{{i18n(tips.VIEW_SOURCE)}}</text>
+                <text @click="viewSource(example.hash)" class="example-tips">{{i18n(tips.VIEW_SOURCE)}}</text>
               </div>
             </div>
-          </div>
-        </cell>
-        <cell class="section-gap"
-          v-if="n < currentTab.group.length - 1"
-          :key="exampleGroup.type + '-gap'"></cell>
-      </template>
-    </list>
+          </cell>
+        </list>
+      </div>
+    </div>
     <div class="loading" v-else-if="showLoading">
       <text class="loading-text">loading ...</text>
     </div>
     <div class="tabbar" v-if="tabs && tabs.length">
-      <div v-for="tab in tabs" :key="tab.type"
-        :class="['tab-cell', tab.type === activeTab ? 'active-tab-cell': '']"
-        @click="toggleTab(tab.type)">
+      <div :class="['tab-cell', tab.type === activeTab ? 'active-tab-cell': '']" v-for="tab in tabs" :key="tab.type" @click="toggleTab(tab.type)">
         <text :class="[
           'tab-name',
           `tab-name-${language}`,
@@ -61,11 +49,13 @@
 </template>
 
 <style scoped>
-  .example-list {
+  .content {
     width: 750px;
     position: absolute;
     top: 0;
-    bottom: 100px;
+    bottom: 110px;
+    flex-direction: row;
+    justify-content: space-between;
   }
   .loading {
     flex: 1;
@@ -76,19 +66,55 @@
     font-size: 60px;
     color: #BBB;
   }
+  .group {
+    width: 210px;
+  }
+  .examples {
+    width: 540px;
+  }
+  .group-type {
+    width: 200px;
+    height: 100px;
+    transition-property: width, background-color;
+    transition-duration: 0.2s;
+    border-bottom-width: 1px;
+    border-bottom-color: #EEEEEE;
+    border-right-width: 2px;
+    border-right-color: #E0E0E0;
+    justify-content: center;
+    background-color: #FEFEFE;
+  }
+  .group-name {
+    text-align: center;
+    font-size: 32px;
+    color: #888888;
+  }
+  .active-group-type {
+    width: 210px;
+    border-radius: 10px;
+    background-color: rgba(0, 189, 255, 0.1);
+    border-right-color: rgba(0, 189, 255, 0.2);
+    border-bottom-color: rgba(0, 189, 255, 0.1);
+  }
+  .active-group-name {
+    font-size: 34px;
+    font-weight: bold;
+    color: #00B4FF;
+  }
+  .group-intro {
+    padding-top: 60px;
+    padding-bottom: 45px;
+  }
   .group-title {
-    width: 750px;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-right: 10px;
+    padding-bottom: 30px;
     font-size: 40px;
     text-align: center;
     color: #00B4FF;
-    background-color: #EAF8FD;
   }
   .group-desc {
     font-size: 28px;
     color: #999;
-    margin-top: 20px;
     margin-left: 30px;
     margin-right: 40px;
   }
@@ -98,32 +124,24 @@
     text-align: right;
     margin-top: 10px;
     margin-right: 60px;
-    margin-bottom: 20px;
   }
-  .section {
+  .case {
+    flex-direction: row;
+    justify-content: flex-start;
+    padding-left: 5px;
+    padding-right: 10px;
     padding-top: 20px;
     padding-bottom: 20px;
   }
-  .section-gap {
-    height: 70px;
-  }
-  .example-row {
-    flex-direction: row;
-    align-items: center;
-  }
   .example-box {
+    /* flex: 1; */
     justify-content: space-between;
     align-items: center;
-    /* padding-left: 15px;
+    padding-left: 15px;
     padding-right: 15px;
-    width: 374px; */
-    padding-left: 6px;
-    padding-right: 6px;
-    width: 250px;
+    width: 270px;
   }
   .screenshot {
-    /* width: 290px;
-    height: 453px; */
     width: 220px;
     height: 343px;
     border-width: 1px;
@@ -252,24 +270,36 @@
       },
       currentTab () {
         return this.examples.filter(tab => tab.type === this.activeTab)[0]
+      },
+      currentGroup () {
+        if (this.currentTab && this.currentTab.group) {
+          return this.currentTab.group.filter(
+            group => group.type === this.activeGroup
+          )[0]
+        }
+      },
+      currentExamples () {
+        const result = []
+        if (this.currentGroup && this.currentGroup.examples) {
+          const exps = this.currentGroup.examples
+          for (let i = 0; i < exps.length; ++i) {
+            const idx = Math.floor(i/2)
+            if (!result[idx]) {
+              result[idx] = []
+            }
+            result[idx].push(exps[i])
+          }
+        }
+        return result
       }
     },
     methods: {
-      divideArary (array) {
-        const column = 3
-        const result = []
-        for (let i = 0; i < array.length; ++i) {
-          const idx = Math.floor(i/column)
-          if (!result[idx]) {
-            result[idx] = []
-          }
-          result[idx].push(array[i])
-        }
-        return result
-      },
       toggleTab (tabType) {
         this.activeTab = tabType
         this.activeGroup = this.currentTab.group[0].type
+      },
+      toggleGroup (type) {
+        this.activeGroup = type
       }
     },
     beforeDestroy () {

@@ -70,6 +70,7 @@
         })
       },
       storeExamples () {
+        console.log(examples)
         store({ name: 'examples', examples }, res => {
           console.log(res)
         })

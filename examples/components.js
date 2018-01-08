@@ -53,6 +53,7 @@ module.exports = {
       title: { zh: 'lines 属性', en: '"lines"' },
       screenshot: 'https://gw.alicdn.com/tfs/TB19JaYcMoQMeJjy0FpXXcTxpXa-540-844.png'
     }, {
+      scope: 'website',
       hash: '7e123f72106c5dbba7675f6ee3bd35d2',
       title: { zh: '保留首尾空格', en: 'Trim space' },
       screenshot: 'https://gw.alicdn.com/tfs/TB140aYcMoQMeJjy0FpXXcTxpXa-540-844.png'
@@ -85,7 +86,7 @@ module.exports = {
       screenshot: 'https://gw.alicdn.com/tfs/TB1wKHLbILJ8KJjy0FnXXcFDpXa-540-844.png'
     }, {
       hash: '97d978c234dffe96f594c7c10e9119d0',
-      title: { zh: '浮层文字', en: '' },
+      title: { zh: '浮层文字', en: 'Layers' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1Mx1UcMoQMeJjy1XaXXcSsFXa-540-844.png'
     }, {
       hash: '23703f3be5512d0419086d8e7937bd8d',
@@ -347,6 +348,7 @@ module.exports = {
   }, {
     type: 'richtext',
     name: 'richtext',
+    scope: 'website',
     title: { zh: '富文本组件', en: '<richtext>' },
     desc: {
       zh: '',
@@ -381,6 +383,7 @@ module.exports = {
   }, {
     type: 'recycle-list',
     name: 'recycle-list',
+    scope: 'website',
     title: { zh: '<recycle-list> 组件', en: '<recycle-list>' },
     docLink: 'https://github.com/Hanks10100/weex-native-directive',
     examples: [{

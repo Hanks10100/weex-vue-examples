@@ -3,7 +3,7 @@ module.exports = {
   name: { zh: '样式', en: 'Styles' },
   group: [{
     type: 'basics',
-    name: { zh: '基本样式', en: 'Basics' },
+    name: { zh: '基本样式', en: 'Basic Styles' },
     examples: [{
       hash: 'ad002b5e26cf55475661b22e81682f79',
       title: { zh: '边框/背景', en: 'Border & Background' },
@@ -86,10 +86,12 @@ module.exports = {
       title: 'align-items',
       screenshot: 'https://gw.alicdn.com/tfs/TB1ADdPgMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
+      scope: 'website',
       hash: '0650d1e5f089254de707a4af6ea1d736',
       title: 'flex-flow',
       screenshot: 'https://gw.alicdn.com/tfs/TB1qktHgMoQMeJjy0FnXXb8gFXa-540-844.png'
     }, {
+      scope: 'website',
       hash: 'cac1573b8689adbfceecf58f4293654c',
       title: 'order',
       screenshot: 'https://gw.alicdn.com/tfs/TB1qMv.cqagSKJjy0FhXXcrbFXa-540-844.png'
@@ -98,18 +100,22 @@ module.exports = {
       title: 'align-self',
       screenshot: 'https://gw.alicdn.com/tfs/TB1qDBGgMMPMeJjy1XbXXcwxVXa-540-844.png'
     }, {
+      scope: 'website',
       hash: 'bdee705206b8d2a447a51dc3b81fa6d8',
       title: 'align-content',
       screenshot: 'https://gw.alicdn.com/tfs/TB1OQIeczihSKJjy0FlXXadEXXa-540-844.png'
     }, {
+      scope: 'website',
       hash: '148cef9b572617067b8cfe208b8e93db',
       title: 'flex-grow',
       screenshot: 'https://gw.alicdn.com/tfs/TB1vvVCgMoQMeJjy1XaXXcSsFXa-540-844.png'
     }, {
+      scope: 'website',
       hash: '4149549dbfbef3f6090ff0711f016263',
       title: 'flex-shrink',
       screenshot: 'https://gw.alicdn.com/tfs/TB1QvVCgMoQMeJjy1XaXXcSsFXa-540-844.png'
     }, {
+      scope: 'website',
       hash: 'b23c7139b09cfc99e6df3dd0a9f7b326',
       title: 'flex-basis',
       screenshot: 'https://gw.alicdn.com/tfs/TB14h8mb2xNTKJjy0FjXXX6yVXa-540-844.png'

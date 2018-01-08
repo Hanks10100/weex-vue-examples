@@ -45,7 +45,7 @@ module.exports = function getExamples (options = {}) {
           return false
         }
         group.examples = group.examples.filter(_ =>
-          !isTODO(_) && !(group.scope && scope && group.scope !== scope)
+          !isTODO(_) && !(_.scope && scope && _.scope !== scope)
         )
         return !!group.examples.length
       })
