@@ -9,7 +9,6 @@ Vue.filter('link', createLink)
 setTimeout(() => {
   fetchExamples(result => {
     result.timestamp = Date.now()
-    // console.log('examples', result)
     storage.setItem(storageKey, JSON.stringify(result))
   })
 }, 10)

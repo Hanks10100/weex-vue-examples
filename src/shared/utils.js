@@ -2,12 +2,19 @@ const stream = weex.requireModule('stream')
 const storage = weex.requireModule('storage')
 const navigator = weex.requireModule('navigator')
 
-export function createLink (name) {
+export function createLink (name, params = {}) {
+  const args = []
+  for (const key in params) {
+    if (typeof params[key] === 'string') {
+      args.push(`${key}=${params[key]}`)
+    }
+  }
   if (WXEnvironment.platform === 'Web') {
-    return `/?page=${name}.web.js`
+    args.unshift(`page=${name}.web.js`)
+    return `/?${args.join('&')}`
   }
   const base = getBaseURL()
-  return `${base}${name}.weex.js`
+  return `${base}${name}.weex.js` + (args.length ? `?${args.join('&')}` : '')
 }
 
 export function createURL (hash) {
@@ -65,28 +72,36 @@ export function viewSource (url) {
   navigator.push({ url: createURL(i18n(hash)) })
 }
 
-export function fetchData (name, done) {
-  stream.fetch({
-    url: 'http://dotwe.org/query/weex-playground-app',
-    method: 'post',
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded'
-    },
-    type: 'json',
-    body: `name=${name}`
-  }, res => {
-    if (res.ok && res.data && typeof done === 'function') {
-      done(res.data)
+export function fetchData (name, done, fail) {
+  try {
+    stream.fetch({
+      url: 'http://dotwe.org/query/weex-playground-app',
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      type: 'json',
+      body: `name=${name}`
+    }, res => {
+      if (res.ok && res.data && typeof done === 'function') {
+        done(res.data)
+      } else if (typeof fail === 'function') {
+        fail(res)
+      }
+    })
+  } catch (err) {
+    if (typeof fail === 'function') {
+      fail(err)
     }
-  })
+  }
 }
 
-export function fetchDoodle (done) {
-  fetchData('doodle', done)
+export function fetchDoodle (done, fail) {
+  fetchData('doodle', done, fail)
 }
-export function fetchExamples (done) {
-  fetchData('examples', done)
+export function fetchExamples (done, fail) {
+  fetchData('examples', done, fail)
 }
-export function fetchNews (done) {
-  fetchData('news', done)
+export function fetchNews (done, fail) {
+  fetchData('news', done, fail)
 }

@@ -25,11 +25,10 @@
 <script>
   import xhr from 'xhr'
   import getExamples from '../../examples'
-  const examples = getExamples({ scope: 'mobile', filterTODO: false })
+  const examples = getExamples({ scope: 'mobile', filterTODO: true })
 
   function encodeJSON (json) {
     const arr = []
-    json.token = '4fe14953b4af234a0876c5c1247f6250'
     Object.keys(json).forEach((key) => {
       if (typeof json[key] === 'object') {
         arr.push(encodeURIComponent(key) + '=' + encodeURIComponent(JSON.stringify(json[key])));
@@ -42,7 +41,7 @@
 
   function store (params, done) {
     xhr({
-      uri: `http://30.8.61.162:5000/store/weex-playground-app`,
+      uri: `http://dotwe.org/store/weex-playground-app`,
       method: 'post',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded'
