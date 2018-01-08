@@ -1,34 +1,37 @@
 import LandingPage from '../pages/Landing.vue'
-import { createLink, fetchExamples, getLanguage, setLanguage } from '../shared/utils'
+import { createLink, i18n, fetchExamples, getLanguage, setLanguage } from '../shared/utils'
 
 const storage = weex.requireModule('storage')
 const storageKey = 'WEEX_PLAYGROUND_APP_EXAMPLES'
 
 Vue.filter('link', createLink)
+Vue.filter('i18n', i18n)
 
-function initLanguage () {
-  getLanguage(lang => {
-    const supportedLanguageRE = /(en|zh)\_?\w*/i
-    if (supportedLanguageRE.test(lang)) {
-      return
-    }
-    let language = 'en'
-    if (WXEnvironment.platform.toLowerCase() === 'web') {
-      language = navigator.language
-    } else {
-      try {
-        const locale = weex.requireModule('locale')
-        language = locale.getLanguage()
-      } catch (e) {}
-    }
-    const match = supportedLanguageRE.exec(language)
-    if (match && match[1]) {
-      setLanguage(match[1])
-    }
-  })
+const supportedLanguageRE = /(en|zh)\_?\w*/i
+function initLanguage (language = 'en') {
+  if (WXEnvironment.platform.toLowerCase() === 'web') {
+    language = navigator.language
+  } else {
+    try {
+      const locale = weex.requireModule('locale')
+      language = locale.getLanguage()
+    } catch (e) {}
+  }
+  const match = supportedLanguageRE.exec(language)
+  if (match && match[1]) {
+    setLanguage(match[1])
+  } else {
+    setLanguage('en')
+  }
 }
 
-initLanguage()
+getLanguage(lang => {
+  if (!supportedLanguageRE.test(lang)) {
+    initLanguage()
+  }
+}, error => {
+  initLanguage()
+})
 
 setTimeout(() => {
   fetchExamples(result => {

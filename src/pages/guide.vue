@@ -48,18 +48,9 @@
     },
     lessons: [
       {
-      //   title: {
-      //     zh: '什么是 Weex ？',
-      //     en: 'What is Weex ?'
-      //   },
-      //   docLink: {
-      //     zh: '',
-      //     en: ''
-      //   }
-      // }, {
         title: {
-          zh: '快速上手',
-          en: 'Get Started'
+          zh: '快速入门',
+          en: 'Getting Started'
         },
         docLink: {
           zh: 'http://weex-project.io/cn/guide/index.html',
@@ -68,29 +59,29 @@
       }, {
         title: {
           zh: '工作原理',
-          en: 'How it works'
+          en: 'How it Works'
         },
         docLink: {
-          zh: 'http://weex-project.io/cn/guide/intro/how-it-works.html',
-          en: 'http://weex-project.io/guide/intro/how-it-works.html'
+          zh: 'http://weex-project.io/cn/wiki/index.html',
+          en: 'http://weex-project.io/wiki/index.html'
         }
       }, {
         title: {
-          zh: '用 Weex 构建移动应用',
-          en: 'Mobile App Architecture'
+          zh: 'Weex 中的前端框架',
+          en: 'Front-end Frameworks'
         },
         docLink: {
-          zh: 'http://weex-project.io/cn/guide/intro/app-architecture.html',
-          en: 'http://weex-project.io/guide/intro/app-architecture.html'
+          zh: 'http://weex-project.io/cn/guide/front-end-frameworks.html',
+          en: 'http://weex-project.io/guide/front-end-frameworks.html'
         }
       }, {
         title: {
-          zh: 'Weex 页面结构',
-          en: 'Weex Page Architecture'
+          zh: '与 Web 平台的差异',
+          en: 'Platform difference with Web'
         },
         docLink: {
-          zh: 'http://weex-project.io/cn/guide/intro/page-architecture.html',
-          en: 'http://weex-project.io/guide/intro/page-architecture.html'
+          zh: 'http://weex-project.io/cn/wiki/platform-difference.html',
+          en: 'http://weex-project.io/wiki/platform-difference.html'
         }
       }, {
         title: {
@@ -103,15 +94,6 @@
         }
       }, {
         title: {
-          zh: '和 Web 平台的差异',
-          en: 'Platform difference with Web'
-        },
-        docLink: {
-          zh: 'http://weex-project.io/cn/references/platform-difference.html',
-          en: 'http://weex-project.io/references/platform-difference.html'
-        }
-      }, {
-        title: {
           zh: '搭建开发环境',
           en: 'Set Up Dev Environment'
         },
@@ -121,30 +103,12 @@
         }
       }, {
         title: {
-          zh: '使用 Vue 开发页面',
-          en: 'Using Vue'
-        },
-        docLink: {
-          zh: 'http://weex-project.io/cn/guide/intro/using-vue.html',
-          en: 'http://weex-project.io/guide/intro/using-vue.html'
-        }
-      }, {
-        title: {
-          zh: 'Vue 在 Weex 中的差异',
-          en: 'Vue.js Difference with Web'
-        },
-        docLink: {
-          zh: 'http://weex-project.io/cn/references/vue/difference-with-web.html',
-          en: 'http://weex-project.io/references/vue/difference-with-web.html'
-        }
-      }, {
-        title: {
           zh: '通用样式',
           en: 'Common Styles'
         },
         docLink: {
-          zh: 'http://weex-project.io/cn/references/common-style.html',
-          en: 'http://weex-project.io/references/common-style.html'
+          zh: 'http://weex-project.io/cn/wiki/common-styles.html',
+          en: 'http://weex-project.io/wiki/common-styles.html'
         }
       }, {
         title: {
@@ -152,17 +116,8 @@
           en: 'Common Events'
         },
         docLink: {
-          zh: 'http://weex-project.io/cn/references/common-event.html',
-          en: 'http://weex-project.io/references/common-event.html'
-        }
-      }, {
-        title: {
-          zh: '手势',
-          en: 'Gestures'
-        },
-        docLink: {
-          zh: 'http://weex-project.io/cn/references/gesture.html',
-          en: 'http://weex-project.io/references/gesture.html'
+          zh: 'http://weex-project.io/cn/wiki/common-events.html',
+          en: 'http://weex-project.io/wiki/common-events.html'
         }
       }, {
         title: {
@@ -176,7 +131,7 @@
       }, {
         title: {
           zh: '内置组件',
-          en: 'Build-in Components'
+          en: 'Built-in Components'
         },
         docLink: {
           zh: 'http://weex-project.io/cn/references/components/index.html',
@@ -185,7 +140,7 @@
       }, {
         title: {
           zh: '内置模块',
-          en: 'Build-in Modules'
+          en: 'Built-in Modules'
         },
         docLink: {
           zh: 'http://weex-project.io/cn/references/modules/index.html',
@@ -194,29 +149,20 @@
       }, {
         title: {
           zh: 'Android 扩展',
-          en: 'Extend to Android'
+          en: 'Extend Android'
         },
         docLink: {
-          zh: 'http://weex-project.io/cn/references/advanced/extend-to-android.html',
-          en: 'http://weex-project.io/references/advanced/extend-to-android.html'
+          zh: 'http://weex-project.io/cn/guide/extend-android.html',
+          en: 'http://weex-project.io/guide/extend-android.html'
         }
       }, {
         title: {
-          zh: 'iOS 扩展',
-          en: 'Extend to iOS'
+          zh: '扩展 iOS',
+          en: 'Extend iOS'
         },
         docLink: {
-          zh: 'http://weex-project.io/cn/references/advanced/extend-to-ios.html',
-          en: 'http://weex-project.io/references/advanced/extend-to-ios.html'
-        }
-      }, {
-        title: {
-          zh: 'Web 扩展',
-          en: 'Extend to Web'
-        },
-        docLink: {
-          zh: 'http://weex-project.io/cn/references/advanced/extend-to-html5.html',
-          en: 'http://weex-project.io/references/advanced/extend-to-html5.html'
+          zh: 'http://weex-project.io/cn/guide/extend-ios.html',
+          en: 'http://weex-project.io/guide/extend-ios.html'
         }
       }, {
         title: {
@@ -224,56 +170,17 @@
           en: 'Using weex-toolkit'
         },
         docLink: {
-          zh: 'http://weex-project.io/cn/guide/tools/toolkit.html',
-          en: 'http://weex-project.io/guide/tools/toolkit.html'
+          zh: 'http://weex-project.io/cn/tools/toolkit.html',
+          en: 'http://weex-project.io/tools/toolkit.html'
         }
       }, {
         title: {
-          zh: '集成 Devtools 到 Android',
-          en: 'Integrate Devtool to Android'
-        },
-        docLink: {
-          zh: 'http://weex-project.io/cn/references/advanced/integrate-devtool-to-android.html',
-          en: 'http://weex-project.io/references/advanced/integrate-devtool-to-android.html'
-        }
-      }, {
-        title: {
-          zh: '集成 Devtools 到 iOS',
-          en: 'Integrate Devtool to iOS'
-        },
-        docLink: {
-          zh: 'http://weex-project.io/cn/references/advanced/integrate-devtool-to-ios.html',
-          en: 'http://weex-project.io/references/advanced/integrate-devtool-to-ios.html'
-        }
-      }, {
-        title: {
-          zh: '使用 Vuex 和 vue-router',
-          en: 'Using Vuex and vue-router'
-        },
-        docLink: {
-          zh: 'http://weex-project.io/cn/references/vue/difference-of-vuex.html',
-          en: 'http://weex-project.io/references/vue/difference-of-vuex.html'
-        }
-      }, {
-        title: 'JS Service',
-        docLink: {
-          zh: 'http://weex-project.io/cn/references/js-service/index.html',
-          en: 'http://weex-project.io/references/js-service/index.html'
-        }
-      }, {
-        title: {
-          zh: '如何参与社区',
+          zh: '如何参与贡献',
           en: 'How to Contribute'
         },
         docLink: {
-          zh: 'http://weex-project.io/cn/guide/contributing.html',
-          en: 'http://weex-project.io/guide/contributing.html'
-        }
-      }, {
-        title: 'FAQ',
-        docLink: {
-          zh: 'http://weex-project.io/cn/faq.html',
-          en: 'http://weex-project.io/faq.html'
+          zh: 'http://weex-project.io/cn/contributing.html',
+          en: 'http://weex-project.io/contributing.html'
         }
       }
     ]
@@ -281,7 +188,7 @@
   export default {
     data () {
       return Object.assign({
-        language: 'en',
+        language: 'zh',
         sliders: [{
           route: 'lesson',
           subject: 'vue',

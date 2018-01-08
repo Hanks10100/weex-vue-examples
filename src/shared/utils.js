@@ -40,12 +40,12 @@ function getBaseURL () {
   return ''
 }
 
-export function i18n (text) {
+export function i18n (text, language) {
   if (typeof text === 'string') {
     return text
   }
   if (Object.prototype.toString.call(text) === '[object Object]') {
-    const lang = (this && this.language) || 'en'
+    const lang = (this && this.language) || language || 'en'
     return text[lang]
   }
 }
@@ -54,12 +54,20 @@ export function setLanguage (language) {
   storage.setItem('WEEX_PLAYGROUND_LANGUAGE', language || 'en')
 }
 
-export function getLanguage (done) {
-  storage.getItem('WEEX_PLAYGROUND_LANGUAGE', event => {
-    if (event.result === 'success' && typeof done === 'function') {
-      done(event.data)
+export function getLanguage (done, fail) {
+  try {
+    storage.getItem('WEEX_PLAYGROUND_LANGUAGE', event => {
+      if (event.result === 'success' && typeof done === 'function') {
+        done(event.data)
+      } else if (typeof fail === 'function') {
+        fail(event)
+      }
+    })
+  } catch (err) {
+    if (typeof fail === 'function') {
+      fail(err)
     }
-  })
+  }
 }
 
 export function jumpTo (url) {
@@ -67,8 +75,11 @@ export function jumpTo (url) {
     'en': '06f6a4f7a03ceffc93ec09ddaebb0a51',
     'zh': 'fa7d084ea1dc617e1c4e03ecd65263db'
   }
-  storage.setItem('CURRENT_DOCUMENT_URL', i18n(url))
-  navigator.push({ url: createURL(i18n(hash)) })
+  const jump = language => {
+    storage.setItem('CURRENT_DOCUMENT_URL', i18n(url, language))
+    navigator.push({ url: createURL(i18n(hash, language)) })
+  }
+  getLanguage(lang => jump(lang), _ => jump('en'))
 }
 
 export function viewSource (url) {
@@ -80,8 +91,11 @@ export function viewSource (url) {
     'en': '032afafed7947de7d5123a45b3ca9704',
     'zh': '785cf2804ac6a6dd807a0c988b5729cd'
   }
-  storage.setItem('CURRENT_SOURCE_HASH', i18n(url))
-  navigator.push({ url: createURL(i18n(hash)) })
+  const view = language => {
+    storage.setItem('CURRENT_SOURCE_HASH', i18n(url, language))
+    navigator.push({ url: createURL(i18n(hash, language)) })
+  }
+  getLanguage(lang => view(lang), _ => view('en'))
 }
 
 export function fetchData (name, done, fail) {

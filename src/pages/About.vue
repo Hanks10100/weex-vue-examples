@@ -2,11 +2,7 @@
   <list class="list">
     <cell><app-info-card /></cell>
     <cell :class="['item-cell', `item-cell-${i+1}`]" v-for="(item, i) in items" :key="i">
-      <a :class="['item', `item-${i+1}`]" v-if="item.route" :href="item.route | link">
-        <text class="item-title">{{item.title}}</text>
-        <image class="arrow-icon" src="https://gw.alicdn.com/tfs/TB1iL2fkLDH8KJjy1XcXXcpdXXa-32-49.png"></image>
-      </a>
-      <div :class="['item', `item-${i+1}`]" v-else-if="item.link" @click="jumpTo(item.link)">
+      <div :class="['item', `item-${i+1}`]" v-if="item.link" @click="jumpTo(item.link)">
         <text class="item-title">{{i18n(item.title)}}</text>
         <image class="arrow-icon" src="https://gw.alicdn.com/tfs/TB1iL2fkLDH8KJjy1XcXXcpdXXa-32-49.png"></image>
       </div>
@@ -79,13 +75,7 @@
             link: {
               en: 'http://weex-project.io/faq.html',
               zh: 'http://weex-project.io/cn/faq.html'
-            },
-          // }, {
-          //   title: 'Ask For Help',
-          //   route: 'chat-bot'
-          // }, {
-          //   title: 'Settings',
-          //   route: 'settings'
+            }
           }
         ]
       }

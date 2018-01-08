@@ -10,37 +10,12 @@
           <text class="group-desc" v-if="exampleGroup.desc">{{i18n(exampleGroup.desc)}}</text>
           <text class="doc-link"
             v-if="exampleGroup.desc && exampleGroup.docLink"
-            @click="jumpTo(exampleGroup.docLink)"
-            >{{i18n(tips.SEE_MORE)}} >></text>
+            @click="jumpTo(i18n(exampleGroup.docLink))"
+            >{{i18n(tips.READ_MORE)}} >></text>
         </cell>
-        <cell class="section"
-          v-for="(row, i) in divideArary(exampleGroup.examples)"
-          :key="exampleGroup.type + '-row-' + i">
-          <div class="example-row">
-            <div class="example-box"
-              v-for="example in row"
-              :key="'title' + i18n(example.title)">
-              <text class="example-title">{{i18n(example.title)}}</text>
-            </div>
-          </div>
-          <div class="example-row">
-            <div class="example-box"
-              v-for="example in row"
-              :key="i18n(example.title)">
-              <div style="align-items: center">
-                <a :href="i18n(example.hash) | url">
-                  <image class="screenshot" :src="i18n(example.screenshot)" />
-                </a>
-                <text class="example-tips"
-                  @click="viewSource(example.hash)"
-                  >{{i18n(tips.VIEW_SOURCE)}}</text>
-              </div>
-            </div>
-          </div>
+        <cell class="section" :key="exampleGroup.type + '-examples'">
+          <example-scroller :language="language" :examples="exampleGroup.examples" />
         </cell>
-        <cell class="section-gap"
-          v-if="n < currentTab.group.length - 1"
-          :key="exampleGroup.type + '-gap'"></cell>
       </template>
     </list>
     <div class="loading" v-else-if="showLoading">
@@ -66,6 +41,10 @@
     position: absolute;
     top: 0;
     bottom: 100px;
+    background-color: #F5F5F5;
+  }
+  .group-info {
+    background-color: #FFFFFF;
   }
   .loading {
     flex: 1;
@@ -79,16 +58,16 @@
   .group-title {
     width: 750px;
     padding-top: 20px;
-    padding-bottom: 20px;
+    padding-bottom: 35px;
     font-size: 40px;
     text-align: center;
     color: #00B4FF;
-    background-color: #EAF8FD;
+    background-image: linear-gradient(to bottom, #E3F5FB, #F9FEFF);
   }
   .group-desc {
     font-size: 28px;
     color: #999;
-    margin-top: 20px;
+    margin-top: 10px;
     margin-left: 30px;
     margin-right: 40px;
   }
@@ -101,47 +80,7 @@
     margin-bottom: 20px;
   }
   .section {
-    padding-top: 20px;
-    padding-bottom: 20px;
-  }
-  .section-gap {
-    height: 70px;
-  }
-  .example-row {
-    flex-direction: row;
-    align-items: center;
-  }
-  .example-box {
-    justify-content: space-between;
-    align-items: center;
-    /* padding-left: 15px;
-    padding-right: 15px;
-    width: 374px; */
-    padding-left: 6px;
-    padding-right: 6px;
-    width: 250px;
-  }
-  .screenshot {
-    /* width: 290px;
-    height: 453px; */
-    width: 220px;
-    height: 343px;
-    border-width: 1px;
-    border-color: #DDD;
-  }
-  .example-title {
-    font-size: 32px;
-    text-align: center;
-    color: #606060;
-    padding-top: 10px;
-    padding-bottom: 10px;
-  }
-  .example-tips {
-    font-size: 26px;
-    text-align: center;
-    color: #999;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-bottom: 30px;
   }
   .tabbar {
     width: 750px;
@@ -190,6 +129,7 @@
 
 <script>
   import { fetchExamples, getLanguage } from '../shared/utils'
+  import ExampleScroller from '../components/ExampleScroller.vue'
   // import getExamples from '../../examples'
   // const exampleMap = getExamples({ scope: 'mobile', filterTODO: true })
   const exampleMap = []
@@ -200,6 +140,7 @@
   const examplesKey = 'WEEX_PLAYGROUND_APP_EXAMPLES'
   let useStorage = false
   export default {
+    components: { ExampleScroller },
     data () {
       return {
         examples: exampleMap,
@@ -209,8 +150,7 @@
         activeGroup: 'div',
         tips: {
           VIEW_SOURCE: { en: 'view source', zh: '查看源码' },
-          LANGUAGE: { en: 'Language', zh: '语言' },
-          SEE_MORE: { en: 'see more', zh: '查看更多' }
+          READ_MORE: { en: 'read more', zh: '查看更多' }
         }
       }
     },
@@ -256,7 +196,7 @@
     },
     methods: {
       divideArary (array) {
-        const column = 3
+        const column = 8
         const result = []
         for (let i = 0; i < array.length; ++i) {
           const idx = Math.floor(i/column)

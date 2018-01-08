@@ -6,7 +6,7 @@
       </div>
       <div class="message-box" v-if="item.type === 'article'">
         <div class="article" @click="jumpTo(item.link)">
-          <image class="poster" resize="cover" :src="item.poster"></image>
+          <image class="poster" resize="cover" :src="item.poster" />
           <text class="title">{{item.title}}</text>
           <text class="summary" :lines="3" v-if="item.summary">{{item.summary}}</text>
           <div class="related">
@@ -14,7 +14,7 @@
               v-for="sub in item.related" :key="sub.title"
               @click="jumpTo(sub.link)">
               <text class="subtitle">{{sub.title}}</text>
-              <image class="shortcut" resize="cover" :src="sub.poster"></image>
+              <image class="shortcut" resize="cover" :src="sub.poster" />
             </div>
           </div>
         </div>
