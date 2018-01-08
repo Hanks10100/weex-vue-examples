@@ -269,15 +269,15 @@ module.exports = {
       en: 'https://vuejs.org/v2/guide/#Composing-with-Components'
     },
     examples: [{
-      hash: '0ee7b5af70129e89b662ab07f927cf0a',
+      hash: '59aeb1600ee976ea61faf354a9fee299',
       title: { zh: '使用子组件', en: 'Composing Components' },
       screenshot: 'https://gw.alicdn.com/tfs/TB12KPGbS_I8KJjy0FoXXaFnVXa-540-844.png'
     }, {
-      hash: 'a91730c73df88b1649149dd2ebd61d20',
+      hash: '3373a87306d0e0ccf463ac492aeb070c',
       title: { zh: '传递属性', en: 'Passing Data with Props' },
       screenshot: 'https://gw.alicdn.com/tfs/TB12KPGbS_I8KJjy0FoXXaFnVXa-540-844.png'
     }, {
-      hash: 'f5b561041de77d9fba8e70e0226c548e',
+      hash: 'b2ac35b0cc13c4c64c5adbfbeed5b3f7',
       title: { zh: '子组件的引用', en: 'Child Component Refs' },
       screenshot: 'https://gw.alicdn.com/tfs/TB12KPGbS_I8KJjy0FoXXaFnVXa-540-844.png'
     }, {
@@ -293,7 +293,7 @@ module.exports = {
       title: { zh: '注册全局组件', en: 'Global Registration' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
-      hash: 'df46cfd946e3479ffce93196b86e9d9c',
+      hash: '4c2eadc3fe105d643cd0ade59b3bde54',
       title: { zh: '递归组件', en: 'Recursive Components' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1U868icrI8KJjy0FhXXbfnpXa-540-844.png'
     }, {

@@ -5,14 +5,10 @@ module.exports = {
     type: 'basics',
     name: { zh: '基本样式', en: 'Basic Styles' },
     examples: [{
-      hash: 'ad002b5e26cf55475661b22e81682f79',
-      title: { zh: '边框/背景', en: 'Border & Background' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1z9P1ewMPMeJjy1XdXXasrXXa-540-844.png'
-    }, {
-      hash: '3488279c3502d1234b437c2f718f3a55',
-      title: { zh: '半透明', en: 'Translucent' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1FPAzd3MPMeJjy1XdXXasrXXa-540-844.png'
-    }, {
+    //   hash: 'ad002b5e26cf55475661b22e81682f79',
+    //   title: { zh: '边框/背景', en: 'Border & Background' },
+    //   screenshot: 'https://gw.alicdn.com/tfs/TB1z9P1ewMPMeJjy1XdXXasrXXa-540-844.png'
+    // }, {
       hash: '5219829fd0a5f59dc9208c8327e02e92',
       title: { zh: 'position 布局', en: 'Position Layout'},
       screenshot: 'https://gw.alicdn.com/tfs/TB1CCP1ewMPMeJjy1XdXXasrXXa-540-844.png'

@@ -14,13 +14,17 @@ module.exports = {
       zh: 'http://weex-project.io/cn/references/components/div.html',
     },
     examples: [{
-      hash: 'd813b9f5d1e8ef95b0cfa32d469af236',
-      title: { zh: '最简例子', en: 'Sample' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB11h7wewMPMeJjy1XcXXXpppXa-540-844.png'
-    }, {
-      hash: 'd86aca3dbe3d5a00024ccdff6920561b',
+    //   hash: 'd813b9f5d1e8ef95b0cfa32d469af236',
+    //   title: { zh: '最简例子', en: 'Sample' },
+    //   screenshot: 'https://gw.alicdn.com/tfs/TB11h7wewMPMeJjy1XcXXXpppXa-540-844.png'
+    // }, {
+      hash: 'fb2522e71268aa8fb573eb20129ac4eb',
       title: { zh: '嵌套', en: 'Nested' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1uKLGbS_I8KJjy0FoXXaFnVXa-540-844.png'
+    }, {
+      hash: '3488279c3502d1234b437c2f718f3a55',
+      title: { zh: '重叠', en: 'Overlap' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1FPAzd3MPMeJjy1XdXXasrXXa-540-844.png'
     }, {
       hash: '7613db44f6c03a5849937fbbdeebf69d',
       title: { zh: '文字节点', en: 'Text Node' },
@@ -118,7 +122,7 @@ module.exports = {
       title: { zh: '最简例子', en: 'Sample' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1pgDZcMoQMeJjy1XaXXcSsFXa-540-844.png'
     }, {
-      hash: '9eb4a7d067e4d49903e691cb94ff2834',
+      hash: '56f59761b7217e0f126f1de99a21a239',
       title: '<header>',
       screenshot: 'https://gw.alicdn.com/tfs/TB1N_zLdxrI8KJjy0FpXXb5hVXa-540-844.png'
     }, {
