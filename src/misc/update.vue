@@ -29,6 +29,7 @@
 
   function encodeJSON (json) {
     const arr = []
+    json.token = '4fe14953b4af234a0876c5c1247f6250'
     Object.keys(json).forEach((key) => {
       if (typeof json[key] === 'object') {
         arr.push(encodeURIComponent(key) + '=' + encodeURIComponent(JSON.stringify(json[key])));
@@ -41,7 +42,7 @@
 
   function store (params, done) {
     xhr({
-      uri: `http://192.168.0.103:5000/store/weex-playground-app`,
+      uri: `http://30.8.61.162:5000/store/weex-playground-app`,
       method: 'post',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded'
