@@ -50,24 +50,66 @@ export function i18n (text, language) {
   }
 }
 
-export function setLanguage (language) {
-  storage.setItem('WEEX_PLAYGROUND_LANGUAGE', language || 'en')
+const supportedLanguageRE = /(en|zh)\_?\w*/i
+export function parseLanguage (language) {
+  const match = supportedLanguageRE.exec(language)
+  if (match && match[1]) {
+    return match[1]
+  }
+  return ''
 }
 
-export function getLanguage (done, fail) {
+export function setLanguage (language) {
+  const lang = parseLanguage(language)
+  if (lang) {
+    storage.setItem('WEEX_PLAYGROUND_LANGUAGE', lang)
+  }
+}
+
+export function getStorageLanguage (done, fail = () => {}) {
+  if (!typeof done === 'function') {
+    return
+  }
   try {
     storage.getItem('WEEX_PLAYGROUND_LANGUAGE', event => {
-      if (event.result === 'success' && typeof done === 'function') {
-        done(event.data)
-      } else if (typeof fail === 'function') {
+      if (event.result === 'success') {
+        const lang = parseLanguage(event.data)
+        lang ? done(lang) : fail()
+      } else {
         fail(event)
       }
     })
   } catch (err) {
-    if (typeof fail === 'function') {
-      fail(err)
+    fail(err)
+  }
+}
+
+export function getSystemLanguage (done, fail = () => {}) {
+  if (!typeof done === 'function') {
+    return
+  }
+  if (WXEnvironment.platform.toLowerCase() === 'web') {
+    const lang = parseLanguage(window.navigator.language)
+    lang ? done(lang) : fail()
+  } else {
+    try {
+      const locale = weex.requireModule('locale') || weex.requireModule('local')
+      locale.getLanguage(language => {
+        const lang = parseLanguage(language)
+        lang ? done(lang) : fail()
+      })
+    } catch (e) {
+      fail(e)
     }
   }
+}
+
+export function getLanguage (done = () => {}) {
+  getStorageLanguage(done, () => {
+    getSystemLanguage(done, () => {
+      done('en')
+    })
+  })
 }
 
 export function jumpTo (url) {
@@ -125,9 +167,36 @@ export function fetchData (name, done, fail) {
 export function fetchDoodle (done, fail) {
   fetchData('doodle', done, fail)
 }
+
+const examplesKey = 'WEEX_PLAYGROUND_APP_EXAMPLES'
 export function fetchExamples (done, fail) {
   fetchData('examples', done, fail)
 }
+export function saveExamples (result) {
+  if (result && typeof result === 'object') {
+    result.timestamp = Date.now()
+    storage.setItem(examplesKey, JSON.stringify(result))
+  }
+}
+export function readExamples (done = () => {}, fail = () => {}) {
+  try {
+    storage.getItem(examplesKey, event => {
+      if (event.result === 'success') {
+        const data = JSON.parse(event.data)
+        if (data && Array.isArray(data.examples)) {
+          done(data.examples)
+        } else {
+          fail(event)
+        }
+      } else {
+        fail(event)
+      }
+    })
+  } catch (e) {
+    fail(e)
+  }
+}
+
 export function fetchNews (done, fail) {
   fetchData('news', done, fail)
 }

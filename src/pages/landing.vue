@@ -1,10 +1,10 @@
 <template>
   <div class="wrapper">
-    <doodle class="doodle" />
+    <doodle :lang="language" class="doodle" />
     <div class="menu-list">
       <div :class="['menu-row', `menu-row-${r+1}`]" v-for="(row, r) in menus" :key="r">
         <a :href="menu.name | link" :class="['menu-item', `menu-item-${i+1}`,`menu-item-${menu.name}`]" v-for="(menu, i) in row" :key="menu.name">
-          <text :class="['menu-text', `menu-text-${menu.name}`]">{{menu.title}}</text>
+          <text :class="['menu-text', `menu-text-${menu.name}`]">{{i18n(menu.title)}}</text>
         </a>
       </div>
     </div>
@@ -17,12 +17,13 @@
     components: { Doodle },
     data () {
       return {
+        language: 'en',
         menus: [[
-          { name: 'guide', title: 'Guide' },
-          { name: 'examples', title: 'Examples' }
+          { name: 'guide', title: { en: 'Guide', zh: '教程' } },
+          { name: 'examples', title: { en: 'Examples', zh: '例子' } }
         ], [
-          { name: 'news', title: 'News' },
-          { name: 'about', title: 'About' }
+          { name: 'news', title: { en: 'News', zh: '资讯' } },
+          { name: 'about', title: { en: 'About', zh: '关于' } }
         ]]
       }
     }

@@ -2,20 +2,24 @@
   <div>
     <embed v-if="showEmbed" style="flex:1" :src="src" />
     <div v-else class="center" style="flex:1">
-      <image class="logo" src="https://gw.alicdn.com/tfs/TB1Q9VBkRfH8KJjy1XbXXbLdXXa-3799-1615.png"></image>
-      <div class="btn center" @click="scan">
-        <image class="scan-bg" src="https://gw.alicdn.com/tfs/TB1qnO0kLDH8KJjy1XcXXcpdXXa-900-320.png"></image>
-        <text class="btn-text">Scan QR Code</text>
+      <image class="logo" src="https://gw.alicdn.com/tfs/TB1Q9VBkRfH8KJjy1XbXXbLdXXa-3799-1615.png"/>
+      <div class="btn center">
+        <image class="scan-bg" @click="scan" src="https://gw.alicdn.com/tfs/TB1qnO0kLDH8KJjy1XcXXcpdXXa-900-320.png"/>
+        <text class="btn-text">{{i18n(SCAN)}}</text>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+  const event = weex.requireModule('event')
   export default {
+    props: ['lang'],
     data () {
       return {
+        language: this.lang || 'en',
         showEmbed: false,
+        SCAN: { en: 'Scan QR Code', zh: '扫描二维码' },
         md5: '2d8da136e33f63a0bfe4b1e42362405b'
       }
     },
@@ -31,7 +35,9 @@
     },
     methods: {
       scan () {
-        // TODO: open scan QR code page
+        try {
+          event.openURL('weex://go/scan')
+        } catch (e) {}
       }
     }
   }
