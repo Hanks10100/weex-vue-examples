@@ -53,7 +53,7 @@
   }
   .loading-text {
     font-size: 60px;
-    color: #BBB;
+    color: #BBBBBB;
   }
   .group-title {
     width: 750px;
@@ -66,7 +66,7 @@
   }
   .group-desc {
     font-size: 28px;
-    color: #999;
+    color: #999999;
     margin-top: 10px;
     margin-left: 30px;
     margin-right: 40px;
@@ -100,6 +100,7 @@
     border-top-color: #DDDDDD;
     justify-content: center;
     background-color: #FBFBFB;
+    transition: background-color 0.3s;
   }
   .active-tab-cell {
     border-top-color: rgba(0, 189, 255, 0.8);
@@ -108,6 +109,8 @@
   .tab-name {
     text-align: center;
     color: #666666;
+    transition-property: color, font-size;
+    transition-duration: 150ms;
   }
   .tab-name-zh {
     font-size: 36px;
@@ -128,16 +131,12 @@
 </style>
 
 <script>
-  import { fetchExamples, getLanguage } from '../shared/utils'
+  import { fetchExamples, saveExamples, readExamples } from '../shared/utils'
   import ExampleScroller from '../components/ExampleScroller.vue'
   // import getExamples from '../../examples'
   // const exampleMap = getExamples({ scope: 'mobile', filterTODO: true })
   const exampleMap = []
 
-  const navigator = weex.requireModule('navigator')
-  const storage = weex.requireModule('storage')
-  const picker = weex.requireModule('picker')
-  const examplesKey = 'WEEX_PLAYGROUND_APP_EXAMPLES'
   let useStorage = false
   export default {
     components: { ExampleScroller },
@@ -155,27 +154,17 @@
       }
     },
     beforeCreate () {
-      getLanguage(language => {
-        this.language = language
-      })
-
       // read examples from storage
-      storage.getItem(examplesKey, event => {
-        if (event.result === 'success') {
-          const data = JSON.parse(event.data)
-          if (data && Array.isArray(data.examples)) {s
-            this.examples = data.examples
-            if (WXEnvironment.platform.toLowwerCase() !== 'web') {
-              useStorage = true
-            }
-          }
+      readExamples(examples => {
+        this.examples = examples
+        if (WXEnvironment.platform.toLowwerCase() !== 'web') {
+          useStorage = true
         }
       })
 
       // update examples to storage
       fetchExamples(result => {
-        result.timestamp = Date.now()
-        storage.setItem(examplesKey, JSON.stringify(result))
+        saveExamples(result)
         if (!useStorage) {
           this.examples = result.examples
         }
@@ -195,26 +184,10 @@
       }
     },
     methods: {
-      divideArary (array) {
-        const column = 8
-        const result = []
-        for (let i = 0; i < array.length; ++i) {
-          const idx = Math.floor(i/column)
-          if (!result[idx]) {
-            result[idx] = []
-          }
-          result[idx].push(array[i])
-        }
-        return result
-      },
       toggleTab (tabType) {
         this.activeTab = tabType
         this.activeGroup = this.currentTab.group[0].type
       }
-    },
-    beforeDestroy () {
-      storage.removeItem('CURRENT_DOCUMENT_URL')
-      storage.removeItem('CURRENT_SOURCE_HASH')
     }
   }
 </script>

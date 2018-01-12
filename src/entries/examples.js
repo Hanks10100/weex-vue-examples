@@ -1,15 +1,8 @@
 import Examples from '../pages/Examples.vue'
-import { i18n, createURL, jumpTo, viewSource } from '../shared/utils'
+import sharedMixin from '../shared/mixin'
 
-Vue.filter('url', createURL)
-Vue.mixin({
-  methods: {
-    i18n,
-    createURL,
-    jumpTo,
-    viewSource
-  }
-})
+// use shared mixins
+Vue.mixin(sharedMixin)
 
 Examples.el = '#root'
 new Vue(Examples)

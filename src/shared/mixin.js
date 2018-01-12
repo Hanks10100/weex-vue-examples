@@ -1,5 +1,7 @@
 import * as utils from './utils'
 
+const storage = weex.requireModule('storage')
+
 export default {
   filters: {
     i18n: utils.i18n,
@@ -27,5 +29,9 @@ export default {
         this.language = event.data.language
       }
     }
+  },
+  beforeDestroy () {
+    storage.removeItem('CURRENT_DOCUMENT_URL')
+    storage.removeItem('CURRENT_SOURCE_HASH')
   }
 }

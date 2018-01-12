@@ -33,7 +33,7 @@
     width: 270px;
     height: 422px;
     border-width: 1px;
-    border-color: #DDD;
+    border-color: #DDDDDD;
   }
   .title {
     height: 75px;
@@ -56,7 +56,9 @@
 </style>
 
 <script>
+  import { viewSource } from '../shared/utils'
   export default {
+    methods: { viewSource },
     props: {
       language: {
         type: String,
