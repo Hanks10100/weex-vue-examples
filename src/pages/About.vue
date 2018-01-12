@@ -25,6 +25,7 @@
 <script>
   import AppInfoCard from '../components/AppInfoCard.vue'
   const picker = weex.requireModule('picker')
+  const channel = new BroadcastChannel('language')
   export default {
     components: { AppInfoCard },
     filters: {
@@ -83,12 +84,8 @@
     watch: {
       language () {
         this.setLanguage(this.language)
+        channel.postMessage({ language: this.language })
       }
-    },
-    created () {
-      this.getLanguage(language => {
-        this.language = language
-      })
     },
     methods: {
       chooseLanguage () {
@@ -110,10 +107,6 @@
   .list {
     background-color: #F5F5F5;
   }
-  .center {
-    align-items: center;
-    justify-item: center;
-  }
   .item {
     padding-top: 30px;
     padding-bottom: 30px;
@@ -122,7 +115,7 @@
     border-bottom-width: 1px;
     border-bottom-style: solid;
     border-bottom-color: #E6E6E6;
-    background-color: #FFF;
+    background-color: #FFFFFF;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;

@@ -1,39 +1,38 @@
 <template>
-  <list class="wrapper">
-    <cell class="cell">
-      <slider class="slider" auto-play="true">
-        <a class="center"
-          v-for="item in sliders" :key="item.subject"
-          :href="createLink(item.route, { subject: item.subject })"
-          :style="{ backgroundColor: item.posterBg }">
-          <div class="center size">
-            <image resize="cover" :style="item.posterStyle" :src="item.poster"></image>
-          </div>
-          <text class="slider-title" :style="{ color: item.mainColor }">{{i18n(item.title)}}</text>
-        </a>
-        <indicator class="indicator"></indicator>
-      </slider>
-    </cell>
-    <cell class="center" @longpress="copyLinks">
-      <text class="title">{{i18n(title)}}</text>
-    </cell>
-    <cell class="center" v-for="(lesson, i) in lessons" :key="i">
-      <div :class="['lesson', `lesson-${language}`]" @click="jumpTo(lesson.docLink)">
-        <text :class="['lesson-index', `lesson-index-${language}`]">{{i + 1}}.</text>
-        <text
-          :class="['lesson-title', `lesson-title-${language}`]"
-          :style="{ color: mainColor }"
-          >{{i18n(lesson.title)}}</text>
-      </div>
-    </cell>
-    <cell class="footer center">
-      <text class="copyright">{{i18n(copyright)}}</text>
-    </cell>
-  </list>
+  <div class="wrapper">
+    <slider class="slider" auto-play="true">
+      <a class="center"
+        v-for="item in sliders" :key="item.subject"
+        :href="createLink(item.route, { subject: item.subject })"
+        :style="{ backgroundColor: item.posterBg }">
+        <div class="center size">
+          <image resize="cover" :style="item.posterStyle" :src="item.poster"></image>
+        </div>
+        <text class="slider-title" :style="{ color: item.mainColor }">{{i18n(item.title)}}</text>
+      </a>
+      <indicator class="indicator"></indicator>
+    </slider>
+    <list>
+      <cell class="center">
+        <text class="title">{{i18n(title)}}</text>
+      </cell>
+      <cell class="center" v-for="(lesson, i) in lessons" :key="i">
+        <div :class="['lesson', `lesson-${language}`]" @click="jumpTo(lesson.docLink)">
+          <text :class="['lesson-index', `lesson-index-${language}`]">{{i + 1}}.</text>
+          <text
+            :class="['lesson-title', `lesson-title-${language}`]"
+            :style="{ color: mainColor }"
+            >{{i18n(lesson.title)}}</text>
+        </div>
+      </cell>
+      <cell class="footer center">
+        <text class="copyright">{{i18n(copyright)}}</text>
+      </cell>
+    </list>
+  </div>
 </template>
 
 <script>
-  import { getLanguage } from '../shared/utils'
   const learnWeex = {
     mainColor: '#00B4FF',
     poster: 'https://gw.alicdn.com/tfs/TB17hlIdgoQMeJjy0FpXXcTxpXa-328-328.png',
@@ -188,7 +187,7 @@
   export default {
     data () {
       return Object.assign({
-        language: 'zh',
+        language: 'en',
         sliders: [{
           route: 'lesson',
           subject: 'vue',
@@ -224,11 +223,6 @@
           }
         }]
       }, learnWeex)
-    },
-    beforeCreate () {
-      getLanguage(language => {
-        this.language = language
-      })
     }
   }
 </script>
@@ -254,8 +248,7 @@
     padding-top: 0;
     font-size: 46px;
     text-align: center;
-    color: #FFF;
-    /* background-color: rgba(0, 0, 0, 0.2); */
+    color: #FFFFFF;
   }
   .indicator {
     position: absolute;

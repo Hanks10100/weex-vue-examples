@@ -1,11 +1,8 @@
 import News from '../pages/News.vue'
-import { jumpTo } from '../shared/utils'
+import sharedMixin from '../shared/mixin'
 
-Vue.mixin({
-  methods: {
-    jumpTo
-  }
-})
+// use shared mixins
+Vue.mixin(sharedMixin)
 
 News.el = '#root'
 new Vue(News)

@@ -28,11 +28,11 @@
     width: 650px;
     justify-content: center;
     border-width: 1px;
-    border-color: #DDD;
+    border-color: #DDDDDD;
     border-radius: 20px;
     padding: 50px;
     margin: 50px;
-    background-color: #FFF;
+    background-color: #FFFFFF;
   }
   .title {
     font-size: 34px;

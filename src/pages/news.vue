@@ -70,9 +70,9 @@
   }
   .message-box {
     border-width: 1px;
-    border-color: #DDD;
+    border-color: #DDDDDD;
     border-radius: 15px;
-    background-color: #FFF;
+    background-color: #FFFFFF;
     margin-top: 25px;
     margin-bottom: 35px;
   }
