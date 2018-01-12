@@ -24,8 +24,11 @@
 </template>
 
 <script>
+  import { fetchGuide, saveGuide, readGuide } from '../shared/utils'
   import Lesson from '../components/Lesson.vue'
   import sliders from '../shared/sliders.js'
+
+  let useStorage = false
   export default {
     components: { Lesson },
     data () {
@@ -39,6 +42,20 @@
       chosenLesson () {
         return this.sliders[this.lenssonIndex]
       }
+    },
+    beforeCreate () {
+      readGuide(guide => {
+        this.sliders = guide
+        if (WXEnvironment.platform.toLowwerCase() !== 'web') {
+          useStorage = true
+        }
+      })
+      fetchGuide(result => {
+        saveGuide(result)
+        if (!useStorage) {
+          this.sliders = result.guide
+        }
+      })
     }
   }
 </script>

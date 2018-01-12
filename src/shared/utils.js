@@ -140,7 +140,14 @@ export function viewSource (url) {
   getLanguage(lang => view(lang), _ => view('en'))
 }
 
-export function fetchData (name, done, fail) {
+const storageKeys = {
+  doodle: 'WEEX_PLAYGROUND_APP_DOODLE',
+  guide: 'WEEX_PLAYGROUND_APP_GUIDE',
+  examples: 'WEEX_PLAYGROUND_APP_EXAMPLES',
+  news: 'WEEX_PLAYGROUND_APP_NEWS',
+  about: 'WEEX_PLAYGROUND_APP_ABOUT',
+}
+export function fetchData (name, done = () => {}, fail = () => {}) {
   try {
     stream.fetch({
       url: 'http://dotwe.org/query/weex-playground-app',
@@ -151,52 +158,53 @@ export function fetchData (name, done, fail) {
       type: 'json',
       body: `name=${name}`
     }, res => {
-      if (res.ok && res.data && typeof done === 'function') {
+      if (res.ok && res.data && res.data.success) {
         done(res.data)
-      } else if (typeof fail === 'function') {
+      } else {
         fail(res)
       }
     })
   } catch (err) {
-    if (typeof fail === 'function') {
-      fail(err)
-    }
+    fail(err)
   }
 }
-
-export function fetchDoodle (done, fail) {
-  fetchData('doodle', done, fail)
-}
-
-const examplesKey = 'WEEX_PLAYGROUND_APP_EXAMPLES'
-export function fetchExamples (done, fail) {
-  fetchData('examples', done, fail)
-}
-export function saveExamples (result) {
+export function saveData (name, result) {
+  const key = storageKeys[name]
+  if (!key) return
   if (result && typeof result === 'object') {
     result.timestamp = Date.now()
-    storage.setItem(examplesKey, JSON.stringify(result))
+    storage.setItem(key, JSON.stringify(result))
   }
 }
-export function readExamples (done = () => {}, fail = () => {}) {
+export function readData (name, done = () => {}, fail = () => {}) {
+  const key = storageKeys[name]
+  if (!key) return fail()
   try {
-    storage.getItem(examplesKey, event => {
+    storage.getItem(key, event => {
       if (event.result === 'success') {
-        const data = JSON.parse(event.data)
-        if (data && Array.isArray(data.examples)) {
-          done(data.examples)
-        } else {
-          fail(event)
+        const result = JSON.parse(event.data)
+        if (result && Array.isArray(result[name])) {
+          return done(result[name])
         }
-      } else {
-        fail(event)
       }
+      fail(event)
     })
   } catch (e) {
     fail(e)
   }
 }
 
-export function fetchNews (done, fail) {
-  fetchData('news', done, fail)
-}
+export const fetchExamples = (...args) => fetchData('examples', ...args)
+export const saveExamples = (...args) => saveData('examples', ...args)
+export const readExamples = (...args) => readData('examples', ...args)
+
+export const fetchGuide = (...args) => fetchData('guide', ...args)
+export const saveGuide = (...args) => saveData('guide', ...args)
+export const readGuide = (...args) => readData('guide', ...args)
+
+export const fetchAbout = (...args) => fetchData('about', ...args)
+export const saveAbout = (...args) => saveData('about', ...args)
+export const readAbout = (...args) => readData('about', ...args)
+
+export const fetchDoodle = (...args) => fetchData('doodle', ...args)
+export const fetchNews = (...args) => fetchData('news', ...args)

@@ -23,6 +23,7 @@
 </template>
 
 <script>
+  import { readAbout } from '../shared/utils'
   import AppInfoCard from '../components/AppInfoCard.vue'
   const picker = weex.requireModule('picker')
   const channel = new BroadcastChannel('language')
@@ -86,6 +87,11 @@
         this.setLanguage(this.language)
         channel.postMessage({ language: this.language })
       }
+    },
+    beforeCreate () {
+      readAbout(about => {
+        this.items = about
+      })
     },
     methods: {
       chooseLanguage () {

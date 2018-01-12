@@ -14,6 +14,9 @@ export default {
     i18n: utils.i18n,
     getLanguage: utils.getLanguage,
     setLanguage: utils.setLanguage,
+    fetchData: utils.fetchData,
+    saveData: utils.saveData,
+    readData: utils.readData,
     jumpTo: utils.jumpTo
   },
   created () {

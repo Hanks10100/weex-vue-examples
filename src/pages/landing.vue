@@ -3,8 +3,8 @@
     <doodle :lang="language" class="doodle" />
     <div class="menu-list">
       <div :class="['menu-row', `menu-row-${r+1}`]" v-for="(row, r) in menus" :key="r">
-        <a :href="menu.name | link" :class="['menu-item', `menu-item-${i+1}`,`menu-item-${menu.name}`]" v-for="(menu, i) in row" :key="menu.name">
-          <text :class="['menu-text', `menu-text-${menu.name}`]">{{i18n(menu.title)}}</text>
+        <a :href="menu.name | link" :class="['menu-item', `menu-item-${i+1}`]" v-for="(menu, i) in row" :key="menu.name">
+          <text :class="['menu-text', `menu-text-${language}`]">{{i18n(menu.title)}}</text>
         </a>
       </div>
     </div>
@@ -33,7 +33,7 @@
 <style scoped>
   .doodle {
     width: 750px;
-    height: 900px;
+    height: 850px;
   }
   .menu-list {
     flex: 1;
@@ -63,8 +63,11 @@
   }
   .menu-text {
     text-align: center;
-    font-size: 60px;
+    font-size: 52px;
     font-weight: bold;
     color: #8B8B8B;
+  }
+  .menu-text-zh {
+    font-size: 56px;
   }
 </style>

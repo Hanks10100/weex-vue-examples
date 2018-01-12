@@ -5,7 +5,7 @@
       <image class="logo" src="https://gw.alicdn.com/tfs/TB1Q9VBkRfH8KJjy1XbXXbLdXXa-3799-1615.png"/>
       <div class="btn center">
         <image class="scan-bg" @click="scan" src="https://gw.alicdn.com/tfs/TB1qnO0kLDH8KJjy1XcXXcpdXXa-900-320.png"/>
-        <text class="btn-text">{{i18n(SCAN)}}</text>
+        <text :class="['btn-text', 'btn-text-' + language]">{{i18n(SCAN)}}</text>
       </div>
     </div>
   </div>
@@ -75,5 +75,8 @@
     color: #727272;
     font-size: 56px;
     text-align: center;
+  }
+  .btn-text-zh {
+    font-size: 64px;
   }
 </style>
