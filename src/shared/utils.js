@@ -17,12 +17,32 @@ export function createLink (name, params = {}) {
   return `${base}${name}.weex.js` + (args.length ? `?${args.join('&')}` : '')
 }
 
-export function createURL (hash) {
+export function createURL (hash, params) {
   if (WXEnvironment.platform === 'Web') {
     return `http://dotwe.org/raw/htmlVue/${hash}`
   }
   const url = `http://dotwe.org/raw/dist/${hash}.bundle.wx`
-  return `${url}?_wx_tpl=${url}`
+  const paramString = encodeParams(params)
+  if (WXEnvironment.appName === 'TB') {
+    return `${url}?_wx_tpl=${url}&${paramString}`
+  }
+  if (WXEnvironment.appName === 'WXSample') {
+    return `${url}?${paramString}`
+  }
+  return `${url}?wx_weex=true&${paramString}`
+}
+
+function encodeParams (params) {
+  if (!params || typeof params !== 'object') {
+    return ''
+  }
+  const array = []
+  for (const key in params) {
+    if (typeof params[key] === 'string') {
+      array.push(`${key}=${params[key]}`)
+    }
+  }
+  return array.join('&')
 }
 
 function getBaseURL () {
@@ -113,31 +133,30 @@ export function getLanguage (done = () => {}) {
 }
 
 export function jumpTo (url) {
-  const hash = {
-    'en': '06f6a4f7a03ceffc93ec09ddaebb0a51',
-    'zh': 'fa7d084ea1dc617e1c4e03ecd65263db'
-  }
-  const jump = language => {
+  getLanguage(language => {
     storage.setItem('CURRENT_DOCUMENT_URL', i18n(url, language))
-    navigator.push({ url: createURL(i18n(hash, language)) })
-  }
-  getLanguage(lang => jump(lang), _ => jump('en'))
+    navigator.push({
+      url: createURL(
+        'bff91915f8c32b54aa1e62bebb3d9e58',
+        { language }
+      )
+    })
+  })
 }
 
-export function viewSource (url) {
-  // const hash =  {
-  //   'en': 'a9b64158408b8e03d75fa26ba2095b2e',
-  //   'zh': 'a411ffc411c4a07ab50e277343f8b64e'
-  // }
-  const hash = {
-    'en': '032afafed7947de7d5123a45b3ca9704',
-    'zh': '785cf2804ac6a6dd807a0c988b5729cd'
-  }
-  const view = language => {
-    storage.setItem('CURRENT_SOURCE_HASH', i18n(url, language))
-    navigator.push({ url: createURL(i18n(hash, language)) })
-  }
-  getLanguage(lang => view(lang), _ => view('en'))
+export function viewSource (hash) {
+  getLanguage(language => {
+    navigator.push({
+      url: createURL(
+        'b8f8469cd1489e07d89f555b239912cc',
+        { hash, language }
+      )
+    })
+  })
+}
+
+export function setTitleBar (options) {
+  // TODO: set title color and text
 }
 
 const storageKeys = {

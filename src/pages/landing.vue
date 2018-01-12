@@ -33,7 +33,7 @@
 <style scoped>
   .doodle {
     width: 750px;
-    height: 850px;
+    height: 880px;
   }
   .menu-list {
     flex: 1;

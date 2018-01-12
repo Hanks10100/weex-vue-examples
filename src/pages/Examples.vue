@@ -131,13 +131,14 @@
 </style>
 
 <script>
-  import { fetchExamples, saveExamples, readExamples } from '../shared/utils'
+  import { fetchExamples, saveExamples, readExamples, setTitleBar } from '../shared/utils'
   import ExampleScroller from '../components/ExampleScroller.vue'
   // import getExamples from '../../examples'
   // const exampleMap = getExamples({ scope: 'mobile', filterTODO: true })
   const exampleMap = []
-
   let useStorage = false
+
+  setTitleBar({ title: 'Examples' })
   export default {
     components: { ExampleScroller },
     data () {

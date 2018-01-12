@@ -1,6 +1,6 @@
 <template>
   <div>
-    <embed v-if="showEmbed" style="flex:1" :src="src" />
+    <embed v-if="showDoodle && doodle.src" @click="magic" style="flex:1" :src="doodle.src | url" />
     <div v-else class="center" style="flex:1">
       <image class="logo" src="https://gw.alicdn.com/tfs/TB1Q9VBkRfH8KJjy1XbXXbLdXXa-3799-1615.png"/>
       <div class="btn center">
@@ -12,32 +12,58 @@
 </template>
 
 <script>
+  import { fetchDoodle } from '../shared/utils'
+  const modal = weex.requireModule('modal')
+  const navigator = weex.requireModule('navigator')
   const event = weex.requireModule('event')
+
+  function isValidDoodle (doodle) {
+    const now = (new Date()).getTime()
+    return doodle && doodle.src
+      && parseInt(doodle.from, 10) < now
+      && now < parseInt(doodle.to, 10)
+  }
+
   export default {
     props: ['lang'],
     data () {
       return {
         language: this.lang || 'en',
-        showEmbed: false,
+        showDoodle: false,
+        seenDoodle: false,
         SCAN: { en: 'Scan QR Code', zh: '扫描二维码' },
-        md5: '2d8da136e33f63a0bfe4b1e42362405b'
+        doodle: {}
       }
     },
-    computed: {
-      src () {
-        const md5 = this.md5
-        if (WXEnvironment.platform === 'Web') {
-          return `http://dotwe.org/raw/htmlVue/${md5}`
+    beforeCreate () {
+      fetchDoodle(({doodle}) => {
+        if (isValidDoodle(doodle) && !this.seenDoodle) {
+          this.doodle = doodle
+          this.showDoodle = true
+          setTimeout(() => {
+            this.showDoodle = false
+            this.seenDoodle = true
+          }, doodle.duration || 8000)
         }
-        const url = `http://dotwe.org/raw/dist/${md5}.bundle.wx`
-        return `${url}?_wx_tpl=${url}`
-      }
+      })
     },
     methods: {
       scan () {
         try {
           event.openURL('weex://go/scan')
-        } catch (e) {}
+        } catch (e) {
+          try {
+            navigator.push({ url: 'weex://go/scan' })
+          } catch (e) {}
+        }
+      },
+      magic () {
+        if (this.doodle && this.doodle.next) {
+          this.showDoodle = false
+          navigator.push({
+            url: this.createURL(this.doodle.next)
+          })
+        }
       }
     }
   }

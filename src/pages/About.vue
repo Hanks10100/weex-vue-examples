@@ -23,10 +23,11 @@
 </template>
 
 <script>
-  import { readAbout } from '../shared/utils'
+  import { readAbout, setTitleBar } from '../shared/utils'
   import AppInfoCard from '../components/AppInfoCard.vue'
   const picker = weex.requireModule('picker')
   const channel = new BroadcastChannel('language')
+  setTitleBar({ title: 'About' })
   export default {
     components: { AppInfoCard },
     filters: {
