@@ -24,7 +24,7 @@
 </template>
 
 <script>
-  import { fetchGuide, saveGuide, readGuide } from '../shared/utils'
+  import { fetchGuide, saveGuide, readGuide, setTitleBar } from '../shared/utils'
   import Lesson from '../components/Lesson.vue'
   import sliders from '../shared/sliders.js'
 
@@ -34,6 +34,13 @@
     data () {
       return {
         language: 'en',
+        navigationBarOptions: {
+          color: '#00B4FF',
+          title: {
+            zh: '学习 Weex',
+            en: 'Learn Weex'
+          }
+        },
         lenssonIndex: 0,
         sliders
       }
@@ -41,6 +48,15 @@
     computed: {
       chosenLesson () {
         return this.sliders[this.lenssonIndex]
+      }
+    },
+    watch: {
+      lenssonIndex () {
+        this.navigationBarOptions.color = this.chosenLesson.mainColor
+        this.navigationBarOptions.title = this.chosenLesson.title
+      },
+      navigationBarOptions () {
+        setTitleBar(this.navigationBarOptions, this.language)
       }
     },
     beforeCreate () {

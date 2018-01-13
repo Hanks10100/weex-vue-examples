@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <list class="example-list" v-if="examples && examples.length">
-      <template v-for="(exampleGroup, n) in currentTab.group">
+      <template v-for="exampleGroup in currentTab.group">
         <cell class="group-info"
           v-if="exampleGroup && exampleGroup.title || exampleGroup.name"
           :ref="exampleGroup.type"
@@ -99,8 +99,8 @@
     border-top-style: solid;
     border-top-color: #DDDDDD;
     justify-content: center;
-    background-color: #FBFBFB;
-    transition: background-color 0.3s;
+    background-color: #FCFCFC;
+    transition: background-color 0.2s;
   }
   .active-tab-cell {
     border-top-color: rgba(0, 189, 255, 0.8);
@@ -110,39 +110,44 @@
     text-align: center;
     color: #666666;
     transition-property: color, font-size;
-    transition-duration: 150ms;
+    transition-duration: 100ms;
   }
   .tab-name-zh {
     font-size: 36px;
   }
   .tab-name-en {
-    font-size: 32px;
+    font-size: 30px;
   }
   .active-tab-name-zh {
     color: #00B4FF;
-    font-size: 45px;
+    font-size: 42px;
     font-weight: bold;
   }
   .active-tab-name-en {
     color: #00B4FF;
-    font-size: 34px;
+    font-size: 32px;
     font-weight: bold;
   }
 </style>
 
 <script>
-  import { fetchExamples, saveExamples, readExamples, setTitleBar } from '../shared/utils'
+  import { fetchExamples, saveExamples, readExamples } from '../shared/utils'
   import ExampleScroller from '../components/ExampleScroller.vue'
   // import getExamples from '../../examples'
   // const exampleMap = getExamples({ scope: 'mobile', filterTODO: true })
   const exampleMap = []
   let useStorage = false
-
-  setTitleBar({ title: 'Examples' })
   export default {
     components: { ExampleScroller },
     data () {
       return {
+        navigationBarOptions: {
+          color: '#00B4FF',
+          title: {
+            zh: '使用 Weex 的例子',
+            en: 'Weex Examples'
+          }
+        },
         examples: exampleMap,
         showLoading: false,
         language: 'en',

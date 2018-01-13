@@ -611,7 +611,7 @@ export default [
     ]
   }, {
     subject: 'css',
-    mainColor: '#FFA2DE',
+    mainColor: '#F56FC6',
     title: { zh: '学习 CSS', en: 'Learn CSS' },
     titleColor: '#FFFFFF',
     poster: 'https://gw.alicdn.com/tfs/TB1k6anhMMPMeJjy1XdXXasrXXa-427-190.jpg',

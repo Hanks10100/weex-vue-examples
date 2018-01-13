@@ -2,11 +2,30 @@ const stream = weex.requireModule('stream')
 const storage = weex.requireModule('storage')
 const navigator = weex.requireModule('navigator')
 
+const encoder = typeof encodeURIComponent === 'function'
+? encodeURIComponent
+: typeof encodeURI === 'function'
+  ? encodeURI
+  : x => x
+
+function encodeParams (params) {
+  if (!params || typeof params !== 'object') {
+    return ''
+  }
+  const array = []
+  for (const key in params) {
+    if (typeof params[key] === 'string') {
+      array.push(`${encoder(key)}=${encoder(params[key])}`)
+    }
+  }
+  return array.join('&')
+}
+
 export function createLink (name, params = {}) {
   const args = []
   for (const key in params) {
     if (typeof params[key] === 'string') {
-      args.push(`${key}=${params[key]}`)
+      args.push(`${encoder(key)}=${encoder(params[key])}`)
     }
   }
   if (WXEnvironment.platform === 'Web') {
@@ -30,19 +49,6 @@ export function createURL (hash, params) {
     return `${url}?${paramString}`
   }
   return `${url}?wx_weex=true&${paramString}`
-}
-
-function encodeParams (params) {
-  if (!params || typeof params !== 'object') {
-    return ''
-  }
-  const array = []
-  for (const key in params) {
-    if (typeof params[key] === 'string') {
-      array.push(`${key}=${params[key]}`)
-    }
-  }
-  return array.join('&')
 }
 
 function getBaseURL () {
@@ -143,13 +149,13 @@ export function getLanguage (done = () => {}) {
   }
 }
 
-export function jumpTo (url) {
+export function jumpTo (url, title) {
   getLanguage(language => {
     storage.setItem('CURRENT_DOCUMENT_URL', i18n(url, language))
     navigator.push({
       url: createURL(
         'bff91915f8c32b54aa1e62bebb3d9e58',
-        { language }
+        { language, title: i18n(title, language) }
       )
     })
   })
@@ -166,8 +172,17 @@ export function viewSource (hash) {
   })
 }
 
-export function setTitleBar (options) {
-  // TODO: set title color and text
+export function setTitleBar (options, language = 'en') {
+  if (Object.prototype.toString.apply(options) !== '[object Object]') {
+    return
+  }
+  if (options.color) {
+    // TODO: set color
+  }
+  const title = i18n(options.title, language)
+  if (title) {
+    // TOD: set title
+  }
 }
 
 const storageKeys = {

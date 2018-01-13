@@ -28,6 +28,13 @@
   export default {
     data () {
       return {
+        navigationBarOptions: {
+          color: '#363636',
+          title: {
+            zh: '资讯',
+            en: 'News'
+          }
+        },
         visibleCount: 8,
         news: []
       }

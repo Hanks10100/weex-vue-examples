@@ -22,6 +22,7 @@ export default {
     // get and set language
     utils.getLanguage(language => {
       this.language = language
+      utils.setTitleBar(this.navigationBarOptions, language)
     })
 
     // listen to the language change event

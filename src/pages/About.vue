@@ -27,7 +27,6 @@
   import AppInfoCard from '../components/AppInfoCard.vue'
   const picker = weex.requireModule('picker')
   const channel = new BroadcastChannel('language')
-  utils.setTitleBar({ title: 'About' })
   const FOLLOW_SYSTEM = { en: 'Follow System', zh: '跟随系统' }
   export default {
     components: { AppInfoCard },
@@ -35,6 +34,13 @@
       return {
         language: 'en',
         followSystem: true,
+        navigationBarOptions: {
+          color: '#00B4FF',
+          title: {
+            zh: '关于 Weex',
+            en: 'About Weex'
+          }
+        },
         tips: {
           LANGUAGE: { en: 'Language', zh: '语言' }
         },
@@ -125,6 +131,8 @@
               utils.clearStorageLanguage()
               utils.getSystemLanguage(lang => {
                 this.language = lang
+              }, error => {
+                this.language = 'en'
               })
             }
           }
