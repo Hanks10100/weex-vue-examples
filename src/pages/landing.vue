@@ -3,7 +3,9 @@
     <doodle :lang="language" class="doodle" />
     <div class="menu-list">
       <div :class="['menu-row', `menu-row-${r+1}`]" v-for="(row, r) in menus" :key="r">
-        <a :href="menu.name | link" :class="['menu-item', `menu-item-${i+1}`]" v-for="(menu, i) in row" :key="menu.name">
+        <a v-for="(menu, i) in row" :key="menu.name"
+          :href="menu.name | link({ language })"
+          :class="['menu-item', `menu-item-${i+1}`]">
           <text :class="['menu-text', `menu-text-${language}`]">{{i18n(menu.title)}}</text>
         </a>
       </div>

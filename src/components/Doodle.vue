@@ -61,7 +61,9 @@
         if (this.doodle && this.doodle.next) {
           this.showDoodle = false
           navigator.push({
-            url: this.createURL(this.doodle.next)
+            url: this.createURL(this.doodle.next, {
+              language: this.language
+            })
           })
         }
       }

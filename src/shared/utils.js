@@ -72,7 +72,7 @@ export function i18n (text, language) {
 
 const supportedLanguageRE = /(en|zh)\_?\w*/i
 export function parseLanguage (language) {
-  const match = supportedLanguageRE.exec(language)
+  const match = supportedLanguageRE.exec(language + '')
   if (match && match[1]) {
     return match[1]
   }
@@ -84,6 +84,10 @@ export function setLanguage (language) {
   if (lang) {
     storage.setItem('WEEX_PLAYGROUND_LANGUAGE', lang)
   }
+}
+
+export function clearStorageLanguage () {
+  storage.removeItem('WEEX_PLAYGROUND_LANGUAGE')
 }
 
 export function getStorageLanguage (done, fail = () => {}) {
@@ -124,12 +128,19 @@ export function getSystemLanguage (done, fail = () => {}) {
   }
 }
 
+const languageRE = /.+[\?\&]{1}language=([\d\w]+)[\?\&]?.*/i
 export function getLanguage (done = () => {}) {
-  getStorageLanguage(done, () => {
-    getSystemLanguage(done, () => {
-      done('en')
+  const match = languageRE.exec(weex.config.bundleUrl || '')
+  const lang = parseLanguage(match && match[1])
+  if (lang) {
+    done(lang)
+  } else {
+    getStorageLanguage(done, () => {
+      getSystemLanguage(done, () => {
+        done('en')
+      })
     })
-  })
+  }
 }
 
 export function jumpTo (url) {

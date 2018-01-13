@@ -2,7 +2,7 @@
   <list class="list">
     <cell class="cell" v-for="(item, i) in visibleNews" :key="i">
       <div class="message-time" v-if="item.time">
-        <text class="time-text">{{item.time}}</text>
+        <text class="time-text">{{i18n(item.time)}}</text>
       </div>
       <div class="message-box" v-if="item.type === 'article'">
         <div class="article" @click="jumpTo(item.link)">

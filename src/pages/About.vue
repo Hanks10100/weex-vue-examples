@@ -10,7 +10,7 @@
     <cell class="item-cell">
       <div class="item" @click="chooseLanguage">
         <text class="item-title">{{i18n(tips.LANGUAGE)}}</text>
-        <text class="item-value">{{language | lang}}</text>
+        <text class="item-value">{{languageName}}</text>
       </div>
     </cell>
     <cell>
@@ -23,25 +23,18 @@
 </template>
 
 <script>
-  import { readAbout, setTitleBar } from '../shared/utils'
+  import * as utils from '../shared/utils'
   import AppInfoCard from '../components/AppInfoCard.vue'
   const picker = weex.requireModule('picker')
   const channel = new BroadcastChannel('language')
-  setTitleBar({ title: 'About' })
+  utils.setTitleBar({ title: 'About' })
+  const FOLLOW_SYSTEM = { en: 'Follow System', zh: '跟随系统' }
   export default {
     components: { AppInfoCard },
-    filters: {
-      lang (type) {
-        switch (type) {
-          case 'en': return 'English'
-          case 'zh': return '中文'
-        }
-        return type
-      }
-    },
     data () {
       return {
         language: 'en',
+        followSystem: true,
         tips: {
           LANGUAGE: { en: 'Language', zh: '语言' }
         },
@@ -85,24 +78,55 @@
     },
     watch: {
       language () {
-        this.setLanguage(this.language)
+        if (!this.followSystem) {
+          utils.setLanguage(this.language)
+        }
         channel.postMessage({ language: this.language })
       }
     },
-    beforeCreate () {
-      readAbout(about => {
+    computed: {
+      languageName () {
+        if (this.followSystem) {
+          return this.i18n(FOLLOW_SYSTEM)
+        }
+        return this.i18n({ en: 'English', zh: '简体中文' })
+      }
+    },
+    created () {
+      utils.readAbout(about => {
         this.items = about
       })
+      utils.getStorageLanguage(
+        lang => this.followSystem = false,
+        () => this.followSystem = true
+      )
     },
     methods: {
       chooseLanguage () {
-        const options = ['en', 'zh']
+        const options = ['', 'en', 'zh']
+        const index = this.followSystem
+          ? 0
+          : options.indexOf(this.language)
         picker.pick({
-          index: options.indexOf(this.language),
-          items: ['English', '中文'],
+          index,
+          items: [
+            this.i18n(FOLLOW_SYSTEM),
+            'English',
+            '中文'
+          ]
         }, ({result, data}) => {
           if (result === 'success') {
-            this.language = options[data]
+            const select = options[data]
+            if (select) {
+              this.followSystem = false
+              this.language = select
+            } else {
+              this.followSystem = true
+              utils.clearStorageLanguage()
+              utils.getSystemLanguage(lang => {
+                this.language = lang
+              })
+            }
           }
         })
       }
