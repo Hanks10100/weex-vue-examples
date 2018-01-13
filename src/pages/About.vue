@@ -40,6 +40,12 @@
         },
         items: [
           {
+            title: { en: 'Weex Official Website', zh: 'Weex 官方网站' },
+            link: {
+              en: 'http://weex-project.io/',
+              zh: 'http://weex-project.io/cn/'
+            }
+          }, {
             title: { en: 'Apache Software Foundation', zh: 'Apache 软件基金会' },
             link: 'http://www.apache.org/'
           }, {
@@ -47,19 +53,13 @@
             link: {
               en: 'http://weex-project.io/who-is-using-weex.html',
               zh: 'http://weex-project.io/cn/who-is-using-weex.html'
-            },
+            }
           }, {
             title: { en: 'Contribution', zh: '参与贡献' },
             link: {
-              en: 'http://weex-project.io/contributing.html',
-              zh: 'http://weex-project.io/cn/contributing.html'
-            },
-          }, {
-            title: { en: 'Resources', zh: '资源' },
-            link: {
-              en: 'http://weex-project.io/resources.html',
-              zh: 'http://weex-project.io/cn/resources.html'
-            },
+              en: 'http://weex-project.io/guide/contributing.html',
+              zh: 'http://weex-project.io/cn/guide/contributing.html'
+            }
           }, {
             title: { en: 'Release Note', zh: '版本变更' },
             link: {
