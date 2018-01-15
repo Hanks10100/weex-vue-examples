@@ -243,7 +243,7 @@
           const data = JSON.parse(event.data)
           if (data && Array.isArray(data.examples)) {s
             this.examples = data.examples
-            if (WXEnvironment.platform.toLowwerCase() !== 'web') {
+            if (WXEnvironment.platform.toLowerCase() !== 'web') {
               useStorage = true
             }
           }

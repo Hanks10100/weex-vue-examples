@@ -125,7 +125,7 @@
   }
   .active-tab-name-en {
     color: #00B4FF;
-    font-size: 32px;
+    font-size: 30px;
     font-weight: bold;
   }
 </style>
@@ -142,7 +142,6 @@
     data () {
       return {
         navigationBarOptions: {
-          color: '#00B4FF',
           title: {
             zh: '使用 Weex 的例子',
             en: 'Weex Examples'
@@ -163,7 +162,7 @@
       // read examples from storage
       readExamples(examples => {
         this.examples = examples
-        if (WXEnvironment.platform.toLowwerCase() !== 'web') {
+        if (WXEnvironment.platform.toLowerCase() !== 'web') {
           useStorage = true
         }
       })

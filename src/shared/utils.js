@@ -3,10 +3,10 @@ const storage = weex.requireModule('storage')
 const navigator = weex.requireModule('navigator')
 
 const encoder = typeof encodeURIComponent === 'function'
-? encodeURIComponent
-: typeof encodeURI === 'function'
-  ? encodeURI
-  : x => x
+  ? encodeURIComponent
+  : typeof encodeURI === 'function'
+    ? encodeURI
+    : x => x
 
 function encodeParams (params) {
   if (!params || typeof params !== 'object') {
@@ -124,10 +124,22 @@ export function getSystemLanguage (done, fail = () => {}) {
   } else {
     try {
       const locale = weex.requireModule('locale') || weex.requireModule('local')
-      locale.getLanguage(language => {
+      let useSync = false
+      const resSync = locale.getLanguage(language => {
         const lang = parseLanguage(language)
-        lang ? done(lang) : fail()
+        if (lang) {
+          useSync || done(lang)
+        } else {
+          fail()
+        }
       })
+      const langSync = parseLanguage(resSync)
+      if (langSync) {
+        useSync = true
+        done(langSync)
+      } else {
+        fail()
+      }
     } catch (e) {
       fail(e)
     }
@@ -154,7 +166,7 @@ export function jumpTo (url, title) {
     storage.setItem('CURRENT_DOCUMENT_URL', i18n(url, language))
     navigator.push({
       url: createURL(
-        'bff91915f8c32b54aa1e62bebb3d9e58',
+        'bf0305c14b511b24a4e616f53926432b',
         { language, title: i18n(title, language) }
       )
     })
@@ -165,7 +177,7 @@ export function viewSource (hash) {
   getLanguage(language => {
     navigator.push({
       url: createURL(
-        'b8f8469cd1489e07d89f555b239912cc',
+        'f6ce29faf686eabc38b410bf4828fa5a',
         { hash, language }
       )
     })
@@ -176,12 +188,20 @@ export function setTitleBar (options, language = 'en') {
   if (Object.prototype.toString.apply(options) !== '[object Object]') {
     return
   }
-  if (options.color) {
-    // TODO: set color
+  const titleBar = weex.requireModule('titleBar')
+  if (options.color || options.backgroundColor) {
+    try {
+      titleBar.setStyle({
+        foregroundColor: options.color || '#FFFFFF',
+        backgroundColor: options.backgroundColor || '#00B4FF'
+      })
+    } catch (e) {}
   }
   const title = i18n(options.title, language)
   if (title) {
-    // TOD: set title
+    try {
+      titleBar.setTitle(title)
+    } catch (e) {}
   }
 }
 

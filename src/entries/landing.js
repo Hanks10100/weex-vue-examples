@@ -2,6 +2,12 @@ import LandingPage from '../pages/Landing.vue'
 import sharedMixin from '../shared/mixin'
 import * as utils from '../shared/utils'
 
+// hide title bar
+try {
+  const titleBar = weex.requireModule('titleBar')
+  titleBar.showTitleBar(false)
+} catch (e) {}
+
 // use shared mixins
 Vue.mixin(sharedMixin)
 

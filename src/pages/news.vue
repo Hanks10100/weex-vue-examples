@@ -29,7 +29,7 @@
     data () {
       return {
         navigationBarOptions: {
-          color: '#363636',
+          // backgroundColor: '#5F5F5F',
           title: {
             zh: '资讯',
             en: 'News'

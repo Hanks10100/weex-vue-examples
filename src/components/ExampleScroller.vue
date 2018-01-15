@@ -21,6 +21,7 @@
     flex-direction: row;
     background-color: #FDFDFD;
     padding: 20px;
+    height: 600px;
   }
   .example-box {
     justify-content: space-between;

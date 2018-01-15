@@ -35,10 +35,9 @@
       return {
         language: 'en',
         navigationBarOptions: {
-          color: '#00B4FF',
           title: {
-            zh: '学习 Weex',
-            en: 'Learn Weex'
+            zh: 'Weex 入门',
+            en: 'Weex Guide'
           }
         },
         lenssonIndex: 0,
@@ -52,7 +51,7 @@
     },
     watch: {
       lenssonIndex () {
-        this.navigationBarOptions.color = this.chosenLesson.mainColor
+        this.navigationBarOptions.backgroundColor = this.chosenLesson.mainColor
         this.navigationBarOptions.title = this.chosenLesson.title
       },
       navigationBarOptions () {
@@ -62,7 +61,7 @@
     beforeCreate () {
       readGuide(guide => {
         this.sliders = guide
-        if (WXEnvironment.platform.toLowwerCase() !== 'web') {
+        if (WXEnvironment.platform.toLowerCase() !== 'web') {
           useStorage = true
         }
       })
