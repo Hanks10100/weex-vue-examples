@@ -125,11 +125,13 @@
             if (select) {
               this.followSystem = false
               this.language = select
+              this.$forceUpdate()
             } else {
               this.followSystem = true
               utils.clearStorageLanguage()
               utils.getSystemLanguage(lang => {
                 this.language = lang
+                this.$forceUpdate()
               }, error => {
                 this.language = 'en'
               })
