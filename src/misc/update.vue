@@ -78,13 +78,13 @@
       title: 'Weex Conf 2018 等你来',
       summary: '2018年1月19日，分享 Weex 的蜕变之旅',
       link: 'http://weex-project.io/weexconf2018/',
-      time: '2018年1月5日 17:30',
+      time: { zh: '2018年1月5日 17:30', en: '2018/01/05 17:30' },
     }, {
       type: 'article',
       poster: 'https://gw.alicdn.com/tfs/TB1Q9VBkRfH8KJjy1XbXXbLdXXa-3799-1615.png',
       title: 'Getting Started With Weex',
       link: 'http://weex-project.io/guide/',
-      time: '2018年1月1日 0:0',
+      time: { zh: '2018年1月5日 17:30', en: '2018/01/01 0:0' },
       related: [{
         poster: 'https://gw.alicdn.com/tfs/TB1qOlHdgMPMeJjy1XbXXcwxVXa-328-328.png',
         title: '快速上手 Weex',
@@ -95,7 +95,7 @@
       poster: 'https://img.alicdn.com/tps/TB1xS6JOVXXXXcnXXXXXXXXXXXX-2000-500.jpg',
       title: 'Weex Conf 2017',
       link: 'https://yq.aliyun.com/activity/145',
-      time: '2017年1月12日 9:30',
+      time: { zh: '2017年1月12日 9:30', en: '2017/01/12 9:30' },
       related: [{
         title: '【资料合集】Weex Conf 回顾集锦',
         link: 'https://yq.aliyun.com/articles/68818'
@@ -105,20 +105,20 @@
       poster: 'https://yqfile.alicdn.com/eed85e0086e30d1b49d006ef8f104f609dc73f1b.png',
       title: 'Apache再次接受阿里开源产品捐赠：移动开发框架Weex进入孵化',
       link: 'https://yq.aliyun.com/articles/66576',
-      time: '2016年12月15日 12:01'
+      time: { zh: '2016年12月15日 12:01', en: '2016/12/15 12:01' }
     }, {
       type: 'article',
       poster: 'https://gw.alicdn.com/tfs/TB1xA4Tl8fH8KJjy1XbXXbLdXXa-1080-726.jpg',
       title: 'Weex meets Vue',
       summary: '记一次 Weex 前端团队的讨论',
       link: 'https://github.com/weexteam/article/issues/77',
-      time: '2016年9月9日 17:25'
+      time: { zh: '2016年9月9日 17:25', en: '2016/09/09 17:25' }
     }, {
       type: 'article',
       poster: 'https://gw.alicdn.com/tfs/TB1AqLil2DH8KJjy1XcXXcpdXXa-1440-809.png',
       title: 'Weex 在 GitHub 中开源！',
       link: 'https://weibo.com/5897827106/DCFtruTbc',
-      time: '2016年6月30日 20:20'
+      time: { zh: '2016年6月30日 20:20', en: '2016/06/30 20:20' }
     }
   ]
 
@@ -161,9 +161,9 @@
       storeDoodle () {
         const doodle = {
           from: (new Date()).getTime(),
-          to: (new Date(2018, 1, 7, 3, 24, 0)).getTime(),
-          src: 'b73e356ee63f8613de8ba30a378fcad9',
-          next: '1d4b9b89b3e2eacd9b61e9cffb59efed',
+          to: (new Date(2018, 0, 7, 3, 24, 0)).getTime(),
+          // src: '6d342078db4a4544ccc6affd272132bb',
+          // next: '1d4b9b89b3e2eacd9b61e9cffb59efed',
           // duration: 10000
         }
         store({ name: 'doodle', doodle }, res => {

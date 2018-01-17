@@ -77,7 +77,7 @@ module.exports = {
       title: { zh: '计算器', en: 'Calculator' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1tXOrc3MPMeJjy1XcXXXpppXa-540-844.png'
     }, {
-      hash: '1e5eb6380f9e15973e28bacfc7e59636',
+      hash: 'a9c4ac1d732dc5fc3e31eaf70b40eadd',
       title: { zh: '华容道', en: 'Klotski' },
       screenshot: 'https://gw.alicdn.com/tfs/TB13Yw1af6H8KJjy0FjXXaXepXa-540-844.png'
     }, {

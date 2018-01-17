@@ -23,6 +23,7 @@ module.exports = {
     }]
   }, {
     type: 'learn',
+    scope: 'website',
     name: { zh: '学习', en: 'Learn' },
     examples: [{
       hash: {

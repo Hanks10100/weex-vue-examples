@@ -35,8 +35,8 @@ module.exports = {
     name: 'dom',
     title: { zh: 'dom 模块', en: 'dom' },
     desc: {
-      zh: '操作页面中的 Virtual-DOM 或者获取其信息。需要注意的是原生平台中并没有 Web 标准中的 DOM 结构。',
-      en: ''
+      zh: '操作页面中的节点或者获取其信息。需要注意的是原生平台中并没有 Web 标准中的 DOM 结构。',
+      en: 'A series of dom apis that sending virtual-dom’s messages to the native renderer to update the dom tree.'
     },
     docLink: {
       zh: 'http://weex-project.io/cn/references/modules/dom.html',
@@ -61,7 +61,7 @@ module.exports = {
     title: { zh: 'stream 模块', en: 'stream' },
     desc: {
       zh: '发送网络请求并获取响应。',
-      en: ''
+      en: 'A series of stream api. It provides a network request.'
     },
     docLink: {
       zh: 'http://weex-project.io/cn/references/modules/stream.html',
@@ -78,7 +78,7 @@ module.exports = {
     title: { zh: 'animation 模块', en: 'animation' },
     desc: {
       zh: 'animation 模块被用于在组件上执行动画。动画可以对组件执行一系列简单的变换 (位置、大小、旋转角度、背景颜色和不透明度等)。',
-      en: ''
+      en: 'The animation module is used to perform animation on components.'
     },
     docLink: {
       zh: 'http://weex-project.io/cn/references/modules/animation.html',
@@ -99,7 +99,7 @@ module.exports = {
     title: { zh: 'navigator 模块', en: 'navigator' },
     desc: {
       zh: '众所周知，在浏览器里，我们可以通过前进或者回退按钮来切换页面，iOS/Android 的 navigator 模块就是用来实现类似的效果的。除了前进、回退功能，该模块还允许我们指定在切换页面的时候是否应用动画效果。',
-      en: ''
+      en: 'As it’s known to all that, we can navigate back and forth in the web browser using the navigation bar. And The navigator module mimics the same behaviors in the iOS/Android application.'
     },
     docLink: {
       zh: 'http://weex-project.io/cn/references/modules/navigator.html',
@@ -120,7 +120,7 @@ module.exports = {
     title: { zh: 'storage 模块', en: 'storage' },
     desc: {
       zh: 'storage 模块可以对本地数据进行存储、修改、删除，并且该数据是永久保存的，除非手动清除或者代码清除。但是，storage 模块有一个限制就是浏览器端（H5）只能存储小于5M的数据，而在 Android 和 iOS 中是没什么限制的。',
-      en: ''
+      en: 'storage is a series of apis, allowing you to for example add, modify or delete stored data items.'
     },
     docLink: {
       zh: 'http://weex-project.io/cn/references/modules/storage.html',
@@ -145,7 +145,7 @@ module.exports = {
     title: { zh: 'clipboard 模块', en: 'clipboard' },
     desc: {
       zh: 'clipboard 模块可以实现从系统的剪贴板中获取内容或者设置内容。',
-      en: ''
+      en: 'clipboard allows you to getString() or setString() from the system clipboard.'
     },
     docLink: {
       zh: 'http://weex-project.io/cn/references/modules/clipboard.html',
@@ -166,7 +166,7 @@ module.exports = {
     title: { zh: 'picker 模块', en: 'picker' },
     desc: {
       zh: '以下为 picker 相关的 API：用于数据选择，日期选择，时间选择。（ H5模块如需使用，请手动引入weex-picker组件）',
-      en: ''
+      en: 'A series of stream api. It provides function: pick data, pick date, pick time.'
     },
     docLink: {
       zh: 'http://weex-project.io/cn/references/modules/picker.html',
@@ -191,7 +191,7 @@ module.exports = {
     title: { zh: 'webview 模块', en: 'webview' },
     desc: {
       zh: '一系列的 <web> 组件操作接口。 比如 goBack、goForward、和 reload。通常与 <web> 组件共用。',
-      en: ''
+      en: 'A series of web operation api like goBack, goForward, and reload. ‘webview’ module used with the web component.'
     },
     docLink: {
       zh: 'http://weex-project.io/cn/references/modules/webview.html',
@@ -216,7 +216,7 @@ module.exports = {
     title: { zh: 'meta 模块', en: 'meta' },
     desc: {
       zh: 'meta 模块可用于声明单个页面的元信息，通常是一些页面的配置，如容器的显示宽度 (viewport) 等。',
-      en: ''
+      en: 'The meta module can be used to declare meta information for a single page, such as the viewport of the container.'
     },
     docLink: {
       zh: 'http://weex-project.io/cn/references/modules/meta.html',
@@ -233,7 +233,7 @@ module.exports = {
     title: { zh: 'WebSocket 模块', en: 'WebSocket' },
     desc: {
       zh: 'WebSockets 是一种先进的技术, 这使得在用户的 H5/iOS/Android 和一个服务器之间打开一个的交互式通信会话成为可能, 有了这个 API，你可以向服务器发送消息, 并接收事件驱动的响应, 无需轮询服务器的响应。',
-      en: ''
+      en: 'WebSockets is an advanced technology that makes it possible to open an interactive communication session between the user’s H5/iOS/android and a server.'
     },
     docLink: {
       zh: 'http://weex-project.io/cn/references/modules/websocket.html',
