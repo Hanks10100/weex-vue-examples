@@ -9848,7 +9848,7 @@ module.exports = function getExamples() {
           return false;
         }
         group.examples = group.examples.filter(function (_) {
-          return !isTODO(_) && !(group.scope && scope && group.scope !== scope);
+          return !isTODO(_) && !(_.scope && scope && _.scope !== scope);
         });
         return !!group.examples.length;
       });
@@ -10336,13 +10336,17 @@ module.exports = {
       zh: 'http://weex-project.io/cn/references/components/div.html'
     },
     examples: [{
-      hash: 'd813b9f5d1e8ef95b0cfa32d469af236',
-      title: { zh: '最简例子', en: 'Sample' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB11h7wewMPMeJjy1XcXXXpppXa-540-844.png'
-    }, {
-      hash: 'd86aca3dbe3d5a00024ccdff6920561b',
+      //   hash: 'd813b9f5d1e8ef95b0cfa32d469af236',
+      //   title: { zh: '最简例子', en: 'Sample' },
+      //   screenshot: 'https://gw.alicdn.com/tfs/TB11h7wewMPMeJjy1XcXXXpppXa-540-844.png'
+      // }, {
+      hash: 'fb2522e71268aa8fb573eb20129ac4eb',
       title: { zh: '嵌套', en: 'Nested' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1uKLGbS_I8KJjy0FoXXaFnVXa-540-844.png'
+    }, {
+      hash: '3488279c3502d1234b437c2f718f3a55',
+      title: { zh: '重叠', en: 'Overlap' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1FPAzd3MPMeJjy1XdXXasrXXa-540-844.png'
     }, {
       hash: '7613db44f6c03a5849937fbbdeebf69d',
       title: { zh: '文字节点', en: 'Text Node' },
@@ -10375,6 +10379,7 @@ module.exports = {
       title: { zh: 'lines 属性', en: '"lines"' },
       screenshot: 'https://gw.alicdn.com/tfs/TB19JaYcMoQMeJjy0FpXXcTxpXa-540-844.png'
     }, {
+      scope: 'website',
       hash: '7e123f72106c5dbba7675f6ee3bd35d2',
       title: { zh: '保留首尾空格', en: 'Trim space' },
       screenshot: 'https://gw.alicdn.com/tfs/TB140aYcMoQMeJjy0FpXXcTxpXa-540-844.png'
@@ -10407,7 +10412,7 @@ module.exports = {
       screenshot: 'https://gw.alicdn.com/tfs/TB1wKHLbILJ8KJjy0FnXXcFDpXa-540-844.png'
     }, {
       hash: '97d978c234dffe96f594c7c10e9119d0',
-      title: { zh: '浮层文字', en: '' },
+      title: { zh: '浮层文字', en: 'Layers' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1Mx1UcMoQMeJjy1XaXXcSsFXa-540-844.png'
     }, {
       hash: '23703f3be5512d0419086d8e7937bd8d',
@@ -10439,7 +10444,7 @@ module.exports = {
       title: { zh: '最简例子', en: 'Sample' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1pgDZcMoQMeJjy1XaXXcSsFXa-540-844.png'
     }, {
-      hash: '9eb4a7d067e4d49903e691cb94ff2834',
+      hash: '56f59761b7217e0f126f1de99a21a239',
       title: '<header>',
       screenshot: 'https://gw.alicdn.com/tfs/TB1N_zLdxrI8KJjy0FpXXb5hVXa-540-844.png'
     }, {
@@ -10669,6 +10674,7 @@ module.exports = {
   }, {
     type: 'richtext',
     name: 'richtext',
+    scope: 'website',
     title: { zh: '富文本组件', en: '<richtext>' },
     desc: {
       zh: '',
@@ -10703,44 +10709,83 @@ module.exports = {
   }, {
     type: 'recycle-list',
     name: 'recycle-list',
+    scope: 'website',
     title: { zh: '<recycle-list> 组件', en: '<recycle-list>' },
     docLink: 'https://github.com/Hanks10100/weex-native-directive',
     examples: [{
-      hash: '0658e5ec6c1d83e8c19adde7e0b2a0fa',
+      hash: '64ce395e4cd6e631639026d89cb77437',
       title: { zh: '文本绑定', en: 'Text Binding' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1LeVoovDH8KJjy1XcXXcpdXXa-540-844.png'
     }, {
-      hash: '6eb27e33b05182f2f453ebbde124d417',
+      hash: '2054caa095436b2642e6a54f006bbd07',
       title: { zh: '属性绑定', en: 'Attribute Binding' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1_pLKolfH8KJjy1XbXXbLdXXa-540-844.png'
     }, {
-      hash: '6cd9625cf1b5912289189efdba33d34c',
+      hash: '6af5d90afef11b3729da4e9651aed9c8',
       title: { zh: '使用 v-for', en: 'Using v-for' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1oxNRor_I8KJjy1XaXXbsxpXa-540-844.png'
     }, {
-      hash: '28145f9d5efd522ef507245829f04566',
+      hash: '82289f08996cad9090efb2231d5bc281',
       title: { zh: '多层循环', en: 'Multiple v-for' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1W4JRor_I8KJjy1XaXXbsxpXa-540-844.png'
     }, {
-      hash: 'ccefdea9e9ef695acca7fb1b439277e2',
+      hash: 'a645db4b73bd7c1cde669f91c7f70f3a',
       title: { zh: '条件渲染', en: 'v-if/v-else' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1bsM4ohrI8KJjy0FpXXb5hVXa-540-844.png'
     }, {
-      hash: '54500d15b5c8f2af2fbd443ab34af822',
+      hash: '788cc577f5d591201ce479ff5fc39116',
       title: { zh: '双向绑定', en: 'Using v-model' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB10YZCom_I8KJjy0FoXXaFnVXa-540-844.png'
     }, {
-      hash: 'cd211e74bcf2cd918284234380f3c43a',
+      hash: 'c63cd1cb03b120dd5658bae0ac939e4e',
       title: { zh: '绑定事件', en: 'Event Binding' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1BjcCom_I8KJjy0FoXXaFnVXa-540-844.png'
     }, {
-      hash: 'a95fca7835aa3fc8bf2c24ec68c7d8cd',
+      hash: 'd515a48f5a4112bbe8d5ac80c315bb44',
+      title: { zh: '一次性渲染', en: 'Using v-once' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1AxNRor_I8KJjy1XaXXbsxpXa-540-844.png'
+    }, {
+      hash: '652df71d25ea3d141c63bd63c0322c72',
       title: { zh: '绑定样式', en: 'Style Binding' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB10z15l5qAXuNjy1XdXXaYcVXa-540-844.png'
     }, {
-      hash: '5c705064c078296bd0e6a2ee94963af7',
+      hash: '89c51e90246286ad921b2fd20ccae339',
+      title: { zh: 'loadmore 事件', en: '"loadmore" Event' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1tK66cMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: 'e55d35fd89a3d802ec8b4710e4b91fc3',
       title: { zh: '压测页面', en: 'Benchmark' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1JGrQilfH8KJjy1XbXXbLdXXa-540-844.png'
+    }]
+  }, {
+    type: 'recycle-list-component',
+    name: 'recycle-list-component',
+    scope: 'website',
+    title: { zh: '<recycle-list> 子组件', en: '<recycle-list> child components' },
+    examples: [{
+      hash: '89dbb3abfa546bba5ca22d4baa8bc31c',
+      title: { zh: '静态子组件', en: 'Static Component' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB101VoovDH8KJjy1XcXXcpdXXa-540-844.png'
+    }, {
+      hash: 'd9ed0d2f2e515ffd8691fdf28b03d83d',
+      title: { zh: '有属性无状态', en: 'Stateless Props' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1LeVoovDH8KJjy1XcXXcpdXXa-540-844.png'
+    }, {
+      hash: '3e4ba91f5333caa531a75cbdc54a8b70',
+      title: { zh: '属性更新', en: 'Update Props' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1LeVoovDH8KJjy1XcXXcpdXXa-540-844.png'
+    }, {
+      hash: '8b068a890470a8cbc737966d9e82d23a',
+      title: { zh: '含内部状态', en: 'Stateful Component' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1tXHKolfH8KJjy1XbXXbLdXXa-540-844.png'
+    }, {
+      hash: 'd214675550ff33d393363b92748603d8',
+      title: { zh: '使用生命周期', en: 'Using Lifecycle' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1JNJRor_I8KJjy1XaXXbsxpXa-540-844.png'
+    }, {
+      hash: '56ae40a63d7b02bb7e55a1fbfbefeb76',
+      title: 'watch & computed',
+      screenshot: 'https://gw.alicdn.com/tfs/TB1X10oovDH8KJjy1XcXXcpdXXa-540-844.png'
     }]
   }]
 };
@@ -10789,8 +10834,8 @@ module.exports = {
     name: 'dom',
     title: { zh: 'dom 模块', en: 'dom' },
     desc: {
-      zh: '操作页面中的 Virtual-DOM 或者获取其信息。需要注意的是原生平台中并没有 Web 标准中的 DOM 结构。',
-      en: ''
+      zh: '操作页面中的节点或者获取其信息。需要注意的是原生平台中并没有 Web 标准中的 DOM 结构。',
+      en: 'A series of dom apis that sending virtual-dom’s messages to the native renderer to update the dom tree.'
     },
     docLink: {
       zh: 'http://weex-project.io/cn/references/modules/dom.html',
@@ -10815,7 +10860,7 @@ module.exports = {
     title: { zh: 'stream 模块', en: 'stream' },
     desc: {
       zh: '发送网络请求并获取响应。',
-      en: ''
+      en: 'A series of stream api. It provides a network request.'
     },
     docLink: {
       zh: 'http://weex-project.io/cn/references/modules/stream.html',
@@ -10832,7 +10877,7 @@ module.exports = {
     title: { zh: 'animation 模块', en: 'animation' },
     desc: {
       zh: 'animation 模块被用于在组件上执行动画。动画可以对组件执行一系列简单的变换 (位置、大小、旋转角度、背景颜色和不透明度等)。',
-      en: ''
+      en: 'The animation module is used to perform animation on components.'
     },
     docLink: {
       zh: 'http://weex-project.io/cn/references/modules/animation.html',
@@ -10853,7 +10898,7 @@ module.exports = {
     title: { zh: 'navigator 模块', en: 'navigator' },
     desc: {
       zh: '众所周知，在浏览器里，我们可以通过前进或者回退按钮来切换页面，iOS/Android 的 navigator 模块就是用来实现类似的效果的。除了前进、回退功能，该模块还允许我们指定在切换页面的时候是否应用动画效果。',
-      en: ''
+      en: 'As it’s known to all that, we can navigate back and forth in the web browser using the navigation bar. And The navigator module mimics the same behaviors in the iOS/Android application.'
     },
     docLink: {
       zh: 'http://weex-project.io/cn/references/modules/navigator.html',
@@ -10874,7 +10919,7 @@ module.exports = {
     title: { zh: 'storage 模块', en: 'storage' },
     desc: {
       zh: 'storage 模块可以对本地数据进行存储、修改、删除，并且该数据是永久保存的，除非手动清除或者代码清除。但是，storage 模块有一个限制就是浏览器端（H5）只能存储小于5M的数据，而在 Android 和 iOS 中是没什么限制的。',
-      en: ''
+      en: 'storage is a series of apis, allowing you to for example add, modify or delete stored data items.'
     },
     docLink: {
       zh: 'http://weex-project.io/cn/references/modules/storage.html',
@@ -10899,7 +10944,7 @@ module.exports = {
     title: { zh: 'clipboard 模块', en: 'clipboard' },
     desc: {
       zh: 'clipboard 模块可以实现从系统的剪贴板中获取内容或者设置内容。',
-      en: ''
+      en: 'clipboard allows you to getString() or setString() from the system clipboard.'
     },
     docLink: {
       zh: 'http://weex-project.io/cn/references/modules/clipboard.html',
@@ -10920,7 +10965,7 @@ module.exports = {
     title: { zh: 'picker 模块', en: 'picker' },
     desc: {
       zh: '以下为 picker 相关的 API：用于数据选择，日期选择，时间选择。（ H5模块如需使用，请手动引入weex-picker组件）',
-      en: ''
+      en: 'A series of stream api. It provides function: pick data, pick date, pick time.'
     },
     docLink: {
       zh: 'http://weex-project.io/cn/references/modules/picker.html',
@@ -10945,7 +10990,7 @@ module.exports = {
     title: { zh: 'webview 模块', en: 'webview' },
     desc: {
       zh: '一系列的 <web> 组件操作接口。 比如 goBack、goForward、和 reload。通常与 <web> 组件共用。',
-      en: ''
+      en: 'A series of web operation api like goBack, goForward, and reload. ‘webview’ module used with the web component.'
     },
     docLink: {
       zh: 'http://weex-project.io/cn/references/modules/webview.html',
@@ -10970,7 +11015,7 @@ module.exports = {
     title: { zh: 'meta 模块', en: 'meta' },
     desc: {
       zh: 'meta 模块可用于声明单个页面的元信息，通常是一些页面的配置，如容器的显示宽度 (viewport) 等。',
-      en: ''
+      en: 'The meta module can be used to declare meta information for a single page, such as the viewport of the container.'
     },
     docLink: {
       zh: 'http://weex-project.io/cn/references/modules/meta.html',
@@ -10987,7 +11032,7 @@ module.exports = {
     title: { zh: 'WebSocket 模块', en: 'WebSocket' },
     desc: {
       zh: 'WebSockets 是一种先进的技术, 这使得在用户的 H5/iOS/Android 和一个服务器之间打开一个的交互式通信会话成为可能, 有了这个 API，你可以向服务器发送消息, 并接收事件驱动的响应, 无需轮询服务器的响应。',
-      en: ''
+      en: 'WebSockets is an advanced technology that makes it possible to open an interactive communication session between the user’s H5/iOS/android and a server.'
     },
     docLink: {
       zh: 'http://weex-project.io/cn/references/modules/websocket.html',
@@ -11279,15 +11324,15 @@ module.exports = {
       en: 'https://vuejs.org/v2/guide/#Composing-with-Components'
     },
     examples: [{
-      hash: '0ee7b5af70129e89b662ab07f927cf0a',
+      hash: '59aeb1600ee976ea61faf354a9fee299',
       title: { zh: '使用子组件', en: 'Composing Components' },
       screenshot: 'https://gw.alicdn.com/tfs/TB12KPGbS_I8KJjy0FoXXaFnVXa-540-844.png'
     }, {
-      hash: 'a91730c73df88b1649149dd2ebd61d20',
+      hash: '3373a87306d0e0ccf463ac492aeb070c',
       title: { zh: '传递属性', en: 'Passing Data with Props' },
       screenshot: 'https://gw.alicdn.com/tfs/TB12KPGbS_I8KJjy0FoXXaFnVXa-540-844.png'
     }, {
-      hash: 'f5b561041de77d9fba8e70e0226c548e',
+      hash: 'b2ac35b0cc13c4c64c5adbfbeed5b3f7',
       title: { zh: '子组件的引用', en: 'Child Component Refs' },
       screenshot: 'https://gw.alicdn.com/tfs/TB12KPGbS_I8KJjy0FoXXaFnVXa-540-844.png'
     }, {
@@ -11303,7 +11348,7 @@ module.exports = {
       title: { zh: '注册全局组件', en: 'Global Registration' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
-      hash: 'df46cfd946e3479ffce93196b86e9d9c',
+      hash: '4c2eadc3fe105d643cd0ade59b3bde54',
       title: { zh: '递归组件', en: 'Recursive Components' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1U868icrI8KJjy0FhXXbfnpXa-540-844.png'
     }, {
@@ -11384,16 +11429,12 @@ module.exports = {
   name: { zh: '样式', en: 'Styles' },
   group: [{
     type: 'basics',
-    name: { zh: '基本样式', en: 'Basics' },
+    name: { zh: '基本样式', en: 'Basic Styles' },
     examples: [{
-      hash: 'ad002b5e26cf55475661b22e81682f79',
-      title: { zh: '边框/背景', en: 'Border & Background' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1z9P1ewMPMeJjy1XdXXasrXXa-540-844.png'
-    }, {
-      hash: '3488279c3502d1234b437c2f718f3a55',
-      title: { zh: '半透明', en: 'Translucent' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1FPAzd3MPMeJjy1XdXXasrXXa-540-844.png'
-    }, {
+      //   hash: 'ad002b5e26cf55475661b22e81682f79',
+      //   title: { zh: '边框/背景', en: 'Border & Background' },
+      //   screenshot: 'https://gw.alicdn.com/tfs/TB1z9P1ewMPMeJjy1XdXXasrXXa-540-844.png'
+      // }, {
       hash: '5219829fd0a5f59dc9208c8327e02e92',
       title: { zh: 'position 布局', en: 'Position Layout' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1CCP1ewMPMeJjy1XdXXasrXXa-540-844.png'
@@ -11467,10 +11508,12 @@ module.exports = {
       title: 'align-items',
       screenshot: 'https://gw.alicdn.com/tfs/TB1ADdPgMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
+      scope: 'website',
       hash: '0650d1e5f089254de707a4af6ea1d736',
       title: 'flex-flow',
       screenshot: 'https://gw.alicdn.com/tfs/TB1qktHgMoQMeJjy0FnXXb8gFXa-540-844.png'
     }, {
+      scope: 'website',
       hash: 'cac1573b8689adbfceecf58f4293654c',
       title: 'order',
       screenshot: 'https://gw.alicdn.com/tfs/TB1qMv.cqagSKJjy0FhXXcrbFXa-540-844.png'
@@ -11479,18 +11522,22 @@ module.exports = {
       title: 'align-self',
       screenshot: 'https://gw.alicdn.com/tfs/TB1qDBGgMMPMeJjy1XbXXcwxVXa-540-844.png'
     }, {
+      scope: 'website',
       hash: 'bdee705206b8d2a447a51dc3b81fa6d8',
       title: 'align-content',
       screenshot: 'https://gw.alicdn.com/tfs/TB1OQIeczihSKJjy0FlXXadEXXa-540-844.png'
     }, {
+      scope: 'website',
       hash: '148cef9b572617067b8cfe208b8e93db',
       title: 'flex-grow',
       screenshot: 'https://gw.alicdn.com/tfs/TB1vvVCgMoQMeJjy1XaXXcSsFXa-540-844.png'
     }, {
+      scope: 'website',
       hash: '4149549dbfbef3f6090ff0711f016263',
       title: 'flex-shrink',
       screenshot: 'https://gw.alicdn.com/tfs/TB1QvVCgMoQMeJjy1XaXXcSsFXa-540-844.png'
     }, {
+      scope: 'website',
       hash: 'b23c7139b09cfc99e6df3dd0a9f7b326',
       title: 'flex-basis',
       screenshot: 'https://gw.alicdn.com/tfs/TB14h8mb2xNTKJjy0FjXXX6yVXa-540-844.png'
@@ -11544,17 +11591,18 @@ module.exports = {
     type: 'tabs',
     name: { zh: '多页签', en: 'Tabs' },
     examples: [{
-      hash: '6415774229aec7f0161504b356e7e94e',
-      title: 'Tabbar',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-    }, {
+      //   hash: '6415774229aec7f0161504b356e7e94e',
+      //   title: 'Tabbar',
+      //   screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      // }, {
       hash: 'c5f7cb6cc90fe4883436534167563dd3',
-      title: { zh: '带切换动画', en: 'Tabbar with Animation' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      // title: { zh: '带切换动画', en: 'Tabbar with Animation' },
+      title: { zh: 'Tab 页签', en: 'Tabs' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1mfmunC_I8KJjy0FoXXaFnVXa-540-844.png'
     }, {
       hash: '643ac211e70a3c733f1d2ef848b3e7f0',
-      title: { zh: '带内容', en: 'Tabbar with Panels' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      title: { zh: '带内容', en: 'Tabs and Panels' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1l0aTnxrI8KJjy0FpXXb5hVXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
       title: { zh: '多个页签实例', en: '<embed>' },
@@ -11584,24 +11632,25 @@ module.exports = {
     type: 'real-cases',
     name: { zh: '完整例子', en: 'Examples' },
     examples: [{
-      hash: '3a52d415dc7307d1594079574fe553c7',
-      title: 'Todo List',
-      screenshot: 'https://gw.alicdn.com/tfs/TB182b_bNrI8KJjy0FpXXb5hVXa-540-844.png'
-    }, {
       hash: '82ff22e820405194004aacae8045ad56',
       title: { zh: '计算器', en: 'Calculator' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1tXOrc3MPMeJjy1XcXXXpppXa-540-844.png'
     }, {
+      hash: 'a9c4ac1d732dc5fc3e31eaf70b40eadd',
+      title: { zh: '华容道', en: 'Klotski' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB13Yw1af6H8KJjy0FjXXaXepXa-540-844.png'
+    }, {
+      hash: '3a52d415dc7307d1594079574fe553c7',
+      title: 'Todo List',
+      screenshot: 'https://gw.alicdn.com/tfs/TB182b_bNrI8KJjy0FpXXb5hVXa-540-844.png'
+    }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
       title: { zh: '扫雷', en: 'MineSweeper' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-    }, {
-      hash: '1e5eb6380f9e15973e28bacfc7e59636',
-      title: { zh: '华容道', en: 'Klotski' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB13Yw1af6H8KJjy0FjXXaXepXa-540-844.png'
     }]
   }, {
     type: 'reprography',
+    scope: 'website',
     name: { zh: '仿', en: 'Reprography' },
     examples: [{
       // hash: 'f28215d4d9d96de91115cdd1528bcacd',
@@ -11609,10 +11658,7 @@ module.exports = {
       title: { zh: '朋友圈', en: 'Moment' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1G7LydwMPMeJjy1XdXXasrXXa-540-844.png'
     }, {
-      hash: '97c0dc80f34d51aff2551a9916d48fba',
-      title: { zh: '聊天', en: 'Chat' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-    }, {
+      scope: 'website',
       hash: '013b1e76d2c5419e32bc3e02aa1bef26',
       title: '应用列表',
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
@@ -11620,6 +11666,10 @@ module.exports = {
       hash: '6c458803b2a83a336099ff43dae4d1a5',
       title: '商品展示',
       screenshot: 'https://gw.alicdn.com/tfs/TB1juElXjihSKJjy0FfXXbGzFXa-540-844.png'
+    }, {
+      hash: '97c0dc80f34d51aff2551a9916d48fba',
+      title: { zh: '聊天', en: 'Chat' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }]
   }]
 };
@@ -11646,6 +11696,7 @@ module.exports = {
       title: { zh: '功能检测', en: 'Feature Detect' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1TOGuc3MPMeJjy1XdXXasrXXa-540-844.png'
     }, {
+      scope: 'website',
       hash: '071c9372edea9530546b6fb61201702f',
       title: { zh: '支持 WebAssembly？', en: 'Support WebAssembly?' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1cHyefwMPMeJjy1XbXXcwxVXa-540-844.png'
@@ -11656,6 +11707,7 @@ module.exports = {
     }]
   }, {
     type: 'learn',
+    scope: 'website',
     name: { zh: '学习', en: 'Learn' },
     examples: [{
       hash: {
