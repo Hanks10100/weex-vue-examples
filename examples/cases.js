@@ -33,17 +33,18 @@ module.exports = {
     type: 'tabs',
     name: { zh: '多页签', en: 'Tabs' },
     examples: [{
-      hash: '6415774229aec7f0161504b356e7e94e',
-      title: 'Tabbar',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-    }, {
+    //   hash: '6415774229aec7f0161504b356e7e94e',
+    //   title: 'Tabbar',
+    //   screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    // }, {
       hash: 'c5f7cb6cc90fe4883436534167563dd3',
-      title: { zh: '带切换动画', en: 'Tabbar with Animation' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      // title: { zh: '带切换动画', en: 'Tabbar with Animation' },
+      title: { zh: 'Tab 页签', en: 'Tabs' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1mfmunC_I8KJjy0FoXXaFnVXa-540-844.png'
     }, {
       hash: '643ac211e70a3c733f1d2ef848b3e7f0',
-      title: { zh: '带内容', en: 'Tabbar with Panels' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      title: { zh: '带内容', en: 'Tabs and Panels' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1l0aTnxrI8KJjy0FpXXb5hVXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
       title: { zh: '多个页签实例', en: '<embed>' },

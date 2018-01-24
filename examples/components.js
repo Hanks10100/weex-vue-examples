@@ -391,41 +391,79 @@ module.exports = {
     title: { zh: '<recycle-list> 组件', en: '<recycle-list>' },
     docLink: 'https://github.com/Hanks10100/weex-native-directive',
     examples: [{
-      hash: '0658e5ec6c1d83e8c19adde7e0b2a0fa',
+      hash: '64ce395e4cd6e631639026d89cb77437',
       title: { zh: '文本绑定', en: 'Text Binding' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1LeVoovDH8KJjy1XcXXcpdXXa-540-844.png'
     }, {
-      hash: '6eb27e33b05182f2f453ebbde124d417',
+      hash: '2054caa095436b2642e6a54f006bbd07',
       title: { zh: '属性绑定', en: 'Attribute Binding' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1_pLKolfH8KJjy1XbXXbLdXXa-540-844.png'
     }, {
-      hash: '6cd9625cf1b5912289189efdba33d34c',
+      hash: '6af5d90afef11b3729da4e9651aed9c8',
       title: { zh: '使用 v-for', en: 'Using v-for' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1oxNRor_I8KJjy1XaXXbsxpXa-540-844.png'
     }, {
-      hash: '28145f9d5efd522ef507245829f04566',
+      hash: '82289f08996cad9090efb2231d5bc281',
       title: { zh: '多层循环', en: 'Multiple v-for' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1W4JRor_I8KJjy1XaXXbsxpXa-540-844.png'
     }, {
-      hash: 'ccefdea9e9ef695acca7fb1b439277e2',
+      hash: 'a645db4b73bd7c1cde669f91c7f70f3a',
       title: { zh: '条件渲染', en: 'v-if/v-else' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1bsM4ohrI8KJjy0FpXXb5hVXa-540-844.png'
     }, {
-      hash: '54500d15b5c8f2af2fbd443ab34af822',
+      hash: '788cc577f5d591201ce479ff5fc39116',
       title: { zh: '双向绑定', en: 'Using v-model' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB10YZCom_I8KJjy0FoXXaFnVXa-540-844.png'
     }, {
-      hash: 'cd211e74bcf2cd918284234380f3c43a',
+      hash: 'c63cd1cb03b120dd5658bae0ac939e4e',
       title: { zh: '绑定事件', en: 'Event Binding' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1BjcCom_I8KJjy0FoXXaFnVXa-540-844.png'
     }, {
-      hash: 'a95fca7835aa3fc8bf2c24ec68c7d8cd',
+      hash: 'd515a48f5a4112bbe8d5ac80c315bb44',
+      title: { zh: '一次性渲染', en: 'Using v-once' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1AxNRor_I8KJjy1XaXXbsxpXa-540-844.png'
+    }, {
+      hash: '652df71d25ea3d141c63bd63c0322c72',
       title: { zh: '绑定样式', en: 'Style Binding' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB10z15l5qAXuNjy1XdXXaYcVXa-540-844.png'
     }, {
-      hash: '5c705064c078296bd0e6a2ee94963af7',
+      hash: '89c51e90246286ad921b2fd20ccae339',
+      title: { zh: 'loadmore 事件', en: '"loadmore" Event' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1tK66cMMPMeJjy1XcXXXpppXa-540-844.png'
+    }, {
+      hash: 'e55d35fd89a3d802ec8b4710e4b91fc3',
       title: { zh: '压测页面', en: 'Benchmark' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1JGrQilfH8KJjy1XbXXbLdXXa-540-844.png'
+    }]
+  }, {
+    type: 'recycle-list-component',
+    name: 'recycle-list-component',
+    scope: 'website',
+    title: { zh: '<recycle-list> 子组件', en: '<recycle-list> child components' },
+    examples: [{
+      hash: '89dbb3abfa546bba5ca22d4baa8bc31c',
+      title: { zh: '静态子组件', en: 'Static Component' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB101VoovDH8KJjy1XcXXcpdXXa-540-844.png'
+    }, {
+      hash: 'd9ed0d2f2e515ffd8691fdf28b03d83d',
+      title: { zh: '有属性无状态', en: 'Stateless Props' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1LeVoovDH8KJjy1XcXXcpdXXa-540-844.png'
+    }, {
+      hash: '3e4ba91f5333caa531a75cbdc54a8b70',
+      title: { zh: '属性更新', en: 'Update Props' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1LeVoovDH8KJjy1XcXXcpdXXa-540-844.png'
+    }, {
+      hash: '8b068a890470a8cbc737966d9e82d23a',
+      title: { zh: '含内部状态', en: 'Stateful Component' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1tXHKolfH8KJjy1XbXXbLdXXa-540-844.png'
+    }, {
+      hash: 'd214675550ff33d393363b92748603d8',
+      title: { zh: '使用生命周期', en: 'Using Lifecycle' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1JNJRor_I8KJjy1XaXXbsxpXa-540-844.png'
+    }, {
+      hash: '56ae40a63d7b02bb7e55a1fbfbefeb76',
+      title: 'watch & computed',
+      screenshot: 'https://gw.alicdn.com/tfs/TB1X10oovDH8KJjy1XcXXcpdXXa-540-844.png'
     }]
   }]
 }

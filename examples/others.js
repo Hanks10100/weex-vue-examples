@@ -13,6 +13,7 @@ module.exports = {
       title: { zh: '功能检测', en: 'Feature Detect' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1TOGuc3MPMeJjy1XdXXasrXXa-540-844.png'
     }, {
+      scope: 'website',
       hash: '071c9372edea9530546b6fb61201702f',
       title: { zh: '支持 WebAssembly？', en: 'Support WebAssembly?' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1cHyefwMPMeJjy1XbXXcwxVXa-540-844.png'
