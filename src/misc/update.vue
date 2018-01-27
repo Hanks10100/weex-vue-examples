@@ -36,6 +36,12 @@
 
   const about = [
     {
+      title: { en: 'Weex Official Website', zh: 'Weex 官方网站' },
+      link: {
+        en: 'http://weex-project.io/',
+        zh: 'http://weex-project.io/cn/'
+      }
+    }, {
       title: { en: 'Apache Software Foundation', zh: 'Apache 软件基金会' },
       link: 'http://www.apache.org/'
     }, {
@@ -43,19 +49,13 @@
       link: {
         en: 'http://weex-project.io/who-is-using-weex.html',
         zh: 'http://weex-project.io/cn/who-is-using-weex.html'
-      },
+      }
     }, {
       title: { en: 'Contribution', zh: '参与贡献' },
       link: {
-        en: 'http://weex-project.io/contributing.html',
-        zh: 'http://weex-project.io/cn/contributing.html'
-      },
-    }, {
-      title: { en: 'Resources', zh: '资源' },
-      link: {
-        en: 'http://weex-project.io/resources.html',
-        zh: 'http://weex-project.io/cn/resources.html'
-      },
+        en: 'http://weex-project.io/guide/contributing.html',
+        zh: 'http://weex-project.io/cn/guide/contributing.html'
+      }
     }, {
       title: { en: 'Release Note', zh: '版本变更' },
       link: {
@@ -73,6 +73,24 @@
 
   const news = [
     {
+      type: 'article',
+      poster: 'https://mmbiz.qpic.cn/mmbiz_jpg/33P2FdAnjuibdbD0UvQhic1XXu4YibPcqynFpG1V1x4O8mzn5pXxTg2QzVjZyWMnIyusTKwvoBvhWtkGgAjdThDUg/640',
+      title: 'WeexConf 2018干货系列 | Weex技术演进',
+      link: 'https://mp.weixin.qq.com/s?__biz=MzAxNDEwNjk5OQ==&mid=2650400957&idx=1&sn=918414aefacb5d80111fbf3d269bc17b',
+      time: { zh: '2018年1月25日 9:50', en: '2018/01/25 9:20' },
+    }, {
+      type: 'article',
+      poster: 'https://mmbiz.qpic.cn/mmbiz_jpg/33P2FdAnju9YFyWBwuoqan1SNEPFTsjHrsSNMRI9lMnl82SqGDohAn6vK2uQ363I3rB1yicAZYNXsFzfTKQM0fw/640',
+      title: 'WeexConf 2018干货系列 | Weex + UI',
+      link: 'https://mp.weixin.qq.com/s?__biz=MzAxNDEwNjk5OQ==&mid=2650400953&idx=1&sn=c36e11e0ad44d2ca6ea459a98a79bfed',
+      time: { zh: '2018年1月24日 10:20', en: '2018/01/24 10:20' },
+    }, {
+      type: 'article',
+      poster: 'https://gw.alicdn.com/tfs/TB1u0M5odfJ8KJjy0FeXXXKEXXa-1208-805.jpg',
+      title: '参加 WeexConf 2018 是一种什么体验?',
+      link: 'https://mp.weixin.qq.com/s?__biz=MzAxNDEwNjk5OQ==&mid=2650400922&idx=1&sn=852cd77194df28b77d1aa9360b36ec8d',
+      time: { zh: '2018年1月22日 9:30', en: '2018/01/22 9:30' },
+    }, {
       type: 'article',
       poster: 'https://gw.alicdn.com/tfs/TB1iMVtlZLJ8KJjy0FnXXcFDpXa-1293-496.png',
       title: 'Weex Conf 2018 等你来',
@@ -124,7 +142,6 @@
 
   function encodeJSON (json) {
     const arr = []
-    json.token = '4fe14953b4af234a0876c5c1247f6250'
     Object.keys(json).forEach((key) => {
       if (typeof json[key] === 'object') {
         arr.push(encodeURIComponent(key) + '=' + encodeURIComponent(JSON.stringify(json[key])));

@@ -28,35 +28,36 @@ export default [
           zh: '工作原理',
           en: 'How it Works'
         },
-        // docLink: {
-        //   zh: 'http://weex-project.io/cn/wiki/index.html',
-        //   en: 'http://weex-project.io/wiki/index.html'
-        // },
         docLink: {
-          zh: 'http://weex-project.io/cn/guide/intro/how-it-works.html',
-          en: 'http://weex-project.io/guide/intro/how-it-works.html'
+          zh: 'http://weex-project.io/cn/wiki/index.html',
+          en: 'http://weex-project.io/wiki/index.html'
         }
       }, {
-      //   title: {
-      //     zh: 'Weex 中的前端框架',
-      //     en: 'Front-end Frameworks'
-      //   },
-      //   docLink: {
-      //     zh: 'http://weex-project.io/cn/guide/front-end-frameworks.html',
-      //     en: 'http://weex-project.io/guide/front-end-frameworks.html'
-      //   }
-      // }, {
+        title: {
+          zh: 'Weex 中的前端框架',
+          en: 'Front-end Frameworks'
+        },
+        docLink: {
+          zh: 'http://weex-project.io/cn/guide/front-end-frameworks.html',
+          en: 'http://weex-project.io/guide/front-end-frameworks.html'
+        }
+      }, {
+        title: {
+          zh: '在 Weex 中使用 Vue.js',
+          en: 'Use Vue.js on Weex'
+        },
+        docLink: {
+          zh: 'http://weex-project.io/cn/guide/use-vue.html',
+          en: 'http://weex-project.io/guide/use-vue.html'
+        }
+      }, {
         title: {
           zh: '与 Web 平台的差异',
           en: 'Platform difference with Web'
         },
-        // docLink: {
-        //   zh: 'http://weex-project.io/cn/wiki/platform-difference.html',
-        //   en: 'http://weex-project.io/wiki/platform-difference.html'
-        // },
         docLink: {
-          zh: 'http://weex-project.io/cn/references/platform-difference.html',
-          en: 'http://weex-project.io/references/platform-difference.html'
+          zh: 'http://weex-project.io/cn/wiki/platform-difference.html',
+          en: 'http://weex-project.io/wiki/platform-difference.html'
         }
       }, {
         title: {
@@ -81,26 +82,18 @@ export default [
           zh: '通用样式',
           en: 'Common Styles'
         },
-        // docLink: {
-        //   zh: 'http://weex-project.io/cn/wiki/common-styles.html',
-        //   en: 'http://weex-project.io/wiki/common-styles.html'
-        // },
         docLink: {
-          zh: 'http://weex-project.io/cn/references/common-style.html',
-          en: 'http://weex-project.io/references/common-style.html'
+          zh: 'http://weex-project.io/cn/wiki/common-styles.html',
+          en: 'http://weex-project.io/wiki/common-styles.html'
         }
       }, {
         title: {
           zh: '通用事件',
           en: 'Common Events'
         },
-        // docLink: {
-        //   zh: 'http://weex-project.io/cn/wiki/common-events.html',
-        //   en: 'http://weex-project.io/wiki/common-events.html'
-        // },
         docLink: {
-          zh: 'http://weex-project.io/cn/references/common-event.html',
-          en: 'http://weex-project.io/references/common-event.html'
+          zh: 'http://weex-project.io/cn/wiki/common-events.html',
+          en: 'http://weex-project.io/wiki/common-events.html'
         }
       }, {
         title: {
@@ -134,52 +127,36 @@ export default [
           zh: '扩展 Android 组件/模块',
           en: 'Extend Android'
         },
-        // docLink: {
-        //   zh: 'http://weex-project.io/cn/guide/extend-android.html',
-        //   en: 'http://weex-project.io/guide/extend-android.html'
-        // },
         docLink: {
-          zh: 'http://weex-project.io/cn/references/advanced/extend-to-android.html',
-          en: 'http://weex-project.io/references/advanced/extend-to-android.html'
+          zh: 'http://weex-project.io/cn/guide/extend-android.html',
+          en: 'http://weex-project.io/guide/extend-android.html'
         }
       }, {
         title: {
           zh: '扩展 iOS 组件/模块',
           en: 'Extend iOS'
         },
-        // docLink: {
-        //   zh: 'http://weex-project.io/cn/guide/extend-ios.html',
-        //   en: 'http://weex-project.io/guide/extend-ios.html'
-        // },
         docLink: {
-          zh: 'http://weex-project.io/cn/references/advanced/extend-to-ios.html',
-          en: 'http://weex-project.io/references/advanced/extend-to-ios.html'
+          zh: 'http://weex-project.io/cn/guide/extend-ios.html',
+          en: 'http://weex-project.io/guide/extend-ios.html'
         }
       }, {
         title: {
           zh: '使用 weex-toolkit',
           en: 'Use weex-toolkit'
         },
-        // docLink: {
-        //   zh: 'http://weex-project.io/cn/tools/toolkit.html',
-        //   en: 'http://weex-project.io/tools/toolkit.html'
-        // },
         docLink: {
-          zh: 'http://weex-project.io/cn/guide/tools/toolkit.html',
-          en: 'http://weex-project.io/guide/tools/toolkit.html'
+          zh: 'http://weex-project.io/cn/tools/toolkit.html',
+          en: 'http://weex-project.io/tools/toolkit.html'
         }
       }, {
         title: {
           zh: '如何参与贡献',
           en: 'How to Contribute'
         },
-        // docLink: {
-        //   zh: 'http://weex-project.io/cn/contributing.html',
-        //   en: 'http://weex-project.io/contributing.html'
-        // },
         docLink: {
-          zh: 'http://weex-project.io/cn/guide/contributing.html',
-          en: 'http://weex-project.io/guide/contributing.html'
+          zh: 'http://weex-project.io/cn/contributing.html',
+          en: 'http://weex-project.io/contributing.html'
         }
       }
     ]
@@ -285,12 +262,12 @@ export default [
         }
       }, {
         title: {
-          zh: '在 Weex 中的差异',
-          en: 'Difference in Weex'
+          zh: '在 Weex 中使用 Vue.js',
+          en: 'Use Vue.js on Weex'
         },
         docLink: {
-          zh: 'http://weex-project.io/cn/references/vue/difference-with-web.html',
-          en: 'http://weex-project.io/references/vue/difference-with-web.html'
+          zh: 'http://weex-project.io/cn/guide/use-vue.html',
+          en: 'http://weex-project.io/guide/use-vue.html'
         }
       }, {
         title: {
