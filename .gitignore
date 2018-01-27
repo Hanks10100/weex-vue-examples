@@ -9,6 +9,7 @@ npm-debug.log*
 node_modules
 
 draft/
+dist/
 
 weex_tmp
 coverage
