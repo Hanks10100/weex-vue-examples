@@ -1,5 +1,8 @@
 <template>
-  <list class="list">
+  <list class="list" @loadmore="loadmore">
+    <refresh class="refresh" @refresh="refresh" :display="refreshing ? 'show' : 'hide'">
+      <text class="indicator-text">{{i18n(refreshNote)}}</text>
+    </refresh>
     <cell class="cell" v-for="(item, i) in visibleNews" :key="i">
       <div class="message-time" v-if="item.time">
         <text class="time-text">{{i18n(item.time)}}</text>
@@ -25,6 +28,11 @@
 
 <script>
   import { fetchNews } from '../shared/utils'
+  const modal = weex.requireModule('modal')
+  const NOTES = {
+    refresh: { en: 'Release to refresh', zh: '松开刷新' },
+    refreshing: { en: 'Fetching ...', zh: '正在加载……' }
+  }
   export default {
     data () {
       return {
@@ -35,7 +43,9 @@
             en: 'News'
           }
         },
-        visibleCount: 8,
+        refreshNote: NOTES.refresh,
+        refreshing: false,
+        visibleCount: 6,
         news: []
       }
     },
@@ -50,6 +60,40 @@
           this.news = res.news
         }
       })
+    },
+    methods: {
+      refresh () {
+        this.refreshing = true
+        this.refreshNote = NOTES.refreshing
+        const finish = () => {
+          this.refreshing = false
+          setTimeout(() => {
+            this.refreshNote = NOTES.refresh
+          }, 500)
+        }
+        fetchNews(res => {
+          if (Array.isArray(res.news)) {
+            if (this.news.length === res.news.length) {
+              modal.toast({
+                message: this.i18n({ en: '已是最新', zh: 'Already latest' })
+              })
+            }
+            this.news = res.news
+            finish()
+          }
+          setTimeout(() => finish(), 5000)
+        })
+      },
+      loadmore () {
+        const step = 4
+        const currentCount = this.visibleCount
+        this.visibleCount = Math.min(currentCount + step, this.news.length)
+        modal.toast({
+          message: this.visibleCount > currentCount
+            ? this.i18n({ en: 'Load more', zh: '加载更多' })
+            : this.i18n({ en: 'No more news', zh: '到底了' })
+        })
+      }
     }
   }
 </script>
@@ -57,6 +101,17 @@
 <style scoped>
   .list {
     background-color: #F1F1F1;
+  }
+  .refresh {
+    width: 750px;
+    align-items: center;
+    background-color: #505050;
+  }
+  .indicator-text {
+    color: #A4A4A4;
+    font-size: 34px;
+    padding: 50px;
+    text-align: center;
   }
   .cell {
     align-items: center;
