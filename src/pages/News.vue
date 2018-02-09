@@ -30,12 +30,13 @@
   import { fetchNews } from '../shared/utils'
   const modal = weex.requireModule('modal')
   const NOTES = {
-    refresh: { en: 'Release to refresh', zh: '松开刷新' },
+    refresh: { en: 'Release to refresh', zh: '释放刷新' },
     refreshing: { en: 'Fetching ...', zh: '正在加载……' }
   }
   export default {
     data () {
       return {
+        language: 'en',
         navigationBarOptions: {
           // backgroundColor: '#5F5F5F',
           title: {
@@ -75,7 +76,7 @@
           if (Array.isArray(res.news)) {
             if (this.news.length === res.news.length) {
               modal.toast({
-                message: this.i18n({ en: '已是最新', zh: 'Already latest' })
+                message: this.i18n({ en: 'Updated', zh: '已更新' })
               })
             }
             this.news = res.news
@@ -105,10 +106,10 @@
   .refresh {
     width: 750px;
     align-items: center;
-    background-color: #505050;
+    background-color: #808080;
   }
   .indicator-text {
-    color: #A4A4A4;
+    color: #C5C5C5;
     font-size: 34px;
     padding: 50px;
     text-align: center;

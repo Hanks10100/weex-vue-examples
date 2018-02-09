@@ -161,13 +161,13 @@ export function getLanguage (done = () => {}) {
   }
 }
 
-export function jumpTo (url, title) {
+export function jumpTo (url, title, lang) {
   getLanguage(language => {
-    storage.setItem('CURRENT_DOCUMENT_URL', i18n(url, language))
+    storage.setItem('CURRENT_DOCUMENT_URL', i18n(url, lang || language))
     navigator.push({
       url: createURL(
         'bf0305c14b511b24a4e616f53926432b',
-        { language, title: i18n(title, language) }
+        { language, title: i18n(title, lang || language) }
       )
     })
   })

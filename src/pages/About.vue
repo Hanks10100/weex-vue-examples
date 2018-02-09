@@ -2,7 +2,7 @@
   <list class="list">
     <cell><app-info-card /></cell>
     <cell :class="['item-cell', `item-cell-${i+1}`]" v-for="(item, i) in items" :key="i">
-      <div :class="['item', `item-${i+1}`]" v-if="item.link" @click="jumpTo(item.link, item.title)">
+      <div :class="['item', `item-${i+1}`]" v-if="item.link" @click="jumpTo(item.link, i18n(item.title))">
         <text class="item-title">{{i18n(item.title)}}</text>
         <image class="arrow-icon" src="https://gw.alicdn.com/tfs/TB1iL2fkLDH8KJjy1XcXXcpdXXa-32-49.png"></image>
       </div>
@@ -83,9 +83,6 @@
     },
     watch: {
       language () {
-        if (!this.followSystem) {
-          utils.setLanguage(this.language)
-        }
         channel.postMessage({ language: this.language })
       }
     },
@@ -125,13 +122,12 @@
             if (select) {
               this.followSystem = false
               this.language = select
-              this.$forceUpdate()
+              utils.setLanguage(select)
             } else {
               this.followSystem = true
               utils.clearStorageLanguage()
               utils.getSystemLanguage(lang => {
                 this.language = lang
-                this.$forceUpdate()
               }, error => {
                 this.language = 'en'
               })

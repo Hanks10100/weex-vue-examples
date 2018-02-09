@@ -40,10 +40,10 @@
         if (isValidDoodle(doodle) && !this.seenDoodle) {
           this.doodle = doodle
           this.showDoodle = true
-          setTimeout(() => {
+          doodle.duration && setTimeout(() => {
             this.showDoodle = false
             this.seenDoodle = true
-          }, doodle.duration || 8000)
+          }, parseInt(doodle.duration, 10))
         }
       })
     },
