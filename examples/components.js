@@ -387,27 +387,27 @@ module.exports = {
   }, {
     type: 'recycle-list',
     name: 'recycle-list',
-    scope: 'website',
+    // scope: 'website',
     title: { zh: '<recycle-list> 组件（开发中）', en: '<recycle-list>' },
     docLink: 'https://github.com/Hanks10100/weex-native-directive',
     examples: [{
-      hash: '64ce395e4cd6e631639026d89cb77437',
+      hash: '927b9bfb487a42b775f36d7243026839',
       title: { zh: '文本绑定', en: 'Text Binding' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1LeVoovDH8KJjy1XcXXcpdXXa-540-844.png'
     }, {
-      hash: '2054caa095436b2642e6a54f006bbd07',
+      hash: '56d434a1641b96df58c8f3d02d082f08',
       title: { zh: '属性绑定', en: 'Attribute Binding' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1_pLKolfH8KJjy1XbXXbLdXXa-540-844.png'
     }, {
-      hash: '6af5d90afef11b3729da4e9651aed9c8',
+      hash: 'a633b3562355db1e38a2c5893664f5cb',
       title: { zh: '使用 v-for', en: 'Using v-for' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1oxNRor_I8KJjy1XaXXbsxpXa-540-844.png'
     }, {
-      hash: '82289f08996cad9090efb2231d5bc281',
+      hash: '546e29abce30c86205c69dbda8671013',
       title: { zh: '多层循环', en: 'Multiple v-for' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1W4JRor_I8KJjy1XaXXbsxpXa-540-844.png'
     }, {
-      hash: 'a645db4b73bd7c1cde669f91c7f70f3a',
+      hash: '836e767308c33a5d456b7ff51154c515',
       title: { zh: '条件渲染', en: 'v-if/v-else' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1bsM4ohrI8KJjy0FpXXb5hVXa-540-844.png'
     // }, {
@@ -415,53 +415,57 @@ module.exports = {
     //   title: { zh: '双向绑定', en: 'Using v-model' },
     //   screenshot: 'https://gw.alicdn.com/tfs/TB10YZCom_I8KJjy0FoXXaFnVXa-540-844.png'
     }, {
-      hash: 'c63cd1cb03b120dd5658bae0ac939e4e',
+      hash: '5337dfdbe278c45b407ee2913d0eedd9',
       title: { zh: '绑定事件', en: 'Event Binding' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1BjcCom_I8KJjy0FoXXaFnVXa-540-844.png'
     }, {
-      hash: 'd515a48f5a4112bbe8d5ac80c315bb44',
+      hash: 'a38633d93a78c9ca98264e60b59ddd7d',
       title: { zh: '一次性渲染', en: 'Using v-once' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1AxNRor_I8KJjy1XaXXbsxpXa-540-844.png'
     }, {
-      hash: '652df71d25ea3d141c63bd63c0322c72',
+      hash: '1447937c097aedf64e7f746615069fe9',
       title: { zh: '绑定样式', en: 'Style Binding' },
       screenshot: 'https://gw.alicdn.com/tfs/TB14K04oTnI8KJjy0FfXXcdoVXa-540-844.png'
     }, {
-      hash: '89c51e90246286ad921b2fd20ccae339',
+      hash: 'f2f74da321f900d3c52612a75a06d0de',
       title: { zh: 'loadmore 事件', en: '"loadmore" Event' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1tK66cMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
-      hash: '720573134b13f1164fe38df867dd2835',
-      title: { zh: '压测页面', en: 'Benchmark' },
+      hash: '79b892c91b3b0a6f18c73654f95a4e7a',
+      title: { zh: '无限列表', en: 'Infinite Scroll' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1JGrQilfH8KJjy1XbXXbLdXXa-540-844.png'
     }]
   }, {
     type: 'recycle-list-component',
     name: 'recycle-list-component',
-    scope: 'website',
+    // scope: 'website',
     title: { zh: '在 <recycle-list> 中使用子组件（开发中）', en: '<recycle-list> child components' },
     examples: [{
-      hash: '89dbb3abfa546bba5ca22d4baa8bc31c',
+      hash: '4bb36641cf23c3a11b085a2ace33c369',
       title: { zh: '静态子组件', en: 'Static Component' },
       screenshot: 'https://gw.alicdn.com/tfs/TB101VoovDH8KJjy1XcXXcpdXXa-540-844.png'
     // }, {
-    //   hash: 'd9ed0d2f2e515ffd8691fdf28b03d83d',
+    //   hash: 'b2ae44c36724cf5541696f0f1cafadbe',
     //   title: { zh: '有属性无状态', en: 'Stateless Props' },
     //   screenshot: 'https://gw.alicdn.com/tfs/TB1LeVoovDH8KJjy1XcXXcpdXXa-540-844.png'
     }, {
-      hash: '3e4ba91f5333caa531a75cbdc54a8b70',
+      hash: 'bd6b43a0e78347766b5cbc87b3ffb47e',
       title: { zh: '属性更新', en: 'Update Props' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1LeVoovDH8KJjy1XcXXcpdXXa-540-844.png'
     }, {
-      hash: '8b068a890470a8cbc737966d9e82d23a',
+      hash: '66a80b9dab170990ae7a07d1d265f5bc',
       title: { zh: '含内部状态', en: 'Stateful Component' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1tXHKolfH8KJjy1XbXXbLdXXa-540-844.png'
     }, {
-      hash: 'd214675550ff33d393363b92748603d8',
-      title: { zh: '使用生命周期', en: 'Using Lifecycle' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1JNJRor_I8KJjy1XaXXbsxpXa-540-844.png'
+      hash: '1d88de057476c1d1d7ac923337385416',
+      title: { zh: '移除组件', en: 'Remove Cell' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1j5d_XVGWBuNjy0FbXXb4sXXa-540-844.png'
     }, {
-      hash: '56ae40a63d7b02bb7e55a1fbfbefeb76',
+    //   hash: 'd214675550ff33d393363b92748603d8',
+    //   title: { zh: '使用生命周期', en: 'Using Lifecycle' },
+    //   screenshot: 'https://gw.alicdn.com/tfs/TB1JNJRor_I8KJjy1XaXXbsxpXa-540-844.png'
+    // }, {
+      hash: '3639df8581e885b5ddd5f6e06041297d',
       title: 'watch & computed',
       screenshot: 'https://gw.alicdn.com/tfs/TB1X10oovDH8KJjy1XcXXcpdXXa-540-844.png'
     }]

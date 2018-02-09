@@ -74,17 +74,27 @@ module.exports = {
     type: 'real-cases',
     name: { zh: '完整例子', en: 'Examples' },
     examples: [{
+      hash: '3a52d415dc7307d1594079574fe553c7',
+      title: 'Todo List',
+      screenshot: 'https://gw.alicdn.com/tfs/TB182b_bNrI8KJjy0FpXXb5hVXa-540-844.png'
+    }, {
+      hash: '936b7e8a504abd5b3e2f5a8d91accc5e',
+      title: { zh: '华容道', en: 'Klotski' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB13Yw1af6H8KJjy0FjXXaXepXa-540-844.png'
+    }, {
       hash: '82ff22e820405194004aacae8045ad56',
       title: { zh: '计算器', en: 'Calculator' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1tXOrc3MPMeJjy1XcXXXpppXa-540-844.png'
     }, {
-      hash: 'a9c4ac1d732dc5fc3e31eaf70b40eadd',
-      title: { zh: '华容道', en: 'Klotski' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB13Yw1af6H8KJjy0FjXXaXepXa-540-844.png'
-    }, {
-      hash: '3a52d415dc7307d1594079574fe553c7',
-      title: 'Todo List',
-      screenshot: 'https://gw.alicdn.com/tfs/TB182b_bNrI8KJjy0FpXXb5hVXa-540-844.png'
+      hash: {
+        zh: 'c0b65802869aebb7627ceaba56e51d1e',
+        en: '263b8a4226b4a161d3e1b89f6ffcd39a'
+      },
+      title: { zh: '扫码二维码', en: 'Scan QR Code' },
+      screenshot: {
+        zh: 'https://gw.alicdn.com/tfs/TB1ew4FX1uSBuNjy1XcXXcYjFXa-540-844.png',
+        en: 'https://gw.alicdn.com/tfs/TB1KqLnX_tYBeNjy1XdXXXXyVXa-540-844.png'
+      }
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
       title: { zh: '扫雷', en: 'MineSweeper' },
