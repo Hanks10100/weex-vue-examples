@@ -10725,8 +10725,15 @@ module.exports = {
     type: 'recycle-list',
     name: 'recycle-list',
     // scope: 'website',
-    title: { zh: '<recycle-list> 组件（开发中）', en: '<recycle-list>' },
-    docLink: 'https://github.com/Hanks10100/weex-native-directive',
+    title: { zh: '<recycle-list> 组件', en: '<recycle-list>' },
+    desc: {
+      zh: '<recycle-list> 是一个新的列表容器，具有回收和复用的能力，可以大幅优化内存占用和渲染性能。（仅在 >= 0.18.0 的版本中支持）',
+      en: 'The <recycle-list> is a new list container with the ability to recycle and reuse the component template. I can greatly optimize memory usage and rendering performance.'
+    },
+    docLink: {
+      zh: 'http://weex-project.io/cn/references/components/recycle-list.html',
+      en: 'http://weex-project.io/references/components/recycle-list.html'
+    },
     examples: [{
       hash: '927b9bfb487a42b775f36d7243026839',
       title: { zh: '文本绑定', en: 'Text Binding' },
@@ -10776,7 +10783,7 @@ module.exports = {
     type: 'recycle-list-component',
     name: 'recycle-list-component',
     // scope: 'website',
-    title: { zh: '在 <recycle-list> 中使用子组件（开发中）', en: '<recycle-list> child components' },
+    title: { zh: '在 <recycle-list> 中使用子组件', en: '<recycle-list> with components' },
     examples: [{
       hash: '4bb36641cf23c3a11b085a2ace33c369',
       title: { zh: '静态子组件', en: 'Static Component' },
