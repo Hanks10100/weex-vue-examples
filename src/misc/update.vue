@@ -16,6 +16,10 @@
       <text @click="storeNews">Store News</text>
     </div>
     <div class="content">
+      <input type="text" v-model="message" class="message">
+      <text @click="sendMessage">Send</text>
+    </div>
+    <div class="content">
       <text>{{output}}</text>
     </div>
   </scroller>
@@ -73,6 +77,36 @@
 
   const news = [
     {
+      type: 'article',
+      poster: 'https://gw.alicdn.com/tfs/TB1S9m9brGYBuNjy0FoXXciBFXa-1595-992.png',
+      title: '来，认识一下 Weex 的 JS Framework',
+      link: 'https://mp.weixin.qq.com/s/K6wXSGPywc7Ltm0T3lz-Sg',
+      time: { zh: '2018年2月27日 21:45', en: '2018/02/27 21:45' },
+    }, {
+      type: 'article',
+      poster: 'https://gw.alicdn.com/tfs/TB1Q9VBkRfH8KJjy1XbXXbLdXXa-3799-1615.png',
+      title: 'Weex SDK v0.18.0 is released!',
+      link: 'http://weex-project.io/releasenote.html#v0-18-0',
+      time: { zh: '2018年2月9日 19:53', en: '2018/02/09 19:53' },
+    }, {
+      type: 'article',
+      poster: 'https://mmbiz.qpic.cn/mmbiz_png/33P2FdAnjuibsOIzHLgiaHW0ib4j1BVmtZeAB3NPctFqGLz0icnnrzgEcJ5OG03aIINCh3KLxSUWuyW2KPTuRHTmiag/640',
+      title: 'Weex 实战分享 | 企鹅电竞Weex实践和性能优化',
+      link: 'https://mp.weixin.qq.com/s/-HJ42j4AZDZ0ZSo4zHuBAA',
+      time: { zh: '2018年1月31日 16:30', en: '2018/01/31 16:30' },
+    }, {
+      type: 'article',
+      poster: 'https://mmbiz.qpic.cn/mmbiz_jpg/33P2FdAnjuibsOIzHLgiaHW0ib4j1BVmtZeSJT9FzChUmw9R6SkHKRE2HAvYqV1FAAxCkFQHJF274IFkvtfDzxoUw/640',
+      title: 'Weex 实战分享 | Weex在极客时间APP中的实践',
+      link: 'https://mp.weixin.qq.com/s/atEbHaiu60MjDirAOAiNqQ',
+      time: { zh: '2018年1月30日 12:00', en: '2018/01/30 12:00' },
+    }, {
+      type: 'article',
+      poster: 'https://mmbiz.qpic.cn/mmbiz_jpg/33P2FdAnju9hLib2a6qwrwibHlLumz2IvCVgQADOLPZuWfbWYEI9T9Gic6GxrOcumdgNFG0TehEETonHymSbWHJww/640',
+      title: 'Weex 实战分享 | Weex在盛大游戏中的应用实践',
+      link: 'https://mp.weixin.qq.com/s/XSCaxW_Dg67pa4vI1LZBFg',
+      time: { zh: '2018年1月29日 10:30', en: '2018/01/29 10:30' },
+    }, {
       type: 'article',
       poster: 'https://mmbiz.qpic.cn/mmbiz_jpg/33P2FdAnjuibdbD0UvQhic1XXu4YibPcqyniaZcYaWp3sSoJhlqFbfEHXnItQIibVmGj5l3vYftOic1nV8lNxibeCfUmw/640',
       title: 'WeexConf 2018干货系列 | Weex技术演进(下)',
@@ -160,7 +194,7 @@
 
   function store (params, done) {
     xhr({
-      uri: `http://dotwe.org/store/weex-playground-app`,
+      uri: `http://weex-playground-beta.ca4d7f2a827354d85a3cc06b171274fa2.cn-qingdao.alicontainer.com/store/weex-playground-app`,
       method: 'post',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded'
@@ -177,7 +211,8 @@
     el: '#root',
     data () {
       return {
-        output: ''
+        output: '',
+        message: ''
       }
     },
     methods: {
@@ -214,6 +249,26 @@
       storeNews () {
         store({ name: 'news', news }, res => {
           console.log(res)
+        })
+      },
+      sendMessage () {
+        const params = {
+          token: 'whatever',
+          message: this.message || '环境变量'
+        }
+        console.log('will send message', params)
+        xhr({
+          uri: `http://weex-playground-beta.ca4d7f2a827354d85a3cc06b171274fa2.cn-qingdao.alicontainer.com/chat`,
+          method: 'post',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            // 'Access-Control-Allow-Origin': '*'
+          },
+          body: encodeJSON(params)
+        }, (error, response, body) => {
+          if (body) {
+            console.log('result', body)
+          }
         })
       }
     }
