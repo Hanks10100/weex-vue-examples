@@ -93,7 +93,7 @@ module.exports = {
       title: { zh: '浮层文字', en: 'Layers' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1Mx1UcMoQMeJjy1XaXXcSsFXa-540-844.png'
     }, {
-      hash: '23703f3be5512d0419086d8e7937bd8d',
+      hash: '233e47ac9f3dc4cacb8e8f3e29646429',
       title: { zh: '图片实际大小', en: 'Original Size' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sAh1gMMPMeJjy1XbXXcwxVXa-540-844.png'
     }, {
