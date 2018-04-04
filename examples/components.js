@@ -101,7 +101,7 @@ module.exports = {
       title: { zh: 'Gif 图片', en: 'Gif Image' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1cbYxdwMPMeJjy1XdXXasrXXa-540-844.png'
     }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      hash: '3ad81eb6b0a66f4d2fa4a35ff8a310f5',
       title: { zh: 'Base64 图片', en: 'Base64 Image' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }]
