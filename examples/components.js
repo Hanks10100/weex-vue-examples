@@ -93,7 +93,7 @@ module.exports = {
       title: { zh: '浮层文字', en: 'Layers' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1Mx1UcMoQMeJjy1XaXXcSsFXa-540-844.png'
     }, {
-      hash: '23703f3be5512d0419086d8e7937bd8d',
+      hash: '233e47ac9f3dc4cacb8e8f3e29646429',
       title: { zh: '图片实际大小', en: 'Original Size' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sAh1gMMPMeJjy1XbXXcwxVXa-540-844.png'
     }, {
@@ -101,7 +101,7 @@ module.exports = {
       title: { zh: 'Gif 图片', en: 'Gif Image' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1cbYxdwMPMeJjy1XdXXasrXXa-540-844.png'
     }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      hash: '3ad81eb6b0a66f4d2fa4a35ff8a310f5',
       title: { zh: 'Base64 图片', en: 'Base64 Image' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }]
