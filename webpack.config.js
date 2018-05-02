@@ -1,6 +1,33 @@
 const path = require('path')
 const webpack = require('webpack')
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
+// const { VueLoaderPlugin } = require('vue-loader')
+
+const weexLoaderOptions = {}
+const vueLoaderOptions = {
+  optimizeSSR: false,
+  postcss: [
+    // to convert weex exclusive styles.
+    require('postcss-plugin-weex')(),
+    require('autoprefixer')({
+      browsers: ['> 0.1%', 'ios >= 8', 'not ie < 12']
+    }),
+    require('postcss-plugin-px2rem')({
+      // base on 750px standard.
+      rootValue: 75,
+      // to leave 1px alone.
+      minPixelValue: 1.01
+    })
+  ],
+  compilerModules: [
+    {
+      postTransformNode: el => {
+        // to convert vnode for weex components.
+        require('weex-vue-precompiler')()(el)
+      }
+    }
+  ]
+}
 
 function createConfig (option = {}) {
   const { isWeex, minify } = option
@@ -18,7 +45,10 @@ function createConfig (option = {}) {
         exclude: /node_modules/
       }, {
         test: /\.vue(\?[^?]+)?$/,
-        use: [isWeex ? 'weex-loader' : 'vue-loader']
+        use: [{
+          loader: isWeex ? 'weex-loader' : 'vue-loader',
+          options: isWeex ? weexLoaderOptions : vueLoaderOptions
+        }]
       }]
     },
 		node: {
@@ -54,6 +84,8 @@ function createConfig (option = {}) {
       banner:  '// { "framework": "Vue" }\n"use weex:vue";\n',
       raw: true
     }))
+  } else {
+    // webpackConfig.plugins.unshift(new VueLoaderPlugin())
   }
   return webpackConfig
 }
