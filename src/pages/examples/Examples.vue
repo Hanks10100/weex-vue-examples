@@ -131,7 +131,7 @@
 </style>
 
 <script>
-  import { fetchExamples, saveExamples, readExamples } from '../../shared/utils'
+  import { fetchExamples, saveExamples, readExamples } from '../../utils'
   import ExampleScroller from '../../components/ExampleScroller.vue'
   // import getExamples from '../../examples'
   // const exampleMap = getExamples({ scope: 'mobile', filterTODO: true })

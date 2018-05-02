@@ -57,7 +57,7 @@
 </style>
 
 <script>
-  import { viewSource } from '../shared/utils'
+  import { viewSource } from '../utils'
   export default {
     methods: { viewSource },
     props: {

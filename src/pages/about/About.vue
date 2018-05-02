@@ -4,7 +4,7 @@
     <cell :class="['item-cell', `item-cell-${i+1}`]" v-for="(item, i) in items" :key="i">
       <div :class="['item', `item-${i+1}`]" v-if="item.link" @click="jumpTo(item.link, i18n(item.title))">
         <text class="item-title">{{i18n(item.title)}}</text>
-        <image class="arrow-icon" src="https://gw.alicdn.com/tfs/TB1iL2fkLDH8KJjy1XcXXcpdXXa-32-49.png"></image>
+        <image class="arrow-icon" src="https://gw.alicdn.com/tfs/TB1iL2fkLDH8KJjy1XcXXcpdXXa-32-49.png" />
       </div>
     </cell>
     <cell class="item-cell">
@@ -23,7 +23,7 @@
 </template>
 
 <script>
-  import * as utils from '../../shared/utils'
+  import * as utils from '../../utils'
   import AppInfoCard from '../../components/AppInfoCard.vue'
   const picker = weex.requireModule('picker')
   const channel = new BroadcastChannel('language')

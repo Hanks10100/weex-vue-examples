@@ -27,7 +27,7 @@
 </template>
 
 <script>
-  import { fetchNews } from '../../shared/utils'
+  import { fetchNews } from '../../utils'
   const modal = weex.requireModule('modal')
   const NOTES = {
     refresh: { en: 'Release to refresh', zh: '释放刷新' },

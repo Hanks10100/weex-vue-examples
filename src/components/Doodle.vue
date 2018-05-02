@@ -12,7 +12,7 @@
 </template>
 
 <script>
-  import { fetchDoodle } from '../shared/utils'
+  import { fetchDoodle } from '../utils'
   const modal = weex.requireModule('modal')
   const navigator = weex.requireModule('navigator')
   const event = weex.requireModule('event')
