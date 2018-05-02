@@ -78,6 +78,13 @@
   const news = [
     {
       type: 'article',
+      poster: 'https://gw.alicdn.com/tfs/TB1ReL9kVGWBuNjy0FbXXb4sXXa-1080-679.jpg',
+      title: '一次美丽的“约会”',
+      summary: 'Weex Meetup 深圳站的一点感想',
+      link: 'https://mp.weixin.qq.com/s/yI30oAMHXCqICEo2Mc85jQ',
+      time: { zh: '2018年4月2日 19:09', en: '2018/04/02 19:09' },
+    }, {
+      type: 'article',
       poster: 'https://gw.alicdn.com/tfs/TB1S9m9brGYBuNjy0FoXXciBFXa-1595-992.png',
       title: '来，认识一下 Weex 的 JS Framework',
       link: 'https://mp.weixin.qq.com/s/K6wXSGPywc7Ltm0T3lz-Sg',
@@ -182,6 +189,7 @@
 
   function encodeJSON (json) {
     const arr = []
+    json.token = json.token || '4fe14953b4af234a0876c5c1247f6250'
     Object.keys(json).forEach((key) => {
       if (typeof json[key] === 'object') {
         arr.push(encodeURIComponent(key) + '=' + encodeURIComponent(JSON.stringify(json[key])));

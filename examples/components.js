@@ -196,19 +196,19 @@ module.exports = {
       en: 'http://weex-project.io/references/components/slider.html'
     },
     examples: [{
-      hash: 'd8f6759dc25d31274aed106041952290',
+      hash: '091cd18fe9cc00550b956f0fe3d7259b',
       title: { zh: '最简例子', en: 'Simple' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1aIH3hiqAXuNjy1XdXXaYcVXa-540-844.png'
     }, {
-      hash: '9ff7050b2d012b2ece066bf17fe907d5',
+      hash: 'cbe5742a1b9e0dc7586b0102b658b42b',
       title: { zh: '自动播放', en: 'Auto Play' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1ecL3hiqAXuNjy1XdXXaYcVXa-540-844.png'
     }, {
-      hash: '0817ed75b49ebfa04d499b3aa5f91925',
+      hash: 'd835d18c6d411299f3aa8c68011d6748',
       title: { zh: '<indicator>', en: 'With Indicator' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sdb3hiqAXuNjy1XdXXaYcVXa-540-844.png'
     }, {
-      hash: '0bb9f6e469edafe4da587b80de08e0ba',
+      hash: 'a68f08ca82e2cc52126f3a02dbb1ac3e',
       title: { zh: '间隔时间', en: 'Interval' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1XJj3hiqAXuNjy1XdXXaYcVXa-540-844.png'
     }, {
