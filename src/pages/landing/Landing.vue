@@ -14,7 +14,7 @@
 </template>
 
 <script>
-  import Doodle from '../components/Doodle.vue'
+  import Doodle from '../../components/Doodle.vue'
   export default {
     components: { Doodle },
     data () {

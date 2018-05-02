@@ -25,7 +25,7 @@
 </template>
 
 <script>
-  import getExamples from '../../examples'
+  import getExamples from '../examples'
   import ExampleList from './ExampleList.vue'
 
   const examples = getExamples({ filterTODO: false })

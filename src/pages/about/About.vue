@@ -23,8 +23,8 @@
 </template>
 
 <script>
-  import * as utils from '../shared/utils'
-  import AppInfoCard from '../components/AppInfoCard.vue'
+  import * as utils from '../../shared/utils'
+  import AppInfoCard from '../../components/AppInfoCard.vue'
   const picker = weex.requireModule('picker')
   const channel = new BroadcastChannel('language')
   const FOLLOW_SYSTEM = { en: 'Follow System', zh: '跟随系统' }

@@ -1,6 +1,6 @@
-import LandingPage from '../pages/Landing.vue'
-import sharedMixin from '../shared/mixin'
-import * as utils from '../shared/utils'
+import LandingPage from './Landing.vue'
+import sharedMixin from '../../shared/mixin'
+import * as utils from '../../shared/utils'
 
 // hide title bar
 try {

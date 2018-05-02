@@ -24,9 +24,9 @@
 </template>
 
 <script>
-  import { fetchGuide, saveGuide, readGuide, setTitleBar } from '../shared/utils'
-  import Lesson from '../components/Lesson.vue'
-  import sliders from '../shared/sliders.js'
+  import { fetchGuide, saveGuide, readGuide, setTitleBar } from '../../shared/utils'
+  import Lesson from '../../components/Lesson.vue'
+  import sliders from '../../shared/sliders.js'
 
   let useStorage = false
   export default {

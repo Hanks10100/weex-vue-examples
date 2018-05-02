@@ -3,7 +3,7 @@ const webpack = require('webpack')
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 
 const baseConfig = {
-  entry: path.resolve(__dirname, 'src/website/entry.js'),
+  entry: path.resolve(__dirname, 'website/entry.js'),
   output: {
     path: path.resolve(__dirname, 'docs'),
     filename: 'website.js'
