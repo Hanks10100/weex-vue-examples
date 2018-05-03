@@ -26,7 +26,7 @@
 <script>
   import { fetchGuide, saveGuide, readGuide, setTitleBar } from '../../utils'
   import Lesson from '../../components/Lesson.vue'
-  import sliders from '../../misc/sliders.js'
+  import sliders from '../../../misc/sliders.js'
 
   let useStorage = false
   export default {

@@ -34,7 +34,7 @@
 
 <script>
   import xhr from 'xhr'
-  import getExamples from '../../examples'
+  import getExamples from '../examples'
   import guide from './sliders'
   const examples = getExamples({ scope: 'mobile', filterTODO: true })
 
