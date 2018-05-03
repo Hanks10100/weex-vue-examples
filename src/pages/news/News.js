@@ -1,5 +1,13 @@
-import '../../shared'
-import News from './News.vue'
-
-News.el = '#root'
-new Vue(News)
+Page({
+  data (globalData) {
+    return {
+      language: globalData.language || 'en',
+      dict: globalData.dict,
+      news: globalData.news || [],
+      lenssonIndex: 0,
+      refreshNote: globalData.dict.REFRESH,
+      refreshing: false,
+      visibleCount: 6
+    }
+  }
+})

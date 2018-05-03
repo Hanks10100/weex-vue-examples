@@ -24,29 +24,11 @@
 
 <script>
   import * as utils from '../../utils'
-  import { aboutApp } from '../../utils/mock'
   import AppInfoCard from '../../components/AppInfoCard.vue'
   const picker = weex.requireModule('picker')
   const channel = new BroadcastChannel('language')
   export default {
     components: { AppInfoCard },
-    data () {
-      return {
-        language: 'en',
-        followSystemLanguage: true,
-        navigationBarOptions: {
-          title: {
-            zh: '关于 Weex',
-            en: 'About Weex'
-          }
-        },
-        dict: {
-          FOLLOW_SYSTEM: { en: 'Follow System', zh: '跟随系统' },
-          LANGUAGE: { en: 'Language', zh: '语言' }
-        },
-        aboutApp
-      }
-    },
     watch: {
       language () {
         channel.postMessage({ language: this.language })

@@ -139,24 +139,6 @@
   let useStorage = false
   export default {
     components: { ExampleScroller },
-    data () {
-      return {
-        navigationBarOptions: {
-          title: {
-            zh: '使用 Weex 的例子',
-            en: 'Weex Examples'
-          }
-        },
-        examples: exampleMap,
-        showLoading: false,
-        language: 'en',
-        activeTab: 'component',
-        activeGroup: 'div',
-        dict: {
-          READ_MORE: { en: 'read more', zh: '查看更多' }
-        }
-      }
-    },
     beforeCreate () {
       // read examples from storage
       readExamples(examples => {

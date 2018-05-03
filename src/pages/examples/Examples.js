@@ -1,5 +1,12 @@
-import '../../shared'
-import Examples from './Examples.vue'
-
-Examples.el = '#root'
-new Vue(Examples)
+Page({
+  data (globalData) {
+    return {
+      language: globalData.language || 'en',
+      examples: globalData.examples || [],
+      dict: globalData.dict,
+      showLoading: false,
+      activeTab: 'component',
+      activeGroup: 'div'
+    }
+  }
+})

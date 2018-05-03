@@ -1,5 +1,10 @@
-import '../../shared'
-import About from './About.vue'
-
-About.el = '#root'
-new Vue(About)
+Page({
+  data (globalData) {
+    return {
+      language: globalData.language || 'en',
+      followSystemLanguage: !!globalData.followSystemLanguage,
+      dict: globalData.dict,
+      aboutApp: globalData.aboutApp
+    }
+  }
+})

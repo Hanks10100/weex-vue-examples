@@ -1,5 +1,9 @@
-import '../../shared'
-import Guide from './Guide.vue'
-
-Guide.el = '#root'
-new Vue(Guide)
+Page({
+  data (globalData) {
+    return {
+      language: globalData.language || 'en',
+      guideLessons: globalData.guideLessons || [],
+      lenssonIndex: 0
+    }
+  }
+})

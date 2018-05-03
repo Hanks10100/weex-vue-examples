@@ -30,30 +30,6 @@
   import { fetchNews } from '../../utils'
   const modal = weex.requireModule('modal')
   export default {
-    data () {
-      const dict = {
-        REFRESH: { en: 'Release to refresh', zh: '释放刷新' },
-        REFRESHING: { en: 'Fetching ...', zh: '正在加载……' },
-        UPDATED: { en: 'Updated', zh: '已更新' },
-        LOAD_MERE: { en: 'Load more', zh: '加载更多' },
-        NO_MORE_NEWS: { en: 'No more news', zh: '到底了' }
-      }
-      return {
-        language: 'en',
-        navigationBarOptions: {
-          // backgroundColor: '#5F5F5F',
-          title: {
-            zh: '资讯',
-            en: 'News'
-          }
-        },
-        dict,
-        refreshNote: dict.REFRESH,
-        refreshing: false,
-        visibleCount: 6,
-        news: []
-      }
-    },
     computed: {
       visibleNews () {
         return this.news.slice(0, this.visibleCount)

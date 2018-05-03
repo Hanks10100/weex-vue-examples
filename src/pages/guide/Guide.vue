@@ -31,19 +31,6 @@
   let useStorage = false
   export default {
     components: { Lesson },
-    data () {
-      return {
-        language: 'en',
-        navigationBarOptions: {
-          title: {
-            zh: 'Weex 入门',
-            en: 'Weex Guide'
-          }
-        },
-        lenssonIndex: 0,
-        guideLessons
-      }
-    },
     computed: {
       chosenLesson () {
         return this.guideLessons[this.lenssonIndex]
