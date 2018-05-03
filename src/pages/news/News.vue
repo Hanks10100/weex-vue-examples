@@ -1,5 +1,5 @@
 <template>
-  <list class="list" @loadmore="loadmore">
+  <list class="list" @loadmore="loadmore" loadmoreoffset="10">
     <refresh class="refresh" @refresh="refresh" :display="refreshing ? 'show' : 'hide'">
       <text class="indicator-text">{{i18n(refreshNote)}}</text>
     </refresh>
@@ -33,7 +33,10 @@
     data () {
       const dict = {
         REFRESH: { en: 'Release to refresh', zh: '释放刷新' },
-        REFRESHING: { en: 'Fetching ...', zh: '正在加载……' }
+        REFRESHING: { en: 'Fetching ...', zh: '正在加载……' },
+        UPDATED: { en: 'Updated', zh: '已更新' },
+        LOAD_MERE: { en: 'Load more', zh: '加载更多' },
+        NO_MORE_NEWS: { en: 'No more news', zh: '到底了' }
       }
       return {
         language: 'en',
@@ -77,7 +80,7 @@
           if (Array.isArray(res.news)) {
             if (this.news.length === res.news.length) {
               modal.toast({
-                message: this.i18n({ en: 'Updated', zh: '已更新' })
+                message: this.i18n(this.dict.UPDATED)
               })
             }
             this.news = res.news
@@ -92,8 +95,8 @@
         this.visibleCount = Math.min(currentCount + step, this.news.length)
         modal.toast({
           message: this.visibleCount > currentCount
-            ? this.i18n({ en: 'Load more', zh: '加载更多' })
-            : this.i18n({ en: 'No more news', zh: '到底了' })
+            ? this.i18n(this.dict.LOAD_MERE)
+            : this.i18n(this.dict.NO_MORE_NEWS)
         })
       }
     }
