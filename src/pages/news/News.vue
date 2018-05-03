@@ -29,12 +29,12 @@
 <script>
   import { fetchNews } from '../../utils'
   const modal = weex.requireModule('modal')
-  const NOTES = {
-    refresh: { en: 'Release to refresh', zh: '释放刷新' },
-    refreshing: { en: 'Fetching ...', zh: '正在加载……' }
-  }
   export default {
     data () {
+      const dict = {
+        REFRESH: { en: 'Release to refresh', zh: '释放刷新' },
+        REFRESHING: { en: 'Fetching ...', zh: '正在加载……' }
+      }
       return {
         language: 'en',
         navigationBarOptions: {
@@ -44,7 +44,8 @@
             en: 'News'
           }
         },
-        refreshNote: NOTES.refresh,
+        dict,
+        refreshNote: dict.REFRESH,
         refreshing: false,
         visibleCount: 6,
         news: []
@@ -65,11 +66,11 @@
     methods: {
       refresh () {
         this.refreshing = true
-        this.refreshNote = NOTES.refreshing
+        this.refreshNote = this.dict.REFRESHING
         const finish = () => {
           this.refreshing = false
           setTimeout(() => {
-            this.refreshNote = NOTES.refresh
+            this.refreshNote = this.dict.REFRESH
           }, 500)
         }
         fetchNews(res => {

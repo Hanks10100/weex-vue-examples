@@ -11,7 +11,7 @@
           <text class="doc-link"
             v-if="exampleGroup.desc && exampleGroup.docLink"
             @click="jumpTo(i18n(exampleGroup.docLink))"
-            >{{i18n(tips.READ_MORE)}} >></text>
+            >{{i18n(dict.READ_MORE)}} >></text>
         </cell>
         <cell class="section" :key="exampleGroup.type + '-examples'">
           <example-scroller :language="language" :examples="exampleGroup.examples" />
@@ -152,8 +152,7 @@
         language: 'en',
         activeTab: 'component',
         activeGroup: 'div',
-        tips: {
-          VIEW_SOURCE: { en: 'view source', zh: '查看源码' },
+        dict: {
           READ_MORE: { en: 'read more', zh: '查看更多' }
         }
       }

@@ -2,7 +2,7 @@
   <scroller class="wrapper">
     <slider class="slider" auto-play="true">
       <div class="center"
-        v-for="(item, i) in sliders"
+        v-for="(item, i) in guideLessons"
         :key="item.subject"
         :style="{ backgroundColor: item.posterBg }"
         @click="lenssonIndex = i">
@@ -41,12 +41,12 @@
           }
         },
         lenssonIndex: 0,
-        sliders
+        guideLessons: sliders
       }
     },
     computed: {
       chosenLesson () {
-        return this.sliders[this.lenssonIndex]
+        return this.guideLessons[this.lenssonIndex]
       }
     },
     watch: {
@@ -60,7 +60,7 @@
     },
     beforeCreate () {
       readGuide(guide => {
-        this.sliders = guide
+        this.guideLessons = guide
         if (WXEnvironment.platform.toLowerCase() !== 'web') {
           useStorage = true
         }
@@ -68,7 +68,7 @@
       fetchGuide(result => {
         saveGuide(result)
         if (!useStorage) {
-          this.sliders = result.guide
+          this.guideLessons = result.guide
         }
       })
     }
