@@ -71,7 +71,7 @@ export function i18n (text, language) {
     return text
   }
   if (Object.prototype.toString.call(text) === '[object Object]') {
-    const lang = (this && this.language) || language || 'en'
+    const lang = language || (this && this.language) || 'en'
     return text[lang]
   }
 }
@@ -85,34 +85,7 @@ export function parseLanguage (language) {
   return ''
 }
 
-export function setLanguage (language) {
-  const lang = parseLanguage(language)
-  if (lang) {
-    storage.setItem('WEEX_PLAYGROUND_LANGUAGE', lang)
-  }
-}
-
-export function clearStorageLanguage () {
-  storage.removeItem('WEEX_PLAYGROUND_LANGUAGE')
-}
-
-export function getStorageLanguage (done, fail = () => {}) {
-  if (!typeof done === 'function') {
-    return
-  }
-  try {
-    storage.getItem('WEEX_PLAYGROUND_LANGUAGE', event => {
-      if (event.result === 'success') {
-        const lang = parseLanguage(event.data)
-        lang ? done(lang) : fail()
-      } else {
-        fail(event)
-      }
-    })
-  } catch (err) {
-    fail(err)
-  }
-}
+export const languageKey = 'WEEX_PLAYGROUND_LANGUAGE'
 
 export function getSystemLanguage (done, fail = () => {}) {
   if (!typeof done === 'function') {
@@ -146,63 +119,25 @@ export function getSystemLanguage (done, fail = () => {}) {
   }
 }
 
-const languageRE = /.+[\?\&]{1}language=([\d\w]+)[\?\&]?.*/i
-export function getLanguage (done = () => {}) {
-  const match = languageRE.exec(weex.config.bundleUrl || '')
-  const lang = parseLanguage(match && match[1])
-  if (lang) {
-    done(lang)
-  } else {
-    getStorageLanguage(done, () => {
-      getSystemLanguage(done, () => {
-        done('en')
-      })
-    })
-  }
-}
-
 export function jumpTo (url, title, lang) {
-  getLanguage(language => {
-    storage.setItem('CURRENT_DOCUMENT_URL', i18n(url, lang || language))
-    navigator.push({
-      url: createURL(
-        'bf0305c14b511b24a4e616f53926432b',
-        { language, title: i18n(title, lang || language) }
-      )
-    })
+  const language = lang || (this && this.language) || 'en'
+  storage.setItem('CURRENT_DOCUMENT_URL', i18n(url, language))
+  navigator.push({
+    url: createURL(
+      'bf0305c14b511b24a4e616f53926432b',
+      { language, title: i18n(title, language) }
+    )
   })
 }
 
-export function viewSource (hash) {
-  getLanguage(language => {
-    navigator.push({
-      url: createURL(
-        'f6ce29faf686eabc38b410bf4828fa5a',
-        { hash, language }
-      )
-    })
+export function viewSource (hash, lang) {
+  const language = lang || (this && this.language) || 'en'
+  navigator.push({
+    url: createURL(
+      'f6ce29faf686eabc38b410bf4828fa5a',
+      { hash, language }
+    )
   })
-}
-
-export function setTitleBar (options, language = 'en') {
-  if (Object.prototype.toString.apply(options) !== '[object Object]') {
-    return
-  }
-  const titleBar = weex.requireModule('titleBar')
-  if (options.color || options.backgroundColor) {
-    try {
-      titleBar.setStyle({
-        foregroundColor: options.color || '#FFFFFF',
-        backgroundColor: options.backgroundColor || '#00B4FF'
-      })
-    } catch (e) {}
-  }
-  const title = i18n(options.title, language)
-  if (title) {
-    try {
-      titleBar.setTitle(title)
-    } catch (e) {}
-  }
 }
 
 const storageKeys = {
@@ -233,7 +168,6 @@ export function fetchData (name, done = () => {}, fail = () => {}) {
     fail(err)
   }
 }
-
 
 export const fetchExamples = (...args) => fetchData('examples', ...args)
 export const fetchGuide = (...args) => fetchData('guide', ...args)

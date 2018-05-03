@@ -29,8 +29,16 @@ App({
     utils.fetchNews(news => this.news = news)
   },
   onShow () {
-    utils.getSystemLanguage(lang => {
-      this.systemLanguage = lang
+    const storage = requireModule('storage')
+    utils.getSystemLanguage(lang => this.systemLanguage = lang)
+    storage.getItem(utils.languageKey, event => {
+      if (event.result === 'success') {
+        this.followSystemLanguage = false
+        this.language = event.data
+      } else {
+        this.followSystemLanguage = true
+        this.language = this.systemLanguage
+      }
     })
   }
 })

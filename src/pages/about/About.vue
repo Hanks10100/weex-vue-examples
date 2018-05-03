@@ -52,10 +52,8 @@
           if (result === 'success') {
             const select = options[data]
             if (select) {
-              this.followSystemLanguage = false
               this.$page.$emit('setLanguage', select)
             } else {
-              this.followSystemLanguage = true
               this.$page.$emit('followSystemLanguage')
             }
           }
