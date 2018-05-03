@@ -23,30 +23,17 @@
 </template>
 
 <script>
-  import * as utils from '../../utils'
   import AppInfoCard from '../../components/AppInfoCard.vue'
   const picker = weex.requireModule('picker')
-  const channel = new BroadcastChannel('language')
   export default {
     components: { AppInfoCard },
-    watch: {
-      language () {
-        channel.postMessage({ language: this.language })
-      }
-    },
     computed: {
       languageName () {
         if (this.followSystemLanguage) {
           return this.i18n(this.dict.FOLLOW_SYSTEM)
         }
-        return this.i18n({ en: 'English', zh: '简体中文' })
+        return this.i18n(this.dict.LANGUAGE_TYPE)
       }
-    },
-    created () {
-      utils.getStorageLanguage(
-        lang => this.followSystemLanguage = false,
-        () => this.followSystemLanguage = true
-      )
     },
     methods: {
       chooseLanguage () {
@@ -66,16 +53,10 @@
             const select = options[data]
             if (select) {
               this.followSystemLanguage = false
-              this.language = select
-              utils.setLanguage(select)
+              this.$page.$emit('setLanguage', select)
             } else {
               this.followSystemLanguage = true
-              utils.clearStorageLanguage()
-              utils.getSystemLanguage(lang => {
-                this.language = lang
-              }, error => {
-                this.language = 'en'
-              })
+              this.$page.$emit('followSystemLanguage')
             }
           }
         })

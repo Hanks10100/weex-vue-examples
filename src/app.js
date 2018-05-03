@@ -4,9 +4,11 @@ import { guideLessons, aboutApp } from './utils/mock'
 App({
   globalData: {
     language: 'en',
+    systemLanguage: 'en',
     followSystemLanguage: true,
     dict: {
       LANGUAGE: { en: 'Language', zh: '语言' },
+      LANGUAGE_TYPE: { en: 'English', zh: '简体中文' },
       FOLLOW_SYSTEM: { en: 'Follow System', zh: '跟随系统' },
       READ_MORE: { en: 'read more', zh: '查看更多' },
       REFRESH: { en: 'Release to refresh', zh: '释放刷新' },
@@ -25,5 +27,10 @@ App({
     utils.fetchGuide(lessons => this.guideLessons = lessons)
     utils.fetchAbout(about => this.aboutApp = about)
     utils.fetchNews(news => this.news = news)
+  },
+  onShow () {
+    utils.getSystemLanguage(lang => {
+      this.systemLanguage = lang
+    })
   }
 })
