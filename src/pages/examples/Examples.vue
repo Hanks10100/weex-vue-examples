@@ -135,11 +135,12 @@
   export default {
     components: { ExampleScroller },
     beforeCreate () {
-      // update examples
       this.$page.$emit('updateExamples')
-      setTimeout(() => { this.showLoading = true }, 200);
     },
     computed: {
+      showLoading () {
+        return !this.examples.length
+      },
       tabs () {
         return this.examples.map(group => ({
           type: group.type,

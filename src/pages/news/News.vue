@@ -35,29 +35,19 @@
       }
     },
     beforeCreate () {
-      this.$page.$emit('updateNews')
+      this.$page.$emit('updateNews', false)
     },
     methods: {
       refresh () {
         this.refreshing = true
         this.refreshNote = this.dict.REFRESHING
-        const finish = () => {
+        this.$page.$emit('updateNews', true)
+        this.$page.$on('newsUpdated', () => {
           this.refreshing = false
+          modal.toast({ message: this.i18n(this.dict.UPDATED) })
           setTimeout(() => {
             this.refreshNote = this.dict.REFRESH
           }, 500)
-        }
-        fetchNews(res => {
-          if (Array.isArray(res.news)) {
-            if (this.news.length === res.news.length) {
-              modal.toast({
-                message: this.i18n(this.dict.UPDATED)
-              })
-            }
-            this.news = res.news
-            finish()
-          }
-          setTimeout(() => finish(), 5000)
         })
       },
       loadmore () {

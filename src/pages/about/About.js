@@ -8,7 +8,7 @@ Page({
       aboutApp: globalData.aboutApp
     }
   },
-  onReady () {
+  onLoad () {
     this.$on('setLanguage', language => {
       this.language = language
       this.$setGlobalData({ language })

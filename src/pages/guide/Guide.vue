@@ -37,9 +37,6 @@
         this.navigationBarOptions.backgroundColor = this.chosenLesson.mainColor
         this.navigationBarOptions.title = this.chosenLesson.title
       }
-    },
-    beforeCreate () {
-      this.$page.$emit('updateGuideLessons')
     }
   }
 </script>
