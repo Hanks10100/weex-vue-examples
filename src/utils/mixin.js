@@ -13,9 +13,6 @@ export default {
     createURL: utils.createURL,
     i18n: utils.i18n,
     getLanguage: utils.getLanguage,
-    fetchData: utils.fetchData,
-    saveData: utils.saveData,
-    readData: utils.readData,
     jumpTo: utils.jumpTo
   },
   created () {

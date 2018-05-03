@@ -43,9 +43,6 @@
       }
     },
     created () {
-      utils.readAbout(about => {
-        this.aboutApp = about
-      })
       utils.getStorageLanguage(
         lang => this.followSystemLanguage = false,
         () => this.followSystemLanguage = true

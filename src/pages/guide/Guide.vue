@@ -24,11 +24,7 @@
 </template>
 
 <script>
-  import { fetchGuide, saveGuide, readGuide, setTitleBar } from '../../utils'
   import Lesson from '../../components/Lesson.vue'
-  import { guideLessons } from '../../utils/mock'
-
-  let useStorage = false
   export default {
     components: { Lesson },
     computed: {
@@ -40,24 +36,10 @@
       lenssonIndex () {
         this.navigationBarOptions.backgroundColor = this.chosenLesson.mainColor
         this.navigationBarOptions.title = this.chosenLesson.title
-      },
-      navigationBarOptions () {
-        setTitleBar(this.navigationBarOptions, this.language)
       }
     },
     beforeCreate () {
-      readGuide(guide => {
-        this.guideLessons = guide
-        if (WXEnvironment.platform.toLowerCase() !== 'web') {
-          useStorage = true
-        }
-      })
-      fetchGuide(result => {
-        saveGuide(result)
-        if (!useStorage) {
-          this.guideLessons = result.guide
-        }
-      })
+      this.$page.$emit('updateGuideLessons')
     }
   }
 </script>

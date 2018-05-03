@@ -131,32 +131,13 @@
 </style>
 
 <script>
-  import { fetchExamples, saveExamples, readExamples } from '../../utils'
   import ExampleScroller from '../../components/ExampleScroller.vue'
-  // import getExamples from '../../examples'
-  // const exampleMap = getExamples({ scope: 'mobile', filterTODO: true })
-  const exampleMap = []
-  let useStorage = false
   export default {
     components: { ExampleScroller },
     beforeCreate () {
-      // read examples from storage
-      readExamples(examples => {
-        this.examples = examples
-        if (WXEnvironment.platform.toLowerCase() !== 'web') {
-          useStorage = true
-        }
-      })
-
-      // update examples to storage
-      fetchExamples(result => {
-        saveExamples(result)
-        if (!useStorage) {
-          this.examples = result.examples
-        }
-      })
-
-      setTimeout(() => { this.showLoading = true }, 400);
+      // update examples
+      this.$page.$emit('updateExamples')
+      setTimeout(() => { this.showLoading = true }, 200);
     },
     computed: {
       tabs () {

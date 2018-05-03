@@ -233,43 +233,10 @@ export function fetchData (name, done = () => {}, fail = () => {}) {
     fail(err)
   }
 }
-export function saveData (name, result) {
-  const key = storageKeys[name]
-  if (!key) return
-  if (result && typeof result === 'object') {
-    result.timestamp = Date.now()
-    storage.setItem(key, JSON.stringify(result))
-  }
-}
-export function readData (name, done = () => {}, fail = () => {}) {
-  const key = storageKeys[name]
-  if (!key) return fail()
-  try {
-    storage.getItem(key, event => {
-      if (event.result === 'success') {
-        const result = JSON.parse(event.data)
-        if (result && Array.isArray(result[name])) {
-          return done(result[name])
-        }
-      }
-      fail(event)
-    })
-  } catch (e) {
-    fail(e)
-  }
-}
+
 
 export const fetchExamples = (...args) => fetchData('examples', ...args)
-export const saveExamples = (...args) => saveData('examples', ...args)
-export const readExamples = (...args) => readData('examples', ...args)
-
 export const fetchGuide = (...args) => fetchData('guide', ...args)
-export const saveGuide = (...args) => saveData('guide', ...args)
-export const readGuide = (...args) => readData('guide', ...args)
-
 export const fetchAbout = (...args) => fetchData('about', ...args)
-export const saveAbout = (...args) => saveData('about', ...args)
-export const readAbout = (...args) => readData('about', ...args)
-
 export const fetchDoodle = (...args) => fetchData('doodle', ...args)
 export const fetchNews = (...args) => fetchData('news', ...args)

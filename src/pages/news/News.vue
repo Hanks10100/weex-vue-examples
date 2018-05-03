@@ -27,7 +27,6 @@
 </template>
 
 <script>
-  import { fetchNews } from '../../utils'
   const modal = weex.requireModule('modal')
   export default {
     computed: {
@@ -36,11 +35,7 @@
       }
     },
     beforeCreate () {
-      fetchNews(res => {
-        if (Array.isArray(res.news)) {
-          this.news = res.news
-        }
-      })
+      this.$page.$emit('updateNews')
     },
     methods: {
       refresh () {
