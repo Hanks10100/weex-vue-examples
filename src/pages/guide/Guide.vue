@@ -26,7 +26,7 @@
 <script>
   import { fetchGuide, saveGuide, readGuide, setTitleBar } from '../../utils'
   import Lesson from '../../components/Lesson.vue'
-  import sliders from '../../../misc/sliders.js'
+  import { guideLessons } from '../../utils/mock'
 
   let useStorage = false
   export default {
@@ -41,7 +41,7 @@
           }
         },
         lenssonIndex: 0,
-        guideLessons: sliders
+        guideLessons
       }
     },
     computed: {
