@@ -11,8 +11,6 @@ Page({
     }
   },
   onLoad () {
-    const storage = requireModule('storage')
-
     this.$on('setLanguage', language => {
       this.language = language
       this.followSystemLanguage = false

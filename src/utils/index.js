@@ -1,6 +1,17 @@
-const stream = weex.requireModule('stream')
-const storage = weex.requireModule('storage')
-const navigator = weex.requireModule('navigator')
+const requireModule = ((context) => {
+  if (typeof context.requireModule === 'function') {
+    return context.requireModule
+  }
+  if (typeof weex === 'object' && weex
+    && typeof weex.requireModule === 'function') {
+    return weex.requireModule
+  }
+  return () => {}
+})(this)
+
+const stream = requireModule('stream')
+const storage = requireModule('storage')
+const navigator = requireModule('navigator')
 
 const encoder = typeof encodeURIComponent === 'function'
   ? encodeURIComponent
@@ -96,7 +107,7 @@ export function getSystemLanguage (done, fail = () => {}) {
     lang ? done(lang) : fail()
   } else {
     try {
-      const locale = weex.requireModule('locale') || weex.requireModule('local')
+      const locale = requireModule('locale') || requireModule('local')
       let useSync = false
       const resSync = locale.getLanguage(language => {
         const lang = parseLanguage(language)
