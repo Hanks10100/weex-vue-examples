@@ -1,0 +1,25 @@
+{
+  "pages": [{
+    "pageName": "landing",
+    "pageUrl": "pages/landing.weex.js"
+  }, {
+    "pageName": "about",
+    "pageUrl": "pages/about.weex.js"
+  }, {
+    "pageName": "examples",
+    "pageUrl": "pages/examples.weex.js"
+  }, {
+    "pageName": "guide",
+    "pageUrl": "pages/guide.weex.js"
+  }, {
+    "pageName": "news",
+    "pageUrl": "pages/news.weex.js"
+  }],
+  "window": {
+    "navigationBarBackgroundColor": "#00B4FF",
+    "navigationBarTextStyle": "#FFFFFF",
+    "navigationBarTitleText": "Weex Playground",
+    "isShowNavigationBar": true
+  },
+  "tabBar": {}
+}
