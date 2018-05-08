@@ -13,5 +13,7 @@ dist/
 
 weex_tmp
 coverage
+package
+packages
 
 src/demos
