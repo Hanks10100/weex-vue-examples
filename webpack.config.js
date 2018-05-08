@@ -106,10 +106,11 @@ function generateWebpackConfigs (options) {
 }
 
 module.exports = generateWebpackConfigs({
-  landing: path.resolve('src/pages/landing', 'Landing.js'),
-  about: path.resolve('src/pages/about', 'About.js'),
-  examples: path.resolve('src/pages/examples', 'Examples.js'),
-  news: path.resolve('src/pages/news', 'News.js'),
-  guide: path.resolve('src/pages/guide', 'Guide.js'),
-  // update: path.resolve('misc', 'update.js')
+  app: path.resolve('misc/entries', 'app.js'),
+  shared: path.resolve('src', 'shared.js'),
+  landing: path.resolve('misc/entries', 'landing.js'),
+  about: path.resolve('misc/entries', 'about.js'),
+  examples: path.resolve('misc/entries', 'examples.js'),
+  news: path.resolve('misc/entries', 'news.js'),
+  guide: path.resolve('misc/entries', 'guide.js'),
 })
