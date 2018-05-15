@@ -18,3 +18,6 @@ copy_page "examples"
 copy_page "guide"
 copy_page "landing"
 copy_page "news"
+
+
+tar -zcvf app.tar.gz package
