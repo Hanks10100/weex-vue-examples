@@ -1,29 +1,83 @@
 <template>
   <div class="wrapper">
-    <doodle :lang="language" class="doodle" />
+    <div class="doodle center">
+      <div class="center">
+        <image class="logo" src="https://gw.alicdn.com/tfs/TB1Q9VBkRfH8KJjy1XbXXbLdXXa-3799-1615.png"/>
+        <div class="btn center">
+          <image class="scan-bg" src="https://gw.alicdn.com/tfs/TB1qnO0kLDH8KJjy1XcXXcpdXXa-900-320.png"/>
+          <text class="btn-text">Scan QR Code</text>
+        </div>
+      </div>
+    </div>
     <div class="menu-list">
       <div :class="['menu-row', `menu-row-${r+1}`]" v-for="(row, r) in menus" :key="r">
-        <a v-for="(menu, i) in row" :key="menu.name"
-          :href="menu.name | link({ language })"
+        <div v-for="(menu, i) in row" :key="menu.name"
+          @click="jumpTo(menu.name)"
           :class="['menu-item', `menu-item-${i+1}`]">
-          <text :class="['menu-text', `menu-text-${language}`]">{{i18n(menu.title)}}</text>
-        </a>
+          <text :class="['menu-text', `menu-text-${language}`]">{{menu.title}}</text>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-  import Doodle from '../../components/Doodle.vue'
   export default {
-    components: { Doodle }
+    data () {
+      return {}
+    },
+    mounted () {
+      console.log(' => landing page mounted.')
+      this.pageKeys = Object.keys(this.$page)
+    },
+    methods: {
+      jumpTo (name) {
+        console.log(` => Will jump to "${name}".`)
+        this.$page.$call('modal.toast', {
+          message: `Will jump to "${name}".`
+        })
+        this.$page.$call('navigator.push', { url: name })
+      }
+    }
   }
 </script>
 
 <style scoped>
+  .wrapper {
+    background-color: #FFFFFF;
+  }
+  .center {
+    justify-content: center;
+    align-items: center;
+  }
   .doodle {
     width: 750px;
     height: 880px;
+  }
+  .logo {
+    width: 750px;
+    height: 318px;
+  }
+  .btn {
+    width: 450px;
+    height: 160px;
+    margin: 50px;
+    opacity: 0.7;
+  }
+  .btn:active {
+    opacity: 1;
+  }
+  .scan-bg {
+    width: 450px;
+    height: 160px;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .btn-text {
+    color: #505050;
+    font-size: 56px;
+    text-align: center;
   }
   .menu-list {
     flex: 1;

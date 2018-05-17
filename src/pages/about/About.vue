@@ -1,18 +1,5 @@
 <template>
   <list class="list">
-    <cell><app-info-card /></cell>
-    <cell :class="['item-cell', `item-cell-${i+1}`]" v-for="(item, i) in aboutApp" :key="i">
-      <div :class="['item', `item-${i+1}`]" v-if="item.link" @click="jumpTo(item.link, i18n(item.title))">
-        <text class="item-title">{{i18n(item.title)}}</text>
-        <image class="arrow-icon" src="https://gw.alicdn.com/tfs/TB1iL2fkLDH8KJjy1XcXXcpdXXa-32-49.png" />
-      </div>
-    </cell>
-    <cell class="item-cell">
-      <div class="item" @click="chooseLanguage">
-        <text class="item-title">{{i18n(dict.LANGUAGE)}}</text>
-        <text class="item-value">{{languageName}}</text>
-      </div>
-    </cell>
     <cell>
       <div class="copyright">
         <text class="copyright-text">Copyright(c) 2017 The Apache Software Foundation.</text>
@@ -23,42 +10,9 @@
 </template>
 
 <script>
-  import AppInfoCard from '../../components/AppInfoCard.vue'
-  const picker = weex.requireModule('picker')
   export default {
-    components: { AppInfoCard },
-    computed: {
-      languageName () {
-        if (this.followSystemLanguage) {
-          return this.i18n(this.dict.FOLLOW_SYSTEM)
-        }
-        return this.i18n(this.dict.LANGUAGE_TYPE)
-      }
-    },
-    methods: {
-      chooseLanguage () {
-        const options = ['', 'en', 'zh']
-        const index = this.followSystemLanguage
-          ? 0
-          : options.indexOf(this.language)
-        picker.pick({
-          index,
-          items: [
-            this.i18n(this.dict.FOLLOW_SYSTEM),
-            'English',
-            '中文'
-          ]
-        }, ({result, data}) => {
-          if (result === 'success') {
-            const select = options[data]
-            if (select) {
-              this.$page.$emit('setLanguage', select)
-            } else {
-              this.$page.$emit('followSystemLanguage')
-            }
-          }
-        })
-      }
+    data () {
+      return {}
     }
   }
 </script>

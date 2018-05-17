@@ -1,5 +1,5 @@
 const requireModule = ((context) => {
-  if (typeof context.requireModule === 'function') {
+  if (context && typeof context.requireModule === 'function') {
     return context.requireModule
   }
   if (typeof weex === 'object' && weex
