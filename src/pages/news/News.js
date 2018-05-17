@@ -1,24 +1,22 @@
-Page({
+Page('news', {
   data (globalData) {
     return {
-      language: globalData.language || 'en',
-      dict: globalData.dict,
-      news: globalData.news || [],
-      lenssonIndex: 0,
-      refreshNote: globalData.dict.REFRESH,
-      refreshing: false,
-      visibleCount: 6
+      language: globalData.language || 'en'
     }
   },
-  onLoad () {
-    this.$on('updateNews', (shouldFeedback) => {
-      fetchNews(res => {
-        if (Array.isArray(res.news)) {
-          this.news = res.news
-          this.$setGlobalData({ news: this.news })
-          shouldFeedback && this.$emit('newsUpdated', res.news)
-        }
-      })
-    })
+  onLoad (...args) {
+    console.log(` => news page load (${JSON.stringify(args)})`)
+  },
+  onReady () {
+    console.log(` => news page ready`)
+  },
+  onShow () {
+    console.log(` => news page show`)
+  },
+  onHide () {
+    console.log(` => news page hide`)
+  },
+  onUnload () {
+    console.log(` => news page unload`)
   }
 })

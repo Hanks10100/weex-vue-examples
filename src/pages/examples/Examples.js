@@ -1,21 +1,22 @@
-import { fetchExamples } from '../../utils'
-
-Page({
+Page('examples', {
   data (globalData) {
     return {
-      language: globalData.language || 'en',
-      examples: globalData.examples || [],
-      dict: globalData.dict,
-      activeTab: 'component',
-      activeGroup: 'div'
+      language: globalData.language || 'en'
     }
   },
-  onLoad () {
-    this.$on('updateExamples', () => {
-      fetchExamples(examples => {
-        this.examples = examples
-        this.$setGlobalData({ examples })
-      })
-    })
+  onLoad (...args) {
+    console.log(` => example page load (${JSON.stringify(args)})`)
+  },
+  onReady () {
+    console.log(` => example page ready`)
+  },
+  onShow () {
+    console.log(` => example page show`)
+  },
+  onHide () {
+    console.log(` => example page hide`)
+  },
+  onUnload () {
+    console.log(` => example page unload`)
   }
 })

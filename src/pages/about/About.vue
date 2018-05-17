@@ -1,5 +1,6 @@
 <template>
   <list class="list">
+    <cell><app-info-card /></cell>
     <cell>
       <div class="copyright">
         <text class="copyright-text">Copyright(c) 2017 The Apache Software Foundation.</text>
@@ -10,7 +11,9 @@
 </template>
 
 <script>
+  import AppInfoCard from '../../components/AppInfoCard.vue'
   export default {
+    components: { AppInfoCard },
     data () {
       return {}
     }
