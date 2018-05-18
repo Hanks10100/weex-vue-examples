@@ -10,8 +10,8 @@ mkdir package package/pages
 npm run build
 
 cp src/app.json package/app.json
-cp dist/worker.weex.js package/app.js
-cp dist/shared.weex.js package/shared.js
+cp dist/app.weex.js package/app.js
+cp dist/shared.js package/shared.js
 
 copy_page "about"
 copy_page "examples"
@@ -21,3 +21,4 @@ copy_page "news"
 
 
 tar -zcvf app.tar.gz package
+cd package && zip -r -o vue-test.zip pages app.js app.json && cd ..
