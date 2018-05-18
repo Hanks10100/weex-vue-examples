@@ -4,8 +4,7 @@
       <text class="title">{{i18n(title)}}</text>
     </div>
     <div class="center" v-for="(lesson, i) in lessons" :key="i">
-      <div :class="['lesson', `lesson-${language}`]"
-        @click="jumpTo(lesson.docLink, lesson.title)">
+      <div :class="['lesson', `lesson-${language}`]">
         <text :class="['lesson-index', `lesson-index-${language}`]">{{i + 1}}.</text>
         <text
           :class="['lesson-title', `lesson-title-${language}`]"
@@ -20,13 +19,15 @@
 </template>
 
 <script>
+  import { i18n } from '../utils/index'
   export default {
     props: ['mainColor', 'title', 'copyright', 'lessons'],
     data () {
       return {
         language: 'en'
       }
-    }
+    },
+    methods: { i18n }
   }
 </script>
 

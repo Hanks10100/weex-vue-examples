@@ -5,8 +5,6 @@ const modal = requireModule('modal')
 App({
   globalData: {
     language: 'en',
-    systemLanguage: 'en',
-    followSystemLanguage: true,
     dict: {
       LANGUAGE: { en: 'Language', zh: '语言' },
       LANGUAGE_TYPE: { en: 'English', zh: '简体中文' },
@@ -35,7 +33,13 @@ App({
     })
     fetchAbout(result => this.aboutApp = result)
     fetchGuide(result => this.guideLessons = result)
-    fetchNews(result => this.news = result)
+    // fetchNews(result => this.news = result)
+    fetchNews(result => {
+      console.log(` => fetch news: (${JSON.stringify(result)})`)
+      this.news = result
+    }, error => {
+      console.log(` => failed to fetch news: (${JSON.stringify(error)})`)
+    })
   },
   onShow () {
     console.log(` => app show`)

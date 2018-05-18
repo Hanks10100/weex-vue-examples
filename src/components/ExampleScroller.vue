@@ -5,12 +5,10 @@
         <text class="title-text">{{i18n(example.title)}}</text>
       </div>
       <div style="align-items: center">
-        <a :href="i18n(example.hash) | url">
+        <div>
           <image class="screenshot" :src="i18n(example.screenshot)" />
-        </a>
-        <text class="example-tips"
-          @click="viewSource(i18n(example.hash))"
-          >{{i18n(VIEW_SOURCE)}}</text>
+        </div>
+        <text class="example-tips">{{i18n(VIEW_SOURCE)}}</text>
       </div>
     </div>
   </scroller>
@@ -57,9 +55,9 @@
 </style>
 
 <script>
-  import { viewSource } from '../utils'
+  import { i18n } from '../utils/index'
   export default {
-    methods: { viewSource },
+    methods: { i18n },
     props: {
       language: {
         type: String,

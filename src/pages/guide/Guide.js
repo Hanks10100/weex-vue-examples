@@ -1,7 +1,9 @@
 Page('guide', {
   data (globalData) {
     return {
-      language: globalData.language || 'en'
+      language: globalData.language || 'en',
+      guideLessons: globalData.guideLessons || [],
+      lessonIndex: 0
     }
   },
   onLoad (...args) {

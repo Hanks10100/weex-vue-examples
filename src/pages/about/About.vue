@@ -1,6 +1,18 @@
 <template>
   <list class="list">
     <cell><app-info-card /></cell>
+    <cell :class="['item-cell', `item-cell-${i+1}`]" v-for="(item, i) in aboutApp" :key="i">
+      <div :class="['item', `item-${i+1}`]" v-if="item.link">
+        <text class="item-title">{{i18n(item.title)}}</text>
+        <image class="arrow-icon" src="https://gw.alicdn.com/tfs/TB1iL2fkLDH8KJjy1XcXXcpdXXa-32-49.png" />
+      </div>
+    </cell>
+    <cell class="item-cell">
+      <div class="item" @click="chooseLanguage">
+        <text class="item-title">{{i18n(dict.LANGUAGE)}}</text>
+        <text class="item-value">{{languageName}}</text>
+      </div>
+    </cell>
     <cell>
       <div class="copyright">
         <text class="copyright-text">Copyright(c) 2017 The Apache Software Foundation.</text>
@@ -11,11 +23,20 @@
 </template>
 
 <script>
+  import { i18n } from '../../utils/index'
   import AppInfoCard from '../../components/AppInfoCard.vue'
   export default {
     components: { AppInfoCard },
-    data () {
-      return {}
+    computed: {
+      languageName () {
+        return this.i18n(this.dict.LANGUAGE_TYPE)
+      }
+    },
+    methods: {
+      i18n,
+      chooseLanguage () {
+        console.log(' => todo: choose language')
+      }
     }
   }
 </script>
