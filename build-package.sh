@@ -17,7 +17,7 @@ mkdir package package/pages
 
 npm run build
 
-cp src/app.json package/app.config.json
+cp ./app.config.json package/app.config.json
 cp dist/app.weex.js package/app.js
 cp src/shared.js package/shared.js
 

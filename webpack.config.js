@@ -107,7 +107,7 @@ function generateWebpackConfigs (options) {
 
 module.exports = generateWebpackConfigs({
   app: path.resolve('misc/entries', 'app.js'),
-  shared: path.resolve('src', 'shared.js'),
+  // shared: path.resolve('src', 'shared.js'),
   landing: path.resolve('misc/entries', 'landing.js'),
   about: path.resolve('misc/entries', 'about.js'),
   examples: path.resolve('misc/entries', 'examples.js'),
