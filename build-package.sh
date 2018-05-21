@@ -19,7 +19,7 @@ npm run build
 
 cp ./app.config.json package/app.config.json
 cp dist/app.weex.js package/app.js
-cp src/shared.js package/shared.js
+cp src/share.js package/share.js
 
 copy_page "about"
 copy_page "examples"
@@ -29,3 +29,7 @@ copy_page "news"
 
 
 # tar -zcvf app.zip package/*
+
+# cd package
+# zip -r -o app.zip pages app.js app.config.json shared.js
+# cd ..
