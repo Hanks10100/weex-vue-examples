@@ -29,15 +29,6 @@
     mounted () {
       console.log(' => landing page mounted.')
       this.pageKeys = Object.keys(this.$page)
-    },
-    methods: {
-      jumpTo (name) {
-        console.log(` => Will jump to "${name}".`)
-        this.$page.$call('modal.toast', {
-          message: `Will jump to "${name}".`
-        })
-        this.$page.$call('navigator.push', { url: name })
-      }
     }
   }
 </script>

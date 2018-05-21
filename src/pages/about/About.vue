@@ -23,7 +23,6 @@
 </template>
 
 <script>
-  import { i18n } from '../../utils/index'
   import AppInfoCard from '../../components/AppInfoCard.vue'
   export default {
     components: { AppInfoCard },
@@ -33,9 +32,15 @@
       }
     },
     methods: {
-      i18n,
       chooseLanguage () {
         console.log(' => todo: choose language')
+
+        // temp toggle language
+        const language = this.language === 'en' ? 'zh' : 'en'
+        this.$page.$emit('setLanguage', language)
+        this.$page.$call('modal.toast', {
+          message: `Change language to: ${language}`
+        })
       }
     }
   }

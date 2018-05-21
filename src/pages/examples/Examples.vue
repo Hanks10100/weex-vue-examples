@@ -130,7 +130,6 @@
 </style>
 
 <script>
-  import { i18n } from '../../utils/index'
   import ExampleScroller from '../../components/ExampleScroller.vue'
   export default {
     components: { ExampleScroller },
@@ -149,7 +148,6 @@
       }
     },
     methods: {
-      i18n,
       toggleTab (tabType) {
         this.activeTab = tabType
         this.activeGroup = this.currentTab.group[0].type

@@ -10,6 +10,7 @@ Page('about', {
     console.log(` => about page load (${JSON.stringify(args)})`)
     console.log(` => data of about page: (${JSON.stringify(this.aboutApp)})`)
     this.$on('setLanguage', language => {
+      console.log(` => will change language to: ${language}`)
       this.language = language
       this.$setGlobalData({ language })
     })

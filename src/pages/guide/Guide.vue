@@ -24,7 +24,6 @@
 </template>
 
 <script>
-  import { i18n } from '../../utils/index'
   import Lesson from '../../components/Lesson.vue'
   export default {
     components: { Lesson },
@@ -35,8 +34,7 @@
     },
     created () {
       console.log(` => lessons: (${JSON.stringify(this.guideLessons)}).`)
-    },
-    methods: { i18n }
+    }
   }
 </script>
 

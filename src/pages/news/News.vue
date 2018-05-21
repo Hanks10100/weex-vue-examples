@@ -26,7 +26,6 @@
 </template>
 
 <script>
-  import { i18n } from '../../utils/index'
   const modal = weex.requireModule('modal')
   export default {
     computed: {
@@ -38,7 +37,6 @@
       console.log(` => news in created: (${JSON.stringify(this.news)}).`)
     },
     methods: {
-      i18n,
       refresh () {
         this.refreshing = true
         this.refreshNote = this.dict.REFRESHING

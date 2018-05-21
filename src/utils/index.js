@@ -7,16 +7,6 @@ const _requireModule = typeof requireModule === 'function'
 const network = _requireModule('network')
 const navigator = _requireModule('navigator')
 
-export function i18n (text, language) {
-  if (typeof text === 'string') {
-    return text
-  }
-  if (Object.prototype.toString.call(text) === '[object Object]') {
-    const lang = language || (this && this.language) || 'en'
-    return text[lang]
-  }
-}
-
 const supportedLanguageRE = /(en|zh)\_?\w*/i
 export function parseLanguage (language) {
   const match = supportedLanguageRE.exec(language + '')
