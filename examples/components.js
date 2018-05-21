@@ -141,6 +141,11 @@ module.exports = {
       hash: 'c7f682768e18b83bfca7f1327dfab9cd',
       title: { zh: 'appear 事件', en: '"appear" Event' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1MnzLdxrI8KJjy0FpXXb5hVXa-540-844.png'
+    }
+    , {
+      hash: '9687184be0bfb36ad63a7bebee78923b',
+      title: { zh: '水平列表', en: 'Horizontal list' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }]
   }, {
     type: 'scroller',
