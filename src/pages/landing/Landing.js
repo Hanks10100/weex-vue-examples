@@ -2,13 +2,13 @@ Page('landing', {
   data (globalData) {
     return {
       language: globalData.language || 'en',
-      pageKeys: [],
+      dict: globalData.dict,
       menus: [[
-        { name: 'guide', title: 'Guide' },
-        { name: 'examples', title: 'Examples' }
+        { name: 'guide', title: { en: 'Guide', zh: '教程' } },
+        { name: 'examples', title: { en: 'Examples', zh: '实例' } }
       ], [
-        { name: 'news', title: 'News' },
-        { name: 'about', title: 'About' }
+        { name: 'news', title: { en: 'News', zh: '资讯' } },
+        { name: 'about', title: { en: 'About', zh: '关于' } }
       ]]
     }
   },

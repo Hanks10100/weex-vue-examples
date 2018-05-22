@@ -5,7 +5,7 @@
         <image class="logo" src="https://gw.alicdn.com/tfs/TB1Q9VBkRfH8KJjy1XbXXbLdXXa-3799-1615.png"/>
         <div class="btn center">
           <image class="scan-bg" src="https://gw.alicdn.com/tfs/TB1qnO0kLDH8KJjy1XcXXcpdXXa-900-320.png"/>
-          <text class="btn-text">Scan QR Code</text>
+          <text class="btn-text">{{i18n(dict.SCAN_QR_CODE)}}</text>
         </div>
       </div>
     </div>
@@ -14,7 +14,7 @@
         <div v-for="(menu, i) in row" :key="menu.name"
           @click="jumpTo(menu.name)"
           :class="['menu-item', `menu-item-${i+1}`]">
-          <text :class="['menu-text', `menu-text-${language}`]">{{menu.title}}</text>
+          <text :class="['menu-text', `menu-text-${language}`]">{{i18n(menu.title)}}</text>
         </div>
       </div>
     </div>
@@ -23,9 +23,6 @@
 
 <script>
   export default {
-    data () {
-      return {}
-    },
     mounted () {
       console.log(' => landing page mounted.')
       this.pageKeys = Object.keys(this.$page)

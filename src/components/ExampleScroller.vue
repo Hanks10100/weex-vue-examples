@@ -55,9 +55,7 @@
 </style>
 
 <script>
-  import { i18n } from '../utils/index'
   export default {
-    methods: { i18n },
     props: {
       language: {
         type: String,

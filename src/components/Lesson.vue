@@ -19,15 +19,8 @@
 </template>
 
 <script>
-  import { i18n } from '../utils/index'
   export default {
-    props: ['mainColor', 'title', 'copyright', 'lessons'],
-    data () {
-      return {
-        language: 'en'
-      }
-    },
-    methods: { i18n }
+    props: ['mainColor', 'language', 'title', 'copyright', 'lessons']
   }
 </script>
 

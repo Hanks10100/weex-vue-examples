@@ -4,8 +4,9 @@ const modal = requireModule('modal')
 
 App({
   globalData: {
-    language: 'en',
+    language: 'zh',
     dict: {
+      SCAN_QR_CODE: { en: 'Scan QR Code', zh: '扫描二维码' },
       LANGUAGE: { en: 'Language', zh: '语言' },
       LANGUAGE_TYPE: { en: 'English', zh: '简体中文' },
       FOLLOW_SYSTEM: { en: 'Follow System', zh: '跟随系统' },

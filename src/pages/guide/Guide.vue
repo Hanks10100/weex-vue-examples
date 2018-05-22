@@ -17,6 +17,7 @@
     </slider>
     <lesson
       :main-color="chosenLesson.mainColor"
+      :language="language"
       :title="chosenLesson.title"
       :lessons="chosenLesson.lessons"
       :copyright="chosenLesson.copyright" />
