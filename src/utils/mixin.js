@@ -1,3 +1,5 @@
+const modal = weex.requireModule('modal')
+const navigator = weex.requireModule('navigator')
 
 function i18n (text, language) {
   if (typeof text === 'string') {
@@ -17,13 +19,11 @@ export default {
   methods: {
     i18n,
     jumpTo (name) {
-      if (this.$page && typeof this.$page.$call === 'function') {
+      try {
         console.log(` => will jump to "${name}".`)
-        this.$page.$call('modal.toast', {
-          message: `will jump to "${name}".`
-        })
-        this.$page.$call('navigator.push', { url: name })
-      } else {
+        modal.toast({ message: `will jump to "${name}".` })
+        navigator.push({ url: name })
+      } catch (e) {
         console.log(` => Failed to jump to ${name}`)
       }
     }

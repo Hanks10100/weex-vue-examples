@@ -1,6 +1,6 @@
 const _requireModule = typeof requireModule === 'function'
   ? requireModule
-  : typeof weex.requireModule === 'function'
+  : (typeof weex !== 'undefined' && typeof weex.requireModule === 'function')
     ? weex.requireModule
     : (name) => console.log(`Can't require "${name}" module.`)
 

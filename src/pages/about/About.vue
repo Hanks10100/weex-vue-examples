@@ -24,6 +24,8 @@
 
 <script>
   import AppInfoCard from '../../components/AppInfoCard.vue'
+
+  const modal = weex.requireModule('modal')
   export default {
     components: { AppInfoCard },
     computed: {
@@ -38,7 +40,7 @@
         // temp toggle language
         const language = this.language === 'en' ? 'zh' : 'en'
         this.$page.$emit('setLanguage', language)
-        this.$page.$call('modal.toast', {
+        modal.toast({
           message: `Change language to: ${language}`
         })
       }

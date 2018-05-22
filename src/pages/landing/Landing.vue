@@ -24,8 +24,7 @@
 <script>
   export default {
     mounted () {
-      console.log(' => landing page mounted.')
-      this.pageKeys = Object.keys(this.$page)
+      console.log(` => landing page mounted. ($page: ${Object.keys(this.$page).join(', ')})`)
     }
   }
 </script>
