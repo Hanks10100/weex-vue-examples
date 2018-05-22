@@ -19,7 +19,7 @@ npm run build
 
 cp ./app.config.json package/app.config.json
 cp dist/app.weex.js package/app.js
-cp src/share.js package/share.js
+cp dist/share.weex.js package/share.js
 
 copy_page "about"
 copy_page "examples"
