@@ -26,6 +26,8 @@
   import AppInfoCard from '../../components/AppInfoCard.vue'
 
   const modal = weex.requireModule('modal')
+  const picker = weex.requireModule('picker')
+
   export default {
     components: { AppInfoCard },
     computed: {
@@ -35,13 +37,19 @@
     },
     methods: {
       chooseLanguage () {
-        console.log(' => todo: choose language')
-
-        // temp toggle language
-        const language = this.language === 'en' ? 'zh' : 'en'
-        this.$page.$emit('setLanguage', language)
-        modal.toast({
-          message: `Change language to: ${language}`
+        const options = ['en', 'zh']
+        picker.pick({
+          index: options.indexOf(this.language),
+          items: ['English', '中文']
+        }, (event) => {
+          const index = event.data
+          if (event.status === 'SUCCESS' && options[index]) {
+            this.language = options[index]
+            modal.toast({
+              message: `Change language to: ${this.language}`
+            })
+            this.$page.$emit('setLanguage', this.language)
+          }
         })
       }
     }

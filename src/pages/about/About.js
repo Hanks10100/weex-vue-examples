@@ -12,13 +12,7 @@ Page('about', {
     this.$on('setLanguage', language => {
       console.log(` => will change language to: ${language}`)
       this.language = language
-      if (typeof getApp === 'function') {
-        const app = getApp()
-        app.language = language
-      } else {
-        console.log(' => no getApp api, try to call $setGlobalData instead.')
-        this.$setGlobalData({ language })
-      }
+      this.$setGlobalData({ language })
     })
   },
   onReady () {
