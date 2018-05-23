@@ -8,6 +8,15 @@
   }, {
     "pageName": "about",
     "pageSourcePath": "src/pages/About"
+  }, {
+    "pageName": "examples",
+    "pageSourcePath": "src/pages/Examples"
+  }, {
+    "pageName": "guide",
+    "pageSourcePath": "src/pages/Guide"
+  }, {
+    "pageName": "news",
+    "pageSourcePath": "src/pages/News"
   }],
   "window": {
     "navigationBarBackgroundColor": "#00B4FF",

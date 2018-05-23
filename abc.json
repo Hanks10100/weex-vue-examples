@@ -1,0 +1,26 @@
+{
+  "name": "mini-app-example",
+  "group": "mtb",
+  "version": "@BRANCH@",
+  "type": "nova",
+  "builder": "@ali/builder-miniapp-vue",
+  "author": "Hanks",
+  "options": {
+    "builderReflect": true,
+    "babelrc": false
+  },
+  "assets": {
+    "type": "builder",
+    "builder": {
+      "name": "@ali/builder-miniapp-vue"
+    }
+  },
+  "info": {
+    "extraLib": "vue",
+    "platform": [
+      "mobile"
+    ],
+    "project": "app",
+    "workflow": "normal"
+  }
+}
