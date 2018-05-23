@@ -4,19 +4,10 @@
   "sdkVersion": "1",
   "pages": [{
     "pageName": "landing",
-    "pageUrl": "pages/landing.weex.js"
+    "pageSourcePath": "src/pages/Landing"
   }, {
     "pageName": "about",
-    "pageUrl": "pages/about.weex.js"
-  }, {
-    "pageName": "examples",
-    "pageUrl": "pages/examples.weex.js"
-  }, {
-    "pageName": "guide",
-    "pageUrl": "pages/guide.weex.js"
-  }, {
-    "pageName": "news",
-    "pageUrl": "pages/news.weex.js"
+    "pageSourcePath": "src/pages/About"
   }],
   "window": {
     "navigationBarBackgroundColor": "#00B4FF",
