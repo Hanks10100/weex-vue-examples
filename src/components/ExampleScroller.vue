@@ -5,7 +5,7 @@
         <text class="title-text">{{i18n(example.title)}}</text>
       </div>
       <div style="align-items: center">
-        <div>
+        <div @click="jumpToExample(example.hash)">
           <image class="screenshot" :src="i18n(example.screenshot)" />
         </div>
         <text class="example-tips">{{i18n(VIEW_SOURCE)}}</text>
@@ -55,6 +55,8 @@
 </style>
 
 <script>
+  const modal = weex.requireModule('modal')
+  const navigator = weex.requireModule('navigator')
   export default {
     props: {
       language: {
@@ -72,6 +74,16 @@
           en: 'view source',
           zh: '查看源码'
         }
+      }
+    },
+    methods: {
+      jumpToExample (hash) {
+        const url = `http://dotwe.org/raw/dist/${hash}.bundle.wx`
+        console.log(` => will jump to: ${url}`)
+        modal.toast({ message: `will jump to: ${url}` })
+        navigator.push({
+          url: `${url}?_wx_tpl=${url}`
+        })
       }
     }
   }
