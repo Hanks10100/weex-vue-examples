@@ -15,5 +15,6 @@ weex_tmp
 coverage
 package
 packages
+build
 
 src/demos
