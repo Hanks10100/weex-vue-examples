@@ -96,7 +96,7 @@ module.exports = {
         en: 'https://gw.alicdn.com/tfs/TB1KqLnX_tYBeNjy1XdXXXXyVXa-540-844.png'
       }
     }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      hash: '6f06da96ecc0d06673f9dd70e01d6749',
       title: { zh: '扫雷', en: 'MineSweeper' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }]
