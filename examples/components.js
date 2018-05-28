@@ -441,6 +441,10 @@ module.exports = {
       hash: '79b892c91b3b0a6f18c73654f95a4e7a',
       title: { zh: '无限列表', en: 'Infinite Scroll' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1JGrQilfH8KJjy1XbXXbLdXXa-540-844.png'
+    }, {
+      hash: '05f153c3a2478605a66011e981964373',
+      title: {  zh: '水平滚动', en: 'Horizontal Scroll'  },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }]
   }, {
     type: 'recycle-list-component',
