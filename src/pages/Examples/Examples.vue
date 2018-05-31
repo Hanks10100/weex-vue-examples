@@ -10,6 +10,7 @@
           <text class="group-desc" v-if="exampleGroup.desc">{{i18n(exampleGroup.desc)}}</text>
           <text class="doc-link"
             v-if="exampleGroup.desc && exampleGroup.docLink"
+            @click="openURL(i18n(exampleGroup.docLink))"
             >{{i18n(dict.READ_MORE)}} >></text>
         </cell>
         <cell class="section" :key="exampleGroup.type + '-examples'">

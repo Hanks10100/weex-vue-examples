@@ -2,7 +2,7 @@
   <list class="list">
     <cell><app-info-card /></cell>
     <cell :class="['item-cell', `item-cell-${i+1}`]" v-for="(item, i) in aboutApp" :key="i">
-      <div :class="['item', `item-${i+1}`]" v-if="item.link">
+      <div :class="['item', `item-${i+1}`]" v-if="item.link" @click="openURL(i18n(item.link))">
         <text class="item-title">{{i18n(item.title)}}</text>
         <image class="arrow-icon" src="https://gw.alicdn.com/tfs/TB1iL2fkLDH8KJjy1XcXXcpdXXa-32-49.png" />
       </div>

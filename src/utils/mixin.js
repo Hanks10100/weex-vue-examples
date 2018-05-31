@@ -41,7 +41,7 @@ export default {
     jumpTo (name, params) {
       try {
         console.log(` => will jump to page "${name}".`)
-        modal.toast({ message: `will jump to page "${name}".` })
+        // modal.toast({ message: `will jump to page "${name}".` })
         navigator.push({
           url: params ? `${name}?${encodeParams(params)}` : name
         })
@@ -53,11 +53,11 @@ export default {
     // open a web url
     openURL (url, params) {
       try {
-        const hash = '071425c1649c392fb409e65c37a370a1'
+        const hash = '201695ba22bb107d485a13cddd136f9b'
         const container = `http://dotwe.org/raw/dist/${hash}.bundle.wx`
         const queryString = encodeParams(Object.assign({ url }, params))
         console.log(` => will jump to url: "${url}".`)
-        modal.toast({ message: `will jump to url: "${url}".` })
+        // modal.toast({ message: `will jump to url: "${url}".` })
         navigator.push({
           url: `${container}?_wx_tpl=${container}&${queryString}`
         })

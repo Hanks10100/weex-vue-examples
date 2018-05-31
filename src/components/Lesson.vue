@@ -7,6 +7,7 @@
       <div :class="['lesson', `lesson-${language}`]">
         <text :class="['lesson-index', `lesson-index-${language}`]">{{i + 1}}.</text>
         <text
+          @click="openURL(i18n(lesson.docLink))"
           :class="['lesson-title', `lesson-title-${language}`]"
           :style="{ color: mainColor }"
           >{{i18n(lesson.title)}}</text>

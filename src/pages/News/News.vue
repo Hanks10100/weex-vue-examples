@@ -9,11 +9,12 @@
       </div>
       <div class="message-box" v-if="item.type === 'article'">
         <div class="article">
-          <image class="poster" resize="cover" :src="item.poster" />
-          <text class="title">{{item.title}}</text>
+          <image class="poster" resize="cover" :src="item.poster" @click="openURL(i18n(item.link))" />
+          <text class="title" @click="openURL(i18n(item.link))">{{item.title}}</text>
           <text class="summary" :lines="3" v-if="item.summary">{{item.summary}}</text>
           <div class="related">
             <div class="related-article"
+              @click="openURL(i18n(sub.link))"
               v-for="sub in item.related" :key="sub.title">
               <text class="subtitle">{{sub.title}}</text>
               <image class="shortcut" resize="cover" :src="sub.poster" />
