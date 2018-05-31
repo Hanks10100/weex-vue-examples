@@ -37,15 +37,32 @@ export default {
   },
   methods: {
     i18n,
+    // jump to another page within app
     jumpTo (name, params) {
       try {
-        console.log(` => will jump to "${name}".`)
-        modal.toast({ message: `will jump to "${name}".` })
+        console.log(` => will jump to page "${name}".`)
+        modal.toast({ message: `will jump to page "${name}".` })
         navigator.push({
           url: params ? `${name}?${encodeParams(params)}` : name
         })
       } catch (e) {
         console.log(` => Failed to jump to ${name}`)
+      }
+    },
+
+    // open a web url
+    openURL (url, params) {
+      try {
+        const hash = '071425c1649c392fb409e65c37a370a1'
+        const container = `http://dotwe.org/raw/dist/${hash}.bundle.wx`
+        const queryString = encodeParams(Object.assign({ url }, params))
+        console.log(` => will jump to url: "${url}".`)
+        modal.toast({ message: `will jump to url: "${url}".` })
+        navigator.push({
+          url: `${container}?_wx_tpl=${container}&${queryString}`
+        })
+      } catch (e) {
+        console.log(` => Failed to jump to ${url}`)
       }
     }
   }
