@@ -10927,6 +10927,10 @@ module.exports = {
       hash: '79b892c91b3b0a6f18c73654f95a4e7a',
       title: { zh: '无限列表', en: 'Infinite Scroll' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1JGrQilfH8KJjy1XbXXbLdXXa-540-844.png'
+    }, {
+      hash: '05f153c3a2478605a66011e981964373',
+      title: { zh: '水平滚动', en: 'Horizontal Scroll' },
+      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }]
   }, {
     type: 'recycle-list-component',
@@ -11829,7 +11833,7 @@ module.exports = {
         en: 'https://gw.alicdn.com/tfs/TB1KqLnX_tYBeNjy1XdXXXXyVXa-540-844.png'
       }
     }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      hash: '6f06da96ecc0d06673f9dd70e01d6749',
       title: { zh: '扫雷', en: 'MineSweeper' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }]
