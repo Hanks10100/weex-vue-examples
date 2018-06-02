@@ -240,7 +240,7 @@ module.exports = {
       en: 'http://weex-project.io/references/modules/websocket.html'
     },
     examples: [{
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      hash: 'c4994c025226953c038b43da8b45124e',
       title: { zh: '使用范例', en: 'Use WebSocket' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }]
