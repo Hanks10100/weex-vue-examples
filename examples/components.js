@@ -391,7 +391,7 @@ module.exports = {
     title: { zh: '<recycle-list> 组件', en: '<recycle-list>' },
     desc: {
       zh: '<recycle-list> 是一个新的列表容器，具有回收和复用的能力，可以大幅优化内存占用和渲染性能。（仅在 >= 0.18.0 的版本中支持）',
-      en: 'The <recycle-list> is a new list container with the ability to recycle and reuse the component template. I can greatly optimize memory usage and rendering performance.'
+      en: 'The <recycle-list> is a new list container with the ability to recycle and reuse the component template. It can greatly optimize memory usage and rendering performance.'
     },
     docLink: {
       zh: 'http://weex-project.io/cn/references/components/recycle-list.html',
