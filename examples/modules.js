@@ -127,15 +127,15 @@ module.exports = {
       en: 'http://weex-project.io/references/modules/storage.html'
     },
     examples: [{
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      hash: '71d1dff37c54fa9bafab4d8cbe3d21e3',
       title: 'setItem',
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      hash: '71d1dff37c54fa9bafab4d8cbe3d21e3',
       title: 'getItem',
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      hash: '71d1dff37c54fa9bafab4d8cbe3d21e3',
       title: 'removeItem',
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }]
