@@ -85,7 +85,7 @@ module.exports = {
       en: 'http://weex-project.io/references/modules/animation.html'
     },
     examples: [{
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      hash: '07554ce87a2c70d77bf2265824afdd8a',
       title: { zh: '最简例子', en: 'Sample' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
