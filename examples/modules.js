@@ -198,15 +198,15 @@ module.exports = {
       en: 'http://weex-project.io/references/modules/webview.html'
     },
     examples: [{
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      hash: '9f8a7be89a4ad881ff515145cc9306ea',
       title: 'goBack',
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      hash: '9f8a7be89a4ad881ff515145cc9306ea',
       title: 'goForward',
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+      hash: '9f8a7be89a4ad881ff515145cc9306ea',
       title: 'reload',
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }]
