@@ -1,47 +1,52 @@
 <template>
-  <div class="wrapper">
-    <div class="graph">
-      <div class="circle red"></div>
-      <div class="circle green"></div>
-      <div class="circle blue"></div>
+  <div class="background" :style="{ height: `${height}px` }">
+    <video class="video stretch" :style="{ height: `${height}px` }" :src="videoUrl" :poster="poster" :controls="controls" :autoplay="autoplay" :muted="muted" :loop="loop" :type="type" :size="size"></video>
+    <div class="stretch center">
+      <text class="text">{{title}}</text>
     </div>
   </div>
 </template>
 
+<script>
+  export default {
+    props: ['video', 'title', 'height'],
+    data () {
+      const videoConfig = Object.assign({
+        videoUrl: 'http://tbm.alicdn.com/55VcBwLJpvxKC9hKFAm/JfG8tXhHTOvyyHsncCj%40%40sd.mp4',
+        poster: 'https://img.alicdn.com/imgextra/i2/6000000006823/TB2Ta_hdrBmpuFjSZFuXXaG_XXa_!!0-0-tbvideo.jpg',
+        controls: true,
+        autoplay: true,
+        muted: true,
+        mutedString: '',
+        loop: true,
+        type: 'video',
+        size: 'stretch'
+      }, this.video)
+      return videoConfig
+    }
+  }
+</script>
+
 <style scoped>
-  .wrapper {
+  .center {
     justify-content: center;
     align-items: center;
   }
-  .graph {
+  .background {
+    width: 750px;
+    flex: 1;
     position: relative;
-    width: 700px;
-    height: 700px;
+    background-color: #232323;
   }
-  .circle {
+  .stretch {
     position: absolute;
-    width: 500px;
-    height: 500px;
-    border-width: 4px;
-    border-style: solid;
-    border-radius: 250px;
+    width: 750px;
+    top: 0; bottom: 0;
+    left: 0; right: 0;
   }
-  .red {
-    top: 0;
-    left: 100px;
-    background-color: rgba(255, 88, 88, 0.5);
-    border-color: rgba(255, 88, 88, 0.7);
-  }
-  .green {
-    left: 0;
-    bottom: 0;
-    background-color: rgba(106, 230, 106, 0.5);
-    border-color: rgba(59, 195, 59, 0.7);
-  }
-  .blue {
-    right: 0;
-    bottom: 0;
-    background-color: rgba(53, 143, 255, 0.5);
-    border-color: rgba(53, 143, 255, 0.7);
+  .text {
+    font-size: 100px;
+    text-align: center;
+    color: #FFFFFF;
   }
 </style>

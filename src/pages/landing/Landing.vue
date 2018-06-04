@@ -6,9 +6,8 @@
         @touchmove="onTouchMove"
         :style="{ height: `${viewportHeight * videos.length}px` }">
         <div class="slide-frame center" v-for="(video, i) in videos" :key="i"
-          :style="{ height: `${viewportHeight}px`, backgroundColor: video.color }">
-          <text class="text">{{video.name}}</text>
-          <video-slider class=""></video-slider>
+          :style="{ height: `${viewportHeight}px` }">
+          <video-slider :video="video" :title="video.title" :height="viewportHeight"></video-slider>
         </div>
       </div>
     </div>
@@ -39,11 +38,27 @@
           pageX: 0,
           pageY: 0
         },
-        videos: [
-          { name: 'A', color: 'rgba(255, 88, 88, 0.3)' },
-          { name: 'B', color: 'rgba(106, 230, 106, 0.3)' },
-          { name: 'C', color: 'rgba(53, 143, 255, 0.3)' }
-        ]
+        videos: [{
+          title: 'A',
+          videoUrl: 'http://tbm.alicdn.com/55VcBwLJpvxKC9hKFAm/JfG8tXhHTOvyyHsncCj%40%40sd.mp4',
+          poster: 'https://img.alicdn.com/imgextra/i2/6000000006823/TB2Ta_hdrBmpuFjSZFuXXaG_XXa_!!0-0-tbvideo.jpg',
+        }, {
+          title: 'B',
+          videoUrl: 'https://tbm.alicdn.com/55VcBwLJpvxKC9hKFAm/YS15b7rseL9oEYNj3NV%40%40sd.mp4',
+          poster: 'https://img.alicdn.com/imgextra/i2/6000000006823/TB2Ta_hdrBmpuFjSZFuXXaG_XXa_!!0-0-tbvideo.jpg',
+        }, {
+          title: 'C',
+          videoUrl: 'http://tbm.alicdn.com/55VcBwLJpvxKC9hKFAm/JfG8tXhHTOvyyHsncCj%40%40sd.mp4',
+          poster: 'https://img.alicdn.com/imgextra/i2/6000000006823/TB2Ta_hdrBmpuFjSZFuXXaG_XXa_!!0-0-tbvideo.jpg',
+        // }, {
+        //   title: 'D',
+        //   videoUrl: 'https://tbm.alicdn.com/55VcBwLJpvxKC9hKFAm/YS15b7rseL9oEYNj3NV%40%40sd.mp4',
+        //   poster: 'https://img.alicdn.com/imgextra/i2/6000000006823/TB2Ta_hdrBmpuFjSZFuXXaG_XXa_!!0-0-tbvideo.jpg',
+        // }, {
+        //   title: 'E',
+        //   videoUrl: 'http://tbm.alicdn.com/55VcBwLJpvxKC9hKFAm/JfG8tXhHTOvyyHsncCj%40%40sd.mp4',
+        //   poster: 'https://img.alicdn.com/imgextra/i2/6000000006823/TB2Ta_hdrBmpuFjSZFuXXaG_XXa_!!0-0-tbvideo.jpg',
+        }]
       }
     },
     created () {
@@ -192,11 +207,5 @@
   .slide-frame {
     width: 750px;
     background-color: #FFFFFF;
-  }
-  .fullscreen {
-    flex: 1;
-  }
-  .text {
-    font-size: 100px;
   }
 </style>
