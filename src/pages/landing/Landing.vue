@@ -1,75 +1,134 @@
 <template>
   <div class="wrapper">
-    <doodle :lang="language" class="doodle" />
-    <div class="menu-list">
-      <div :class="['menu-row', `menu-row-${r+1}`]" v-for="(row, r) in menus" :key="r">
-        <a v-for="(menu, i) in row" :key="menu.name"
-          :href="menu.name | link({ language })"
-          :class="['menu-item', `menu-item-${i+1}`]">
-          <text :class="['menu-text', `menu-text-${language}`]">{{i18n(menu.title)}}</text>
-        </a>
+    <div class="slider-wrapper" ref="slider" :style="{ height: `${viewportHeight * videos.length}px`, top: `${-viewportHeight}px` }">
+      <div class="slider center" ref="slides" v-for="(video, i) in videos" :key="i"
+        @touchstart="onTouchStart(i)"
+        :style="{ top: `${viewportHeight * i}px`, height: `${viewportHeight}px`, backgroundColor: video.color }">
+        <video-slider class="fullscreen"></video-slider>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-  import Doodle from '../../components/Doodle.vue'
+  import Binding from 'weex-bindingx'
+  import VideoSlider from '../../components/video-slider.vue'
+  const dom = weex.requireModule('dom')
+  const modal = weex.requireModule('modal')
+  function getRef (elem) {
+    return WXEnvironment.platform.toLowerCase() !== 'web' ? elem.ref : elem
+  }
   export default {
-    components: { Doodle },
+    components: { VideoSlider },
     data () {
       return {
-        language: 'en',
-        menus: [[
-          { name: 'guide', title: { en: 'Guide', zh: '教程' } },
-          { name: 'examples', title: { en: 'Examples', zh: '实例' } }
-        ], [
-          { name: 'news', title: { en: 'News', zh: '资讯' } },
-          { name: 'about', title: { en: 'About', zh: '关于' } }
-        ]]
+        offsetY: 0,
+        isInAnimation: false,
+        gestureToken: 0,
+        viewportHeight: 800,
+        videos: [
+          { name: 'A', color: 'rgba(255, 88, 88, 0.3)' },
+          { name: 'B', color: 'rgba(106, 230, 106, 0.3)' },
+          { name: 'C', color: 'rgba(53, 143, 255, 0.3)' }
+        ]
+      }
+    },
+    created () {
+      this.getViewportHeight()
+    },
+    methods: {
+      getViewportHeight () {
+        dom.getComponentRect('viewport', res =>{
+          if (res.result) {
+            this.viewportHeight = parseInt(res.size.height, 10)
+          }
+        })
+      },
+      onTouchStart (index) {
+        if (this.isInAnimation) {
+          if (this.gestureToken != 0) {
+            Binding.unbind({
+              eventType: 'pan',
+              token: this.gestureToken
+            })
+            this.gestureToken = 0
+          }
+          return
+        }
+        const slideRef = getRef(this.$refs.slider)
+        this.bindGesture(slideRef)
+      },
+      bindGesture (element) {
+        console.log(' ---> bind gesture', element)
+        const tokenObject = Binding.bind({
+          eventType: 'pan',
+          anchor: element,
+          props: [{
+            element,
+            property: 'transform.translateY',
+            expression: `y+${this.offsetY}`
+          }]
+        }, (e) => {
+          if (e.state === 'end') {
+            this.offsetY += e.deltaY
+            this.bindTiming(element)
+          }
+        })
+        console.log(JSON.stringify(tokenObject))
+        this.gestureToken = tokenObject.token
+      },
+      bindTiming (element) {
+        let changedY = -this.offsetY
+        if (!this.shouldFallback()) {
+          changedY = Math.sign(this.offsetY) * this.viewportHeight - this.offsetY
+        }
+        console.log(' ---> bind timing', this.offsetY, changedY)
+        Binding.bind({
+          eventType: 'timing',
+          exitExpression: { origin: `t>800` },
+          props: [{
+            element,
+            property: 'transform.translateY',
+            expression: `easeOutSine(t,${this.offsetY},${changedY},300)`
+          }]
+        }, (e) => {
+          if (e.state === 'end' || e.state === 'exit') {
+            this.offsetY = 0
+            this.isInAnimation = false
+          }
+        })
+      },
+      shouldFallback () {
+        return Math.abs(this.offsetY) / this.viewportHeight < 0.25
       }
     }
   }
 </script>
 
 <style scoped>
-  .doodle {
+  .center {
+    justify-content: center;
+    align-items: center;
+  }
+  .wrapper {
     width: 750px;
-    height: 880px;
+    position: relative;
+    background-color: #333333;
+    flex-direction: column;
   }
-  .menu-list {
+  .slider-wrapper {
+    width: 750px;
+    position: absolute;
+    background-color: #DDDDDD;
+    flex-direction: column;
+  }
+  .slider {
+    width: 750px;
     flex: 1;
+    position: absolute;
+    background-color: #FFFFFF;
   }
-  .menu-row {
+  .fullscreen {
     flex: 1;
-    flex-direction: row;
-    justify-content: center;
-    border-top-width: 1px;
-    border-top-style: solid;
-    border-top-color: #CCC;
-  }
-  .menu-item {
-    flex: 1;
-    background-color: #FBFBFB;
-    justify-content: center;
-    padding-top: 50px;
-    padding-bottom: 50px;
-  }
-  .menu-item:active {
-    background-color: #F2F2F2;
-  }
-  .menu-item-1 {
-    border-right-width: 1px;
-    border-right-style: solid;
-    border-right-color: #CCC;
-  }
-  .menu-text {
-    text-align: center;
-    font-size: 52px;
-    font-weight: bold;
-    color: #8B8B8B;
-  }
-  .menu-text-zh {
-    font-size: 56px;
   }
 </style>
