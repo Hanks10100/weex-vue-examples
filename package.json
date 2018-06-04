@@ -43,6 +43,7 @@
   },
   "dependencies": {
     "vue": "^2.5.16",
+    "weex-bindingx": "0.0.30",
     "weex-vue-render": "^1.0.24"
   }
 }
