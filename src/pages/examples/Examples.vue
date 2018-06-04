@@ -1,10 +1,13 @@
 <template>
   <div class="wrapper">
-    <div class="slider-wrapper" :style="{ height: `${viewportHeight * videos.length}px`, top: `${-viewportHeight}px` }">
-      <div class="slider center" ref="slides" v-for="(video, i) in videos" :key="i"
-        @touchstart="onTouchStart(i)"
-        :style="{ height: `${viewportHeight}px`, backgroundColor: video.color }">
-        <video-slider class="fullscreen"></video-slider>
+    <div class="slide-wrapper" ref="anchor" :style="{ height: `${viewportHeight}px` }">
+      <div class="slide-inner" ref="slideBoard" :style="{ height: `${viewportHeight * videos.length}px` }">
+        <div class="slide-frame center" v-for="(video, i) in videos" :key="i"
+          @touchstart="onTouchStart(i)"
+          :style="{ height: `${viewportHeight}px`, backgroundColor: video.color }">
+          <text class="text">{{video.name}}</text>
+          <video-slider class=""></video-slider>
+        </div>
       </div>
     </div>
   </div>
@@ -15,12 +18,16 @@
   import VideoSlider from '../../components/video-slider.vue'
   const dom = weex.requireModule('dom')
   const modal = weex.requireModule('modal')
+  function getRef (elem) {
+    return WXEnvironment.platform.toLowerCase() !== 'web' ? elem.ref : elem
+  }
   export default {
     components: { VideoSlider },
     data () {
       return {
         offsetY: 0,
         isInAnimation: false,
+        currentFrame: 0,
         gestureToken: 0,
         viewportHeight: 800,
         videos: [
@@ -43,7 +50,7 @@
       },
       onTouchStart (index) {
         if (this.isInAnimation) {
-          if (this.gestureToken != 0) {
+          if (this.gestureToken !== 0) {
             Binding.unbind({
               eventType: 'pan',
               token: this.gestureToken
@@ -52,29 +59,58 @@
           }
           return
         }
-        const slide = this.$refs.slides[index]
-        this.bindGesture(slide)
+        const anchorRef = getRef(this.$refs.anchor)
+        const slideRef = getRef(this.$refs.slideBoard)
+        this.bindGesture(slideRef)
       },
       bindGesture (element) {
+        const startY = this.offsetY - this.currentFrame * this.viewportHeight
+        console.log(` ---> bind gesture: offsetY: ${this.offsetY}, startY: ${startY}, element: ${element}`)
         const tokenObject = Binding.bind({
-          eventType: 'pan',
           anchor: element,
+          eventType: 'pan',
           props: [{
             element,
-            property: 'transform.translateX',
-            expression: `y+${this.offsetY}`
-          }, {
-            element,
             property: 'transform.translateY',
-            expression: `y+${this.offsetY}`
+            expression: `y+${startY}`
           }]
         }, (e) => {
           if (e.state === 'end') {
             this.offsetY += e.deltaY
-            this.bindTiming()
+            this.bindTiming(element)
           }
         })
+        console.log(` ---> token object: ${JSON.stringify(tokenObject)}`)
         this.gestureToken = tokenObject.token
+      },
+      bindTiming (element) {
+        let startY = this.offsetY - this.currentFrame * this.viewportHeight
+        let changedY = -this.offsetY
+        const sign = Math.sign(this.offsetY)
+        if (!this.shouldFallback()) {
+          changedY = sign * this.viewportHeight - this.offsetY
+          this.currentFrame = Math.min(Math.max(0, this.currentFrame - sign), this.videos.length)
+        }
+        console.log(` ---> bind timing: currentFrame: ${this.currentFrame}, offsetY: ${this.offsetY}, startY: ${startY}, changedY: ${changedY}`)
+        Binding.bind({
+          eventType: 'timing',
+          exitExpression: { origin: `t>800` },
+          props: [{
+            element,
+            property: 'transform.translateY',
+            expression: `easeOutSine(t,${startY},${changedY},300)`
+          }]
+        }, (e) => {
+          if (e.state === 'end' || e.state === 'exit') {
+            this.offsetY = 0
+            this.isInAnimation = false
+          }
+        })
+      },
+      shouldFallback () {
+        const nextFrame = this.currentFrame - Math.sign(this.offsetY)
+        return nextFrame < 0 || nextFrame >= this.videos.length
+          || Math.abs(this.offsetY) / this.viewportHeight < 0.25
       }
     }
   }
@@ -87,22 +123,26 @@
   }
   .wrapper {
     width: 750px;
-    position: relative;
     background-color: #333333;
     flex-direction: column;
   }
-  .slider-wrapper {
-    width: 750px;
-    position: absolute;
-    background-color: #DDDDDD;
-    flex-direction: column;
-  }
-  .slider {
+  .slide-wrapper {
     width: 750px;
     flex: 1;
+    flex-direction: column;
+  }
+  .slide-inner {
+    width: 750px;
+    background-color: #DDDDDD;
+  }
+  .slide-frame {
+    width: 750px;
     background-color: #FFFFFF;
   }
   .fullscreen {
     flex: 1;
+  }
+  .text {
+    font-size: 100px;
   }
 </style>

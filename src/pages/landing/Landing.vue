@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <div class="slide-wrapper" :style="{ height: `${viewportHeight}px` }">
+    <div class="slide-wrapper" ref="anchor" :style="{ height: `${viewportHeight}px` }">
       <div class="slide-inner" ref="slideBoard" :style="{ height: `${viewportHeight * videos.length}px` }">
         <div class="slide-frame center" v-for="(video, i) in videos" :key="i"
           @touchstart="onTouchStart(i)"
@@ -37,11 +37,6 @@
         ]
       }
     },
-    computed: {
-      // startY () {
-      //   return this.offsetY - this.currentFrame * this.viewportHeight
-      // }
-    },
     created () {
       this.getViewportHeight()
     },
@@ -64,15 +59,16 @@
           }
           return
         }
+        const anchorRef = getRef(this.$refs.anchor)
         const slideRef = getRef(this.$refs.slideBoard)
         this.bindGesture(slideRef)
       },
       bindGesture (element) {
-        let startY = this.offsetY - this.currentFrame * this.viewportHeight
-        console.log(` ---> bind gesture: offsetY: ${this.offsetY}, element: ${element}`)
+        const startY = this.offsetY - this.currentFrame * this.viewportHeight
+        console.log(` ---> bind gesture: offsetY: ${this.offsetY}, startY: ${startY}, element: ${element}`)
         const tokenObject = Binding.bind({
-          eventType: 'pan',
           anchor: element,
+          eventType: 'pan',
           props: [{
             element,
             property: 'transform.translateY',
