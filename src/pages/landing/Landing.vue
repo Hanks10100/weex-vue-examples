@@ -1,9 +1,11 @@
 <template>
   <div class="wrapper">
     <div class="slide-wrapper" ref="anchor" :style="{ height: `${viewportHeight}px` }">
-      <div class="slide-inner" ref="slideBoard" :style="{ height: `${viewportHeight * videos.length}px` }">
+      <div class="slide-inner" ref="slideBoard"
+        @touchstart="onTouchStart"
+        @touchmove="onTouchMove"
+        :style="{ height: `${viewportHeight * videos.length}px` }">
         <div class="slide-frame center" v-for="(video, i) in videos" :key="i"
-          @touchstart="onTouchStart(i)"
           :style="{ height: `${viewportHeight}px`, backgroundColor: video.color }">
           <text class="text">{{video.name}}</text>
           <video-slider class=""></video-slider>
@@ -25,11 +27,18 @@
     components: { VideoSlider },
     data () {
       return {
+        offsetX: 0,
         offsetY: 0,
+        direction: '',
+        listenTouchMove: true,
         isInAnimation: false,
         currentFrame: 0,
         gestureToken: 0,
         viewportHeight: 800,
+        startTouch: {
+          pageX: 0,
+          pageY: 0
+        },
         videos: [
           { name: 'A', color: 'rgba(255, 88, 88, 0.3)' },
           { name: 'B', color: 'rgba(106, 230, 106, 0.3)' },
@@ -48,43 +57,88 @@
           }
         })
       },
-      onTouchStart (index) {
-        if (this.isInAnimation) {
-          if (this.gestureToken !== 0) {
-            Binding.unbind({
-              eventType: 'pan',
-              token: this.gestureToken
-            })
-            this.gestureToken = 0
-          }
-          return
-        }
-        const anchorRef = getRef(this.$refs.anchor)
-        const slideRef = getRef(this.$refs.slideBoard)
-        this.bindGesture(slideRef)
+      onTouchStart (event) {
+        this.verticalScroll()
+        // console.log(` ---> touch start: (${JSON.stringify(event)})`)
+        // const touch = event.changedTouches[0]
+        // this.startTouch.pageX = parseInt(touch.pageX)
+        // this.startTouch.pageY = parseInt(touch.pageY)
+        // this.listenTouchMove = false
+        // setTimeout(() => this.listenTouchMove = true, 5)
       },
-      bindGesture (element) {
-        const startY = this.offsetY - this.currentFrame * this.viewportHeight
-        console.log(` ---> bind gesture: offsetY: ${this.offsetY}, startY: ${startY}, element: ${element}`)
+      onTouchMove (event) {
+        if (this.listenTouchMove) {
+          // console.log(` ---> touch move: (${JSON.stringify(event)})`)
+          const touch = event.changedTouches[0]
+          const moveX = parseInt(touch.pageX) - this.startTouch.pageX
+          const moveY = parseInt(touch.pageY) - this.startTouch.pageY
+          const isVertical = Math.abs(moveX) < Math.abs(moveY)
+          switch (true) {
+            case (isVertical && moveX < 0): this.direction = 'up'; break
+            case (isVertical && moveX >= 0): this.direction = 'down'; break
+            case (!isVertical && moveY < 0): this.direction = 'right'; break
+            case (!isVertical && moveY >= 0): this.direction = 'left'; break
+          }
+          console.log(` --->  moveX: ${moveX}, moveY: ${moveY}, direction: ${this.direction}`)
+          if (moveX <= moveY) {
+            // this.verticalScroll()
+          } else {
+            // modal.toast({ message: this.direction })
+          }
+          this.listenTouchMove = false
+        }
+      },
+
+      // handle vertial scroll
+      verticalScroll () {
+        if (!this.isInAnimation) {
+          const element = getRef(this.$refs.slideBoard)
+          const startY = -this.currentFrame * this.viewportHeight
+          console.log(` ---> vertical scroll: offsetY: ${this.offsetY}, startY: ${startY}, element: ${element}`)
+          this.followHand(element, { y: startY }, () => {
+            this.bindTiming(element)
+          })
+        } else if (this.gestureToken !== 0) {
+          Binding.unbind({
+            eventType: 'pan',
+            token: this.gestureToken
+          })
+          this.gestureToken = 0
+        }
+      },
+      followHand (element, config, callback) {
+        const props = []
+        if (config.x !== undefined) {
+          props.push({
+            element,
+            property: 'transform.translateX',
+            expression: `x+${config.x}`
+          })
+        }
+        if (config.y !== undefined) {
+          props.push({
+            element,
+            property: 'transform.translateY',
+            expression: `y+${config.y}`
+          })
+        }
         const tokenObject = Binding.bind({
           anchor: element,
           eventType: 'pan',
-          props: [{
-            element,
-            property: 'transform.translateY',
-            expression: `y+${startY}`
-          }]
+          props
         }, (e) => {
           if (e.state === 'end') {
+            this.offsetX += e.deltaX
             this.offsetY += e.deltaY
-            this.bindTiming(element)
+            callback()
           }
         })
-        console.log(` ---> token object: ${JSON.stringify(tokenObject)}`)
         this.gestureToken = tokenObject.token
       },
       bindTiming (element) {
-        let startY = this.offsetY - this.currentFrame * this.viewportHeight
+        const startX = this.offsetX
+        const startY = this.offsetY - this.currentFrame * this.viewportHeight
+        let changedX = -this.offsetY
         let changedY = -this.offsetY
         const sign = Math.sign(this.offsetY)
         if (!this.shouldFallback()) {
