@@ -99,17 +99,17 @@ function generateWebpackConfigs (options) {
     option.outputName = name
     buildOptions.push(Object.assign({}, option, { isWeex: true, minify: false }))
     buildOptions.push(Object.assign({}, option, { isWeex: false, minify: false }))
-    buildOptions.push(Object.assign({}, option, { isWeex: true, minify: true }))
-    buildOptions.push(Object.assign({}, option, { isWeex: false, minify: true }))
+    // buildOptions.push(Object.assign({}, option, { isWeex: true, minify: true }))
+    // buildOptions.push(Object.assign({}, option, { isWeex: false, minify: true }))
   }
   return buildOptions.map(opt => createConfig(opt))
 }
 
 module.exports = generateWebpackConfigs({
   landing: path.resolve('src/pages/landing', 'Landing.js'),
-  about: path.resolve('src/pages/about', 'About.js'),
-  examples: path.resolve('src/pages/examples', 'Examples.js'),
-  news: path.resolve('src/pages/news', 'News.js'),
-  guide: path.resolve('src/pages/guide', 'Guide.js'),
+  // about: path.resolve('src/pages/about', 'About.js'),
+  // examples: path.resolve('src/pages/examples', 'Examples.js'),
+  // news: path.resolve('src/pages/news', 'News.js'),
+  // guide: path.resolve('src/pages/guide', 'Guide.js'),
   // update: path.resolve('misc', 'update.js')
 })
