@@ -49,20 +49,17 @@
         },
         videos: [{
           autoplay: true,
-          videoUrl: 'http://tbm.alicdn.com/55VcBwLJpvxKC9hKFAm/JfG8tXhHTOvyyHsncCj%40%40sd.mp4',
-          poster: 'https://img.alicdn.com/imgextra/i2/6000000006823/TB2Ta_hdrBmpuFjSZFuXXaG_XXa_!!0-0-tbvideo.jpg',
+          videoUrl: 'http://tbm.alicdn.com/55VcBwLJpvxKC9hKFAm/JfG8tXhHTOvyyHsncCj%40%40sd.mp4'
         }, {
-          videoUrl: 'https://tbm.alicdn.com/55VcBwLJpvxKC9hKFAm/YS15b7rseL9oEYNj3NV%40%40sd.mp4',
-          poster: 'https://img.alicdn.com/imgextra/i2/6000000006823/TB2Ta_hdrBmpuFjSZFuXXaG_XXa_!!0-0-tbvideo.jpg',
+          videoUrl: 'https://tbm.alicdn.com/Rg5qQKPucTyJfnjWDQn/PcWBmltcsbRm4mS3hWZ%40%40hd.mp4'
         }, {
-          videoUrl: 'http://tbm.alicdn.com/55VcBwLJpvxKC9hKFAm/JfG8tXhHTOvyyHsncCj%40%40sd.mp4',
-          poster: 'https://img.alicdn.com/imgextra/i2/6000000006823/TB2Ta_hdrBmpuFjSZFuXXaG_XXa_!!0-0-tbvideo.jpg',
+          videoUrl: 'https://tbm.alicdn.com/55VcBwLJpvxKC9hKFAm/YS15b7rseL9oEYNj3NV%40%40sd.mp4'
         }, {
-          videoUrl: 'https://tbm.alicdn.com/55VcBwLJpvxKC9hKFAm/YS15b7rseL9oEYNj3NV%40%40sd.mp4',
-          poster: 'https://img.alicdn.com/imgextra/i2/6000000006823/TB2Ta_hdrBmpuFjSZFuXXaG_XXa_!!0-0-tbvideo.jpg',
+          videoUrl: 'http://videocdn.alibaba-inc.com/aC5xQpwnQVEiCzo7hxB/ihh2FzCVofb4f52vyHN%40%40hd.mp4'
         }, {
-          videoUrl: 'http://tbm.alicdn.com/55VcBwLJpvxKC9hKFAm/JfG8tXhHTOvyyHsncCj%40%40sd.mp4',
-          poster: 'https://img.alicdn.com/imgextra/i2/6000000006823/TB2Ta_hdrBmpuFjSZFuXXaG_XXa_!!0-0-tbvideo.jpg',
+          videoUrl: 'http://tbm-auth.alicdn.com/gs3IxtoX1FcmtRBag0e/7gNAOBPtVmmAZnZZyB4@@ld.mp4?auth_key=1528173729-0-0-1b725ac4f00d19991ed5cbf3e1ca0db7'
+        }, {
+          videoUrl: 'http://daren-auth.alicdn.com/shksTdLQVLNLs4bNuDQ/3wAUldgf7b4EltX1HDb@@hd.mp4?auth_key=1528173553-0-0-64f2034ae6a9396d2b14bab49e065565'
         }]
       }
     },
