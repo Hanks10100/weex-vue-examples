@@ -1,6 +1,6 @@
 <template>
   <div class="background" :style="{ height: `${height}px` }">
-    <video class="video stretch" :style="{ height: `${height}px` }" :src="videoUrl" :poster="poster" :controls="controls" :autoplay="autoplay" :muted="muted" :loop="loop" :type="type" :size="size"></video>
+    <video ref="player" class="video stretch" :style="{ height: `${height}px` }" :src="videoUrl" :poster="poster" :controls="controls" :autoplay="autoplay" :muted="muted" :loop="loop" :type="type" :size="size"></video>
     <div class="stretch center">
       <text class="text">{{title}}</text>
     </div>
@@ -9,7 +9,7 @@
 
 <script>
   export default {
-    props: ['video', 'title', 'height'],
+    props: ['video', 'height'],
     data () {
       const videoConfig = Object.assign({
         videoUrl: 'http://tbm.alicdn.com/55VcBwLJpvxKC9hKFAm/JfG8tXhHTOvyyHsncCj%40%40sd.mp4',
@@ -23,6 +23,15 @@
         size: 'stretch'
       }, this.video)
       return videoConfig
+    },
+    methods: {
+      play () {
+        const player = this.$refs.player
+        // modal.toast({ message: 'start play video: ' + typeof player.play })
+        if (player) {
+          player.play()
+        }
+      }
     }
   }
 </script>

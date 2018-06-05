@@ -1,16 +1,14 @@
 <template>
   <div class="wrapper">
     <div class="wrapper tabs" ref="pageTab"
-      @touchstart="horizontalSwipe"
       :style="{ height: `${viewportHeight}px` }">
       <div class="slide-wrapper" :style="{ height: `${viewportHeight}px` }">
         <div class="slide-inner" ref="slideBoard"
           @touchstart="verticalScroll"
-          @touchmove="onTouchMove"
           :style="{ height: `${viewportHeight * videos.length}px` }">
-          <div class="slide-frame center" v-for="(video, i) in videos" :key="i"
+          <div class="slide-frame center" v-for="(video, i) in visibleVideos" :key="i"
             :style="{ height: `${viewportHeight}px` }">
-            <video-slider :video="video" :title="video.title" :height="viewportHeight"></video-slider>
+            <video-slider ref="player" v-if="i > currentFrame - 2" :video="video" :height="viewportHeight"></video-slider>
           </div>
         </div>
       </div>
@@ -51,6 +49,7 @@
         },
         videos: [{
           title: 'A',
+          autoplay: true,
           videoUrl: 'http://tbm.alicdn.com/55VcBwLJpvxKC9hKFAm/JfG8tXhHTOvyyHsncCj%40%40sd.mp4',
           poster: 'https://img.alicdn.com/imgextra/i2/6000000006823/TB2Ta_hdrBmpuFjSZFuXXaG_XXa_!!0-0-tbvideo.jpg',
         }, {
@@ -61,15 +60,20 @@
           title: 'C',
           videoUrl: 'http://tbm.alicdn.com/55VcBwLJpvxKC9hKFAm/JfG8tXhHTOvyyHsncCj%40%40sd.mp4',
           poster: 'https://img.alicdn.com/imgextra/i2/6000000006823/TB2Ta_hdrBmpuFjSZFuXXaG_XXa_!!0-0-tbvideo.jpg',
-        // }, {
-        //   title: 'D',
-        //   videoUrl: 'https://tbm.alicdn.com/55VcBwLJpvxKC9hKFAm/YS15b7rseL9oEYNj3NV%40%40sd.mp4',
-        //   poster: 'https://img.alicdn.com/imgextra/i2/6000000006823/TB2Ta_hdrBmpuFjSZFuXXaG_XXa_!!0-0-tbvideo.jpg',
-        // }, {
-        //   title: 'E',
-        //   videoUrl: 'http://tbm.alicdn.com/55VcBwLJpvxKC9hKFAm/JfG8tXhHTOvyyHsncCj%40%40sd.mp4',
-        //   poster: 'https://img.alicdn.com/imgextra/i2/6000000006823/TB2Ta_hdrBmpuFjSZFuXXaG_XXa_!!0-0-tbvideo.jpg',
+        }, {
+          title: 'D',
+          videoUrl: 'https://tbm.alicdn.com/55VcBwLJpvxKC9hKFAm/YS15b7rseL9oEYNj3NV%40%40sd.mp4',
+          poster: 'https://img.alicdn.com/imgextra/i2/6000000006823/TB2Ta_hdrBmpuFjSZFuXXaG_XXa_!!0-0-tbvideo.jpg',
+        }, {
+          title: 'E',
+          videoUrl: 'http://tbm.alicdn.com/55VcBwLJpvxKC9hKFAm/JfG8tXhHTOvyyHsncCj%40%40sd.mp4',
+          poster: 'https://img.alicdn.com/imgextra/i2/6000000006823/TB2Ta_hdrBmpuFjSZFuXXaG_XXa_!!0-0-tbvideo.jpg',
         }]
+      }
+    },
+    computed: {
+      visibleVideos () {
+        return this.videos.slice(0, Math.min(this.currentFrame + 2, this.videos.length))
       }
     },
     created () {
@@ -133,6 +137,7 @@
             if (this.shouldScroll()) {
               targetY.changed = sign * this.viewportHeight - this.offsetY
               this.currentFrame = Math.min(Math.max(0, this.currentFrame - sign), this.videos.length)
+              this.playVideo(this.currentFrame)
             }
             this.easeTo(element, { y: targetY }, () => {
               this.isScrolling = false
@@ -251,6 +256,13 @@
             token: this.gestureToken
           })
           this.gestureToken = 0
+        }
+      },
+      playVideo (index) {
+        // modal.toast({ message: 'play video: ' + index })
+        const player = this.$refs.player[index]
+        if (player) {
+          player.play()
         }
       }
     }
