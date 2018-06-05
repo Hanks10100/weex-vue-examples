@@ -69,14 +69,19 @@
       }
     },
     created () {
+      try {
+        const navigationBar = weex.requireModule('navigationBar')
+        navigationBar.hide({ animated: false }, () => {}, () => {})
+      } catch (e) {}
       this.getViewportHeight()
     },
     methods: {
       getViewportHeight () {
-        dom.getComponentRect('viewport', res =>{
+        const deviceHeight = this.viewportWidth / WXEnvironment.deviceWidth * WXEnvironment.deviceHeight
+        dom.getComponentRect('viewport', res => {
           if (res.result) {
             this.viewportWidth = parseInt(res.size.width, 10) || 750
-            this.viewportHeight = parseInt(res.size.height, 10)
+            this.viewportHeight = Math.max(deviceHeight, parseInt(res.size.height, 10))
           }
         })
       },

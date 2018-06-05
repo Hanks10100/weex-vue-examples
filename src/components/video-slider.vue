@@ -2,7 +2,7 @@
   <div class="background" :style="{ height: `${height}px` }">
     <video ref="player" class="video stretch" :style="{ height: `${height}px` }" :src="videoUrl" :poster="poster" :controls="controls" :autoplay="autoplay" :muted="muted" :loop="loop" :type="type" :size="size"></video>
     <div class="foreground stretch center">
-      <div class="video-title center">
+      <div class="video-title center" :style="{ paddingTop: `${paddingTop}px`, height: `${paddingTop+100}px` }">
         <text class="text">{{title}}</text>
       </div>
       <div class="video-info">
@@ -46,9 +46,20 @@
         details: '工作能力强，沟通能力强，摄影摄像，电脑剪辑'
       }
       data.link = 'http://dotwe.org/raw/dist/8772ebc5eaaea4b856c5c40da5db677e.bundle.wx?_wx_tpl=http://dotwe.org/raw/dist/8772ebc5eaaea4b856c5c40da5db677e.bundle.wx'
+      data.paddingTop = 0
       return data
     },
+    created () {
+      if (this.isIPhoneX()) {
+        this.paddingTop = 60
+      }
+    },
     methods: {
+      isIPhoneX () {
+        const model = WXEnvironment.deviceModel
+        return !!model.match(/iPhone10\,(3|6)/i)
+        // return model === 'iPhone10,3' || model === 'iPhone10,6'
+      },
       play () {
         const player = this.$refs.player
         if (player) {
@@ -81,7 +92,6 @@
   }
   .video-title {
     width: 750px;
-    height: 100px;
     background-color: rgba(0, 0, 0, 0.3);
   }
   .text {
