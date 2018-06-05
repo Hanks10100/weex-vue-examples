@@ -48,24 +48,19 @@
           pageY: 0
         },
         videos: [{
-          title: 'A',
           autoplay: true,
           videoUrl: 'http://tbm.alicdn.com/55VcBwLJpvxKC9hKFAm/JfG8tXhHTOvyyHsncCj%40%40sd.mp4',
           poster: 'https://img.alicdn.com/imgextra/i2/6000000006823/TB2Ta_hdrBmpuFjSZFuXXaG_XXa_!!0-0-tbvideo.jpg',
         }, {
-          title: 'B',
           videoUrl: 'https://tbm.alicdn.com/55VcBwLJpvxKC9hKFAm/YS15b7rseL9oEYNj3NV%40%40sd.mp4',
           poster: 'https://img.alicdn.com/imgextra/i2/6000000006823/TB2Ta_hdrBmpuFjSZFuXXaG_XXa_!!0-0-tbvideo.jpg',
         }, {
-          title: 'C',
           videoUrl: 'http://tbm.alicdn.com/55VcBwLJpvxKC9hKFAm/JfG8tXhHTOvyyHsncCj%40%40sd.mp4',
           poster: 'https://img.alicdn.com/imgextra/i2/6000000006823/TB2Ta_hdrBmpuFjSZFuXXaG_XXa_!!0-0-tbvideo.jpg',
         }, {
-          title: 'D',
           videoUrl: 'https://tbm.alicdn.com/55VcBwLJpvxKC9hKFAm/YS15b7rseL9oEYNj3NV%40%40sd.mp4',
           poster: 'https://img.alicdn.com/imgextra/i2/6000000006823/TB2Ta_hdrBmpuFjSZFuXXaG_XXa_!!0-0-tbvideo.jpg',
         }, {
-          title: 'E',
           videoUrl: 'http://tbm.alicdn.com/55VcBwLJpvxKC9hKFAm/JfG8tXhHTOvyyHsncCj%40%40sd.mp4',
           poster: 'https://img.alicdn.com/imgextra/i2/6000000006823/TB2Ta_hdrBmpuFjSZFuXXaG_XXa_!!0-0-tbvideo.jpg',
         }]
