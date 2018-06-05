@@ -84,39 +84,6 @@
         })
       },
 
-      // onTouchStart (event) {
-      //   this.handleGesture()
-      //   // console.log(` ---> touch start: (${JSON.stringify(event)})`)
-      //   // const touch = event.changedTouches[0]
-      //   // this.startTouch.pageX = parseInt(touch.pageX)
-      //   // this.startTouch.pageY = parseInt(touch.pageY)
-      //   // this.listenTouchMove = false
-      //   // setTimeout(() => this.listenTouchMove = true, 5)
-      // },
-
-      // onTouchMove (event) {
-      //   if (this.listenTouchMove) {
-      //     // console.log(` ---> touch move: (${JSON.stringify(event)})`)
-      //     const touch = event.changedTouches[0]
-      //     const moveX = parseInt(touch.pageX) - this.startTouch.pageX
-      //     const moveY = parseInt(touch.pageY) - this.startTouch.pageY
-      //     const isVertical = Math.abs(moveX) < Math.abs(moveY)
-      //     switch (true) {
-      //       case (isVertical && moveX < 0): this.direction = 'up'; break
-      //       case (isVertical && moveX >= 0): this.direction = 'down'; break
-      //       case (!isVertical && moveY < 0): this.direction = 'right'; break
-      //       case (!isVertical && moveY >= 0): this.direction = 'left'; break
-      //     }
-      //     console.log(` --->  moveX: ${moveX}, moveY: ${moveY}, direction: ${this.direction}`)
-      //     if (moveX <= moveY) {
-      //       // this.handleGesture()
-      //     } else {
-      //       // modal.toast({ message: this.direction })
-      //     }
-      //     this.listenTouchMove = false
-      //   }
-      // },
-
       // handle vertial scroll
       verticalScroll () {
         if (!this.isInAnimation) {

@@ -6,13 +6,20 @@
         <text class="text">{{title}}</text>
       </div>
       <div class="video-info">
-        <text class="user-name">{{user.name}}</text>
+        <div class="user-name-row">
+          <text class="user-name">{{user.name}}</text>
+          <text class="user-status">已认证</text>
+        </div>
         <text class="user-role">{{user.role}}</text>
         <text class="user-desc">{{user.desc}}</text>
         <text class="user-details">{{user.details}}</text>
       </div>
       <div class="video-content"></div>
-      <div class="video-comments"></div>
+      <div class="video-comments">
+        <a :href="link" class="video-tools center">
+          <text class="view-all">查看完整简历></text>
+        </a>
+      </div>
     </div>
   </div>
 </template>
@@ -38,6 +45,7 @@
         desc: '院学生会主席·实习经历(2)',
         details: '工作能力强，沟通能力强，摄影摄像，电脑剪辑'
       }
+      data.link = 'http://dotwe.org/raw/dist/8772ebc5eaaea4b856c5c40da5db677e.bundle.wx?_wx_tpl=http://dotwe.org/raw/dist/8772ebc5eaaea4b856c5c40da5db677e.bundle.wx'
       return data
     },
     methods: {
@@ -77,14 +85,14 @@
     background-color: rgba(0, 0, 0, 0.3);
   }
   .text {
-    font-size: 50px;
+    font-size: 46px;
     text-align: center;
     color: #FFFFFF;
   }
   .video-info {
     width: 750px;
-    height: 250px;
-    padding: 20px;
+    height: 300px;
+    padding-left: 20px;
     background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0));
   }
   .video-content {
@@ -93,13 +101,24 @@
   }
   .video-comments {
     width: 750px;
-    height: 350px;
-    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0));
+    height: 200px;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0));
+    justify-content: center;
     /* background-color: rgba(0, 0, 0, 0.2); */
+  }
+  .user-name-row {
+    flex-direction: row;
+    align-items: flex-end;
+    margin-bottom: 15px;
   }
   .user-name {
     font-size: 42px;
     color: #F2F2F2;
+  }
+  .user-status {
+    font-size: 30px;
+    color: #41B883;
+    margin-left: 10px;
   }
   .user-role {
     font-size: 38px;
@@ -114,5 +133,14 @@
   .user-details {
     font-size: 30px;
     color: #C0C0C0;
+  }
+  .video-tools {
+    width: 300px;
+    height: 50px;
+    margin-left: 30px;
+  }
+  .view-all {
+    font-size: 32px;
+    color: #EEEEEE;
   }
 </style>
