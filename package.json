@@ -24,7 +24,7 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "autoprefixer": "^8.4.1",
+    "autoprefixer": "^8.6.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
     "babel-plugin-transform-runtime": "^6.23.0",
@@ -35,16 +35,16 @@
     "postcss-plugin-px2rem": "^0.7.0",
     "postcss-plugin-weex": "^0.1.6",
     "sass-loader": "^7.0.3",
-    "serve": "^6.4.1",
+    "serve": "^7.2.0",
     "uglifyjs-webpack-plugin": "^1.0.1",
     "vue-loader": "^14.2.2",
     "webpack": "^3.11.0",
-    "weex-loader": "^0.7.3",
-    "weex-vue-precompiler": "^0.1.18",
-    "xhr": "^2.4.1"
+    "weex-loader": "^0.7.4",
+    "weex-vue-precompiler": "^0.1.19",
+    "xhr": "^2.5.0"
   },
   "dependencies": {
     "vue": "^2.5.16",
-    "weex-vue-render": "^1.0.24"
+    "weex-vue-render": "^1.0.26"
   }
 }
