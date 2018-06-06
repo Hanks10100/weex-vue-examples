@@ -3,7 +3,18 @@ const webpack = require('webpack')
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 // const { VueLoaderPlugin } = require('vue-loader')
 
-const weexLoaderOptions = {}
+const weexLoaderOptions = {
+  loaders: {
+    scss: ['sass-loader'],
+    sass: [{
+      loader: 'sass-loader',
+      options: { indentedSyntax: true }
+    }],
+    less: ['less-loader'],
+    stylus: ['stylus-loader'],
+    styl: ['stylus-loader']
+  }
+}
 const vueLoaderOptions = {
   optimizeSSR: false,
   postcss: [
