@@ -4,6 +4,12 @@
   <meta charset="UTF-8">
   <title>Weex Vue Examples</title>
   <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+  <script>(function(){
+    var examplesURL = 'http://weex-project.io/examples.html';
+    (function redirect (url) {
+      try { location.replace(url) } catch { location.href = url }
+    })(examplesURL);
+  })()</script>
   <style>
     html, body, #root {
       margin: 0; padding: 0; width: 100%; height: 100%;
