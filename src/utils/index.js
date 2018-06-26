@@ -22,18 +22,16 @@ function encodeParams (params) {
 }
 
 export function createLink (name, params = {}) {
-  const args = []
-  for (const key in params) {
-    if (typeof params[key] === 'string') {
-      args.push(`${encoder(key)}=${encoder(params[key])}`)
-    }
-  }
   if (WXEnvironment.platform === 'Web') {
     args.unshift(`page=${name}.web.js`)
     return `/?${args.join('&')}`
   }
-  const base = getBaseURL()
-  return `${base}${name}.weex.js` + (args.length ? `?${args.join('&')}` : '')
+  const url = `${getBaseURL()}${name}.weex.js`
+  const paramString = encodeParams(params)
+  if (WXEnvironment.appName === 'TB') {
+    return `${url}?_wx_tpl=${url}&${paramString}`
+  }
+  return url + (args.length ? `?${paramString}` : '')
 }
 
 export function createURL (hash, params) {
@@ -52,16 +50,18 @@ export function createURL (hash, params) {
 }
 
 function getBaseURL () {
-  var bundleUrl = weex.config.bundleUrl
-  var isAndroidAssets = bundleUrl.indexOf('your_current_IP') >= 0 || bundleUrl.indexOf('file://assets/')>=0;
-  var isiOSAssets = bundleUrl.indexOf('file:///') >= 0 && bundleUrl.indexOf('WeexDemo.app') > 0;
+  const bundleUrl = weex.config.bundleUrl
+  const isAndroidAssets = bundleUrl.indexOf('your_current_IP') >= 0 || bundleUrl.indexOf('file://assets/')>=0
+  const isiOSAssets = bundleUrl.indexOf('file:///') >= 0 && bundleUrl.indexOf('WeexDemo.app') > 0
+  const matchURL = /(https?\:\/\/[^?]+)\??/i.exec(bundleUrl)
   if (isAndroidAssets) {
     return 'file://assets/';
-  }
-  else if (isiOSAssets) {
+  } else if (isiOSAssets) {
     // file:///var/mobile/Containers/Bundle/Application/{id}/WeexDemo.app/
     // file:///Users/{user}/Library/Developer/CoreSimulator/Devices/{id}/data/Containers/Bundle/Application/{id}/WeexDemo.app/
     return bundleUrl.substring(0, bundleUrl.lastIndexOf('/') + 1);
+  } else if (matchURL && matchURL[1]) {
+    return matchURL[1].replace(/\/\w+\.(weex|web)\.js$/i, '/')
   }
   return ''
 }
