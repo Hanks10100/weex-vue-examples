@@ -2,6 +2,7 @@ const components = require('./components')
 const modules = require('./modules')
 const syntax = require('./syntax')
 const styles = require('./styles')
+const events = require('./events')
 const cases = require('./cases')
 const others = require('./others')
 
@@ -10,6 +11,7 @@ const examples = [
   modules,
   syntax,
   styles,
+  events,
   cases,
   others
 ]
@@ -23,6 +25,14 @@ function isTODO (example) {
     || example.hash === 'ccefdea9e9ef695acca7fb1b439277e2'
     || example.hash === '123b69b57e099036558745298fb6e8ca'
     || example.hash === '2d8da136e33f63a0bfe4b1e42362405b'
+    || example.hash === 'e0025d9264cb5e6dec13710a5899a0a1'
+}
+
+function shouldIgnore (item, scope) {
+  if (item.scope && scope && item.scope !== scope) {
+    return true
+  }
+  return !!item.ignore
 }
 
 module.exports = function getExamples (options = {}) {
@@ -31,26 +41,21 @@ module.exports = function getExamples (options = {}) {
   if (scope === 'mobile') {
     selected = [components, modules, syntax]
     others.group.unshift(...cases.group)
+    others.group.unshift(...events.group)
     others.group.unshift(...styles.group)
     selected.push(others)
   }
-  // filter WIP examples
-  if (options.filterTODO) {
-    selected = selected.filter(item => {
-      if (item.scope && scope && item.scope !== scope) {
-        return false
-      }
-      item.group = item.group.filter(group => {
-        if (group.scope && scope && group.scope !== scope) {
-          return false
-        }
-        group.examples = group.examples.filter(_ =>
-          !isTODO(_) && !(_.scope && scope && _.scope !== scope)
-        )
-        return !!group.examples.length
-      })
-      return !!item.group.length
+
+  // filter examples
+  return selected.filter(item => {
+    if (shouldIgnore(item, scope)) return false
+    item.group = item.group.filter(group => {
+      if (shouldIgnore(group, scope)) return false
+      group.examples = group.examples.filter(_ =>
+        !(options.filterTODO && isTODO(_)) && !shouldIgnore(_, scope)
+      )
+      return !!group.examples.length
     })
-  }
-  return selected
+    return !!item.group.length
+  })
 }

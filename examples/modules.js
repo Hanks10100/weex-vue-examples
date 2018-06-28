@@ -53,7 +53,7 @@ module.exports = {
     }, {
       hash: '308d627e241d0ce932a1577672af1bd8',
       title: 'addRule',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1_ltpA7yWBuNjy0FpXXassXXa-540-844.png'
     }]
   }, {
     type: 'stream',
@@ -87,7 +87,7 @@ module.exports = {
     examples: [{
       hash: '07554ce87a2c70d77bf2265824afdd8a',
       title: { zh: '最简例子', en: 'Sample' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1p5DPA_tYBeNjy1XdXXXXyVXa-540-844.png'
     }, {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
       title: 'transform',
@@ -129,15 +129,15 @@ module.exports = {
     examples: [{
       hash: '71d1dff37c54fa9bafab4d8cbe3d21e3',
       title: 'setItem',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1vhlCA1uSBuNjy1XcXXcYjFXa-540-844.png'
     }, {
       hash: '71d1dff37c54fa9bafab4d8cbe3d21e3',
       title: 'getItem',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1vhlCA1uSBuNjy1XcXXcYjFXa-540-844.png'
     }, {
       hash: '71d1dff37c54fa9bafab4d8cbe3d21e3',
       title: 'removeItem',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1vhlCA1uSBuNjy1XcXXcYjFXa-540-844.png'
     }]
   }, {
     type: 'clipboard',
@@ -200,15 +200,15 @@ module.exports = {
     examples: [{
       hash: '9f8a7be89a4ad881ff515145cc9306ea',
       title: 'goBack',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1Sj0uAVOWBuNjy0FiXXXFxVXa-540-844.png'
     }, {
       hash: '9f8a7be89a4ad881ff515145cc9306ea',
       title: 'goForward',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1Sj0uAVOWBuNjy0FiXXXFxVXa-540-844.png'
     }, {
       hash: '9f8a7be89a4ad881ff515145cc9306ea',
       title: 'reload',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1Sj0uAVOWBuNjy0FiXXXFxVXa-540-844.png'
     }]
   }, {
     type: 'meta',
@@ -242,7 +242,7 @@ module.exports = {
     examples: [{
       hash: 'c4994c025226953c038b43da8b45124e',
       title: { zh: '使用范例', en: 'Use WebSocket' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1gVSkAY9YBuNjy0FgXXcxcXXa-540-844.png'
     }]
   }]
 }

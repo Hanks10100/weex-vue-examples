@@ -165,18 +165,18 @@ module.exports = {
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
       title: { zh: '各种表单组件', en: '' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-    }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: { zh: 'lazy 修饰符', en: '' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-    }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: { zh: 'trim 修饰符', en: '' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-    }, {
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: { zh: 'number 修饰符', en: '' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    // }, {
+    //   hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+    //   title: { zh: 'lazy 修饰符', en: '' },
+    //   screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    // }, {
+    //   hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+    //   title: { zh: 'trim 修饰符', en: '' },
+    //   screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    // }, {
+    //   hash: '4624d605004fc7eb9f14ca9c5a226fe3',
+    //   title: { zh: 'number 修饰符', en: '' },
+    //   screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
     }]
   }, {
     type: 'v-once',

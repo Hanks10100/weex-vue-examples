@@ -5,10 +5,10 @@ module.exports = {
     type: 'useful',
     name: { zh: '常用', en: 'Common Cases' },
     examples: [{
-      hash: '123b69b57e099036558745298fb6e8ca',
-      title: { zh: '查看图片', en: 'Preview Image' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-    }, {
+    //   hash: '123b69b57e099036558745298fb6e8ca',
+    //   title: { zh: '查看图片', en: 'Preview Image' },
+    //   screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+    // }, {
       hash: '123b69b57e099036558745298fb6e8ca',
       title: { zh: '楼层电梯', en: 'Elevator' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
@@ -33,12 +33,7 @@ module.exports = {
     type: 'tabs',
     name: { zh: '多页签', en: 'Tabs' },
     examples: [{
-    //   hash: '6415774229aec7f0161504b356e7e94e',
-    //   title: 'Tabbar',
-    //   screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
-    // }, {
       hash: 'c5f7cb6cc90fe4883436534167563dd3',
-      // title: { zh: '带切换动画', en: 'Tabbar with Animation' },
       title: { zh: 'Tab 页签', en: 'Tabs' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1mfmunC_I8KJjy0FoXXaFnVXa-540-844.png'
     }, {
@@ -56,6 +51,7 @@ module.exports = {
     }]
   }, {
     type: 'spa',
+    ignore: true,
     name: { zh: '单页应用', en: 'Single Page App' },
     examples: [{
       hash: '4624d605004fc7eb9f14ca9c5a226fe3',
@@ -96,32 +92,33 @@ module.exports = {
         en: 'https://gw.alicdn.com/tfs/TB1KqLnX_tYBeNjy1XdXXXXyVXa-540-844.png'
       }
     }, {
+      scope: 'website',
       hash: '6f06da96ecc0d06673f9dd70e01d6749',
       title: { zh: '扫雷', en: 'MineSweeper' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://img.alicdn.com/tfs/TB1IoEFxGmWBuNjy1XaXXXCbXXa-540-844.png'
     }]
   }, {
     type: 'reprography',
-    scope: 'website',
-    name: { zh: '仿', en: 'Reprography' },
+    // scope: 'website',
+    name: { zh: '简单复刻', en: 'Reprography' },
     examples: [{
+      ignore: true,
       // hash: 'f28215d4d9d96de91115cdd1528bcacd',
       hash: '8ee2850f39123a350333eb08beac7115',
       title: { zh: '朋友圈', en: 'Moment' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1G7LydwMPMeJjy1XdXXasrXXa-540-844.png'
     }, {
-      scope: 'website',
       hash: '013b1e76d2c5419e32bc3e02aa1bef26',
       title: '应用列表',
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1fSbSA_tYBeNjy1XdXXXXyVXa-540-844.png'
     }, {
       hash: '6c458803b2a83a336099ff43dae4d1a5',
       title: '商品展示',
       screenshot: 'https://gw.alicdn.com/tfs/TB1juElXjihSKJjy0FfXXbGzFXa-540-844.png'
     }, {
-      hash: '97c0dc80f34d51aff2551a9916d48fba',
+      hash: '7e46ae0df128bd07c6b8c77290c9a8d9',
       title: { zh: '聊天', en: 'Chat' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB16_XwAVOWBuNjy0FiXXXFxVXa-540-844.png'
     }]
   }]
 }

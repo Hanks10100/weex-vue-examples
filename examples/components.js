@@ -103,7 +103,7 @@ module.exports = {
     }, {
       hash: '3ad81eb6b0a66f4d2fa4a35ff8a310f5',
       title: { zh: 'Base64 图片', en: 'Base64 Image' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://img.alicdn.com/tfs/TB1IoEFxGmWBuNjy1XaXXXCbXXa-540-844.png'
     }]
   }, {
     type: 'list',
@@ -380,9 +380,9 @@ module.exports = {
       en: 'http://weex-project.io/references/components/waterfall.html'
     },
     examples: [{
-      hash: '4624d605004fc7eb9f14ca9c5a226fe3',
-      title: { zh: '最简例子', en: 'Sample' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      hash: '7e5840caa24fc71082699f6afcc72ec9',
+      title: { zh: '瀑布流', en: 'Waterfall Sample' },
+      screenshot: 'https://img.alicdn.com/tfs/TB11KFfA7yWBuNjy0FpXXassXXa-540-960.png'
     }]
   }, {
     type: 'recycle-list',
@@ -442,9 +442,9 @@ module.exports = {
       title: { zh: '无限列表', en: 'Infinite Scroll' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1JGrQilfH8KJjy1XbXXbLdXXa-540-844.png'
     }, {
-      hash: '05f153c3a2478605a66011e981964373',
+      hash: '3dc558662a467082cc4244cfaa3285b1',
       title: {  zh: '水平滚动', en: 'Horizontal Scroll'  },
-      screenshot: 'https://gw.alicdn.com/tfs/TB1sF_CcMMPMeJjy1XcXXXpppXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB12wdnAYGYBuNjy0FoXXciBFXa-540-844.png'
     }]
   }, {
     type: 'recycle-list-component',
