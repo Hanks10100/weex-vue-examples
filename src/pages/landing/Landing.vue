@@ -15,6 +15,8 @@
 
 <script>
   import Doodle from '../../components/Doodle.vue'
+  const modal = weex.requireModule('modal')
+  const clipboard = weex.requireModule('clipboard')
   export default {
     components: { Doodle },
     data () {
@@ -27,6 +29,24 @@
           { name: 'news', title: { en: 'News', zh: '资讯' } },
           { name: 'about', title: { en: 'About', zh: '关于' } }
         ]]
+      }
+    },
+    mounted () {
+      this.checkClipboard()
+    },
+    methods: {
+      checkClipboard () {
+        const exampleRE = /^(https?\:\/\/dotwe\.org\/[a-z\/]*)?(\w{32})(\?.*)?$/i
+        clipboard.getString(result => {
+          if (!result.data) return
+          const match = exampleRE.exec(result.data)
+          if (match && match[2]) {
+            const hash = match[2]
+            modal.confirm({ message: 'hash: ' + hash }, res => {
+              // TODO: jump to examples
+            })
+          }
+        })
       }
     }
   }

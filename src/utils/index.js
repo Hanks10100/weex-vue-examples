@@ -22,12 +22,18 @@ function encodeParams (params) {
 }
 
 export function createLink (name, params = {}) {
-  if (WXEnvironment.platform === 'Web') {
-    args.unshift(`page=${name}.web.js`)
-    return `/?${args.join('&')}`
+  const args = []
+  for (const key in params) {
+    if (typeof params[key] === 'string') {
+      args.push(`${encoder(key)}=${encoder(params[key])}`)
+    }
   }
   const url = `${getBaseURL()}${name}.weex.js`
-  const paramString = encodeParams(params)
+  const paramString = args.join('&')
+  if (WXEnvironment.platform === 'Web') {
+    args.unshift(`page=${name}.web.js`)
+    return `/?${paramString}`
+  }
   if (WXEnvironment.appName === 'TB') {
     return `${url}?_wx_tpl=${url}&${paramString}`
   }
