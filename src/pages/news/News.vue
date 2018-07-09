@@ -60,8 +60,10 @@
       }
     },
     beforeCreate () {
+      readNews(news => this.news = news)
       fetchNews(res => {
         if (Array.isArray(res.news)) {
+          saveNews(res)
           this.news = res.news
         }
       })

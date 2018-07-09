@@ -13,6 +13,7 @@ setTimeout(() => {
   utils.fetchExamples(utils.saveExamples)
   utils.fetchGuide(utils.saveGuide)
   utils.fetchAbout(utils.saveAbout)
+  utils.fetchNews(utils.saveNews)
 }, 10)
 
 LandingPage.el = '#root'

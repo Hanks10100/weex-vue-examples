@@ -279,3 +279,5 @@ export const readAbout = (...args) => readData('about', ...args)
 
 export const fetchDoodle = (...args) => fetchData('doodle', ...args)
 export const fetchNews = (...args) => fetchData('news', ...args)
+export const saveNews = (...args) => saveData('news', ...args)
+export const readNews = (...args) => readData('news', ...args)
