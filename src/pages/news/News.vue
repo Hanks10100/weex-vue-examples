@@ -27,7 +27,7 @@
 </template>
 
 <script>
-  import { fetchNews } from '../../utils'
+  import { fetchNews, readNews, saveNews } from '../../utils'
   const modal = weex.requireModule('modal')
   export default {
     data () {

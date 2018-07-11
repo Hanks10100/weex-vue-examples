@@ -22,13 +22,15 @@
   const modal = weex.requireModule('modal')
   const languageRE = /.+[\?\&]{1}language=([\d\w]+)[\?\&]?.*/i
   const titleRE = /.+[\?\&]{1}title=([^\?\&]+)[\?\&]?.*/i
+  const urlRE = /.+[\?\&]{1}url=([^\?\&]+)[\?\&]?.*/i
 
   export default {
     data () {
       const languageMatch = languageRE.exec(weex.config.bundleUrl || '')
+      const urlMatch = urlRE.exec(weex.config.bundleUrl || '')
       return {
         language: languageMatch ? languageMatch[1] : 'en',
-        link: 'http://weex-project.io/',
+        link: urlMatch ? decoder(urlMatch[1]) : 'http://weex-project.io/',
         showTools: true,
         COPY_LINK: { zh: '复制链接', en: 'Copy Link' },
         BACK: { zh: '返回', en: 'Back' },
