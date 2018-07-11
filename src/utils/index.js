@@ -38,7 +38,7 @@ export function createLink (name, params = {}) {
   const paramString = args.join('&')
   if (WXEnvironment.platform === 'Web') {
     args.unshift(`page=${name}.web.js`)
-    return `/?${paramString}`
+    return `/?${args.join('&')}`
   }
   if (WXEnvironment.appName === 'TB') {
     return `${url}?_wx_tpl=${url}&${paramString}`
@@ -176,11 +176,17 @@ export function getLanguage (done = () => {}) {
 export function jumpTo (url, title, lang) {
   getLanguage(language => {
     storage.setItem('CURRENT_DOCUMENT_URL', i18n(url, lang || language))
+    // navigator.push({
+    //   url: createURL(
+    //     'bf0305c14b511b24a4e616f53926432b',
+    //     { language, title: i18n(title, lang || language) }
+    //   )
+    // })
     navigator.push({
-      url: createURL(
-        'bf0305c14b511b24a4e616f53926432b',
-        { language, title: i18n(title, lang || language) }
-      )
+      url: createLink('webview', {
+        language,
+        title: i18n(title, lang || language)
+      })
     })
   })
 }
