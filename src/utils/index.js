@@ -2,11 +2,17 @@ const stream = weex.requireModule('stream')
 const storage = weex.requireModule('storage')
 const navigator = weex.requireModule('navigator')
 
-const encoder = typeof encodeURIComponent === 'function'
+export const encoder = typeof encodeURIComponent === 'function'
   ? encodeURIComponent
   : typeof encodeURI === 'function'
     ? encodeURI
     : x => x
+
+export const decoder = typeof decodeURIComponent === 'function'
+    ? decodeURIComponent
+    : typeof decodeURI === 'function'
+      ? decodeURI
+      : x => x
 
 function encodeParams (params) {
   if (!params || typeof params !== 'object') {

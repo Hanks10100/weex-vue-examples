@@ -122,5 +122,6 @@ module.exports = generateWebpackConfigs({
   examples: path.resolve('src/pages/examples', 'Examples.js'),
   news: path.resolve('src/pages/news', 'News.js'),
   guide: path.resolve('src/pages/guide', 'Guide.js'),
+  webview: path.resolve('src/pages/webview', 'Webview.js'),
   // update: path.resolve('misc', 'update.js')
 })
