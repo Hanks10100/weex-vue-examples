@@ -42,9 +42,9 @@
           const match = exampleRE.exec(result.data)
           if (match && match[2]) {
             const hash = match[2]
-            modal.confirm({ message: 'hash: ' + hash }, res => {
-              // TODO: jump to examples
-            })
+            // modal.confirm({ message: 'hash: ' + hash }, res => {
+            //   // TODO: jump to examples
+            // })
           }
         })
       }
