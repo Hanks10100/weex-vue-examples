@@ -38,11 +38,6 @@
       }
     },
     created () {
-      storage.getItem('CURRENT_DOCUMENT_URL', event => {
-        if (event.result === 'success') {
-          this.link = event.data
-        }
-      })
       const titleMatch = titleRE.exec(weex.config.bundleUrl || '')
       let title = decoder(titleMatch && titleMatch[1])
       if (!title || title == 'null') {

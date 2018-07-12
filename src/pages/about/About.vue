@@ -2,10 +2,11 @@
   <list class="list">
     <cell><app-info-card /></cell>
     <cell :class="['item-cell', `item-cell-${i+1}`]" v-for="(item, i) in aboutApp" :key="i">
-      <div :class="['item', `item-${i+1}`]" v-if="item.link" @click="jumpTo(item.link, i18n(item.title))">
+      <a :class="['item', `item-${i+1}`]" v-if="item.link"
+        :href="createLink('webview', { language, url: i18n(item.link), title: i18n(item.title)})">
         <text class="item-title">{{i18n(item.title)}}</text>
         <image class="arrow-icon" src="https://gw.alicdn.com/tfs/TB1iL2fkLDH8KJjy1XcXXcpdXXa-32-49.png" />
-      </div>
+      </a>
     </cell>
     <cell class="item-cell">
       <div class="item" @click="chooseLanguage">
