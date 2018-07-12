@@ -8,19 +8,19 @@
         <text class="time-text">{{i18n(item.time)}}</text>
       </div>
       <div class="message-box" v-if="item.type === 'article'">
-        <div class="article" @click="jumpTo(item.link)">
+        <a class="article" :href="createURL(item.link)">
           <image class="poster" resize="cover" :src="item.poster" />
           <text class="title">{{item.title}}</text>
           <text class="summary" :lines="3" v-if="item.summary">{{item.summary}}</text>
           <div class="related">
-            <div class="related-article"
+            <a class="related-article"
               v-for="sub in item.related" :key="sub.title"
-              @click="jumpTo(sub.link)">
+              :href="createURL(sub.link)">
               <text class="subtitle">{{sub.title}}</text>
               <image class="shortcut" resize="cover" :src="sub.poster" />
-            </div>
+            </a>
           </div>
-        </div>
+        </a>
       </div>
     </cell>
   </list>

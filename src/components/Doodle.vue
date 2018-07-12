@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <embed v-if="showDoodle && doodle.src" @click="magic" style="flex:1" :src="doodle.src | url" />
+    <embed v-if="showDoodle && doodle.src" @click="magic" style="flex:1" :src="doodle.src | hashToURL" />
     <div v-else class="center" style="flex:1">
       <image class="logo" src="https://gw.alicdn.com/tfs/TB1Q9VBkRfH8KJjy1XbXXbLdXXa-3799-1615.png"/>
       <div class="btn center" @click="scan">
@@ -58,14 +58,14 @@
         }
       },
       magic () {
-        if (this.doodle && this.doodle.next) {
-          this.showDoodle = false
-          navigator.push({
-            url: this.createURL(this.doodle.next, {
-              language: this.language
-            })
-          })
-        }
+        // if (this.doodle && this.doodle.next) {
+        //   this.showDoodle = false
+        //   navigator.push({
+        //     url: this.hashToURL(this.doodle.next, {
+        //       language: this.language
+        //     })
+        //   })
+        // }
       }
     }
   }

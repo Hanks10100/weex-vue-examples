@@ -5,12 +5,13 @@
         <text class="title-text">{{i18n(example.title)}}</text>
       </div>
       <div style="align-items: center">
-        <a :href="i18n(example.hash) | url">
+        <a :href="i18n(example.hash) | hashToURL">
           <image class="screenshot" :src="i18n(example.screenshot)" />
         </a>
-        <text class="example-tips"
-          @click="viewSource(i18n(example.hash))"
-          >{{i18n(VIEW_SOURCE)}}</text>
+        <a class="example-tips"
+          :href="createSourceURL(example.hash)">
+          <text class="example-tips-text">{{i18n(VIEW_SOURCE)}}</text>
+        </a>
       </div>
     </div>
   </scroller>
@@ -48,18 +49,18 @@
     padding-bottom: 10px;
   }
   .example-tips {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .example-tips-text {
     font-size: 28px;
     text-align: center;
     color: #A5A5A5;
-    padding-top: 10px;
-    padding-bottom: 10px;
   }
 </style>
 
 <script>
-  import { viewSource } from '../utils'
   export default {
-    methods: { viewSource },
     props: {
       language: {
         type: String,
@@ -76,6 +77,15 @@
           en: 'view source',
           zh: '查看源码'
         }
+      }
+    },
+    methods: {
+      createSourceURL (hash) {
+        const hashString = this.i18n(hash)
+        return this.createURL(`http://dotwe.org/source/${hashString}`, {
+          language: this.language,
+          title: this.i18n(this.VIEW_SOURCE)
+        })
       }
     }
   }

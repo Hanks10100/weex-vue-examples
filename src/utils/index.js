@@ -46,7 +46,7 @@ export function createLink (name, params = {}) {
   return url + (args.length ? `?${paramString}` : '')
 }
 
-export function createURL (hash, params) {
+export function hashToURL (hash, params = {}) {
   if (WXEnvironment.platform === 'Web') {
     return `http://dotwe.org/raw/htmlVue/${hash}`
   }
@@ -76,6 +76,14 @@ function getBaseURL () {
     return matchURL[1].replace(/\/\w+\.(weex|web)\.js$/i, '/')
   }
   return ''
+}
+
+export function createURL (url, params = {}) {
+  return createLink('webview', {
+    language: params.language || (this && this.language) || 'en',
+    url: i18n(url),
+    title: i18n(params.title)
+  })
 }
 
 export function i18n (text, language) {
@@ -171,35 +179,6 @@ export function getLanguage (done = () => {}) {
       })
     })
   }
-}
-
-export function jumpTo (url, title, lang) {
-  getLanguage(language => {
-    storage.setItem('CURRENT_DOCUMENT_URL', i18n(url, lang || language))
-    // navigator.push({
-    //   url: createURL(
-    //     'bf0305c14b511b24a4e616f53926432b',
-    //     { language, title: i18n(title, lang || language) }
-    //   )
-    // })
-    navigator.push({
-      url: createLink('webview', {
-        language,
-        title: i18n(title, lang || language)
-      })
-    })
-  })
-}
-
-export function viewSource (hash) {
-  getLanguage(language => {
-    navigator.push({
-      url: createURL(
-        'f6ce29faf686eabc38b410bf4828fa5a',
-        { hash, language }
-      )
-    })
-  })
 }
 
 export function setTitleBar (options, language = 'en') {

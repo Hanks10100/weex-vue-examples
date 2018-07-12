@@ -4,14 +4,14 @@
       <text class="title">{{i18n(title)}}</text>
     </div>
     <div class="center" v-for="(lesson, i) in lessons" :key="i">
-      <div :class="['lesson', `lesson-${language}`]"
-        @click="jumpTo(lesson.docLink, lesson.title)">
+      <a :class="['lesson', `lesson-${language}`]"
+        :href="createLink('webview', { url: i18n(lesson.docLink), title: i18n(lesson.title) })">
         <text :class="['lesson-index', `lesson-index-${language}`]">{{i + 1}}.</text>
         <text
           :class="['lesson-title', `lesson-title-${language}`]"
           :style="{ color: mainColor }"
           >{{i18n(lesson.title)}}</text>
-      </div>
+      </a>
     </div>
     <div class="footer center">
       <text class="copyright">{{i18n(copyright)}}</text>

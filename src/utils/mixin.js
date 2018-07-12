@@ -5,7 +5,7 @@ const storage = weex.requireModule('storage')
 export default {
   filters: {
     i18n: utils.i18n,
-    url: utils.createURL,
+    hashToURL: utils.hashToURL,
     link: utils.createLink,
   },
   methods: {
@@ -15,8 +15,7 @@ export default {
     getLanguage: utils.getLanguage,
     fetchData: utils.fetchData,
     saveData: utils.saveData,
-    readData: utils.readData,
-    jumpTo: utils.jumpTo
+    readData: utils.readData
   },
   created () {
     // get and set language

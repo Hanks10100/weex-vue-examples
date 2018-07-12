@@ -8,10 +8,10 @@
           :key="exampleGroup.type">
           <text class="group-title">{{i18n(exampleGroup.title || exampleGroup.name)}}</text>
           <text class="group-desc" v-if="exampleGroup.desc">{{i18n(exampleGroup.desc)}}</text>
-          <text class="doc-link"
-            v-if="exampleGroup.desc && exampleGroup.docLink"
-            @click="jumpTo(i18n(exampleGroup.docLink))"
-            >{{i18n(dict.READ_MORE)}} >></text>
+          <a class="doc-link" v-if="exampleGroup.desc && exampleGroup.docLink"
+            :href="createURL(i18n(exampleGroup.docLink))">
+            <text class="doc-link-text">{{i18n(dict.READ_MORE)}} >></text>
+          </a>
         </cell>
         <cell class="section" :key="exampleGroup.type + '-examples'">
           <example-scroller :language="language" :examples="exampleGroup.examples" />
@@ -72,12 +72,14 @@
     margin-right: 40px;
   }
   .doc-link {
-    font-size: 26px;
-    color: rgba(0, 189, 255, 0.6);
-    text-align: right;
     margin-top: 10px;
     margin-right: 60px;
     margin-bottom: 20px;
+  }
+  .doc-link-text {
+    font-size: 26px;
+    color: rgba(0, 189, 255, 0.6);
+    text-align: right;
   }
   .section {
     padding-bottom: 30px;
@@ -174,7 +176,7 @@
         }
       })
 
-      setTimeout(() => { this.showLoading = true }, 400);
+      setTimeout(() => { this.showLoading = true }, 400)
     },
     computed: {
       tabs () {

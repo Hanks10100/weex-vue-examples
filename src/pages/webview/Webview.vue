@@ -41,7 +41,7 @@
       const titleMatch = titleRE.exec(weex.config.bundleUrl || '')
       let title = decoder(titleMatch && titleMatch[1])
       if (!title || title == 'null') {
-        title = { en: 'Browse Web Page', zh: '浏览网页' }
+        title = this.i18n({ en: 'Browse Web Page', zh: '浏览网页' })
       }
       setTitleBar({
         color: '#5F5F5F',
