@@ -34,7 +34,7 @@
     "postcss-plugin-weex": "0.1.6",
     "sass-loader": "7.0.3",
     "serve": "8.1.4",
-    "uglifyjs-webpack-plugin": "1.2.5",
+    "uglifyjs-webpack-plugin": "1.2.7",
     "vue-loader": "14.2.3",
     "webpack": "3.12.0",
     "weex-loader": "0.7.6",
