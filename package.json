@@ -29,7 +29,7 @@
     "babel-preset-es2015": "6.24.1",
     "babel-runtime": "6.26.0",
     "css-loader": "0.28.11",
-    "node-sass": "4.9.0",
+    "node-sass": "4.9.2",
     "postcss-plugin-px2rem": "0.7.0",
     "postcss-plugin-weex": "0.1.6",
     "sass-loader": "7.0.3",
