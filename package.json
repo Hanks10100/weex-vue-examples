@@ -32,7 +32,7 @@
     "node-sass": "4.9.2",
     "postcss-plugin-px2rem": "0.7.0",
     "postcss-plugin-weex": "0.1.6",
-    "sass-loader": "7.0.3",
+    "sass-loader": "7.1.0",
     "serve": "9.4.0",
     "uglifyjs-webpack-plugin": "1.2.5",
     "vue-loader": "14.2.3",
