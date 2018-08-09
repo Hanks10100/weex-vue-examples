@@ -102,7 +102,7 @@ module.exports = {
     name: { zh: '简单复刻', en: 'Reprography' },
     examples: [{
       ignore: true,
-      // hash: 'f28215d4d9d96de91115cdd1528bcacd',
+      // hash: '85ae95064bb148afa4d3854af5075c15',
       hash: '8ee2850f39123a350333eb08beac7115',
       title: { zh: '朋友圈', en: 'Moment' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1G7LydwMPMeJjy1XdXXasrXXa-540-844.png'
@@ -115,9 +115,9 @@ module.exports = {
       title: '商品展示',
       screenshot: 'https://gw.alicdn.com/tfs/TB1juElXjihSKJjy0FfXXbGzFXa-540-844.png'
     }, {
-      hash: '58adf3ba123757463d58a604753f381e',
+      hash: 'ffcfa2b6c4612499cef01b543419c903',
       title: { zh: '聊天', en: 'Chat' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB16_XwAVOWBuNjy0FiXXXFxVXa-540-844.png'
+      screenshot: 'https://gw.alicdn.com/tfs/TB1uS.McO6guuRjy1XdXXaAwpXa-540-844.png'
     }]
   }]
 }
