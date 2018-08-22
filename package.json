@@ -6,6 +6,7 @@
   "scripts": {
     "build": "webpack",
     "dev": "webpack --watch",
+    "screenshot": "node screenshot.js",
     "serve": "serve -l 8080"
   },
   "main": "src/entry.js",
@@ -32,6 +33,7 @@
     "node-sass": "4.9.3",
     "postcss-plugin-px2rem": "0.7.0",
     "postcss-plugin-weex": "0.1.7",
+    "puppeteer": "^1.7.0",
     "sass-loader": "7.1.0",
     "serve": "9.4.2",
     "uglifyjs-webpack-plugin": "1.2.5",
