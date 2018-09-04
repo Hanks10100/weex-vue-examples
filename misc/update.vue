@@ -78,6 +78,17 @@
   const news = [
     {
       type: 'article',
+      poster: 'https://mmbiz.qpic.cn/mmbiz_jpg/33P2FdAnju8OqtiaqCvRCIyh9NRiam3jrRYFYG6icFPibgJjBFBvibu0eoibSGGkKjjsZsTcl70vUqmibOn2XtAruWTicg/640',
+      title: '2018 Weex Meetup 上海站 等你来聚',
+      link: 'https://mp.weixin.qq.com/s/aGsGvOSavNb-MkmA-VpV5Q',
+      time: { zh: '2018年9月4日 21:23', en: '2018/09/04 21:23' },
+      related: [{
+        poster: 'http://pcdn.mikecrm.com/ugc_3_c/pub/35/354762527021b054af71e22ab9deb0be/form/image/pLOlnrmHIJr5UQQWhf75AaTtC3iGcOKz.png',
+        title: '报名链接',
+        link: 'http://cn.mikecrm.com/QPSHnpm'
+      }]
+    }, {
+      type: 'article',
       poster: 'https://gw.alicdn.com/tfs/TB1ReL9kVGWBuNjy0FbXXb4sXXa-1080-679.jpg',
       title: '一次美丽的“约会”',
       summary: 'Weex Meetup 深圳站的一点感想',
