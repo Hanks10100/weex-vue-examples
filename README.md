@@ -2,7 +2,7 @@
 
 Single page examples written in Weex and Vue.js.
 
-**[The Example Website](http://weex-project.io/examples.html)**
+**[The Example Website](https://weex.incubator.apache.org/examples.html)**
 
 The source code the website is in the `docs` folder. Here is other resources:
 
