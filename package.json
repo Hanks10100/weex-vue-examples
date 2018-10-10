@@ -45,6 +45,6 @@
   },
   "dependencies": {
     "vue": "2.5.17",
-    "weex-vue-render": "1.0.31"
+    "weex-vue-render": "1.0.33"
   }
 }
