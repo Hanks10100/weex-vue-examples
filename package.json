@@ -33,7 +33,7 @@
     "node-sass": "4.9.3",
     "postcss-plugin-px2rem": "0.8.0",
     "postcss-plugin-weex": "0.1.7",
-    "puppeteer": "1.7.0",
+    "puppeteer": "1.11.0",
     "sass-loader": "7.1.0",
     "serve": "9.4.2",
     "uglifyjs-webpack-plugin": "1.2.5",
