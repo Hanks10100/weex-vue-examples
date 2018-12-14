@@ -36,10 +36,10 @@ module.exports = {
       hash: 'e510f73afb31b3228a5a9ef1b7a5a456',
       title: { zh: '透明背景', en: 'Transparent Background' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1CL3nbMDD8KJjy0FdXXcjvXXa-540-844.png'
-    }, {
-      hash: 'b90dbc5fbecf160a8f6c10b752b44c53',
-      title: { zh: '三角形', en: 'Triangles' },
-      screenshot: 'https://gw.alicdn.com/tfs/TB14yzscMvD8KJjy0FlXXagBFXa-540-844.png'
+    // }, {
+    //   hash: 'b90dbc5fbecf160a8f6c10b752b44c53',
+    //   title: { zh: '三角形', en: 'Triangles' },
+    //   screenshot: 'https://gw.alicdn.com/tfs/TB14yzscMvD8KJjy0FlXXagBFXa-540-844.png'
     }, {
       hash: '190d8baf578fb7b4efd82f19322a69da',
       title: { zh: '西瓜（阴影）', en: 'Watermelon (box-shadow)' },

@@ -229,23 +229,23 @@ module.exports = {
       en: 'http://weex-project.io/references/components/input.html'
     },
     examples: [{
-      hash: '9ff5e5ded4969d19f76e028bf1440309',
+      hash: 'fd2266992179ea22a32b25ed864a22ad',
       title: { zh: '最简例子', en: 'Sample' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1IQ9cdgMPMeJjy1XcXXXpppXa-540-844.png'
     }, {
-      hash: '185e8574389d3242a79090414c336e4d',
+      hash: '3a8c415c5f6fce78882102e6d61fc00d',
       title: 'Placeholder',
       screenshot: 'https://gw.alicdn.com/tfs/TB1XPmcdgoQMeJjy0FoXXcShVXa-540-844.png'
     }, {
-      hash: 'aab3e1a3835c9cdbed53fb127738507f',
+      hash: '6d8010298697550ec8433a239a71d5b3',
       title: { zh: '初始状态', en: 'Initial State' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1rnh_diERMeJjy0FcXXc7opXa-540-844.png'
     }, {
-      hash: '75492bb1c1af2b44293ce11164c0b3ba',
+      hash: 'd2440b161d7db4964f80ed73235d0ee6',
       title: { zh: '输入框类型', en: 'Input Type' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1qDh_diERMeJjy0FcXXc7opXa-540-844.png'
     }, {
-      hash: '38cfc531ae3c0a10ac10236cd869e9eb',
+      hash: '4e6d472215304d96d19571b0eda4f968',
       title: { zh: '事件处理', en: 'Handle Events' },
       screenshot: 'https://gw.alicdn.com/tfs/TB1IQ9cdgMPMeJjy1XcXXXpppXa-540-844.png'
     }]
