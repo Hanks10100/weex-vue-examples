@@ -35,7 +35,7 @@
     "postcss-plugin-weex": "0.1.7",
     "puppeteer": "1.11.0",
     "sass-loader": "7.1.0",
-    "serve": "10.1.1",
+    "serve": "10.1.2",
     "uglifyjs-webpack-plugin": "1.2.5",
     "vue-loader": "14.2.3",
     "webpack": "3.12.0",
