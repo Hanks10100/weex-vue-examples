@@ -6,6 +6,9 @@
   "scripts": {
     "build": "webpack",
     "dev": "webpack --watch",
+    "build:website": "webpack --config webpack.website.config.js",
+    "dev:website": "webpack --watch --config webpack.website.config.js",
+    "dev": "webpack --watch",
     "screenshot": "node screenshot.js",
     "serve": "serve -l 8080"
   },
