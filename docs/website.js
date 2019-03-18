@@ -1151,7 +1151,7 @@ exports.default = {
   props: ['type', 'category', 'language'],
   filters: {
     url: function url(hash) {
-      return 'http://dotwe.org/vue/' + hash;
+      return 'http://editor.weex.io/vue/' + hash;
     }
   },
   methods: {
