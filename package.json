@@ -40,7 +40,7 @@
     "sass-loader": "7.1.0",
     "serve": "10.1.1",
     "uglifyjs-webpack-plugin": "1.2.5",
-    "vue-loader": "14.2.3",
+    "vue-loader": "14.2.4",
     "webpack": "4.39.2",
     "weex-loader": "0.7.12",
     "weex-vue-precompiler": "0.1.25",
