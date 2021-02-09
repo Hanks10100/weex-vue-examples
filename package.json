@@ -41,7 +41,7 @@
     "serve": "10.1.1",
     "uglifyjs-webpack-plugin": "1.2.5",
     "vue-loader": "14.2.3",
-    "webpack": "4.39.2",
+    "webpack": "4.46.0",
     "weex-loader": "0.7.12",
     "weex-vue-precompiler": "0.1.25",
     "xhr": "2.5.0"
