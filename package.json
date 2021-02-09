@@ -44,7 +44,7 @@
     "webpack": "4.39.2",
     "weex-loader": "0.7.12",
     "weex-vue-precompiler": "0.1.25",
-    "xhr": "2.5.0"
+    "xhr": "2.6.0"
   },
   "dependencies": {
     "vue": "2.5.17",
