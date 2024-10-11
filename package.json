@@ -47,7 +47,7 @@
     "xhr": "2.5.0"
   },
   "dependencies": {
-    "vue": "2.5.17",
+    "vue": "3.5.12",
     "weex-vue-render": "1.0.33"
   }
 }
